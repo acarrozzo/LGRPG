@@ -1,0 +1,202 @@
+/* CSS Document 
+
+
+light red						#ff807a
+red								#ed4949
+brown 			Wood:#7d3d1c
+lightbrown 	Iron:#c59673
+lightblue 		Steel/Silver:#c6e4ff
+blue 			Mithril:#70b9ed
+green			Adamantium:#87d63f 
+dark green						#4F6C42 - crafting button
+gold			Unobtanium:#ffd016
+yellow							#fff000
+dark red		DragonBone:#bb0000	
+black			Graynium:#000000
+purple							#6d3eb8
+pink			enchanted:#ff9eff 
+
+
+*/
+
+
+
+
+/* ---------------------------------------------------------------------------------------------------- COLORS */
+
+/* ---------------------------- RED */
+$red:#db6c64;
+$redOG:#FF807B;
+$lightred:#FF807B;
+$redBRIGHT:#fc4b4b;
+$redbrown:#996162;
+
+$dred:#ed4949;
+$darkred:#bb0000;
+
+#container .lightred {color:$lightred;}
+#container .red {color:$red;}
+#container .redborder {border:1px solid $red;}
+#container .lightredborder {border:1px solid $lightred;}
+#container .darkred {color:$darkred;}
+
+#container .redbrown {color:$redbrown;}
+#container .redbrownBG {background:$redbrown;}
+
+#container .purered {color:#ff0000;}
+
+#container .redBG {background:$red;}
+#container .lightredBG {background:$lightred;}
+
+/* ---------------------------- BLUE */
+$blueOG:#70b9ed;
+$blueBRIGHT:#46abf3;
+$blue:#689cc1;
+
+$lightblue:#c6e4ff;
+$darkblue:#518fbc;
+$ocean:#1eb5f1;
+
+#container .blue {color:$blue;}
+#container .blueborder {border:1px solid $blue;}
+#container .lightblue {color:$lightblue;}
+#container .darkblue {color:$darkblue;}
+#container .cyan {color:#00FFFF;}
+#container .ocean {color:$ocean;}
+
+
+#container .blueBG {background:$blue;}
+#container .lightblueBG {background:$lightblue;}
+#container .darkblueBG {background:$darkblue;}
+#container .oceanBG {background:$ocean;}
+
+
+/* ---------------------------- GREEN */
+$greenOG:#87d63f;
+$greenBRIGHT:#48c312;
+$green:#7ebe63;
+ 
+#container .green {color:$green;}
+#container .dgreen {color:#3EA22D;}
+#container .darkgreen {color:#4F6C42;}
+
+.greenborder {border:1px solid $green;}
+
+
+#container .greenBG {background:$green;}
+#container .dgreenBG {background:#57A60F;}
+#container .darkgreenBG {background:#4F6C42;}
+
+
+/* ---------------------------- GOLD/YELLOW */
+$goldOG:#ffd016;
+$goldBRIGHT:#ffba00;
+$gold:#f1b238;
+
+$yellow:#ffff00;
+
+#container .gold {color:$gold;}
+#container .yellow {color:$yellow;}
+#container .lyellow {color:#ffe183;}
+#container .yellowgreen {color:#c4ee00;}
+#container .darkgold {color:#e5a812;}
+#container .orange {color:#de6e1d;}
+
+#container .goldBG {background:$gold;}
+#container .yellowBG {background:$yellow;}
+#container .yellowgreenBG {background:#c4ee00;color:#4F6C42;}
+#container .orangeBG {background:#de6e1d;}
+
+
+/* ---------------------------- PURPLE */
+$purpleOG:#6d3eb8;
+$purpleBRIGHT:#9b6fe6;
+$purple:#9f8ac2;
+
+#container .purple {color:$purple;}
+#container .lightpurple {color:#BDA0EF;}
+#container .medpurple {color:#9D80CF;}
+#container .pink {color:#ff9eff;}
+
+
+#container .purpleBG {background:$purple;}
+#container .lightpurpleBG {background:#BDA0EF;}
+
+
+/* ---------------------------- BROWN */
+$brownOG:#c59673;
+$brownBRIGHT:#b47d54;
+$brown:#9c7a60;
+
+$lightbrown:#FFD38B;
+$lightbrown:#c59673;
+
+#container .lightbrown {color:$lightbrown;}
+#container .brown {color:$brown;} /* old brown :#7d3d1c */
+#container .brownBG {background:$brown;}
+#container .lightbrownBG {background:$lightbrown;}
+
+
+/* ---------------------------- MISC */
+#container .greenfield {color:#7ebe63;}
+#container .greenfieldBG {background:#7ebe63;}
+
+#container .forest {color:#46ac4d;}
+#container .forestBG {background:#46ac4d;}
+
+#container .swamp {color:#96a172;}
+#container .swampBG {background:#96a172;}
+#container .dirt {color:#937774;}
+#container .dirtBG {background:#937774;}
+#container .sand {color:#ffcb39;}
+#container .sandBG {background:#ffcb39;}
+#container .savannah {color:#b1bd62;}
+#container .savannahBG {background:#b1bd62;}
+
+
+
+/* ---------- GRAY */
+$white:#FFF;
+$lightestgray:#f7f7f7;
+$lightgray:#eee;
+$lgray:#ccc;
+$gray:#A4A4A5;$gray:#999;
+$dgray:#77777A;$dgray:#777;
+$darkgray:#646569;$darkgray:#666;
+$darkergray:#55565A;$darkergray:#555;
+$darkestgray:#474747;
+$ddgray:#333;
+$black:#000;
+
+/* ---------- GRAY */
+#container .lightgray {color:$lightgray;}
+#container .lgray {color:$lgray;}
+#container .gray {color:$gray;}
+#container .dgray {color:$dgray;}
+#container .darkgray {color:$darkgray;}
+#container .darkergray {color:$darkergray;}
+#container .darkestgray {color:$darkestgray;}
+#container .ddgray {color:$ddgray;}
+#container .black {color:$black;}
+#container .white {color:$white;}
+
+#container .noBG {background:none;}
+#container .lightgrayBG {background:$lightgray;}
+#container .lgrayBG {background:$lgray;}
+#container .grayBG {background:$gray;}
+#container .dgrayBG {background:$dgray;}
+#container .darkgrayBG {background:$darkgray;}
+#container .darkergrayBG {background:$darkergray;}
+#container .darkestgrayBG {background:$darkestgray;}
+#container .ddgrayBG {background:$ddgray;}
+
+#container .blackBG {background:$black;}
+#container .whiteBG {background:$white;}
+
+#container .focusBTN {background:$gold;}
+.feed .shopBTN {background:$gold;color:$darkgray;text-transform:uppercase;}
+
+
+
+
+

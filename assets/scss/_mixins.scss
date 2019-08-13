@@ -1,0 +1,50 @@
+/* ------------------------------------ MIXINS */
+@mixin vertical-align($position: relative) {
+	position: $position;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+
+@mixin border-radius($number: 5px) {
+	-moz-border-radius:$number; /* Firefox */
+    -webkit-border-radius:$number; /* Safari, Chrome */
+    -khtml-border-radius:$number; /* KHTML */
+    border-radius:$number; /* CSS3 */  
+
+}
+
+@mixin transition($prop, $secs) {
+    -webkit-transition: $prop $secs ease-in-out;
+    -moz-transition: $prop $secs ease-in-out;
+    -o-transition: $prop $secs ease-in-out;
+    transition: $prop $secs ease-in-out;
+}
+
+@mixin inset-highlight() {  // --- GIVES SOFT BUTTON HIGHLIGHT
+	// box-shadow: 2px 2px 3px rgba(255,255,255,.3) inset;	
+}
+
+
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  // For Google Chrome
+  ::-webkit-scrollbar {
+      width:  $size;
+      height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: $foreground-color;
+  }
+
+  ::-webkit-scrollbar-track {
+      background: $background-color;
+  }
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}

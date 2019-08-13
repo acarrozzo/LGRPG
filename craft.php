@@ -1,0 +1,840 @@
+<?php  
+// ---------------------------------------------------------------------------- INV TAB
+// -------------------------DB CONNECT!
+include ('db-connect.php'); 
+// -------------------------DB QUERY!
+$sql = "SELECT * FROM $username";
+if(!$result = $link->query($sql)){
+    die('There was an error running the query [' . $link->error . ']');}
+// -------------------------DB OUTPUT!
+while($row = $result->fetch_assoc()){   
+
+
+ 
+	//$row['craftingtable']; 	
+  	//$row['crafting']; 
+
+//	<form id="mainForm" method="post" action="" name="formInput">
+
+
+// ---------------------------------------------------------------------------- CRAFT MENU
+//echo '<article data-pop="craft" id="craft" class="craft">	<ul>';
+
+
+	
+	
+	
+// ---------------------------------------------------------------------------- IF CRAFTING IS 0
+	if($row['crafting'] == 0) {
+		echo'
+<h2>Crafting Menu<span class="right"><span class="px14 dgray">LVL </span> <span class="gold">'.$row['crafting'].'</span></span></h2>
+
+<li><span class="">Visit Jack Lumber to learn how to craft useful weapons, armor and items.</span></li>
+';
+		}
+
+// ---------------------------------------------------------------------------- IF CRAFTING IS > 1
+	else {
+	
+	echo'
+<h2>Crafting<span class="right"><span class="px14 dgray">LVL </span> <span class =" gold">'.$row['crafting'].'</span></span></h2>
+';
+
+
+		
+// ------------------------------------------------------------------------------------------------- FIRE!!!!!!!!!!!!!!!!
+// ---------------------------------------------------------------------------- CRAFT FIRE -  NO FIRE
+	if ($row['fire'] != $room) {
+	echo '<li><input type="submit" class="btn redBG noTable" name="input1" value="build fire" />  
+			<span class="px16 ing gold"> 1 wood <span class="px12 dgray">( have '.$row['wood'].' )</span></span></li>  ';
+	}
+
+		
+// ------------------------------------------------------------------------------------------------- TABLE!!!!!!!!!!!!!!!!
+// ---------------------------------------------------------------------------- CRAFT TABLE -  NO TABLE
+	if ($row['craftingtable'] != $room) {
+	
+	
+	echo '
+	<li class=""><input type="submit" class="btn brownBG noTable" name="input1" value="craft table" />
+	<span class="px16 ing gold"> 3 wood <span class="px12 dgray">( have '.$row['wood'].' )</span></span>
+	</li>  ';
+}
+
+
+
+
+
+
+// ---------------------------------------------------------------------------- CRAFT MENU - WITH FIRE!!!
+// ---------------------------------------------------------------------------- CRAFT MENU - WITH FIRE!!!
+// ---------------------------------------------------------------------------- CRAFT MENU - WITH FIRE!!!
+if ($row['fire'] == $room){ 
+
+//echo '<h2 class="red">Fire</h2>'; 
+	
+
+//echo '<div class="craftBox transition"> ';	
+	
+	echo '<h2 class="red"><span class="px40 ra ra-campfire"></span> Cook</h2>'; 	
+
+	if ($row['rawmeat'] >= 1 && $row['fire'] == $room){ // -------------------------------------------------------------------------- raw meat = cook meat		
+		echo "<li><input type='submit' class='hov redBG white' name='input1' value='cook all meat' />  
+		<i class='dgray'>( +50 HP ) </i> <i class='red'>raw meat</i><i class='dgray'> ( ".$row['rawmeat']." )</i>
+					 <i class='ddgray right'> have ".$row['rawmeat']."</i></li>";
+	} else{ 
+		echo "<li class='gray'>- cooked meat <i class='dgray'>( +50 HP )</i> raw meat  
+				<span class='dgray'> ( ".$row['rawmeat']." )</span> <i class='ddgray right'> have ".$row['cookedmeat']."</i></li>";
+	}
+	if ($row['quest22'] >= 2 && $row['cookedmeat'] >= 5 && $row['fire'] == $room){ // -------------------------------------------------------------------------- cook meatball = meatball
+		echo "<li><input type='submit' class='hov redBG white' name='input1' value='cook all meatball' />  
+		<i class='dgray'>( +400 HP ) </i> 5 <i class='red'>cooked meat</i><i class='dgray'> ( ".$row['cookedmeat']." )</i>
+							 <i class='ddgray right'> have ".$row['meatball']."</i></li>";
+		} else if ($row['quest22'] >= 2) { 
+		echo "<li class='gray'>- meatball <i class='dgray'>( +400 HP )</i> 5 cooked meat
+				<span class='dgray'> ( ".$row['cookedmeat']." )</span><i class='ddgray right'> have ".$row['meatball']."</i></li>";
+		} else { 
+		echo "<li class='gold'>- Find the Red Town Chef to learn how to cook meatballs.";
+		}
+	//echo '</div>';	// -- end craftBox toggle
+	
+	} // -- end fire	
+	
+
+
+
+// ----------------------------------------------------------------------- CRAFT MENU - WITH TABLE!!!
+// ----------------------------------------------------------------------- CRAFT MENU - WITH TABLE!!!
+// ----------------------------------------------------------------------- CRAFT MENU - WITH TABLE!!!
+	if ($row['craftingtable'] == $room){ 
+		
+	//echo '<h2 class="brown">Crafting Table:</h2>'; 
+
+//echo '<div class="craftBox transition"> ';	
+// -------------------------------------------------------------------------- POTIONS
+echo '<h2 class="blue"><span class="px40 ra ra-round-bottom-flask"></span> Potions</h2>'; 	
+
+// -------------------------------------------------------------------------- redberry = red potion
+if ($row['redberry'] >= 5 && $row['craftingtable'] == $room){ 
+		echo "<li><input type='submit' class='w120 hov redBG white' name='input1' value='craft all red potion' />  
+		<i class='dgray'>( +100 HP ) </i> 5 <i class='red'>redberry</i><i class='dgray'> ( ".$row['redberry']." )</i>
+							 <i class='ddgray right'> have ".$row['redpotion']."</i></li>";
+		}
+	else{ // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- red potion <i class='dgray'>( +100 HP )</i> 5 redberry 
+		<i class='dgray'> ( ".$row['redberry']." )</i>
+		<i class='ddgray right'> have ".$row['redpotion']."</i></li>";
+	}
+// -------------------------------------------------------------------------- blueberry = blue potion
+if ($row['blueberry'] >= 5 && $row['craftingtable'] == $room){ 
+		echo "<li><input type='submit' class='w120 hov blueBG white' name='input1' value='craft all blue potion' />  
+		<i class='dgray'>( +100 MP ) </i> 5 <i class='blue'>blueberry</i> <i class='dgray'> ( ".$row['blueberry']." )</i>
+									 <i class='ddgray right'> have ".$row['bluepotion']."</i></li>";
+		}
+	else{ // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- blue potion <i class='dgray'>( +100 MP )</i> 5 blueberry 
+		<i class='dgray'> ( ".$row['blueberry']." )</i>
+		<i class='ddgray right'> have ".$row['bluepotion']."</i></li>";
+	}	
+	
+// -------------------------------------------------------------------------- purple potion = blue + red
+if ($row['redpotion'] >= 1 && $row['bluepotion'] >= 1 && $row['craftingtable'] == $room && $row['travelingwizardFlag'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov lightpurpleBG white' name='input1' value='craft all purple potion' />  
+		<i class='dgray'>( +200 HP, + 200 MP ) </i>  
+	<i class='red'>red potion</i> <i class='dgray'> ( ".$row['redpotion']." )</i> + <i class='blue'>blue potion</i> <i class='dgray'> ( ".$row['bluepotion']." )</i>
+									 <i class='ddgray right'> have ".$row['purplepotion']."</i></li>";
+		}
+	else if (  $row['travelingwizardFlag'] >= 1){ // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- purple potion <i class='dgray'>( +200 HP, + 200 MP )</i> 
+			red potion <i class='dgray'> ( ".$row['redpotion']." )</i> + blue potion 
+		<i class='dgray'> ( ".$row['bluepotion']." )</i>
+		<i class='ddgray right'> have ".$row['purplepotion']."</i></li>";
+	}	
+		else { // -------------------------------------------------------------------------- else
+		echo "<li class='gold'>- find the Traveling Wizard to learn how to craft purple potions.</li>";
+	}	
+	
+			
+//echo '</div>'; // -- end craftBox toggle
+
+
+			
+		
+
+		
+		
+
+//echo '<div class="craftBox transition"> ';	
+// ------------------------------------------------------------------------------------------------ TABLE - WOOD!
+echo '<h2 class=" brown"><span class="px40 icon-wood"></span> Wood <i class="gold">x'.$row['wood'].'</i></h2>';
+if (  $row['crafting'] < 1) { echo '<i class="gold px16">- To Craft w/ Wood find Jack Lumber</i>'; }	
+else if (  $row['hammer'] < 1) { echo '<i class="gold px16">- Need Hammer!</i>'; }echo '</li>';
+// ------------------------------------------------------------------------------------------------- wooden bo
+if ($row['wood'] >= 7 && $row['craftingtable'] == $room && $row['hammer'] >= 1 && $row['hammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft wooden bo' /> 
+		<i class='dgray'>( +9 str, +1 mag ) </i> 7 <i class='brown'>wood</i> <i class='dgray'>( ".$row['wood']." )</i> 
+		<i class='ddgray right'> have ".$row['woodenbo']." </i></li>";
+		} else{ // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- wooden bo <i class='dgray'>( +9 str, +1 mag )</i> 7 wood
+		<i class='ddgray right'> have ".$row['woodenbo']."</i></li>";	
+	}	
+// ------------------------------------------------------------------------------------------------- wooden bow
+if ($row['wood'] >= 5 && $row['string'] >= 1 && $row['craftingtable'] == $room && $row['hammer'] >= 1){
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft wooden bow' /> 
+		<i class='dgray'>( +8 dex ) </i> 5 <i class='brown'>wood</i> <i class='dgray'>( ".$row['wood']." )</i>  + <i class='gray'>string</i> <i class='dgray'>( ".$row['string']." )</i> 
+		<i class='ddgray right'> have ".$row['woodenbow']." </i></li>";
+		} else{ // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- wooden bow <i class='dgray'>( +8 dex )</i> 5 wood + string
+		<i class='ddgray right'> have ".$row['woodenbow']."</i></li>";	
+	}	
+// ------------------------------------------------------------------------------------------------- wooden staff
+if ($row['wood'] >= 7 && $row['craftingtable'] == $room && $row['hammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft wooden staff' /> 
+		<i class='dgray'>( +5 mag, +1 str ) </i> 7 <i class='brown'>wood</i> <i class='dgray'>( ".$row['wood']." )</i>  
+		<i class='ddgray right'> have ".$row['pickaxe']." </i></li>";
+		} else{ // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- wooden staff <i class='dgray'>( +5 mag, +1 str )</i> 7 wood
+		<i class='ddgray right'> have ".$row['woodenstaff']."</i></li>";	
+	}	
+// ------------------------------------------------------------------------------------------------- wooden shield
+if ($row['wood'] >= 5 && $row['stone'] >= 2 && $row['craftingtable'] == $room && $row['hammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft wooden shield' /> 
+		<i class='dgray'>( +13 def ) </i> 5 <i class='brown'>wood</i> <i class='dgray'>( ".$row['wood']." )</i> + 2 <i class='gray'>stone</i> <i class='dgray'>( ".$row['stone']." )</i>  
+		<i class='ddgray right'> have ".$row['woodenshield']." </i></li>";
+		} else{ // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- wooden shield <i class='dgray'>( +13 def )</i> 5 wood + 2 stone
+		<i class='ddgray right'> have ".$row['woodenshield']."</i></li>";	
+	}		
+// ------------------------------------------------------------------------------------------------- arrows
+if ($row['wood'] >= 1 && $row['stone'] >= 1 && $row['craftingtable'] == $room && $row['hammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft 10 arrows' /> 
+		<i class='dgray'>( ammo ) </i> <i class='brown'>wood</i> <i class='dgray'>( ".$row['wood']." )</i> + <i class='gray'>stone</i> <i class='dgray'>( ".$row['stone']." )</i>  
+		<i class='ddgray right'> have ".$row['arrows']." </i></li>";
+		} else{ // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- 10x arrows <i class='dgray'>( ammo )</i> wood + stone
+		<i class='ddgray right'> have ".$row['arrows']."</i></li>";	
+	}	
+// ------------------------------------------------------------------------------------------------- javelin
+if ($row['wood'] >= 1 && $row['dagger'] >= 1 && $row['craftingtable'] == $room && $row['hammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft javelin' /> 
+		<i class='dgray'>( +25 dex ) </i> <i class='brown'>wood</i> <i class='dgray'>( ".$row['wood']." )</i> + <i class='gray'>dagger</i> <i class='dgray'>( ".$row['dagger']." )</i> 
+		<i class='ddgray right'> have ".$row['javelin']."</i></li>";
+		} else{ // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- 1x javelin <i class='dgray'>( +25 dex )</i> wood + dagger
+		<i class='ddgray right'> have ".$row['javelin']."</i></li>";	
+	}	
+// ------------------------------------------------------------------------------------------------- wooden boat
+if ($row['wood'] >= 20 && $row['craftingtable'] == $room && $row['hammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft wooden boat' /> 
+		<i class='dgray'>( +25 def ) </i> 20 <i class='brown'>wood</i> <i class='dgray'>( ".$row['wood']." )</i> 
+		<i class='ddgray right'> have ".$row['MOUNTwoodenboat']."</i></li>";
+		} else{ // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- wooden boat <i class='dgray'>( +25 def )</i> 20 wood
+		<i class='ddgray right'> have ".$row['MOUNTwoodenboat']."</i></li>";	
+	}					
+echo '</li>';	
+//echo '</div>'; // -- end craftBox toggle
+	
+	
+
+	
+//echo '<div class="craftBox transition"> ';	
+// ------------------------------------------------------------------------------------------------ TABLE - LEATHER!
+echo '<h2 class="brown">Leather <i class="gold">x'.$row['leather'].'</i></h2>';
+if (  $row['quest10'] < 1) { echo '<i class="gold px16">- To Craft w/ Leather find Freddy\'s Cow Farm</i>'; }	
+
+else if (  $row['hammer'] < 1) { echo '<i class="gold px16">- Need Hammer!</i>'; } 
+
+else {
+// ------------------------------------------------------------------------------------------------- leather hood
+if ($row['leather'] >= 3 && $row['craftingtable'] == $room && $row['hammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft leather hood' /> 
+		<i class='dgray'>( +4 dex, +4 def ) </i> 3 <i class='brown'>leather</i> <i class='dgray'>( ".$row['leather']." )</i> 
+		<i class='ddgray right'> have ".$row['leatherhood']." </i></li>";
+		} else{ // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- leather hood <i class='dgray'>( +4 dex, +4 def )</i> 3 leather
+		<i class='ddgray right'> have ".$row['leatherhood']."</i></li>";	
+	}		
+// ------------------------------------------------------------------------------------------------- leather helmet
+if ($row['leather'] >= 5 && $row['craftingtable'] == $room && $row['hammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft leather helmet' /> 
+		<i class='dgray'>( +2 str, +6 def ) </i> 5 <i class='brown'>leather</i>  <i class='dgray'>( ".$row['leather']." )</i> 
+		<i class='ddgray right'> have ".$row['leatherhelmet']." </i></li>";
+		} else{ // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- leather helmet <i class='dgray'>( +2 str, +10 def )</i> 5 leather
+		<i class='ddgray right'> have ".$row['leatherhelmet']."</i></li>";	
+	}		
+// ------------------------------------------------------------------------------------------------- leather vest
+if ($row['leather'] >= 7 && $row['craftingtable'] == $room && $row['hammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft leather vest' /> 
+		<i class='dgray'>( +6 dex ) </i> 7 <i class='brown'>leather</i>  <i class='dgray'>( ".$row['leather']." )</i> 
+		<i class='ddgray right'> have ".$row['leathervest']." </i></li>";
+		} else{ // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- leather vest <i class='dgray'>( +6 dex )</i> 7 leather
+		<i class='ddgray right'> have ".$row['leathervest']."</i></li>";	
+	}		
+// ------------------------------------------------------------------------------------------------- leather armor
+if ($row['leather'] >= 10 && $row['craftingtable'] == $room && $row['hammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft leather armor' /> 
+		<i class='dgray'>( +4 str, +10 def ) </i> 10 <i class='brown'>leather</i>  <i class='dgray'>( ".$row['leather']." )</i> 
+		<i class='ddgray right'> have ".$row['leatherarmor']." </i></li>";
+		} else{ // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- leather armor <i class='dgray'>( +4 str, +10 def )</i> 10 leather
+		<i class='ddgray right'> have ".$row['leatherarmor']."</i></li>";	
+	}		
+// ------------------------------------------------------------------------------------------------- leather gloves
+if ($row['leather'] >= 3 && $row['craftingtable'] == $room && $row['hammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft leather gloves' /> 
+		<i class='dgray'>( +3 dex, +3 def ) </i> 3 <i class='brown'>leather</i>  <i class='dgray'>( ".$row['leather']." )</i> 
+		<i class='ddgray right'> have ".$row['leathergloves']." </i></li>";
+		} else{ // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- leather gloves <i class='dgray'>( +3 dex, +3 def )</i> 3 leather
+		<i class='ddgray right'> have ".$row['leathergloves']."</i></li>";	
+	}		
+// ------------------------------------------------------------------------------------------------- leather boots
+if ($row['leather'] >= 3 && $row['craftingtable'] == $room && $row['hammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft leather boots' /> 
+		<i class='dgray'>( +3 dex, +3 def ) </i> 3 <i class='brown'>leather</i>  <i class='dgray'>( ".$row['leather']." )</i> 
+		<i class='ddgray right'> have ".$row['leatherboots']." </i></li>";
+		} else{ // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- leather boots <i class='dgray'>( +3 dex, +3 def )</i> 3 leather
+		<i class='ddgray right'> have ".$row['leatherboots']."</i></li>";	
+	}		
+//echo '</div>'; // -- end craftBox toggle
+
+
+}
+	
+		
+		
+		
+		
+		
+
+if ($row['quest10'] >=2){	// iron display check, after leather quest
+	//echo '<div class="craftBox transition">';	
+// ------------------------------------------------------------------------------------------------ TABLE - IRON!
+echo '<h2 class=" brown"><span class="ra ra-gold-bar"></span> Iron <i class="gold">x'.$row['iron'].'</i></h2>';
+if (  $row['quest10'] < 2) { echo ''; }	
+else if (  $row['quest31'] < 1) { echo '<i class="gold px16">To Craft w/ Iron find the Mining Guild</i>'; }	
+else if (  $row['quest32'] < 2) { echo '<i class="gold px16">To Craft w/ Iron defeat the Phoenix at mine level 10 ( Quest 32 )</i>'; }	
+
+
+else if (  $row['ironhammer'] < 1) { echo '<i class="gold px20 right">need iron hammer!</i>'; } 
+else {
+echo '<li class="gray center">1h</li>';			
+// ------------------------------------------------------------------------------------------------- iron dagger
+if ($row['iron'] >= 1 && $row['wood'] >= 1 && $row['craftingtable'] == $room && $row['ironhammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft iron dagger' /> 
+		 1 <i class='brown'>iron</i> + <i class='brown'>wood</i>   <i class='dgray'>( +7 str ) </i>
+		<i class='ddgray right'> have ".$row['irondagger']." </i></li>";
+		} else { // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- iron dagger
+		<i class='ddgray right'> have ".$row['irondagger']."</i></li>"; }	
+// ------------------------------------------------------------------------------------------------- iron sword
+if ($row['iron'] >= 7 && $row['wood'] >= 1 && $row['craftingtable'] == $room && $row['ironhammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft iron sword' /> 
+		 7 <i class='brown'>iron</i> + <i class='brown'>wood</i>  <i class='dgray'>( +18 str ) </i>
+		<i class='ddgray right'> have ".$row['ironsword']." </i></li>";
+		} else { // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- iron sword
+		<i class='ddgray right'> have ".$row['ironsword']."</i></li>"; }			
+// ------------------------------------------------------------------------------------------------- iron staff
+if ($row['iron'] >= 7 && $row['wood'] >= 1 && $row['craftingtable'] == $room && $row['ironhammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft iron staff' /> 
+		7 <i class='brown'>iron</i> + <i class='brown'>wood</i>  <i class='dgray'>( +10 mag, +3 str ) </i> 
+		<i class='ddgray right'> have ".$row['ironstaff']." </i></li>";
+		} else { // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- iron staff 
+		<i class='ddgray right'> have ".$row['ironstaff']."</i></li>"; }		
+echo '<li class="gray center">2h</li>';			
+// ------------------------------------------------------------------------------------------------- iron maul
+if ($row['iron'] >= 10 && $row['wood'] >= 1 && $row['craftingtable'] == $room && $row['ironhammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft iron maul' /> 
+		10 <i class='brown'>iron</i> + <i class='brown'>wood</i>  <i class='dgray'>( +22 str, +10 def ) </i> 
+		<i class='ddgray right'> have ".$row['ironmaul']." </i></li>";
+		} else { // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- iron maul
+		<i class='ddgray right'> have ".$row['ironmaul']."</i></li>"; }			
+// ------------------------------------------------------------------------------------------------- iron 2h sword
+if ($row['iron'] >= 15 && $row['wood'] >= 1 && $row['craftingtable'] == $room && $row['ironhammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft iron 2h sword' /> 
+		15 <i class='brown'>iron</i> + <i class='brown'>wood</i>  <i class='dgray'>( +25 str ) </i> 
+		<i class='ddgray right'> have ".$row['iron2hsword']." </i></li>";
+		} else { // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- iron 2h sword
+		<i class='ddgray right'> have ".$row['iron2hsword']."</i></li>"; }	
+// ------------------------------------------------------------------------------------------------- iron battle staff
+if ($row['iron'] >= 15 && $row['wood'] >= 1 && $row['craftingtable'] == $room && $row['ironhammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft iron battle staff' /> 
+		15 <i class='brown'>iron</i> + <i class='brown'>wood</i>  <i class='dgray'>( +12 mag, +12 str ) </i> 
+		<i class='ddgray right'> have ".$row['ironbattlestaff']." </i></li>";
+		} else { // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- iron battle staff
+		<i class='ddgray right'> have ".$row['ironbattlestaff']."</i></li>"; }					
+// ------------------------------------------------------------------------------------------------- iron nunchaku
+if ($row['iron'] >= 10 && $row['graymatter'] >= 1 && $row['craftingtable'] == $room && $row['ironhammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft iron nunchaku' /> 
+		10 <i class='brown'>iron</i> + <i class='gray'>gray matter</i>  <i class='dgray'>( +25 mag, +25 str ) </i> 
+		<i class='ddgray right'> have ".$row['ironnunchaku']." </i></li>";
+		} else { // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- iron nunchaku
+		<i class='ddgray right'> have ".$row['ironnunchaku']."</i></li>"; }	
+
+ 
+echo '<li class="gray center">ranged</li>';			
+// ------------------------------------------------------------------------------------------------- iron javelin
+if ($row['irondagger'] >= 1 && $row['wood'] >= 1 && $row['craftingtable'] == $room && $row['ironhammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft iron javelin' /> 
+		<i class='brown'>iron</i> dagger + <i class='brown'>wood</i>  <i class='dgray'>( +50 dex ) </i>
+		<i class='ddgray right'> have ".$row['ironjavelin']." </i></li>";
+		} else { // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- iron javelin
+		<i class='ddgray right'> have ".$row['ironjavelin']."</i></li>"; }
+// ------------------------------------------------------------------------------------------------- iron boomerang
+if ($row['iron'] >= 5 && $row['wood'] >= 1 && $row['craftingtable'] == $room && $row['ironhammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft iron boomerang' /> 
+		 5 <i class='brown'>iron</i> + <i class='brown'>wood</i>  <i class='dgray'>( +10 dex ) </i>
+		<i class='ddgray right'> have ".$row['ironboomerang']." </i></li>";
+		} else { // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- iron boomerang
+		<i class='ddgray right'> have ".$row['ironboomerang']."</i></li>"; }
+// ------------------------------------------------------------------------------------------------- iron bow
+if ($row['iron'] >= 7 && $row['wood'] >= 1 && $row['string'] >= 1 && $row['craftingtable'] == $room && $row['ironhammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft iron bow' /> 
+		 7 <i class='brown'>iron</i> + <i class='brown'>wood</i> + <i class='white'>string</i>  <i class='dgray'>( +20 dex ) </i>
+		<i class='ddgray right'> have ".$row['ironbow']." </i></li>";
+		} else { // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- iron bow
+		<i class='ddgray right'> have ".$row['ironbow']."</i></li>"; }			
+// ------------------------------------------------------------------------------------------------- iron crossbow
+if ($row['iron'] >= 10 && $row['wood'] >= 1 && $row['string'] >= 1 && $row['craftingtable'] == $room && $row['ironhammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft iron crossbow' /> 
+		 10 <i class='brown'>iron</i> + <i class='brown'>wood</i> + <i class='white'>string</i>  <i class='dgray'>( +30 dex ) </i>
+		<i class='ddgray right'> have ".$row['ironcrossbow']." </i></li>";
+		} else { // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- iron crossbow
+		<i class='ddgray right'> have ".$row['ironcrossbow']."</i></li>"; }
+// ------------------------------------------------------------------------------------------------- iron chakram
+if ($row['iron'] >= 7 && $row['graymatter'] >= 1 && $row['craftingtable'] == $room && $row['ironhammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft iron chakram' /> 
+		7 <i class='brown'>iron</i> + <i class='gray'>gray matter</i>  <i class='dgray'>( +15 dex, +15 mag ) </i> 
+		<i class='ddgray right'> have ".$row['ironchakram']." </i></li>";
+		} else { // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- iron chakram
+		<i class='ddgray right'> have ".$row['ironchakram']."</i></li>"; }	
+
+		
+echo '<li class="gray center">shields</li>';			
+// ------------------------------------------------------------------------------------------------- iron shield
+if ($row['iron'] >= 10 && $row['craftingtable'] == $room && $row['ironhammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft iron shield' /> 
+		10 <i class='brown'>iron</i> <i class='dgray'>( +25 def ) </i> 
+		<i class='ddgray right'> have ".$row['ironshield']." </i></li>";
+		} else { // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- iron shield
+		<i class='ddgray right'> have ".$row['ironshield']."</i></li>"; }		
+// ------------------------------------------------------------------------------------------------- iron kite shield
+if ($row['iron'] >= 15 && $row['craftingtable'] == $room && $row['ironhammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft iron kite shield' /> 
+		15 <i class='brown'>iron</i> <i class='dgray'>( +40 def, -10 mag ) </i> 
+		<i class='ddgray right'> have ".$row['ironkiteshield']." </i></li>";
+		} else { // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- iron kite shield
+		<i class='ddgray right'> have ".$row['ironkiteshield']."</i></li>"; }	
+		
+		
+echo '<li class="gray center">armor</li>';			
+// echo '<li class="gray center">head</li>';			
+// ------------------------------------------------------------------------------------------------- iron helmet
+if ($row['iron'] >= 5 && $row['craftingtable'] == $room && $row['ironhammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft iron helmet' /> 
+		5 <i class='brown'>iron</i> <i class='dgray'>( +20 def ) </i> 
+		<i class='ddgray right'> have ".$row['ironhelmet']." </i></li>";
+		} else { // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- iron helmet
+		<i class='ddgray right'> have ".$row['ironhelmet']."</i></li>"; }			
+// ------------------------------------------------------------------------------------------------- iron hood
+if ($row['iron'] >= 3 && $row['craftingtable'] == $room && $row['ironhammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft iron hood' /> 
+		3 <i class='brown'>iron</i> <i class='dgray'>( +3 str, +3 dex, +3 def ) </i> 
+		<i class='ddgray right'> have ".$row['ironhood']." </i></li>";
+		} else { // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- iron hood
+		<i class='ddgray right'> have ".$row['ironhood']."</i></li>"; }			
+
+//echo '<li class="gray center">body</li>';			
+// ------------------------------------------------------------------------------------------------- iron armor
+if ($row['iron'] >= 10 && $row['craftingtable'] == $room && $row['ironhammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft iron armor' /> 
+		10 <i class='brown'>iron</i> <i class='dgray'>( +30 def ) </i> 
+		<i class='ddgray right'> have ".$row['ironarmor']." </i></li>";
+		} else { // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- iron armor
+		<i class='ddgray right'> have ".$row['ironarmor']."</i></li>"; }		
+// ------------------------------------------------------------------------------------------------- iron cape
+if ($row['iron'] >= 7 && $row['craftingtable'] == $room && $row['ironhammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft iron cape' /> 
+		7 <i class='brown'>iron</i> <i class='dgray'>( +15 str ) </i> 
+		<i class='ddgray right'> have ".$row['ironcape']." </i></li>";
+		} else { // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- iron cape
+		<i class='ddgray right'> have ".$row['ironcape']."</i></li>"; }						
+		
+//echo '<li class="gray center">hands</li>';			
+// ------------------------------------------------------------------------------------------------- iron gauntlets
+if ($row['iron'] >= 5 && $row['craftingtable'] == $room && $row['ironhammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft iron gauntlets' /> 
+		5 <i class='brown'>iron</i> <i class='dgray'>( +20 def ) </i> 
+		<i class='ddgray right'> have ".$row['irongauntlets']." </i></li>";
+		} else { // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- iron gauntlets
+		<i class='ddgray right'> have ".$row['irongauntlets']."</i></li>"; }	
+// ------------------------------------------------------------------------------------------------- iron gloves
+if ($row['iron'] >= 3 && $row['craftingtable'] == $room && $row['ironhammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft iron gloves' /> 
+		3 <i class='brown'>iron</i> <i class='dgray'>( +5 str, +10 def ) </i> 
+		<i class='ddgray right'> have ".$row['irongloves']." </i></li>";
+		} else { // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- iron gloves
+		<i class='ddgray right'> have ".$row['irongloves']."</i></li>"; }			
+		
+//echo '<li class="gray center">feet</li>';			
+// ------------------------------------------------------------------------------------------------- iron boots
+if ($row['iron'] >= 3 && $row['craftingtable'] == $room && $row['ironhammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft iron boots' /> 
+		3 <i class='brown'>iron</i> <i class='dgray'>( +20 def ) </i> 
+		<i class='ddgray right'> have ".$row['ironboots']." </i></li>";
+		} else { // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- iron boots
+		<i class='ddgray right'> have ".$row['ironboots']."</i></li>"; }			
+		
+						
+
+//echo '</div>'; // -- end craftBox 
+
+
+
+} // end iron quest  check
+
+
+	
+		
+	
+//echo '<div class="craftBox transition"> ';		
+// ------------------------------------------------------------------------------------------------ TABLE - TOOLS!
+// ------------------------------------------------------------------------------------------------- hatchet
+echo '<h2 class="px30 gray">Tools</h2>'; 	
+if ($row['wood'] >= 1 && $row['stone'] >= 3 && $row['craftingtable'] == $room){ 
+		echo "<li><input type='submit' class='white grayBG' name='input1' value='craft hatchet' /> 
+			  3 <i class='gray'>stone</i> + <i class='brown'>wood</i> <i class='dgray'> ( chop wood ) </i>
+			 <i class='ddgray right'> have ".$row['hatchet']." </i></li>";
+		} else{ // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- hatchet <i class='dgray'> ( chop wood ) </i> 3 stone + wood
+		<i class='ddgray right'> have ".$row['hatchet']."</i></li>";	
+	}
+// ------------------------------------------------------------------------------------------------- pickaxe
+if ($row['wood'] >= 1 && $row['stone'] >= 3 && $row['craftingtable'] == $room){ 
+		echo "<li><input type='submit' class='white grayBG' name='input1' value='craft pickaxe' /> 
+			 3 <i class='gray'>stone</i> + <i class='brown'>wood</i> <i class='dgray'> ( mine ore ) </i>
+			 <i class='ddgray right'> have ".$row['pickaxe']."</i></li>";
+		} else{ // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- pickaxe <i class='dgray'> ( mine ore ) </i> 3 stone + wood
+		<i class='ddgray right'> have ".$row['pickaxe']."</i></li>";	
+	}
+// ------------------------------------------------------------------------------------------------- hammer
+if ($row['wood'] >= 1 && $row['stone'] >= 3 && $row['craftingtable'] == $room){ 
+		echo "<li><input type='submit' class='white grayBG' name='input1' value='craft hammer' /> 
+			 3 <i class='gray'>stone</i> + <i class='brown'>wood</i> <i class='dgray'> ( craft items ) </i>
+			 <i class='ddgray right'> have ".$row['hammer']."</i></li>";
+		} else{ // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- hammer <i class='dgray'> ( craft items ) </i> 3 stone + wood
+		<i class='ddgray right'> have ".$row['hammer']."</i></li>";	
+	}
+		
+if ($row['quest32'] >=2){	// iron tool check
+// ------------------------------------------------------------------------------------------------- iron hatchet
+if ($row['iron'] >= 3 && $row['wood'] >= 1 && $row['craftingtable'] == $room && $row['ironhammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft iron hatchet' /> 
+		 3 <i class='brown'>iron</i> + <i class='brown'>wood</i>  <i class='dgray'>( chops 2 wood ) </i>
+		<i class='ddgray right'> have ".$row['ironhatchet']." </i></li>";
+		} else { // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- iron hatchet
+		<i class='ddgray right'> have ".$row['ironhatchet']."</i></li>"; }	
+// ------------------------------------------------------------------------------------------------- iron pickaxe
+if ($row['iron'] >= 3 && $row['wood'] >= 1 && $row['craftingtable'] == $room && $row['ironhammer'] >= 1){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft iron pickaxe' /> 
+		 3 <i class='brown'>iron</i> + <i class='brown'>wood</i>  <i class='dgray'>( mine iron & stone ) </i>
+		<i class='ddgray right'> have ".$row['ironpickaxe']." </i></li>";
+		} else { // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- iron pickaxe
+		<i class='ddgray right'> have ".$row['ironpickaxe']."</i></li>"; }	
+// ------------------------------------------------------------------------------------------------- iron hammer
+if ($row['iron'] >= 3 && $row['wood'] >= 1 && $row['craftingtable'] == $room){ 
+		echo "<li><input type='submit' class='w120 hov brownBG white' name='input1' value='craft iron hammer' /> 
+		 3 <i class='brown'>iron</i> + <i class='brown'>wood</i>  <i class='dgray'>( craft iron equipment ) </i>
+		<i class='ddgray right'> have ".$row['ironhammer']." </i></li>";
+		} else { // -------------------------------------------------------------------------- else
+		echo "<li class='gray'>- iron hammer
+		<i class='ddgray right'> have ".$row['ironhammer']."</i></li>"; }						
+	
+} // end iron tool check
+//echo '</div>';
+
+		
+		
+		
+		
+		
+		
+
+}
+	
+	
+} // --- end table
+	
+
+
+
+
+	
+	
+	
+	
+
+
+
+	
+// ---------------------------------------------------------------------------- MATERIALS MENU
+
+echo '<span class="col short">
+			<h2>Materials & Tools</h2>';	
+	echo '<span class="col2">';
+		if ($row['wood'] > 0) { echo '<li><span>'.$row['wood'].' </span> <span class="brown"> wood</span></li> ';}			
+									else { echo '<li><span class="dgray"> - wood </span></li> '; }
+		if ($row['leather'] > 0) { echo '<li><span>'.$row['leather'].' </span> <span class="brown"> leather</span></li> ';}			
+									else { echo '<li><span class="dgray"> - leather </span></li> '; }
+		if ($row['water'] > 0) { echo '<li><span>'.$row['water'].' </span > <span class="blue"> water</li> ';}
+									else { echo '<li><span class="dgray"> - water </span></li> '; }
+		if ($row['sand'] > 0) { echo '<li><span>'.$row['sand'].' </span> <span class="lyellow">sand</span></li> ';}	
+									else { echo '<li><span class="dgray"> - sand </span></li> '; }
+		if ($row['mud'] > 0) { echo '<li><span>'.$row['mud'].' </span> <span class="brown">mud</span></li> ';}	
+									else { echo '<li><span class="dgray"> - mud </span></li> '; }
+		if ($row['string'] > 0) { echo '<li><span>'.$row['string'].' </span> string</li> ';}	
+									else { echo '<li><span class="dgray"> - string </span></li> '; }
+		if ($row['dagger'] > 0) { echo '<li><span class="gold">'.$row['dagger'].' </span> dagger</li> '; }
+									else { echo '<li><span class="dgray">- dagger </span></li> '; }
+		if ($row['irondagger'] > 0) { echo '<li><span class="gold">'.$row['irondagger'].' </span> <span class="brown">iron</span> dagger</li> '; }
+									else { echo '<li><span class="dgray">- iron dagger </span></li> '; }
+		if ($row['steeldagger'] > 0) { echo '<li><span class="gold">'.$row['steeldagger'].' </span> <span class="gray">steel</span> dagger</li> '; }
+									else { echo '<li><span class="dgray">- steel dagger </span></li> '; }					
+	//	if ($row['mithrildagger'] > 0) { echo '<li><span class="gold">'.$row['mithrildagger'].' </span> <span class="blue">mithril</span> dagger</li> '; }
+	//								else { echo '<li><span class="dgray">- mithril dagger </span></li> '; }	
+	
+	echo '</span><span class="col2">';
+		if ($row['stone'] > 0) { echo '<li><span>'.$row['stone'].' </span> <span class="gray"> stone</span></li>  ';}
+								else { echo '<li><span class="dgray"> - stone </span></li> '; }
+		if ($row['iron'] > 0) { echo '<li><span>'.$row['iron'].' </span> <span class="brown"> iron</span></li> ';}
+								else { echo '<li><span class="dgray"> 0-iron </span></li> '; }
+		if ($row['coal'] > 0) { echo '<li><span>'.$row['coal'].' </span> <span class="ddgray"> coal</span></li> ';}		
+								else { echo '<li><span class="dgray"> - coal </span></li> '; }
+		if ($row['steel'] > 0) { echo '<li><span>'.$row['steel'].' </span> <span class="lightgray"> steel</span></li> ';}		
+								else { echo '<li><span class="dgray"> - steel </span></li> '; }
+		if ($row['mithril'] > 0) { echo '<li><span>'.$row['mithril'].' </span> <span class="blue"> mithril</span></li> ';}		
+								else { echo '<li><span class="dgray"> - mithril </span></li> '; }
+
+
+
+	echo '</span><span class="col2">';
+		if ($row['hatchet'] > 0) { echo '<li><span class="gold">'.$row['hatchet'].' </span> hatchet</li> '; }
+								else { echo '<li><span class="dgray">- hatchet </span></li> '; }
+		if ($row['ironhatchet'] > 0) { echo '<li><span class="gold">'.$row['ironhatchet'].' </span> <span class="brown">iron</span> hatchet</li> '; }
+								else { echo '<li><span class="dgray">- iron hatchet </span></li> '; }
+		if ($row['steelhatchet'] > 0) { echo '<li><span class="gold">'.$row['steelhatchet'].' </span> <span class="gray">steel</span> hatchet</li> '; }
+								else { echo '<li><span class="dgray">- steel hatchet </span></li> '; }					
+		if ($row['mithrilhatchet'] > 0) { echo '<li><span class="gold">'.$row['mithrilhatchet'].' </span> <span class="blue">mithril</span> hatchet</li> '; }
+								else { echo '<li><span class="dgray">- mithril hatchet </span></li> '; }						
+						
+						
+						
+		if ($row['pickaxe'] > 0) { echo '<li><span class="gold">'.$row['pickaxe'].' </span> pickaxe</li> '; }
+							else { echo '<li><span class="dgray">- pickaxe </span></li> '; }
+		if ($row['ironpickaxe'] > 0) { echo '<li><span class="gold">'.$row['ironpickaxe'].' </span> <span class="brown">iron</span> pickaxe</li> '; }
+							else { echo '<li><span class="dgray">- iron pickaxe </span></li> '; }
+		if ($row['steelpickaxe'] > 0) { echo '<li><span class="gold">'.$row['steelpickaxe'].' </span> <span class="gray">steel</span> pickaxe</li> '; }
+							else { echo '<li><span class="dgray">- steel pickaxe </span></li> '; }					
+		if ($row['mithrilpickaxe'] > 0) { echo '<li><span class="gold">'.$row['mithrilpickaxe'].' </span> <span class="blue">mithril</span> pickaxe</li> '; }
+							else { echo '<li><span class="dgray">- mithril pickaxe </span></li> '; }	
+						
+						
+						
+		if ($row['hammer'] > 0) { echo '<li><span class="gold">'.$row['hammer'].' </span> hammer</li> '; }
+							else { echo '<li><span class="dgray">- hammer </span></li> '; }
+		if ($row['ironhammer'] > 0) { echo '<li><span class="gold">'.$row['ironhammer'].' </span> <span class="brown">iron</span> hammer</li> '; }
+							else { echo '<li><span class="dgray">- iron hammer </span></li> '; }
+		if ($row['steelhammer'] > 0) { echo '<li><span class="gold">'.$row['steelhammer'].' </span> <span class="gray">steel</span> hammer</li> '; }
+							else { echo '<li><span class="dgray">- steel hammer </span></li> '; }					
+		if ($row['mithrilhammer'] > 0) { echo '<li><span class="gold">'.$row['mithrilhammer'].' </span> <span class="blue">mithril</span> hammer</li> '; }
+							else { echo '<li><span class="dgray">- mithril hammer </span></li> '; }	
+							
+		
+		
+	echo '</span>';	// -- end col2
+	echo '</span>';	// -- end col	
+		
+	// ---------------------------------------------------------------------------- RINGS MENU
+	echo '<span class="col">
+		<h2>Combine Rings<span class="right"><span class="px12 dgray">need table & hammer</span> </span></h2>';	
+	
+
+if ( ($row['craftingtable'] == $room) && ($row['hammer'] >=1 || $row['ironhammer'] >=1 || $row['steelhammer'] >=1 || $row['mithrilhammer'] >=1 )) {
+
+		echo "<li><input type='submit' class='hov w300 darkestgray goldBG px20' name='input1' value='auto combine' /> </li>";
+
+
+
+if ($row['ringofstrength'] >=2){ // ------------------------------------------------------------------------------- rings II
+		echo "<li><input type='submit' class='white redBG' name='input1' value='craft ring of strength II' /> 2x ring of strength    <span class='right alt'>".$row['ringofstrength']."</span> </li>";}
+	if ($row['ringofdexterity'] >=2){ 
+		echo "<li><input type='submit' class='white greenBG' name='input1' value='craft ring of dexterity II' /> 2x ring of dexterity  <span class='right alt'>".$row['ringofdexterity']."</span> </li>";}
+	if ($row['ringofmagic'] >=2){
+		echo  "<li><input type='submit' class='white blueBG' name='input1' value='craft ring of magic II' /> 2x ring of magic  <span class='right alt'>".$row['ringofmagic']."</span> </li>";}
+	if ($row['ringofdefense'] >=2){
+		echo "<li><input type='submit' class='darkgray yellowBG' name='input1' value='craft ring of defense II' /> 2x ring of defense   <span class='right alt'>".$row['ringofdefense']."</span> </li>";}
+
+if ($row['ringofstrengthII'] >=2){ // ------------------------------------------------------------------------------- rings III
+		echo "<li><input type='submit' class='white redBG' name='input1' value='craft ring of strength III' />  2x ring of strength II   <span class='right alt'>".$row['ringofstrengthII']."</span> </li>";}
+	if ($row['ringofdexterityII'] >=2){ 
+		echo "<li><input type='submit' class='white greenBG' name='input1' value='craft ring of dexterity III' /> 2x ring of dexterity II  <span class='right alt'>".$row['ringofdexterityII']."</span> </li>";}
+	if ($row['ringofmagicII'] >=2){
+		echo  "<li><input type='submit' class='white blueBG' name='input1' value='craft ring of magic III' /> 2x ring of magic II   <span class='right alt'>".$row['ringofmagicII']."</span> </li>";}
+	if ($row['ringofdefenseII'] >=2){
+		echo "<li><input type='submit' class='darkgray yellowBG' name='input1' value='craft ring of defense III' /> 2x ring of defense II   <span class='right alt'>".$row['ringofdefenseII']."</span> </li>";}
+
+if ($row['ringofstrengthIII'] >=2){ // ------------------------------------------------------------------------------- rings IV
+		echo "<li><input type='submit' class='white redBG' name='input1' value='craft ring of strength IV' /> 2x ring of strength III   <span class='right alt'>".$row['ringofstrengthIII']."</span> </li>";}
+	if ($row['ringofdexterityIII'] >=2){ 
+		echo "<li><input type='submit' class='white greenBG' name='input1' value='craft ring of dexterity IV' /> 2x ring of dexterity III  <span class='right alt'>".$row['ringofdexterityIII']."</span> </li>";}
+	if ($row['ringofmagicIII'] >=2){
+		echo  "<li><input type='submit' class='white blueBG' name='input1' value='craft ring of magic IV' /> 2x ring of magic III   <span class='right alt'>".$row['ringofmagicIII']."</span> </li>";}
+	if ($row['ringofdefenseIII'] >=2){
+		echo "<li><input type='submit' class='darkgray yellowBG' name='input1' value='craft ring of defense IV' /> 2x ring of defense III   <span class='right alt'>".$row['ringofdefenseIII']."</span> </li>";}
+		
+if ($row['ringofstrengthIV'] >=2){ // ------------------------------------------------------------------------------- rings V
+		echo "<li><input type='submit' class='white redBG' name='input1' value='craft ring of strength V' />  2x ring of strength IV   <span class='right alt'>".$row['ringofstrengthIV']."</span> </li>";}
+	if ($row['ringofdexterityIV'] >=2){ 
+		echo "<li><input type='submit' class='white greenBG' name='input1' value='craft ring of dexterity V' /> 2x ring of dexterity IV  <span class='right alt'>".$row['ringofdexterityIV']."</span> </li>";}
+	if ($row['ringofmagicIV'] >=2){
+		echo  "<li><input type='submit' class='white blueBG' name='input1' value='craft ring of magic V' /> 2x ring of magic IV   <span class='right alt'>".$row['ringofmagicIV']."</span> </li>";}
+	if ($row['ringofdefenseIV'] >=2){
+		echo "<li><input type='submit' class='darkgray yellowBG' name='input1' value='craft ring of defense V' /> 2x ring of defense IV   <span class='right alt'>".$row['ringofdefenseIV']."</span> </li>";}
+				
+				
+	} // END IF HAMMER FOR RINGS //
+
+
+// ------------------------------------------------------------------------------- HIGHEST RINGS!	
+echo '<li class="px14 gold">Rings - Max Stat</li>'; 	
+if ($row['ringofstrengthXX'] > 0){ echo "<li class='maxRing redborder red'>XX</li>";}	
+else if ($row['ringofstrengthXIX'] > 0){ echo "<li class='maxRing redborder red'>XIX</li>";}	
+else if ($row['ringofstrengthXVIII'] > 0){ echo "<li class='maxRing redborder red'>XVIII</li>";}	
+else if ($row['ringofstrengthXVII'] > 0){ echo "<li class='maxRing redborder red'>XVII</li>";}	
+else if ($row['ringofstrengthXVI'] > 0){ echo "<li class='maxRing redborder red'>XVI</li>";}	
+else if ($row['ringofstrengthXV'] > 0){ echo "<li class='maxRing redborder red'>XV</li>";}	
+else if ($row['ringofstrengthXIV'] > 0){ echo "<li class='maxRing redborder red'>XIV</li>";}	
+else if ($row['ringofstrengthXIII'] > 0){ echo "<li class='maxRing redborder red'>XIII</li>";}	
+else if ($row['ringofstrengthXII'] > 0){ echo "<li class='maxRing redborder red'>XII</li>";}	
+else if ($row['ringofstrengthXI'] > 0){ echo "<li class='maxRing redborder red'>XI</li>";}	
+else if ($row['ringofstrengthX'] > 0){ echo "<li class='maxRing redborder red'>X</li>";}	
+else if ($row['ringofstrengthIX'] > 0){ echo "<li class='maxRing redborder red'>IX</li>";}	
+else if ($row['ringofstrengthVIII'] > 0){ echo "<li class='maxRing redborder red'>VIII</li>";}	
+else if ($row['ringofstrengthVII'] > 0){ echo "<li class='maxRing redborder red'>VII</li>";}	
+else if ($row['ringofstrengthVI'] > 0){ echo "<li class='maxRing redborder red'>VI</li>";}	
+else if ($row['ringofstrengthV'] > 0){ echo "<li class='maxRing redborder red'>V</li>";}	
+else if ($row['ringofstrengthIV'] > 0){ echo "<li class='maxRing redborder red'>IV</li>";}	
+else if ($row['ringofstrengthIII'] > 0){ echo "<li class='maxRing redborder red'>III</li>";}	
+else if ($row['ringofstrengthII'] > 0){ echo "<li class='maxRing redborder red'>II</li>";}	
+else if ($row['ringofstrength'] > 0){ echo "<li class='maxRing redborder red'>I</li>";}	
+
+
+if ($row['ringofdexterityXX'] > 0){ echo "<li class='maxRing greenborder green'>XX</li>";}	
+else if ($row['ringofdexterityXIX'] > 0){ echo "<li class='maxRing greenborder green'>XIX</li>";}	
+else if ($row['ringofdexterityXVIII'] > 0){ echo "<li class='maxRing greenborder green'>XVIII</li>";}	
+else if ($row['ringofdexterityXVII'] > 0){ echo "<li class='maxRing greenborder green'>XVII</li>";}	
+else if ($row['ringofdexterityXVI'] > 0){ echo "<li class='maxRing greenborder green'>XVI</li>";}	
+else if ($row['ringofdexterityXV'] > 0){ echo "<li class='maxRing greenborder green'>XV</li>";}	
+else if ($row['ringofdexterityXIV'] > 0){ echo "<li class='maxRing greenborder green'>XIV</li>";}	
+else if ($row['ringofdexterityXIII'] > 0){ echo "<li class='maxRing greenborder green'>XIII</li>";}	
+else if ($row['ringofdexterityXII'] > 0){ echo "<li class='maxRing greenborder green'>XII</li>";}	
+else if ($row['ringofdexterityXI'] > 0){ echo "<li class='maxRing greenborder green'>XI</li>";}	
+else if ($row['ringofdexterityX'] > 0){ echo "<li class='maxRing greenborder green'>X</li>";}	
+else if ($row['ringofdexterityIX'] > 0){ echo "<li class='maxRing greenborder green'>IX</li>";}	
+else if ($row['ringofdexterityVIII'] > 0){ echo "<li class='maxRing greenborder green'>VIII</li>";}	
+else if ($row['ringofdexterityVII'] > 0){ echo "<li class='maxRing greenborder green'>VII</li>";}	
+else if ($row['ringofdexterityVI'] > 0){ echo "<li class='maxRing greenborder green'>VI</li>";}	
+else if ($row['ringofdexterityV'] > 0){ echo "<li class='maxRing greenborder green'>V</li>";}	
+else if ($row['ringofdexterityIV'] > 0){ echo "<li class='maxRing greenborder green'>IV</li>";}	
+else if ($row['ringofdexterityIII'] > 0){ echo "<li class='maxRing greenborder green'>III</li>";}	
+else if ($row['ringofdexterityII'] > 0){ echo "<li class='maxRing greenborder green'>II</li>";}	
+else if ($row['ringofdexterity'] > 0){ echo "<li class='maxRing greenborder green'>I</li>";}	
+
+
+if ($row['ringofmagicXX'] > 0){ echo "<li class='maxRing blueborder blue'>XX</li>";}	
+else if ($row['ringofmagicXIX'] > 0){ echo "<li class='maxRing blueborder blue'>XIX</li>";}	
+else if ($row['ringofmagicXVIII'] > 0){ echo "<li class='maxRing blueborder blue'>XVIII</li>";}	
+else if ($row['ringofmagicXVII'] > 0){ echo "<li class='maxRing blueborder blue'>XVII</li>";}	
+else if ($row['ringofmagicXVI'] > 0){ echo "<li class='maxRing blueborder blue'>XVI</li>";}	
+else if ($row['ringofmagicXV'] > 0){ echo "<li class='maxRing blueborder blue'>XV</li>";}	
+else if ($row['ringofmagicXIV'] > 0){ echo "<li class='maxRing blueborder blue'>XIV</li>";}	
+else if ($row['ringofmagicXIII'] > 0){ echo "<li class='maxRing blueborder blue'>XIII</li>";}	
+else if ($row['ringofmagicXII'] > 0){ echo "<li class='maxRing blueborder blue'>XII</li>";}	
+else if ($row['ringofmagicXI'] > 0){ echo "<li class='maxRing blueborder blue'>XI</li>";}	
+else if ($row['ringofmagicX'] > 0){ echo "<li class='maxRing blueborder blue'>X</li>";}	
+else if ($row['ringofmagicIX'] > 0){ echo "<li class='maxRing blueborder blue'>IX</li>";}	
+else if ($row['ringofmagicVIII'] > 0){ echo "<li class='maxRing blueborder blue'>VIII</li>";}	
+else if ($row['ringofmagicVII'] > 0){ echo "<li class='maxRing blueborder blue'>VII</li>";}	
+else if ($row['ringofmagicVI'] > 0){ echo "<li class='maxRing blueborder blue'>VI</li>";}	
+else if ($row['ringofmagicV'] > 0){ echo "<li class='maxRing blueborder blue'>V</li>";}	
+else if ($row['ringofmagicIV'] > 0){ echo "<li class='maxRing blueborder blue'>IV</li>";}	
+else if ($row['ringofmagicIII'] > 0){ echo "<li class='maxRing blueborder blue'>III</li>";}	
+else if ($row['ringofmagicII'] > 0){ echo "<li class='maxRing blueborder blue'>II</li>";}	
+else if ($row['ringofmagic'] > 0){ echo "<li class='maxRing blueborder blue'>I</li>";}	
+
+if ($row['ringofdefenseXX'] > 0){ echo "<li class='maxRing goldborder gold'>XX</li>";}	
+else if ($row['ringofdefenseXIX'] > 0){ echo "<li class='maxRing goldborder gold'>XIX</li>";}	
+else if ($row['ringofdefenseXVIII'] > 0){ echo "<li class='maxRing goldborder gold'>XVIII</li>";}	
+else if ($row['ringofdefenseXVII'] > 0){ echo "<li class='maxRing goldborder gold'>XVII</li>";}	
+else if ($row['ringofdefenseXVI'] > 0){ echo "<li class='maxRing goldborder gold'>XVI</li>";}	
+else if ($row['ringofdefenseXV'] > 0){ echo "<li class='maxRing goldborder gold'>XV</li>";}	
+else if ($row['ringofdefenseXIV'] > 0){ echo "<li class='maxRing goldborder gold'>XIV</li>";}	
+else if ($row['ringofdefenseXIII'] > 0){ echo "<li class='maxRing goldborder gold'>XIII</li>";}	
+else if ($row['ringofdefenseXII'] > 0){ echo "<li class='maxRing goldborder gold'>XII</li>";}	
+else if ($row['ringofdefenseXI'] > 0){ echo "<li class='maxRing goldborder gold'>XI</li>";}	
+else if ($row['ringofdefenseX'] > 0){ echo "<li class='maxRing goldborder gold'>X</li>";}	
+else if ($row['ringofdefenseIX'] > 0){ echo "<li class='maxRing goldborder gold'>IX</li>";}	
+else if ($row['ringofdefenseVIII'] > 0){ echo "<li class='maxRing goldborder gold'>VIII</li>";}	
+else if ($row['ringofdefenseVII'] > 0){ echo "<li class='maxRing goldborder gold'>VII</li>";}	
+else if ($row['ringofdefenseVI'] > 0){ echo "<li class='maxRing goldborder gold'>VI</li>";}	
+else if ($row['ringofdefenseV'] > 0){ echo "<li class='maxRing goldborder gold'>V</li>";}	
+else if ($row['ringofdefenseIV'] > 0){ echo "<li class='maxRing goldborder gold'>IV</li>";}	
+else if ($row['ringofdefenseIII'] > 0){ echo "<li class='maxRing goldborder gold'>III</li>";}	
+else if ($row['ringofdefenseII'] > 0){ echo "<li class='maxRing goldborder gold'>II</li>";}	
+else if ($row['ringofdefense'] > 0){ echo "<li class='maxRing goldborder gold'>I</li>";}	
+
+
+	
+	
+	
+
+
+	echo '</span></span>';
+	}
+//	echo '</ul></article>';	  
+ 
+}
+//	       </form>
+
+    
+	 
+
+   
