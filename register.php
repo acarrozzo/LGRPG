@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
     }
 
     // here we encrypt the password and add slashes if needed
-    $_POST['pass'] = md5($_POST['pass']);
+    $_POST['pass'] = password_hash($_POST['pass'], PASSWORD_BCRYPT);
     if (!get_magic_quotes_gpc()) {
         $_POST['pass'] = addslashes($_POST['pass']);
         $_POST['username'] = addslashes($_POST['username']);
