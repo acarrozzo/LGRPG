@@ -50,15 +50,12 @@ if (isset($_POST['submit'])) {  // if form has been submitted
     }
     // -------------------------DB OUTPUT!
     while ($row = $result->fetch_assoc()) {
-        $_POST['pass'] = stripslashes($_POST['pass']);
-        $row['password'] = stripslashes($row['password']);
-        $_POST['pass'] = md5($_POST['pass']);
         //gives error if the password is wrong
-        if ($_POST['pass'] != $row['password']) {
+        if (!password_verify($_POST['pass'], $row['password'])) {
             echo'<div class="login"><p class="alert">Incorrect password, please try again.<p>';
             die('<a class="btn" href="/">return home</a></div>');
         //die();
-        } elseif ($_POST['pass'] == $row['password']) {
+        } else {
             // if login is ok set session variables
             $_POST['username'] = stripslashes($_POST['username']);
             $_SESSION['username'] = $username = $user = $_POST['username'];
