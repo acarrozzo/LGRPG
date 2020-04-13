@@ -1,13 +1,11 @@
-<?php session_start(); ?>
-<?php include('head.php'); ?>
+<?php session_start();?>
+<?php include('head.php');?>
 <body>
 <?php
 
-$link = mysqli_init(); // global declare for link
-
 // -------------------------DB CONNECT!
-include('db-connect.php');
-//echo 'SESSION USRNAME: '.$_SESSION['username'];
+require_once('db-connect.php');
+
 
 if (!isset($_SESSION['username'])) {			// IF NO ONE IS LOGGED IN SHOW TITLE SCREEN
     echo '<div id="container">';
@@ -198,8 +196,6 @@ include('evolve.php');
 
 
 <?php
-// -------------------------DB CONNECT!
-include('db-connect.php');
     // -------------------------DB QUERY!
     $sql = "SELECT * FROM $username";
     if (!$result = $link->query($sql)) {
@@ -233,7 +229,7 @@ include('db-connect.php');
       <div id="feed-module">';
 
     // -------------------------DB CONNECT!
-    include('db-connect.php');
+
     // -------------------------DB QUERY!
     $sql = "SELECT * FROM $username";
     if (!$result = $link->query($sql)) {
