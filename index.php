@@ -11,7 +11,7 @@ if (!isset($_SESSION['username'])) {			// IF NO ONE IS LOGGED IN SHOW TITLE SCRE
     echo '<div id="container">';
 
     echo '<div id="title">
-	<h1>Light Gray RPG</h1>
+	<h1>Light Gray RPGX</h1>
   <h6>THE DEMO</h6>
 	<h4>- PART 1: VEGA -</h4>'; ?>
 
