@@ -13,9 +13,10 @@ if (!isset($_SESSION['username'])) {			// IF NO ONE IS LOGGED IN SHOW TITLE SCRE
     echo '<div id="title">
 	<h1>Light Gray RPG</h1>
   <h6>THE DEMO</h6>
-	<h4>- PART 1: VEGA -</h4>
+	<h4>- PART 1: VEGA -</h4>'; ?>
 
-	<i class=" icon-dragon"></i>';
+  <?php echo file_get_contents("img/svg/inv.svg");
+
     include('login.php');
     echo '<h3>New to Light Gray?</h3>
 	<a href="register.php" class="login btn">CREATE NEW CHARACTER</a>';
