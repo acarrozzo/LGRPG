@@ -1,5 +1,9 @@
 
-<i class="ra ra-archer"></i>
+
+<?php
+echo '<span class="icon gold key">'.file_get_contents("img/svg/key.svg").'</span>';
+?>
+
 <form class="login" action="" method="post">
  <h3>New Character Sign Up</h3>
  <p class="lft hide">New Username: </p>

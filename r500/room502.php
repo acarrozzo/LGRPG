@@ -43,7 +43,7 @@ if($input=='start quests') {
 
 // ---------------------- QUEST 51) Protect the Mountain Path ---------------------- //
 if($input=='info 51') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 51 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 51 Info</strong><br>
 		The Bowmen and Highwaymen are thieves who prey on those who travel the Mountain Path! Protect the path by removing 5 of each.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -64,7 +64,7 @@ else if($input=='complete 51')
 		$results = $link->query("UPDATE $user SET quest51 = 2");
 	} 
 	else if ($quest51 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 51 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 51 Not Complete</strong><br>
 	To complete this quest you must defeat 5 Bowmen & 5 Highwaymen. They can be found patrolling the stone path to the mountains.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -72,7 +72,7 @@ else if($input=='complete 51')
 
 // ---------------------- QUEST 52) Elder Slayer ---------------------- //
 if($input=='info 52') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 52 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 52 Info</strong><br>
 		Defeat 3 devious Troll Elders and make the Dark Forest a safer place.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -93,7 +93,7 @@ else if($input=='complete 52')
 		$results = $link->query("UPDATE $user SET quest52 = 2");
 	} 
 	else if ($quest52 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 52 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 52 Not Complete</strong><br>
 	To complete this quest you need to defeat 3 Troll Elders. They can be found in the Dark Forest.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -102,7 +102,7 @@ else if($input=='complete 52')
 
 // ---------------------- QUEST 53) Dark Keep First Floor ---------------------- //
 if($input=='info 53') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 53 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 53 Info</strong><br>
 		Defeat the 3 enemies on the First Floor of the Dark Keep. A Lurker, a Winged Demon, and an Undead Orc.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -123,7 +123,7 @@ else if($input=='complete 53')
 		$results = $link->query("UPDATE $user SET quest53 = 2");
 	} 
 	else if ($quest53 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 53 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 53 Not Complete</strong><br>
 	To complete this quest you need to defeat the 3 enemies found on the First Floor of the Dark Keep. The Dark Keep can be reached by heading west in the Dark Forest.	</div>";
 		include ('update_feed.php'); // --- update feed
 	}  

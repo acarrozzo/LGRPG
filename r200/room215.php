@@ -45,7 +45,7 @@ $quest13=$row['quest13'];
 			
 // ---------------------- QUEST 11) Bring 3 Thieves to Justice ---------------------- //
 if($input=='info 11') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 11 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 11 Info</strong><br>
 		Thieves will randomly attack you here in town and along the stone paths. As you walk around i'm sure you'll encounter some. Eliminate 3 of them for some ammo and a crossbow reward.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -70,7 +70,7 @@ else if($input=='complete 11')
 		$results = $link->query("UPDATE $user SET quest11 = 2");
 	} 
 	else if ($quest11 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 11 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 11 Not Complete</strong><br>
 		To complete this quest you need to find and defeat 3 Thieves. Travel the roads and towns to find them.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -78,7 +78,7 @@ else if($input=='complete 11')
 
 // ---------------------- QUEST 12) Swords for the Red Guard ---------------------- //
 if($input=='info 12') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 12 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 12 Info</strong><br>
 		Long Swords can be bought from the shops to the south or are dropped by certain enemies. Alpha Scorpions, Orcs, Kobolds & Tarantulas drop them, or just buy some from Michael or Adam to save time.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -100,7 +100,7 @@ else if($input=='complete 12')
 		$results = $link->query("UPDATE $user SET longsword = longsword - 5");
 	} 
 	else if ($quest12 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 12 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 12 Not Complete</strong><br>
 		To complete this quest return with 5 Long Swords. Alpha Scorpions, Orcs, Kobolds & Tarantulas drop them, or you can buy them from the shops to the south. Your reward for delivering 5 long swords will be an awesome Battle Helm.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -110,7 +110,7 @@ else if($input=='complete 12')
 
 // ---------------------- QUEST 13) Sewer Pest Control ---------------------- //
 if($input=='info 13') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 13 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 13 Info</strong><br>
 		You can find the sewer entrances to the south and then east of here. Kill a Tarantula, a Sewer Rat and a Red Gator and you will be rewarded with a Three-Chained Flail.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -131,7 +131,7 @@ else if($input=='complete 13')
 		$results = $link->query("UPDATE $user SET quest13 = 2");
 	} 
 	else if ($quest13 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 13 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 13 Not Complete</strong><br>
 		To complete this quest you need to kill a Tarantula, a Sewer Rat and a Red Gator in the Sewers below Red Town.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  

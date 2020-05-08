@@ -3,6 +3,9 @@
 // -- 001 -- Grassy Field Crossroads
 $roomname = "Grasslands Crossroads";
 $lookdesc = $_SESSION['lookdesc'] = $_SESSION['desc001'];
+
+
+
 ////$dangerLVL = $_SESSION['dangerLVL'] = "111"; // danger level
 
 include('function-start.php');

@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="format-detection" content = "telephone=no">
 <!--<link type="text/css" rel="stylesheet" href="css/lg.css" />-->
-<link type="text/css" rel="stylesheet" href="css/lg.min.css" />
+<link type="text/css" rel="stylesheet" href="css/lg.css" />
 <link rel='stylesheet' type='text/css' href='style_map.css' />
 <link rel='stylesheet' type='text/css' href='style_map.php' />
 <link rel="stylesheet" type="text/css" href="css/font-awesome.css" >
@@ -20,6 +20,8 @@
 <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
 -->
 <link href="https://fonts.googleapis.com/css?family=Droid+Serif|IM+Fell+English|Libre+Baskerville|Playfair+Display:400,400i,900,900i|Milonga|Cinzel|Sorts+Mill+Goudy" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Averia+Serif+Libre|Forum|Germania+One|Girassol|Katibeh|Kumar+One+Outline|Londrina+Solid|Medula+One|Megrim|Press+Start+2P&display=swap" rel="stylesheet">
+
 <link href="https://fonts.googleapis.com/css?family=Blinker&display=swap" rel="stylesheet">
 
 <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">

@@ -103,7 +103,7 @@ if ($quest41 == 2 && $quest42 == 2 && $quest43 == 2) {
 			
 // ---------------------- QUEST 41) Like a Squid ---------------------- //
 if($input=='info 41') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 41 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 41 Info</strong><br>
 		You can find Squid both on and below the ocean. Hunt down 3 of them.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -124,7 +124,7 @@ else if($input=='complete 41')
 		$results = $link->query("UPDATE $user SET quest41 = 2");
 	} 
 	else if ($quest41 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 41 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 41 Not Complete</strong><br>
 		To complete this quest you need to hunt down 3 Squid.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -132,7 +132,7 @@ else if($input=='complete 41')
 
 // ---------------------- QUEST 42) Mud Crab Population Control ---------------------- //
 if($input=='info 42') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 42 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 42 Info</strong><br>
 		Mud island can be found to the southeast of here. Go there and eliminate 20 Mud Crabs.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -153,7 +153,7 @@ else if($input=='complete 42')
 		$results = $link->query("UPDATE $user SET quest42 = 2");
 	} 
 	else if ($quest42 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 42 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 42 Not Complete</strong><br>
 		To complete this quest you need to exterminate 20 Mud Crabs. Go find Mud Island. </div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -163,7 +163,7 @@ else if($input=='complete 42')
 
 // ---------------------- QUEST 43) Ocean Hunter Pro ---------------------- //
 if($input=='info 43') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 43 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 43 Info</strong><br>
 		Become a Pro Ocean Hunter. Defeat a Jellyfish, Electric Eel, Piranha, Barracuda & Crocodile. Find all the fish anywhere on the Ocean and find the Crocodile near Crocodile Island. Keep hunting until you find em all.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -187,7 +187,7 @@ else if($input=='complete 43')
 		$results = $link->query("UPDATE $user SET quest43 = 2");
 	} 
 	else if ($quest43 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 43 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 43 Not Complete</strong><br>
 		To complete this quest you need to defeat a Jellyfish, Electric Eel, Piranha, Barracuda & Crocodile. They can all be found on the Ocean.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  

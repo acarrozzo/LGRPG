@@ -13,290 +13,117 @@ while ($row = $result->fetch_assoc()) {
     //$dangerLVL = $_SESSION['dangerLVL'];
 
     $chest1 = $row['chest1'];
-}
-  include('style_map.php'); // -------------------------MAP STYLES!
 
+    $quest1 = $row['quest1'];
+}
+
+  include('style_map.php'); // -------------------------MAP STYLES!
 
 $mapID= $_SESSION['roomID'];
    //<div class="mapID $mapID"></div>
 
+/*
 
+$dirReset = [
+       '$dirN' => "0",
+       '$dirNE' =>"0",
+       '$dirE' => "0",
+        '$dirSE' => "0",
+        '$dirS' =>"0",
+        '$dirSW' => "0",
+        '$dirW' => "0",
+        '$dirNW' =>"0",
+        '$dirU' => "0",
+        '$dirD' => "0"
+     ];
 
+var_dump($dirReset);
 
-$dirN="0";
-$dirNE="0";
-$dirE="0";
-$dirSE="0";
-$dirS="0";
-$dirSW="0";
-$dirW="0";
-$dirNW="0";
-$dirU="0";
-$dirD="0";
+*/
 
-
-
-// ---------------------------------------------------- 000 - Room Zero
-if ($roomID=='000') {
-    $_SESSION['dangerLVL'] = "0";
+function directionReset()
+{
+    $dirReset = [
+        'dirN' => "0",
+        'dirNE'=> "0",
+        'dirE' => "0",
+        'dirSE'=> "0",
+        'dirS' => "0",
+        'dirSW'=> "0",
+        'dirW' => "0",
+        'dirNW'=> "0",
+        'dirU' => "0",
+        'dirD' => "0"
+       ];
+    return $dirReset;
 }
-$_SESSION['desc000'] = <<<HTML
-	<html><div class="roomBox">
-	<h3>Room Zero</h3>
-	<p>You are in an empty room. The walls are all gray and there are no windows or doors. The only light you see comes from a pillar in the center of the room. There is a small sign on the side of the pillar and a small piece of paper on the floor</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="ex sign" />
-	<input type="submit" name="input1" value="ex pillar" />
-	<input type="submit" name="input1" value="ex light" />
-	<input type="submit" name="input1" value="ex button" />
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
-	<input class="blueBG" type="submit" name="input1" value="pick up map" />
-	<input class="goldBG" type="submit" name="input1" value="press button" />
-	</form></div></html>
-HTML;
-
-
-// ---------------------------------------------------- 001 - Grassy Field Crossroads
-if ($roomID=='001') {
-    $_SESSION['dangerLVL'] = "0";
-    $dirN='active greenfield';
-    $dirNE='active greenfield';
-    $dirE='active greenfield';
-    $dirSE='active greenfield';
-    $dirS='active greenfield';
-    $dirSW='active greenfield';
-    $dirW='active greenfield';
-    $dirNW='active greenfield';
+/*
+$files = scandir('roomdesc/');
+foreach ($files as $file) {
+    echo $files;
+    echo $file;
 }
-$_SESSION['desc001'] = <<<HTML
-	<html><div class="roomBox">
-	<div class="roomIcon sand"><i class="icon-sun"></i></div>
-	<h3 class="greenfield">Grassy Field Crossroads</h3>
-	<p>The air is warm and the sky above is bright blue. You are standing in the center of a large grassy field. There is a sign here with a gold chest at it's base. To the southwest you see a cabin.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="west" />
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
-	<input class="blueBG" type="submit" name="input1" value="view map" />
-	<input class="goldBG" type="submit" name="input1" value="open chest" />
-	</form></div></html>
-HTML;
+*/
 
-// ---------------------------------------------------- 002 - Grassy Field South
-if ($roomID=='002') {
-    $_SESSION['dangerLVL'] = "0";
-    $dirN='active greenfield';
-    $dirE='active greenfield';
-    $dirS='active gray';
-    $dirW='active greenfield';
+foreach (glob("roomdesc/*.php") as $filename) {
+    //  ob_start();                      // start capturing output
+    //  directionReset();
+    //include $filename;
+    //  echo 'X: '.$filename;
+    $filename = str_replace("roomdesc/", "", $filename);
+    //  echo 'Y: '.$filename;
+    $filename = str_replace(".php", "", $filename);
+    //  echo 'Z: '.$filename;
+    roomSet($filename);
+    //  directionReset();
+  //  include("roomdesc/".$filename.".php");   // execute the file
+  //  $_SESSION['desc'.$filename] = ob_get_contents();    // get the contents from the buffer
+  //  ob_end_clean();                  // stop buffering and discard contents
+  //  $i++;
 }
-$_SESSION['desc002'] = <<<HTML
-	<html><div class="roomBox">
-	<div class="roomIcon red"><i class="icon-redberry"></i></div>
-	<h3 class="greenfield">Grassy Field South</h3>
-	<p>The grass starts to get rocky in this area. There is a redberry bush here. Eat redberry to restore lost health points. To the east you see an entrance to a cave and to the west you see a cabin.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="east" />
-	<input class="redBG " type="submit" name="input1" value="pick 5 redberry" />
-	</form></div></html>
-HTML;
 
 
-// ---------------------------------------------------- 003 - Old Man | Log Cabin
-if ($roomID=='003') {
-    $_SESSION['dangerLVL'] = "000";
-    $dirN='active greenfield';
-    $dirNE='active greenfield';
-    $dirE='active greenfield';
-    $dirSW='active swamp';
-    $dirW='active dgray';
-    $dirD='active dirt';
+
+    function roomSet($filename)
+    {
+        ob_start();
+        directionReset();
+        include("roomdesc/".$filename.".php");
+        $_SESSION['desc'.$filename] = ob_get_contents();
+        ob_end_clean();
+    }
+
+// ----- LOOP TO PRESET ALL ROOM DESCRIPTIONS 000 - 009
+$i = 10;
+while ($i <= 9) {
+    ob_start();                      // start capturing output
+    directionReset();
+    include("roomdesc/00$i.php");   // execute the file
+    $_SESSION['desc00'.$i] = ob_get_contents();    // get the contents from the buffer
+    ob_end_clean();                  // stop buffering and discard contents
+    $i++;
 }
-$_SESSION['desc003'] = <<<HTML
-	<html><div class="roomBox">
-	<div class="roomIcon brown"><i class="fa fa-home"></i></div>
-	<h3 class="brown">Old Man</h3>
-	<h4>Wood Cabin</h4>
-	<p>Inside the cabin you are greeted by an old man in a rocking chair. He insists you make yourself at home and stay as long as you like. Start and complete your first quests here.</p>
-	<a href data-link="quests" class="btn goldBG">Quests </a>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="w" />
-	<input type="submit" name="input1" value="n" />
-	<input type="submit" name="input1" value="ne" />
-	<input type="submit" name="input1" value="e" />
-	<input class="goldBG" type="submit" name="input1" value="down" />
-	<input class="brownBG" type="submit" name="input1" value="ex cabin" />
-	<input class="redBG" type="submit" name="input1" value="cook meat" />
-	<input class="redBG" type="submit" name="input1" value="attack dummy" />
-	</form></div></html>
-HTML;
 
-// ---------------------------------------------------- 003c - Young Soldier | Weapons Training Area
-if ($roomID=='003c') {
-    $_SESSION['dangerLVL'] = "000";
-    $dirE='active greenfield';
+// --- SET ROOM DESC FOR SPECIFIC ROOM
+$roomSelect = $roomID;
+if ($roomID==$roomSelect) {
+    ob_start();
+    directionReset();
+    include("roomdesc/".$roomID.".php");
+    $_SESSION['desc'.$roomID] = ob_get_contents();
+    ob_end_clean();
 }
-$_SESSION['desc003c'] = <<<HTML
-	<html><div class="roomBox">
-	<div class="roomIcon"><i class="icon-sword"></i></div>
-	<h3 class="blue">Young Soldier</h3>
-	<h4>Weapon Training</h4>
-	<p>The training area is breezy and overlooks the ocean. There are racks of weapons and armor set up here. A young soldier is here to assist you with your training.</p>
-	<a href data-link="weap" class="btn goldBG w33">Weapons </a>
-	<a href data-link2="skills" class="btn goldBG w33">Skills </a>
-	<a href data-link="quests" class="btn goldBG w33">Quests </a>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input class="blueBG" type="submit" name="input1" value="pick up sword and shield" />
-	<input class="blueBG" type="submit" name="input1" value="pick up 2-handed sword" />
-	<input type="submit" name="input1" value="east" />
-	</form></div></html>
-HTML;
-
-
-// ---------------------------------------------------- 003b - Cabin Basement
-if ($roomID=='003b') {
-    $_SESSION['dangerLVL'] = "1";
-    $dirW='active dirt';
-    $dirU='active greenfield';
-}
-$_SESSION['desc003b'] = <<<HTML
-	<html><div class="roomBox"><h3 class="brown">Cabin Basement</h3>
-	<p>A water-logged basement. It's very messy and smelly. You can attack rats here. Go back up to return to the cabin.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input class="goldBG" type="submit" name="input1" value="up" />
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
-	<input class="redBG" type="submit" name="input1" value="attack" />
-	</form></div></html>
-HTML;
-
-// ---------------------------------------------------- 003bb - Destroyed Basement
-if ($roomID=='003bb') {
-    $_SESSION['dangerLVL'] = "3";
-    $dirE='active dirt';
-}
-$_SESSION['desc003bb'] = <<<HTML
-	<html><div class="roomBox"><h3 class="brown">Destroyed Basement</h3>
-	<p>A destroyed water-logged basement. Rat crap is everywhere. You can rest in between battles to restore lost hit points.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="east" />
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
-	<input class="redBG" type="submit" name="input1" value="attack" />
-	</form></div></html>
-HTML;
-
-
-// ---------------------------------------------------- 004 - Grassy Field West
-if ($roomID=='004') {
-    $_SESSION['dangerLVL'] = "000";
-    $dirN='active greenfield';
-    $dirE='active greenfield';
-    $dirS='active greenfield';
-    $dirW='active dirt';
-}
-$_SESSION['desc004'] = <<<HTML
-	<html><div class="roomBox">
-	<div class="roomIcon gold"><i class="zmdi zmdi-flower-alt"></i></div>
-	<h3 class="greenfield">Grassy Field West</h3>
-	<p>You are on a path in the grassy field. You see a cabin to the south and an ocean to the west. A single yellow flower grows here.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="east" />
-	<input class="goldBG" type="submit" name="input1" value="pick flower" />
-	</form></div></html>
-HTML;
-// ---------------------------------------------------- 005 - Grassy Field North
-if ($roomID=='005') {
-    $_SESSION['dangerLVL'] = "000";
-    $dirN='active gray';
-    $dirS='active greenfield';
-    $dirW='active greenfield';
-    $dirE='active greenfield';
-}
-$_SESSION['desc005'] = <<<HTML
-	<html><div class="roomBox">
-	<div class="roomIcon blue"><i class="icon-blueberry"></i></div>
-	<h3 class="greenfield">Grassy Field North</h3>
-	<p>Blueberry bushes grow in this part of the field. To the west you see a waterfall and to the east an odd tent. To the south you see the main crossroads.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="examine tent" />
-	<input class="blueBG " type="submit" name="input1" value="pick 5 blueberry" />
-	</form></div></html>
-HTML;
-
-
-// ---------------------------------------------------- 005b - Secret Arena
-if ($roomID=='005b') {
-    $_SESSION['dangerLVL'] = "X";
-    $dirU='active greenfield';
-}
-$_SESSION['desc005b'] = <<<HTML
-	<html><div class="roomBox">
-	<div class="roomIcon gray"><i class="icon-skull"></i></div>
-	<h3 class="gold">Secret Arena</h3>
-	<p>In a top secret fighting area. Here the developer can conjure up any enemy he wishes for battle testing. And what does this place look like? Whatever you want, use your imagination.</p>
-	<p class="strongBox">Attack to fight the secret enemy here.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	</form></div></html>
-HTML;
-
-// ---------------------------------------------------- 006 - Grassy Field East / Basic Shop
-if ($roomID=='006') {
-    $_SESSION['dangerLVL'] = "000";
-    $dirN='active greenfield';
-    $dirS='active greenfield';
-    $dirW='active greenfield';
-    $dirE='active dirt';
-}
-$_SESSION['desc006'] = <<<HTML
-	<html><div class="roomBox">
-	<div class="roomIcon brown"><i class="icon-stand"></i></div>
-	<h3 class="greenfield">Grassy Field East</h3>
-	<p>A Basic Shop is set up here where you can buy weapons, armor and other useful items. To the south is a cave and north is a strange tent. To the far east you see a forest.</p>
-	<a class="btn goldBG" data-link="shop">Shop</a>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="east" />
-	</form></div></html>
-HTML;
 
 
 
-// ---------------------------------------------------- 007 - Grassy Field Cave Entrance
-if ($roomID=='007') {
-    $_SESSION['dangerLVL'] = "000";
-    $dirN='active greenfield';
-    $dirS='active dgray';
-    $dirW='active greenfield';
-    $dirNW='active greenfield';
-}
-$_SESSION['desc007'] = <<<HTML
-	<html><div class="roomBox">
-	<div class="roomIcon gray"><i class="icon-cave"></i></div>
-	<h3 class="greenfield">Grassy Field Cave Entrance</h3>
-	<p>In the Grassy Field at an entrance to a dark cave. There is a sign here.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="nw" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
-	</form></div></html>
-HTML;
+
+
+
+
+
+
+
+
 
 
 
@@ -725,7 +552,7 @@ $_SESSION['desc024'] = <<<HTML
 <html><div class="roomBox">
 	<div class="roomIcon brown"><i class="icon-hatchet"></i></div>
 	<h3 class="green">Jack Lumber</h3>
-	<h4>Professional Lumberjack</h4>
+	<h4 class="brown">Professional Lumberjack</h4>
 	<p>A flannel wearing hatchet wielding man has a wood workshop set up here. He has a few quests available for you if you are ready. Completing his quests will open up the path to the forest.</p>
 	<a href data-link="quests" class="btn goldBG">Quests </a>
 	<form id="mainForm" method="post" action="" name="formInput">
@@ -1801,7 +1628,7 @@ $_SESSION['desc117'] = <<<HTML
 <html><div class="roomBox">
 	<div class="roomIcon green px100"><i class="ra ra-pine-tree"></i></div>
 	<h3 class="green">Under a Massive Tree in a Large Clearing</h3>
-	<p>An enormous tree and it's canopy encompass all you see overhead. You see some animal skins scattered on the ground.</p>
+	<p>An enormous tree and its canopy encompass all you see overhead. You see some animal skins scattered on the ground.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
 	<input type="submit" name="input1" value="north" />
 	<input type="submit" name="input1" value="south" />
@@ -2724,7 +2551,7 @@ $_SESSION['desc221'] = <<<HTML
 <html><div class="roomBox">
 	<div class="roomIcon red"><i class="icon-dragon"></i></div>
 	<h3 class="red">Town Hall Plaza</h3>
-	<p>The Red Town Plaza has many benches and tables set up for it's citizens. People are mingling and taking care of business. Some are looking for help and offering rewards.</p>
+	<p>The Red Town Plaza has many benches and tables set up for its citizens. People are mingling and taking care of business. Some are looking for help and offering rewards.</p>
 	<a href data-link="quests" class="btn goldBG">Town Hall Plaza Quests</a>
 	<form id="mainForm" method="post" action="" name="formInput">
 	<input type="submit" name="input1" value="southwest" />
@@ -2802,7 +2629,7 @@ $_SESSION['desc224'] = <<<HTML
 <html><div class="roomBox">
 	<div class="roomIcon gold"><i class="zmdi zmdi-flower-alt"></i></div>
 	<h3 class="green">Babylon Gardens</h3>
-	<p>A perfectly manicured garden is displayed here. All sorts of flowers and bushes are growing, including thick vines climbing the trellises above, creating a lush green shelter with a gold chest in it's center.</p>
+	<p>A perfectly manicured garden is displayed here. All sorts of flowers and bushes are growing, including thick vines climbing the trellises above, creating a lush green shelter with a gold chest in its center.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
 	<input type="submit" name="input1" value="east" />
 	<input class="goldBG" type="submit" name="input1" value="pick flower" />
@@ -4653,7 +4480,7 @@ if ($roomID=='321') {
 }
 $_SESSION['desc321'] = <<<HTML
 <html><div class="roomBox"><h3>Stone Grotto</h3>
-	<p>This stone cave has many lush trees and bushes growing in it's natural running water. There is a small pond here surrounded by intricately carved dwarven statues. The statues have a variety of small birds and glowing dragonflies buzzing around them. Behind one of the statues you see a wide spiral staircase made of stone and covered with moss. The staircase descends under the ground.
+	<p>This stone cave has many lush trees and bushes growing in its natural running water. There is a small pond here surrounded by intricately carved dwarven statues. The statues have a variety of small birds and glowing dragonflies buzzing around them. Behind one of the statues you see a wide spiral staircase made of stone and covered with moss. The staircase descends under the ground.
 </p>
   	<form id="mainForm" method="post" action="" name="formInput">
 	<input type="submit" name="input1" value="northeast" />
@@ -4793,7 +4620,7 @@ if ($roomID=='329') {
 }
 $_SESSION['desc329'] = <<<HTML
 <html><div class="roomBox"><h3>Stone Mine Perfection Pillar</h3>
-	<p>A large stone pillar stands here. Defeat every creature in this map to receive it's reward.</p>
+	<p>A large stone pillar stands here. Defeat every creature in this map to receive its reward.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
 	<input type="submit" name="input1" value="east" />
 	</form>
@@ -5597,7 +5424,7 @@ if ($roomID=='498') {
 }
 $_SESSION['desc498'] = <<<HTML
 <html><div class="roomBox"><h3>Blue Ocean Perfection Pillar</h3>
-	<p>A rarely visited area below the ocean, you see a glowing blue pillar standing here. You need to defeat every enemy above and below the Ocean to receive it's reward.</p>
+	<p>A rarely visited area below the ocean, you see a glowing blue pillar standing here. You need to defeat every enemy above and below the Ocean to receive its reward.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
 	<input type="submit" name="input1" value="northwest" />
 	<input class="goldBG" type="submit" name="input1" value="ocean perfection" />

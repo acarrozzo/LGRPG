@@ -12,6 +12,83 @@ while ($row = $result->fetch_assoc()) {
     //<form id="mainForm" method="post" action="" name="formInput">
     //echo '<section data-pop="teleport" id="teleport" class="teleport panel">';
 
+
+    echo'<div class="gbox">';
+    echo'<h1>Map of Vega</h1>';
+    echo'<h3 class="blue">Quick Teleport</h3>';
+    echo'<p> You can fast travel to any teleport location you have visited before.</p>';
+
+    echo '  <div class="map-tiles">
+    <div class="tile blueBG"><span>Star City</span></div>
+    <div class="tile dgrayBG"><span>Mountains</span></div>
+    <div class="tile darkgreenBG"><span>Dark Forest</span></div>
+    <div class="tile oceanBG"><span>Blue Ocean</span></div>
+    <div class="tile greenBG active">
+      <div class="map-tiles2">
+
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+      <div class="tile2 grayBG"><span></span></div>
+
+      </div>
+      <span>Grassy Field</span>
+
+    </div>
+    <div class="tile dgreenBG forestBG"><span>Forest</span></div>
+    <div class="tile swampBG"><span>Swamp</span></div>
+    <div class="tile grayBG"><span>Rocky Flats</span></div>
+    <div class="tile redBG"><span>Red Town</span></div>
+    </div>';
+
+    echo '</div>';
+    echo '<div class="gbox">';
+
     //---------------------------------------------------------------------------- MAP TELEPORT
     echo'<h2>Map Teleport<span class="right"><span class="">mp cost: </span> <span class ="blue">1</span></span></h2>';
 
@@ -95,7 +172,8 @@ while ($row = $result->fetch_assoc()) {
 
 
 
-
+    echo '</div>';
+    echo '<div class="gbox">';
 
     echo'<h2>Guild Teleport<span class="right"><span class="">mp cost: </span> <span class ="blue">1</span></span></h2>';
 
@@ -111,7 +189,8 @@ while ($row = $result->fetch_assoc()) {
     if ($row['quest57']>=2) {
         echo '<input class=" dgreenBG" type="submit" name="input1" value="ranger\'s guild" /> ';
     }
-
+    echo '</div>';
+    echo '<div class="gbox">';
     //---------------------------------------------------------------------------- BOSS TELEPORT
     echo'<h2>Boss Teleport<span class="right"><span class="">mp cost: </span> <span class ="blue">'.$bossTeleportCost.'</span></span></h2>';
 
@@ -168,13 +247,15 @@ while ($row = $result->fetch_assoc()) {
         echo '<input class=" darkgreenBG" type="submit" name="input1" value="troll king" /> ';
     }
 
-
+    echo '</div>';
+    echo '<div class="gbox">';
     //---------------------------------------------------------------------------- RECALL
     echo '<h2>Recall <i>mp cost: free</i></h2>';
     echo '<input class=" blackBG half" type="submit" name="input1" value="set recall" /> ';
     echo '<input class=" darkblueBG" type="submit" name="input1" value="recall" /> ';
     echo '<div>current recall room: <span class="gold">'.$recall.' $recallRoomName</span></div>';
 
+    echo '</div>';
 
     //echo '</section>';
 }//</form>

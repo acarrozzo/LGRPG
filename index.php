@@ -2,6 +2,8 @@
 <?php include('head.php');?>
 <body>
 <?php
+ini_set('display_errors', 'on');
+error_reporting(E_ALL);
 
 // -------------------------DB CONNECT!
 require_once('db-connect.php');
@@ -9,17 +11,22 @@ require_once('db-connect.php');
 
 if (!isset($_SESSION['username'])) {			// IF NO ONE IS LOGGED IN SHOW TITLE SCREEN
     echo '<div id="container">';
-
     echo '<div id="title">
-	<h1>Light Gray RPGX</h1>
-  <h6>THE DEMO</h6>
-	<h4>- PART 1: VEGA -</h4>'; ?>
-
-  <?php echo file_get_contents("img/svg/inv.svg");
-
+    <span class="icon darkergray lg-logo">'.file_get_contents("img/svg/lg-logo.svg").'</span>
+	<h1 class="hide">Light Gray RPG</h1>
+  <h5>THE DEMO</h5>
+  <span class="icon gold chest">'.file_get_contents("img/svg/chest.svg").'</span>';
     include('login.php');
     echo '<h3>New to Light Gray?</h3>
-	<a href="register.php" class="login btn">CREATE NEW CHARACTER</a>';
+    <form>
+    <a href="register.php" class="login btn">CREATE NEW CHARACTER</a>
+    </form>';
+
+    echo '
+    <h4>- CHAPTER 1: VEGA -</h4>
+    <p>Welcome to the Light Gray RPG demo where you take the role of a young adventurer with amazing potential. You find yourself in Vega, a distant land with countless opportunities.</p>';
+
+
     include('stickman.php');
     echo '</div>';
     echo '</div>';
@@ -39,18 +46,39 @@ if ($_SESSION['lastroom'] != $_SESSION['roomID']) {
 
 
 
-
+<!-- FORM ACTION -->
 <form id="mainForm" method="post" action="<?php echo $_SERVER['PHP_SELF']  //index.php?>" name="formInput" class="TOPFORM">
 
-<div id="action-module" class="module action">
+<div class="all-sections">
+  <div id="action-module" class="module action">
+
+<?php $infobar = '<div class="infobar">
+<a href="" class="lgray" data-link="stats">
+Light Gray RPG
+</a>
+<a href="" class="lgray" data-link="stats">
+  <span class="">Maps</span>
+</a>
+<a href="" class="lgray" data-link="stats">
+
+Enemy List
+</a>
+<a href="" class="lgray" data-link="stats">
+Lore
+</a>
+</div>
+'; ?>
 
 
 <div  class="infoBlock panel" data-pop="action">
-<div class="panel" data-pop2="custom">
+<?php echo $infobar; ?>
+
+
+<div class="panel custom-input" data-pop2="custom">
 	<section>
 	<div class='closeMenu gold'><i class='fa fa-times-circle'></i></div>
 	<div class="customInput">
-		<h2>Custom Input</h2>
+		<h3>Custom Input</h3>
 		<input class="field" type="string" name="input1" value="<?php $input ?>" />
 		<input class="action btn" type="submit" name="submit" value="Submit" id="mainButton" />
 	<!--</form>-->
@@ -58,6 +86,9 @@ if ($_SESSION['lastroom'] != $_SESSION['roomID']) {
 	</section>
 	</div>
 
+<?php
+$closeMenuBtn = '<span class="closeMenu icon white">'.file_get_contents("img/svg/chevron-down.svg").'</span>';
+    echo $closeMenuBtn; ?>
 <section id="action">
 <!--<form id="mainForm" method="post" action="<?php //echo $_SERVER['PHP_SELF']  //index.php?>" name="formInput"> -->
 <?php
@@ -87,6 +118,7 @@ $user = $username = $_SESSION['username'];
     echo "<div class='lastActionBox'>";   // -- last input
     echo "<strong class='red'>Last Action:</strong>";   // -- last input
     echo'<div class="gameBox">';
+
     include('room-all.php');
     echo'</div>';   // END GAMEBOX
     echo '</div>'; //-- END lastActionBox
@@ -101,10 +133,11 @@ $user = $username = $_SESSION['username'];
     //<h2> All Actions</h2>
     echo '
 <div class="roomBox">
-<input type="submit" class=" blueBG" name="input1" value="look">
-<input type="submit" class=" greenBG" name="input1" value="rest">
-<input type="submit" class=" goldBG" name="input1" value="search">
 <input type="submit" class=" redBG" name="input1" value="attack">
+<input type="submit" class=" goldBG" name="input1" value="search">
+<input type="submit" class=" greenBG" name="input1" value="rest">
+<input type="submit" class=" blueBG" name="input1" value="look">
+
 </div>';
 
     include('coinbox.php');
@@ -118,47 +151,56 @@ $user = $username = $_SESSION['username'];
 	</section>
 	</div>
 
+  <div class="panel" data-pop2="system"><section><?php include('system.php'); ?></section></div>
+
+
 	<div class="subMenu">
 	<span class="menuIcon2 " data-link2="action"><span>Action</span></span>
 	<span class="menuIcon2 " data-link2="craft"><span>Craft</span></span>
 	<span class="menuIcon2 " data-link2="custom"><span>Custom</span></span>
+  <span class="menuIcon2 " data-link2="system"><span>System</span></span>
+
 	</div>
 
 <!--</form>-->
 
 </div>
 <!-- STATS PANEL -->
-<div class="panel" data-pop="stats">
-<section> <?php include('stats.php'); ?> </section>
-	<div class="panel" data-pop2="skills"><section><?php include('skills.php'); ?></section></div>
-	<div class="panel" data-pop2="spells"><section><?php include('spells.php'); ?></section></div>
+<div class="panel stats" data-pop="stats">
+  <?php echo $infobar;
+    echo $closeMenuBtn; ?>
+<section class="flex-contain"> <?php include('stats.php'); ?> </section>
+	<div class="panel skills-spells" data-pop2="skills"><section><?php include('skills.php'); ?></section></div>
+	<div class="panel skills-spells" data-pop2="spells"><section><?php include('spells.php'); ?></section></div>
 	<div class="panel" data-pop2="kl"><section><?php include('kl.php'); ?></section></div>
-	<div class="panel" data-pop2="settings"><section><?php include('system.php'); ?></section></div>
 
 	<div class="subMenu">
 	<span class="menuIcon2 active" data-link2="stats"><span>Stats</span></span>
 		<span class="menuIcon2 " data-link2="skills"><span>Skills</span></span>
 		<span class="menuIcon2 " data-link2="spells"><span>Spells</span></span>
 		<span class="menuIcon2 " data-link2="kl"><span>KL</span></span>
-		<span class="menuIcon2 " data-link2="settings"><span>Settings</span></span>
 	</div>
 </div>
 
 <!-- INV PANEL -->
 <div class="panel" data-pop="inv">
+  <?php echo $infobar;
+    echo $closeMenuBtn; ?>
 	<?php // include ('futureEQUIPPED.php');?>
 	<?php include('inv.php'); ?>
 	<div class="subMenu">
 		<span class="menuIcon2 active" data-link2="inv"><span>Weapons</span></span>
 		<span class="menuIcon2 " data-link2="armor"><span>Armor</span></span>
-		<span class="menuIcon2 " data-link2="acc"><span>Acc.</span></span>
-		<span class="menuIcon2 " data-link2="comp"><span>Comp.</span></span>
+		<span class="menuIcon2 " data-link2="acc"><span>Acc</span></span>
+		<span class="menuIcon2 " data-link2="comp"><span>Comp</span></span>
 		<span class="menuIcon2 " data-link2="bag"><span>Bag</span></span>
 	</div>
 </div>
 
 <!-- QUESTS PANEL -->
 <div class="panel" data-pop="quests" id="quests">
+  <?php echo $infobar;
+    echo $closeMenuBtn; ?>
 	<?php include('quests.php'); ?>
 	<div class="subMenu">
 		<span class="menuIcon2 active" data-link2="quests"><span>Quests</span></span>
@@ -169,7 +211,9 @@ $user = $username = $_SESSION['username'];
  </div>
 <!-- WORLD PANEL -->
 <div class="panel" data-pop="world">
-	<section data-pop="teleport" id="teleport" class="teleportXXX"> <?php include('teleport.php'); ?> </section>
+  <?php echo $infobar;
+    echo $closeMenuBtn; ?>
+    	<section data-pop="teleport" id="teleport" class="teleportXXX"> <?php include('teleport.php'); ?> </section>
 	<div class="subMenu">
 		<span class="menuIcon2 active" data-link2="world"><span>World</span></span>
 		<span class="menuIcon2" data-link2="map"><span></span></span>
@@ -178,7 +222,7 @@ $user = $username = $_SESSION['username'];
 
 <?php
 include('shop.php');			// ----- MENU CONTENT
-include('evolve.php');
+    include('evolve.php');
 
     if ($infight >= 1) {
         //	include ('battlebox.php'); 	// ----- POPS UP DURING BATTLE - TURN DPAD INTO ATTACK PAD
@@ -186,11 +230,21 @@ include('evolve.php');
 
 <!-- MENU TABS -->
 <div class="menu">
-  <a href="" class="menuIcon" data-link="stats"><span>Stats</span><i class="purple fa fa-child"></i></a>
-<a href="" class="menuIcon" data-link="inv"><span>Inv</span><i class="green icon-battle-gear"></i></a>
-<a href="" class="menuIcon" data-link="quests"><span>Quests</span><i class="gold icon-trophy"></i></a>
-<a href="" class="menuIcon" data-link="world"><span>World</span><i class="blue icon-world"></i></a>
-<a href="" class="menuIcon" data-link="action"><span>Action</span><i class="red ra ra-hand"></i></a>
+  <a href="" class="menuIcon" data-link="stats"><span>Char</span>
+    <i class="icon purple"><?php echo file_get_contents("img/svg/character.svg"); ?></i>
+  </a>
+<a href="" class="menuIcon" data-link="inv"><span>Inv</span>
+  <i class="icon green"><?php echo file_get_contents("img/svg/inv.svg"); ?></i>
+</a>
+<a href="" class="menuIcon" data-link="quests"><span>Quests</span>
+  <i class="icon gold"><?php echo file_get_contents("img/svg/trophy.svg"); ?></i>
+</a>
+<a href="" class="menuIcon" data-link="world"><span>World</span>
+  <i class="icon blue"><?php echo file_get_contents("img/svg/world.svg"); ?></i>
+</a>
+<a href="" class="menuIcon" data-link="action"><span>Action</span>
+  <i class="icon red"><?php echo file_get_contents("img/svg/hand.svg"); ?></i>
+</a>
 </div>
 
 
@@ -207,12 +261,12 @@ include('evolve.php');
         $command = 	$_SESSION['command'] ="<span class='blue capX command'>  action  </span>";
     }
 
-    include('hud.php');			// ----- HEADS UP DISPLAY
+
     include('nav.php'); 			// ----- DPAD + ACTIONS
 
-?>
+    include('hud.php');			// ----- HEADS UP DISPLAY?>
 
-
+</div>
 
 </div> <!-- END MODULE ACTION -->
 </form>
@@ -226,8 +280,9 @@ include('evolve.php');
     }
 
 
-    echo '<div class="module feed '.$feedClass.'">
-      <div id="feed-module">';
+    echo '<div class="module feed '.$feedClass.'">';
+    echo '<div id="feed-module">';
+    echo '<div class="feedinside">';
 
     // -------------------------DB CONNECT!
 
@@ -241,14 +296,13 @@ include('evolve.php');
         echo $row['feed'];
     } ?>
 <script> // scroll to bottom
-$('#feed-module').scrollTop($('#feed-module')[0].scrollHeight);
+  $('#feed-module').scrollTop($('#feed-module')[0].scrollHeight);
 </script>
+</div> <!-- END FEED INSIDE -->
 </div> <!-- END MODULE ACTION -->
 
 <?php
 }
-
-
 
 //ini_set('display_errors', 'on');
 //error_reporting(E_ALL);

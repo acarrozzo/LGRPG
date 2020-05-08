@@ -64,7 +64,7 @@ Do you enjoy destroying your enemies with massive warhammers and super sharp swo
 }
 // ---------------------- QUEST 19) Defeat the Ogre Lieutenant ---------------------- //
 if($input=='info 19') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 19 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 19 Info</strong><br>
 		To join the Warrior's Guild you have to defeat the Ogre Lieutenant. His Lair is found in the southwest part of the Forest Map. Follow the path out of town to the north and then go W when you reach the Forest Map. </div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -87,7 +87,7 @@ else if($input=='complete 19')
 		$results = $link->query("UPDATE $user SET quest19 = 2");
 	} 
 	else if ($quest19 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 19 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 19 Not Complete</strong><br>
 	To complete this quest you need to find and kill the Ogre Lieutenant. Find him in his lair north of here.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  

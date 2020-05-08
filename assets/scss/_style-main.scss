@@ -1,24 +1,29 @@
-/* CSS Document - MAIN ---- */
-body {
-	color: #666;
-	font-size: 14px;
-	font-weight: 300;
-	line-height: 1.5em;
-	//background-size: cover;
-	background-position: center;
-	//xbackground-image: url(http://s1.picswalls.com/wallpapers/2016/06/06/hd-beach-wallpaper_090612883_305.jpg);
-	//zbackground-image: url(https://www.walldevil.com/wallpapers/a30/grassy-field-wallpapers.jpg);
-	//wbackground-image: url(http://4.bp.blogspot.com/--jsncRl6_HI/Uw4G1lgmFuI/AAAAAAAAEFY/_S7MKihOac8/s1600/nature-desktop-backgrounds-images-wallpapers-1.jpg);
-	//xbackground-image: url(https://jazzerstenhdr.files.wordpress.com/2013/10/4f5a7628_29_30_31_32.jpg);
-	//ybackground-image: url(http://allswalls.com/images/sunshine-in-the-cave-wallpaper-1.jpg);
-	//background-image: url(http://alaskanlumberjackshow.com/wp-content/uploads/large-old-paper-or-parchment-background-texture.jpg);
+/* LG RPG CSS Document - MAIN ---- */
 
-	wbackground-color:$purple;
-	vbackground-color:$gold;
-	zbackground-color:$red;
-	xbackground-color:$blue;
-	qbackground-color:$green;
-	background-color:#eee;
+html {
+//	font-size: 16px;
+	font-size: 10px;
+//	line-height: 1.5em;
+	line-height: 1.5;
+//	transition: 1s font-size;
+}
+body {
+	background-color: #eee;
+	color: $darkgray;
+    font-size: 1.5rem;
+		line-height: 2rem;
+		cursor: default;
+
+//		position:relative;
+overflow-x:visible;
+	//background-size: cover;
+	//background-position: center;
+	//	xbackground-image: url(http://s1.picswalls.com/wallpapers/2016/06/06/hd-beach-wallpaper_090612883_305.jpg);
+	//	zbackground-image: url(https://www.walldevil.com/wallpapers/a30/grassy-field-wallpapers.jpg);
+	//	wbackground-image: url(http://4.bp.blogspot.com/--jsncRl6_HI/Uw4G1lgmFuI/AAAAAAAAEFY/_S7MKihOac8/s1600/nature-desktop-backgrounds-images-wallpapers-1.jpg);
+	//	xbackground-image: url(https://jazzerstenhdr.files.wordpress.com/2013/10/4f5a7628_29_30_31_32.jpg);
+	//	ybackground-image: url(http://allswalls.com/images/sunshine-in-the-cave-wallpaper-1.jpg);
+//		background-image: url(http://alaskanlumberjackshow.com/wp-content/uploads/large-old-paper-or-parchment-background-texture.jpg);
 }
 * {
     padding:0;
@@ -28,7 +33,100 @@ body {
 	box-sizing:border-box;
 }
 
+.map-tiles{
+	display: flex;
+	    flex-wrap: wrap;
+	    justify-content: space-between;
+	  //  background: #222;
+	  //  padding: 2rem;
+	    max-width: 50rem;
+	    margin: 2rem auto;
+	    text-align: center;
+	    line-height: 2.5rem;
 
+}
+.map-tiles2{
+	position:absolute;
+	display: flex;
+	    flex-wrap: wrap;
+	    justify-content: space-between;
+	    //background: #222;
+    padding: 1.5%;
+			    max-width: 50rem;
+	    margin: 0 auto;
+	    text-align: center;
+			width:100%;
+}
+
+.tile {
+	width: 32%;
+	padding-bottom: 32%;
+	margin-bottom: 2%;
+	position: relative;
+	font-size: 2rem;
+	opacity: .3;
+	.tile2 {
+		width: 13%;
+		padding-bottom: 13%;
+		margin-bottom: 1.5%;
+		position: relative;
+		font-size: 2rem;
+		opacity: .8;
+	}
+
+	span {
+		position: absolute;
+		display: flex;
+justify-content: center;
+align-items: center;
+height: 100%;
+right: 0;
+left: 0;
+padding:0 1rem;
+
+	}
+	&.active {
+		text-shadow: 0 0 0.5rem #333;
+		    box-shadow: 0 0 1rem #000;
+				opacity: 1;
+	}
+}
+/* ---------- SVG MAIN */
+svg {
+  	//max-height: 80px;
+		max-height: 8rem;
+		max-height: 10rem;
+		.menu & {
+		    max-height: 2.6rem;
+				-webkit-filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.5));
+				filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.5));
+		}
+		.skills-spells & {
+			float: left;
+	    margin: 1rem 2rem 8rem 0;
+	    width: 7rem;
+			max-height: initial;
+		}
+		#quests .npc & {
+			float: right;
+	    margin: 1rem -1rem 2rem 0;
+	    width: 40%;
+			max-height: initial;
+		}
+
+		.skills-spells .disable & {
+					margin-bottom: 2rem;
+			}
+		.lg-logo & {max-height: 16rem;margin: 2rem 0 0;}
+		.chest & {margin: 5rem 0 7rem;}
+		.roomBox & {margin: 2rem;}
+
+  }
+.checkbox {
+	float: left;
+	width: 2rem;
+	margin: 0 0.5rem 0 0;
+}
 //  ---------------------------------- SCROLLBAR STYLE
 // body, article, .module {@include scrollbars(6px, $dgray);}
 section::-webkit-scrollbar {
@@ -36,7 +134,6 @@ section::-webkit-scrollbar {
 }
 section::-webkit-scrollbar-thumb {
     background: $gray;
-	//border-radius: 20px;
 }
 section::-webkit-scrollbar-track {
     background: $darkergray;
@@ -46,26 +143,46 @@ section::-webkit-scrollbar-track {
 }
 
 /* ---------------MAIN */
-body {color:$darkgray;font-size:16px;font-weight:300;line-height:1.5em;}
+.inline {
+	display: inline-block;
+	display: inline;
+}
 .hide {display:none;}
+.disable {
+    opacity: 0.2;
+    pointer-events: none;
+}
 //.transition {-o-transition:all 1s ease;-moz-transition:all 1s ease;-webkit-transition:all 1s ease;transition:all 1s ease;}
-body, input {
+body, input, button {
+/*
 font-family: 'Arial', serif;
 font-family: 'Droid Serif', serif;
 font-family: 'Cinzel', serif;
-font-family: 'Droid Serif', serif;
 font-family: 'Libre Baskerville', serif;
-font-family: 'Playfair Display', serif;
 font-family: 'Sorts Mill Goudy', serif;
 font-family: 'Helvetica', serif;
-font-family: 'IM Fell English', serif;
-font-family: 'Milonga', sans-serif, serif;
 font-family: 'Blinker', sans-serif;
+font-family: 'Milonga', sans-serif, serif;
+font-family: 'Kumar One Outline', cursive;
+font-family: 'Medula One', cursive;
+
+font-family: 'Katibeh', cursive;
+*/
+
+font-family: 'Press Start 2P', sans-serif;
+font-family: 'Forum', serif;
+font-family: 'Averia Serif Libre', serif;
+font-family: 'Megrim', serif;
+font-family: 'Playfair Display', serif;
+
 font-family: 'Rubik', serif;
+font-family: 'Girassol', serif;
+font-family: 'IM Fell English', serif;
+font-family: 'Germania One', serif;
+font-family: 'Londrina Solid', serif;
+
 -webkit-appearance:none;}
 
-//body.bold, body.bold input {font-weight:bold;}
-//body.bigText, body.bigText input, body.bigText div {font-size:110%!important;}
 
 form, p, span {margin:0;padding:0;}
 #container .clear {clear:both;}
@@ -76,124 +193,149 @@ form, p, span {margin:0;padding:0;}
 #container .alignL {text-align:left;}
 #container .alignR {text-align:right;}
 
-.lol {display:block;}
 
 
-.btn {
-    padding: 5px 20px;
-    margin: 5px auto;
-    background: #999;
-    color: #fff;
-    clear: both;
-    display: inline-block;
-    text-decoration: none;
-}
 /* --------------- HEADERS */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	letter-spacing: -.03em;
+	letter-spacing: -.01em;
+}
 
-h1,h2,h3,h4,h5,h6 {
+h1 {
+	font-size: 6rem;
+	line-height: 6rem;
+}
 
+h2 {
+	font-size: 4.5rem;
+	line-height: 4.5rem;
+}
 
-	font-weight:bold;font-weight:normal;}
+h3 {
+	font-size: 3.4rem;
+	line-height: 3.4rem;
+}
 
+h4 {
+	font-size: 2.5rem;
+	line-height: 2.7rem;
+}
 
-h1{    font-size: 46px;
-    line-height: 1em;
-    padding: 30px 10px 0px;}
-h2 {display:block;font-size:28px;margin:20px -20px 0;color:$gold;border-top: solid 10px #47474A;padding:20px;clear:both;
-	&:first-child {
-    	margin-top: 0;
+h5 {
+	font-size: 2.0rem;
+	line-height: 2.2rem;
+}
+
+h6 {
+	font-size: 1.8rem;
+
+	+ h6 {
+		margin-top: 0.5rem;
 	}
 }
-h2 i {font-style:normal;float:right;font-size:18px;}
-.input h2 {width:380px;}
-h3 {    font-size: 38px;
-    line-height: 36px;
-    margin: 0 0 5px;
-    letter-spacing: -.03em;}
-nav .lvl { font-size: 26px;}
-h4 {font-size: 28px;
-    margin: 0 0 5px;
-    letter-spacing: -.03em;}
-h3 + h4 {color: #99999A;
-    margin:-5px 0 10px;
-}
 
-h5 {font-size:18px;margin:0;font-weight:300;}
-h6 {font-size:22px;margin:15px 0;font-weight:300;}
+
 /* --------------- LIST ITEMS */
 ul {display:block;overflow:hidden;margin:0 0 10px;padding:0;}
 li a {float:left;display:block;background:#ddd;list-style:none;margin:0;padding:0px 5px;}
 
-
-input {    background: #aaa;
-    border: none;
-    color: #fff;
-    margin: 3px 0;
-    padding: 8px 16px;
-    font-size: 14px;
-    text-transform: capitalize;}
+/* ------------------------------------ CORE */
 
 
+
+.vc {@include vertical-align; }
+.rotate45 {
+  -webkit-transform: rotate(45deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+      -ms-transform: rotate(45deg);  /* IE 9 */
+          transform: rotate(45deg);  /* Firefox 16+, IE 10+, Opera */
+}
+
+
+
+inputX {
+	background: #aaa;
+	border: none;
+	color: #fff;
+	margin: 0.4rem 0;
+	padding: 0.8rem 2rem;
+	text-transform: capitalize;
+	font-size: 1.8rem;
+	text-shadow: 0 0 10px rgba(0,0,0,0.3);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+	cursor:pointer;
+}
+
+.btn, button, input {
+	@include border-radius(50px);
+	@include inset-highlight();
+	clear: both;
+	display: inline-block;
+	text-decoration: none;
+	text-shadow: 0 0 10px rgba(0,0,0,0.3);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+	cursor:pointer;
+	background: #aaa;
+	border: none;
+	color: #fff;
+	margin: 0.4rem 0;
+	padding: 0.8rem 2rem;
+	text-transform: capitalize;
+	font-size: 1.8rem;
+}
 
 
 /* --------------- TITLE PAGE */
-#title {margin:0 auto;text-align:center;font-size: 16px;
-	.icon-dragon {font-size:200px;}
-	.ra-archer {
-    font-size: 100px;
-    margin: 20px 0 0;
-    display: inline-block;
-	}
-	h3 {margin-bottom: 20px;}
+#title {    margin: 0 auto;
+    text-align: center;
+    padding: 2rem;
+    max-width: 44rem;
+
+
+	.module.login a.btn {padding:4px 10px;text-decoration:none;color:#333333;float:left;margin:10px 10px 0 0;}
+	.login.btn {background: #aaa;
+	    color: #fff;
+	    display: block;
+	    padding: 10px 20px;}
 }
 #title input {color: $darkgray;
-    width: 100%;
-	max-width:240px;
-	box-sizing:border-box;
-    padding:10px;
-    background: #fff;display: block;
-    margin: 5px auto;text-align: center;font-size: 16px;}
-
-#title form {
-margin: 0 auto 20px;
-    max-width: 260px;
-    padding: 20px 0;
-    border-bottom: solid 1px #999;}
-
-#title .gamestart.btn {
-    background: #87d63f;
-    font-size: 16px;color:#fff;
-    padding: 15px 20px;
-    min-width: 300px;text-transform:uppercase;
+width: 100%;
+box-sizing: border-box;
+padding: 1rem 2rem;
+background: #fff;
+display: block;
+margin: .5rem auto;
+text-align: center;
+	&:first-of-type, 	&:nth-of-type(2) {
+    box-shadow: 1px 1px 10px inset rgba(0, 0, 0, 0.3);
 }
 
-#title h5 span{    font-size: 24px;
-    display: block;
-    line-height: 1.5em;}
+}
+
+#title form {
+	margin: 0 auto 5rem;
+	max-width: 26rem;
+	padding: 0 0 5rem;
+	border-bottom: solid 1px #999;
+}
+
 #title .alert {
-    color: #ed4949;
-    margin: 30px auto 0px;
-    display: inline-block;
+//    color: #ed4949;
+//    margin: 30px auto 0px;
+//    display: inline-block;
 }
 #title .login p.alert {
     display: block;
     margin: 50px auto ;
 }
 
-#title .registerstart {margin-top:30px;}
-
-#title .registerstart span {
-    display: block;
-    margin: 10px 0;
-}
-#title h5 {
-    font-size: 22px;
-    margin: 20px;
-    line-height: 30px;
-}
 #title strong {
-    font-size: 32px;
-    line-height: 42px;
+    font-size: 3.2rem;
+    line-height: 4.3rem;
     color: #70b9ed;
 }
 
@@ -205,8 +347,7 @@ margin: 0 auto 20px;
 /* --------------- TOGGLE */
 body.rounded #container span, body.rounded #container nav span, body.rounded #container input, body.rounded #container .infoBlock, body.rounded #container .module, body.rounded .barMid, body.rounded .bar, body.rounded #map, body.rounded .feed strong, body.rounded #craft .maxRing, body.rounded .menuAction, body.rounded #container .btn {border-radius:20px;-o-transition:all 1s ease;-moz-transition:all 1s ease;-webkit-transition:all 1s ease;transition:all 1s ease;}
 /* -- ----------------------------- Box O LIGHT? -- */
-#boxoflight {DISPLAY:NONE;background:#fff;padding:10px;color:#aaa;position:absolute;bottom:0;text-align:right;right:0;}
-#boxoflight h6 {color:#70b9ed;}
+#boxoflight {DISPLAY:NONE;display:block;background:#fff;padding:10px;color:#aaa;position:absolute;bottom:0;text-align:right;right:0;}
 /* -- ----------------------------- TOP NAV BAR -- */
 nav {left:0;position:fixed;bottom:0;width:100%;background:#77777A;display:block;height:40px;color:$lightgray;z-index:2;}
 nav il, span i {font-style:normal;}
@@ -229,13 +370,15 @@ nav .equip > span {background:#838384;}
 nav .skills > ul li {padding:5px 10px 4px 0;}
 nav .stat {float:right;font-size:16px;}
 .navfloat {padding:0;}
-.coll {width:340px;}
+.coll {
+	//width:340px;
+}
 nav .h3 {
     color: #999;
     font-size: 20px;
     margin: 20px 0 0;
 }
-nav .alt2 {color:#77777A;}
+//nav .alt2 {color:#77777A;}
 .hilite {font-size: 24px;
     line-height: 30px;
     position: relative;}
@@ -270,13 +413,15 @@ nav em {position:absolute;top:32px;color:#999;left:38px;font-size:10px;}
 XXXnav #kl .h3 {margin:10px -10px 10px;background:#47474A;display:block;padding:10px;}
 XXX#kl i {font-style:normal;color:#77777A;float:right;font-size:14px;}
 #kl .rare {display:inline-block;width:20px;height:20px;color:#55565A;background:#47474A;border-radius:25px;float:left;margin:3px 4px 0 0;padding:5px;font-weight:bold;line-height:10px;text-align:center;font-size:12px;}
-#kl i.elvl {float:none;color:#47474A;font-size:18px;}
-#kl .elvl:before {content:'lvl ';font-size:12px;}
+
+.elvl:before {
+	content: 'lvl ';
+font-size: 2rem;
+}
 /* -- ----------------------------- MODULE LAYOUT -- */
 .module.login {padding:20px;display:none;width:300px;}
 .heal {background:#77777A;color:#E8E6E6;height:520px;width:400px;z-index:2;}
 .module.stats {height:500px;}
-#feed-module {display:block;height:570px;overflow-y:scroll;width:415px;-webkit-overflow-scrolling: touch;}
 
 .rightScroll {height:260px;overflow:auto;width:180px;}
 .rightScroll li {color:#999;}
@@ -334,7 +479,9 @@ p a {color:#646465;padding:0 2px;text-decoration:none;}
   display: inline;
   width: 45px;
   height: 45px;
-  color: #999;opacity:.1;
+//  color: #999;
+//	color:#666;
+	opacity:.1;
 	&.active {opacity:1;}
   }
 
@@ -344,19 +491,30 @@ p a {color:#646465;padding:0 2px;text-decoration:none;}
   border-radius: 50%;
   height: 45px;
   width: 45px;
-  text-indent: -999px;
-  background: none;
+  //text-indent: -999px;
+	background: none;
+	box-shadow: none;
+	text-indent: 0;
+	position: relative;
+	z-index: 1;
+	font-size:21px; //need pixel not rem for scalable compass
+	text-shadow: 0 0 5px #000;
+	text-transform: uppercase;
+	text-align: center;
+	    opacity: 0.9;
   }
 
 #compass .fa {
       position: absolute;
     left: 0;
     right: 0;
+		top:0;
     margin: 0 auto;
     text-align: center;
     font-size: 44px;
     pointer-events: none;
     padding: 3px;
+		    text-shadow: 0px 0px 10px #333, 0px 0px 5px #333;
   }
 
 
@@ -400,16 +558,23 @@ p a {color:#646465;padding:0 2px;text-decoration:none;}
 
 #compass .u {
     left: 5%;
-    bottom: 150px;
+  //  bottom: 150px;
+		bottom: 190px;
     right: initial;
  }
 
 #compass .d {
     left: 5%;
-    bottom: 70px;
+//    bottom: 70px;
+		bottom:110px;
     right: initial;}
 
-
+.updown {
+text-align: center;
+	input {
+		//padding:0 0 2rem;
+	}
+}
 
 
 
@@ -431,11 +596,15 @@ XXXnav ul li img {width:100%;height:100%;}
 .maplist .hidden img {display:none;}
 .maplist img {position:absolute;top:10px;left:10px;height:600px;width:600px;float:left;}
 .maplist span {border:none;clear:both;color:#fff;float:none;margin:10px 0 0 610px;padding:5px 10px;text-align:left;width:150px;}
+.mapimage {
+    width: 100%;
+    height: auto;
+}
 .graysheet {background:#333;width:100%;height:900px;position:absolute;top:0;left:0;}
 /* -------- ALT COLOR STYLES -- */
 .alt, .feed .alt {color:#55565A;}
 .alt, .feed .alt {color:#333;}
-.alt2 {color:#cbc8c7;} /* -- cool gray 3 */
+
 //.infoBlock span {color:#99999A;}
 /* --------  TAB STYLES -- */
 #panelwrap {clear:both;overflow:hidden;background:#646569;height:100%!important;}
@@ -463,18 +632,7 @@ article.active {display:block;}
 .shop .command {display:none;}
 .shop #mainForm > br:firs
 t-child {display:none;}
-.shop .alt2 {width:60px;float:right;color:#CAC8C8;text-align:right;padding:0 10px;}
-/* ---------- SIGN DISPLAY */
-.sign {background: $brown;
-    color: #fff;
-    margin: 10px 0 0;
-    padding: 20px;}
-.sign input {
-    background:$lightgray;
-}
-.sign .hilight {color:$gold;font-size:14px;}
-.direc {display:inline-block;font-style:italic;margin:8px 0 0;}
-.direc > input {background:none;font-size:14px;font-style:italic;margin:0 0 0 -5px;padding:0 5px;width:auto;}
+//.shop .alt2 {width:60px;float:right;color:#CAC8C8;text-align:right;padding:0 10px;}
 /* ---------- GOLD CHEST DISPLAY */
 .goldchestopen {background:$yellow;border:15px solid $gold;color:$ddgray;margin:5px 0;padding:15px;position:relative;font-weight:900;}
 /* ---------- BUTTONS */
@@ -483,14 +641,21 @@ article input {    padding: 6px;
     background: #f1b238;
     color:$darkergray;}
 
-input.equipBtn {width: 42px;padding: 6px 3px;background: $gold;color: #333;}
-input.mountBtn {width:47px;padding:6px 3px;background: $gold;color: #333;}
-input.viewBtn {width:35px;padding:6px 3px;background: $gold;color: #333;}
-input.eatBtn {width:27px;padding:6px 3px;background: $gold;color: #333;}
-input.drinkBtn {width:42px;padding:6px 3px;background: $gold;color: #333;}
-input.buyBtn {width:24px;padding:6px 3px;background: $gold;color: #333;}
+input.equipBtn {width: 4.2rem;padding: 6px 3px;background: $gold;color: #333;}
+input.mountBtn {width:4.7rem;padding:6px 3px;background: $gold;color: #333;}
+input.viewBtn {width:3.5rem;padding:6px 3px;background: $gold;color: #333;}
+input.eatBtn {width:2.7rem;padding:6px 3px;background: $gold;color: #333;}
+input.drinkBtn {width:4.2rem;padding:6px 3px;background: $gold;color: #333;}
+input.buyBtn {width:2.4rem;padding:6px 3px;background: $gold;color: #333;}
 
-input.sellBtn {width:28px;padding:2px 3px;background:none;color:#77777A;float:right;margin:2px 4px 0 0;}
+input.sellBtn {
+	width: 3.5rem;
+padding: 0 0.5rem;
+background: none;
+color: #77777A;
+//    float: right;
+//    margin: .2rem .4rem 0 0;
+	}
 input.sellallBtn {width:36px;padding:2px 3px;background:$gold;color:#77777A;}
 
 .sellPrice {float:right;color:$gold;}
@@ -500,22 +665,63 @@ input.sellallBtn {width:36px;padding:2px 3px;background:$gold;color:#77777A;}
     display: inline-block;}
 input.learnBtn {width:32px;padding:9px 3px;background:$gold;color:#77777A;}
 input.craftBtn, input.craftMoreBtn {padding:2px 3px;background:$gold;width:auto;color:#55565A;}
-input.increaseBtn, input.increaseBtn10 {
-background: #fff000;
-    color: #646569;
-    float: right;
-       margin: -2px 0 0 6px;
-    clear: both;}
+.increaseBtn, .increaseBtn10 {
+		//background: #fff000;
+	 //   color: #333;
+	    //float: right;
+			//clear: both;
+	    margin:0 1rem 1rem 0;
+	    padding: 0.5rem 1rem;
+		}
 input.helpBtn {background:none;padding:2px 3px;width:26px;}
 input.long {width:203px;}
 input.activateBtn {width:45px;padding:3px 3px;background:#47474A;margin:2px 0 2px;}
 input.auto {padding:7px 12px;width:auto;}
 input.third {width:78px;}
 /* ---------- SKILLS MENU */
-.descrip {background: #47474A;
-    margin:0 0 10px;
-    padding: 20px;}
-.spCount {float: right;}
+.descrip {
+	background: #47474A;
+	margin: 0 0 1rem;
+	padding: 2rem;}
+.spCount {
+	right: 2rem;
+	    top: 0;
+			position:sticky;
+	    padding: 1rem 2rem;
+	    background: #333;
+	    box-shadow: 0 0 5px #333;
+	    float: right;
+	    display: inline-block;
+		}
+
+
+
+			.navhud	.character {
+
+
+					width: 3rem;
+					height: 4.4rem;
+					margin: 0.5rem 2rem 0rem 0;
+					margin: 0 0 0.5rem;
+					padding: 0;
+					background: 0;
+					border-radius: 0;
+					float: none;
+
+				}
+						.card {
+			float: left;
+	    width: 15rem;
+	    height: 22rem;
+	    margin: 0.5rem 2rem 0rem 0;
+	    border-radius: 2rem;
+	    padding: 1rem;
+			background: #666;
+			svg {
+	max-height: initial;
+}
+		}
+
 
 #container .maxed {background:none;color:#00FFFF;font-size:24px;font-weight:900;padding:5px 0;right: 0;}
 #skills .px12.gold, #spells .px12.gold {position:absolute;top:8px;right:90px;}
@@ -523,9 +729,10 @@ input.third {width:78px;}
 
 /* ---------- SHOP MENU */
 #shop li {
-    font-size: 14px;
-    border-bottom: 1px solid #47474A;
-    padding: 15px 10px;
+  //  font-size: 14px;
+	border-bottom: 1px solid #47474A;
+	    padding: 1rem 1rem;
+	    color: #eee;
 }
 #shop .buyBtn {    font-size: 14px;
     width: auto;
@@ -536,14 +743,19 @@ input.third {width:78px;}
 /* ---------- feed */
 #bottomActionBar {float:left;width:400px;overflow:auto;height:40px;}
 .equipped {
-	color: #f1b238;
-    cursor: default;
-    font-size: 14px;
-    margin: 4px 0px 2px;
-    padding: 2px 10px;
-    border: solid 1px #f1b238;
-    border-radius: 5px;
-    display: inline-block;}
+	color: #fff000;
+	    cursor: default;
+	    //border: solid .1rem #fff;
+			display: inline-block;
+ font-size: 1.4rem;
+ margin: 0.4rem 0 .2rem;
+ border-radius: 0.5rem;
+ padding: 0.5rem 1rem;
+ background: #fff;
+ color: black;
+ padding-left: 10rem;
+ margin-left: -10rem;
+}
 nav .btn {background:#646569;display:block;text-align:center;text-decoration:none;}
 
 /* ---------------------------------------------------------------------------------------------------- CRAFT MENU -- */
@@ -583,7 +795,8 @@ span.command {
     display: block;
     border-top: solid 1px $gray;
     text-transform: uppercase;
-    font-size: 10px;
+  //  font-size: 10px;
+		    font-size: 1.4rem;
     font-weight: 900;
 }
 .cap {text-transform:uppercase;}
@@ -600,15 +813,7 @@ span.command {
 /* ---------- SPAN OTHER STYLES */
 span.strong {font-size:150%;}
 span.width {width:110px;display:block;float:left;color:#4F6C42;}
-/* ---------- LOGIN BOX */
-.module.login a.btn {padding:4px 10px;text-decoration:none;color:#333333;float:left;margin:10px 10px 0 0;}
-#title .login.btn {background: #aaa;
-    color: #fff;
-    display: block;
-    font-size: 16px;
-    padding: 10px;
-    text-decoration: none;
-    max-width: 240px;}
+
 /* ---------- TINY SCROLL BAR */
 #scrollbar1 {clear:both;margin:20px 0 10px;display:none;}
 #scrollbar1 .viewport {height:200px;overflow:hidden;position:relative;display:none;}
@@ -627,7 +832,10 @@ p.content-one, p.content-one2 {display:none;}
 .maxstat {float:right;}
 
 
-#hud .magicarmorBox, article .magicarmorBox {position:absolute;top:-5px;right:20px;padding:6px 6px;color:#fff;line-height:10px;font-size:16px;height:20px;}
+#hud .magicarmorBox, article .magicarmorBox {
+	top: 2.9rem;
+  right: 3rem;
+	}
 #hud .extrahpBox, article .extrahpBox {position: absolute;
     right: 0px;
     height: 20px;
@@ -638,11 +846,7 @@ p.content-one, p.content-one2 {display:none;}
 /* --------------- HUD BATTLE STATUS */
 
 
-.battleFrame .battlewin {padding:10px;background:$blue;color:#fff;overflow:hidden;
- 	h3 {font-size:24px;
-  		span {font-size:42px;display:block;}
-	}
-}
+
 .attacknumber {display:inline-block;margin:0 5px 0 5px;padding:0 5px;}
 input.attack {background:$gold;padding:3px 20px 2px;margin:0;width:auto;color:#646569;}
 .dead {color:#ed4949;font-size:32px;margin-top:10px;}
@@ -686,69 +890,42 @@ input.attack {background:$gold;padding:3px 20px 2px;margin:0;width:auto;color:#6
 .teleport.shop {text-align:center;background:#70b9ed;font-size:100px}
 input.teleportBtn {padding:3px;background:#c6e4ff;width:345px;color:#55565A;clear:both;font-size:100px}
 .teleport h4 {color:#fff;text-transform:uppercase;margin:3px 0 6px;font-size:100px}
-/* --------------- QUEST WIN BOX */
-.questWin {background:$green;padding:20px;margin:0;color:#FFF;}
-.questWin h4 {color: #565656;font-size: 20px;clear: both;}
+
 /* --------------- QUEST  */
-#quests {
-	color:#ccc;
-	text-align:center;
+#quests .completed {
+	  opacity: .5;
+    display: block;
+	}
+.questhead {
+	//color: #f1b238;
+  //  padding: 20px 0;
 }
-#quests p {
-    color: #eee;
-    padding: 10px 0;
-    font-size: 18px;
-}
-#quests .completed {    opacity: .5;
-    display: block;}
-.questhead {   color: #f1b238;
-    padding: 20px 0;
-}
-#quests h2 {
-   font-size: 46px;
-    line-height: 38px;
-}
+
 #quests h2 i {
     display: block;
     float: none;
-    font-size: 22px;
+  	font-size: 2rem;
     color: #eee;
 }
-#quests h3 {
-	color:$gold;    margin-top: 20px;
-}
-#quests h3 i {
-    font-size: 32px;
-    margin-right: 10px;
-}
-
-#quests h4 {    margin: 50px 0 10px;
-    border-top: solid 2px;
-    font-size: 20px;
-    padding: 10px 0 0;}
-
 
 .questhead.completed {background:#999;}
 
-
-#quests input {    padding: 10px;
-    width: 45%;
-    margin: 5px 2% 20px 2%;
-    font-size: 14px;
-    text-transform: uppercase;background:#454545;
-    font-weight: 900;}
-#quests .startall {font-size: 40px;width: 100%;margin: 60px 0 80px;}
-#quests .completeBtn {background:$green;}
+#quests input { width: 45%;
+    text-transform: uppercase;
+    background: #454545;
+    margin: .5rem .5rem 2rem;
+	}
+#quests .startall {font-size: 40px;width: 100%;margin: 60px 0 80px;background:$gold;}
 #quests .qbox {width:24px;margin:5px 5px 0 0;text-align:center;color:#47474A;font-size:12px;border-radius:50%;display: inline-block;}
 #quests .q0 {background:#646569;}
 #quests .q1 {background:$gold;}
 #quests .q2 {background:#87d63f;}
 
 .questhead h5:nth-child(4) {display:none;}
-.questLvlBox {     margin: 2px 0;
-    line-height: 1em;
-    font-size: 18px;
-    display: block;}
+.questLvlBox {
+text-transform: uppercase;
+color:#999;
+}
 
 .num {margin-right: 10px;
     border:#999 1px solid;
@@ -763,21 +940,25 @@ nav .px14.none.fa {margin-right:5px;float:left;}
 
 /* --------------- TELEPORT  */
 .mapCube {
-width: 27vw;
-    height: 27vw;
-    border-radius: 0;
-    margin: 3px;
-    float: left;
-    padding: 12% 0;
-    text-align: center;    background: $darkestgray;
+	width: 27vw;
+	    height: 27vw;
+	    border-radius: 0;
+	    margin: 3px;
+	    float: left;
+	    padding: 0px;
+	    text-align: center;
+	    font-size: 1.6rem; background: $darkestgray;
 }
 /* --------------- buy box */
 .buybox {background:#333;padding:10px;color:#fff000;font-size:18px;}
 /* --------------- MENU ACTION - IN FEED */
 .menuAction {
-	background:$darkergray;
-    padding: 20px;
-	color: #fff;
+	//background:$darkergray;
+  //  padding: 20px;
+	//color: #fff;
+	padding: 2rem;
+border: dashed .1rem;
+strong {font-size:2rem;}
 }
 .menuAction .fa, .menuAction i {    font-size: 28px;
     color: #70b9ed;
@@ -786,12 +967,39 @@ width: 27vw;
 .menuAction span {color:$gold;}
 .menuAction > .goldbox {background:$gold;padding:10px 5px;color:#47474A;display:block;height:30px;float:right;top:-15px;position:relative;border:#47474A solid 3px;width:60px;text-align:center;}
 .menuAction em {font-style:normal;}
+/* --------------- QUEST WIN BOX */
 /* --------------- LEVEL WIN BOX */
-.levelWin {background:#87d63f;padding:15px;margin:0 0 10px;font-size:20px;color:#FFF;}
-.levelWin h4 {    color: #FFF;
-    font-size: 28px;
-    font-weight: 900;
-    margin: 0 0 10px;}
+/* ---------- SIGN DISPLAY */
+
+
+.sign .direc {display:inline-block;font-style:italic;margin:8px 0 0;}
+.direc > input {background:none;font-size:14px;font-style:italic;margin:0 0 0 -5px;padding:0 5px;width:auto;}
+
+.levelWin, .questWin, .battlewin, .sign, .fbox {
+    padding: 2rem;
+    margin: 0 0 10px;
+    font-size: 2rem;
+    color: #FFF;
+    border: 1rem solid #fff;
+    box-shadow: 0 0 1rem #999;
+    margin: 2rem;
+		margin:1rem 1rem 0;
+		text-shadow: 0 0 1rem rgba(30, 30, 30, 0.2), 0 0 0.5rem rgba(30, 30, 30, 0.5);
+background: #333;
+		 			h4 {
+		 			 color:$gold;
+		 		 }
+				 .hilight {color:$gold;}
+
+			}
+		.levelWin {
+			background:$green;
+			background: #87d63f;
+		}
+		.battlewin {background:$blue;}
+.sign {background: $brown;font-size:1.6rem;}
+
+
 /* --------------- LEVEL WIN BOX */
 .evolveBox {background:#333;padding:15px;margin:0 0 10px;font-size:20px;color:#FFF;border:solid 10px #00FFFF;}
 /* --------------- LEARN BOX */
@@ -842,32 +1050,6 @@ XXXli span i.black {font-size:14px;}
 
 
 
-/* ------------------------------------ CORE */
-
-/*
-* { border-radius: 0!important;}
-#map {border-radius: 50%!important;}
-*/
-
-
-input, .btn {
-			@include border-radius(50px);
-			@include inset-highlight();
-	}
-
-
-
-
-.vc {@include vertical-align; }
-
-
-.rotate45 {
-  -webkit-transform: rotate(45deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-      -ms-transform: rotate(45deg);  /* IE 9 */
-          transform: rotate(45deg);  /* Firefox 16+, IE 10+, Opera */
-}
-
-
 
 
 
@@ -909,13 +1091,16 @@ input, .btn {
 }
 article {
 	height: calc(100vh - 150px);
-	height:calc(100vh - 260px);
-    margin:0;
-    padding:0 20px 100px;
-    width: 100%;
-    background:#55565A;
-	overflow-y: scroll;
-  	-webkit-overflow-scrolling: touch;
+	    height: calc(100vh - 230px);
+	    margin: 0;
+	    padding: 0 1rem 6.4rem;
+	    width: 100%;
+	    background: #55565A;
+	    overflow-y: scroll;
+	    -webkit-overflow-scrolling: touch;
+	    height: 100vh;
+	    position: absolute;
+	    bottom: 0;
 	span {
 		color: #999;
 	}
@@ -926,9 +1111,9 @@ nav {
     height: 0;
 }
 .col {
-	clear: both;
-    display: block;
-    margin: 0 0 10px;
+//	clear: both;
+//    display: block;
+//    margin: 0 0 10px;
 }
 
 
@@ -942,7 +1127,7 @@ nav {
 }
 .menu {
     width: 100%;
-    bottom: 0px;
+    bottom: 0;
 		background:#333;
 overflow:hidden;
 	//position: absolute;
@@ -952,7 +1137,8 @@ overflow:hidden;
 .subMenu {
     position: absolute;
     width: 100%;
-    bottom: 60px;
+	//	bottom: 60px;
+		bottom: 6rem;
     background: #47474A;
     left: 0;
     line-height: 2em;
@@ -960,57 +1146,228 @@ overflow:hidden;
 .menuIcon {
     text-align: center;
 	text-decoration: none;
-    font-size: 28px;
+  //  font-size: 28px;
     width: 20%;
     z-index: 2;
     position: relative;
     float: left;
     margin: 0;
-    height: 60px;
-    padding: 8px 0 0;
+		height: 60px;
+		height: 6rem;
+    padding: 0.8rem 0 0;
 
 	span {
+		color:$lgray;
     position: absolute;
     right: 0;
-    font-size: 14px;
-    bottom: 1px;
+    //font-size: 14px;
+		    font-size: 2rem;
+    bottom: 0.4rem;
     left: 0;
+		text-shadow: 0px 0px 5px #111, 0px 0px 10px #111;
 		}
-	i, span {color:#ccc;}
+	i {
+		 color:#ccc;
+	 }
 
 	&.active {
     background:#47474A;
-			i, span {color:#eee;}
+			span {
+				color:#eee;
+				color:#fff;
+			}
 
 	}
 
 }
 
 .menuIcon2 {
-    padding:5px 20px;float:left;
-	&.active {
-    color: $gold;
-	}
+	padding: 5px 12px;
+	padding: 0.5rem 1.7rem;
+	float: left;
+	cursor: pointer;
+	border-right: solid 0.2rem $darkergray;
 
+	&.active {
+		color: $gold;
+		background:$darkergray;
+	}
 }
 
 	[data-pop="stats"] .subMenu .active {color: $purple;}
 	[data-pop="inv"] .subMenu .active {color: $green;}
 	[data-pop="world"] .subMenu .active {color: $blue;}
 	[data-pop="actions"] .subMenu .active {color: $red;}
+.panel {
+	width: 100%;
+	height: 100%;
+	bottom: -100%;
+	position: fixed;
+	background:$darkergray;
+	color: #eee;
+	//left: 0;
+	right: 0;
 
-	.panel {width:100%;height:100%;bottom:-100%;position:fixed;background:#55565A;color: #eee;	left: 0;
-		&.active {bottom:0%}
+	&.active {
+		bottom: 0;
 	}
-	section {    overflow: auto;-webkit-overflow-scrolling: touch;
-    height: 100%;padding:0 20px 150px;    position: relative;
+	&.active.custom-input {
+    position: absolute;
+    z-index: 1;
+    height: 60vh;
+    background: #111;
+    box-shadow: 0 0 25px #000;
+    padding: 2rem 0;
+    top: 0;
+}
+}
 
+section {
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+	height: 100%;
+	padding: 3rem 2rem 15rem;
+	position: relative;
 	}
-	.closeMenu {
-      position: absolute;
-    right: 20px;
-    top: 10px;
-    font-size: 40px;
+	.flex-contain {
+		display: flex;
+    flex-wrap: wrap;
+	 > div {width:100%;position:relative;}	//.fBox
+	 .stats & > div:nth-child(1) {order:-2;}
+	 .stats & > div:nth-child(2)  {order:0;}
+	 .stats & > div:nth-child(3)   {order:-1;}
+	 .tops {
+		 order:-1;
+     margin: 0 -2rem;
+     padding: 8rem 2rem 2rem;
+  //   border-top: #7ebe63 solid 2rem;
+  //   border-bottom: #7ebe63 solid 2rem;
+     border: $green solid 2rem;
+     min-width: calc(100% + 4rem);
+     background: #333;
+		}
+		.end {
+		    order: 2;
+		    opacity:.5;
+		}
+	}
+	.infobar {
+		position: absolute;
+    top: 0;
+    background: #444;
+    width: 100%;
+    z-index: 1;
+		 a {
+    padding: 0.5rem 1rem;
+    display: inline-block;
+    text-decoration: none;
+
+}
+	}
+.gbox {
+    border-bottom: solid 0.5rem #47474A;
+    padding: 2rem 0;
+		display: inline-block;
+		width:100%;
+		&:last-child {
+		  //  border: 0;
+		}
+		#quests &:not(:first-child) {
+			padding-top:8rem;
+		}
+}
+.gslice {
+	padding:2rem 0;
+	border-top: solid 0.1rem #47474A;
+	margin:1rem 0;
+	&:first-of-type {border:0;}
+	.skills-spells & {
+		clear:both;
+	}
+}
+.padd {
+	padding:1rem 0;
+}
+
+.closeMenu {
+	position: absolute;
+	font-size: 2rem;
+	z-index: 1;
+	background: #333;
+	width: 4rem;
+	text-align: center;
+	padding: 1rem;
+//	bottom: 6rem;
+	top: 0;
+	right: 0;
+	box-shadow: 0 0 1rem #333;
+
+}
+
+.topright {
+	position: absolute;
+	top: 1rem;
+	right: 0;
+
+}
+.box {
+	background: #47474A;
+	padding: 1rem 1.5rem;
+	margin-right: 0;
+//	top: -.5rem;
+	top: 0;
+}
+.sticky {
+	top: 0;
+	position: sticky;
+	float: right;
+	#quests & {
+		//		margin-top: -8rem;
+	//		margin-right: -2rem;
+	}
+}
+.tabs a {
+  //  border-radius: 0 0 1rem 1rem;
+		margin: 1.5rem 0 0;
+    padding: .2rem 1rem;
+}
+
+
+.badges {
+    position: fixed;
+    top: 0;
+    right: 0;
+		position: absolute;
+		top: -100vh;
+		right:0;
+		margin-top:260px;
+		z-index: -1;
+}
+.badge {    width: 5rem;
+    height: 5rem;
+    padding: 1rem;
+    margin: .5rem;
+    box-shadow: 0rem 0rem 1rem #333;
+    border: solid 0.2rem #eee;
+		position: relative;
+}
+.alert {
+    position: absolute;
+    background: $red;
+		background: $darkred;
+		background: #ff0000;
+		width: 2.2rem;
+    height: 2.2rem;
+    padding: 0.6rem 0;
+    line-height: 1rem;
+    border-radius: 50%;
+    font-size: 1.6rem;
+    top: -0.5rem;
+    right: -0.5rem;
+    box-shadow: 0rem 0rem 0.5rem #333;
+    text-align: center;
+    background: #fff;
+    color: #333;
 	}
 
 #action {
@@ -1027,54 +1384,75 @@ overflow:hidden;
 	}
 }
 .quickBox {
-    position: absolute;
-    padding: 0;
-    margin: 0 auto;
-    width: 70px;
-    right: 20px;
-    top: 38px;
-input {    padding: 5px 0;
-    font-size: 18px;
-    border-radius: 0;
-    text-transform: capitalize;
-    text-align: right;
-    width: inherit;
-    margin: 8px 0;
-    background: 0;}
+	position: absolute;
+	padding: 0;
+	margin: 0 auto;
+	width: 8rem;
+	right: 1rem;
+	top: 20px;
+
+	input {
+		//padding: 5px 0;
+	//	font-size: 18px;
+		border-radius: 0;
+		text-transform: capitalize;
+		text-align: right;
+		margin: 5px 0;
+    background: 0;
+    //font-size: 2rem;
+    line-height: 38px;
+    border: solid .1rem;
+    border-radius: 50px;
+    padding: 2px 1.5rem;
+    text-align: center;
+    float: right;
+		width:100%;
+		text-shadow: 0px 0px 10px #333, 0px 0px 5px #333;
+box-shadow: 0px 0px 10px #333, 0px 0px 5px #333;
+	}
+}
+//.panel {
+	.bar {
+		background: $darkgray;
+		color:#eee;
+		height: 2.5rem;
+		overflow: hidden;
+		margin: 0.5rem 0;
+		position: relative;
+		border-radius: 2rem;
+		font-size: 2rem;
+	}
+
+	.barMid {
+		position: relative;
+		padding: 0 0 0 1rem;
+		.stats & {
+		line-height: 2.7rem;
 
 }
-
-.panel{
-
- .bar {
-    height: 20px;
-    overflow: hidden;
-	background: $darkgray;
-	margin: 5px 0;
-				    position: relative;
-	}
-	.barMid {
-	    position: relative;
-    	padding: 0 0 0 5px;
 		//z-index:1;
 	}
 
-		.maxxer {
-       position: absolute;
-    right: 5px;
-    color: #fff;
-        top: -2px;
-    font-size: 18px;
-}
-}
+	.maxxer {
+		position: absolute;
+		right: 1rem;
+		top: -0.1rem;
 
+		.stats & {
+
+		top: 0.3rem;
+	}
+	}
 
 	// ----- LAST ACTION RED BOX
 .lastActionBox {
-    border-bottom: solid 2px $red;
-padding:20px 60px 10px 20px;
-    margin: 0 -20px;
-	strong {float:left;margin-right:10px;}
+    border-bottom: solid .2rem $red;
+//padding:20px 60px 10px 20px;
+  //  margin: 0 -20px;
+		margin: 0 -2rem;
+background: #333;
+padding: 2rem;
+	//strong {float:left;margin-right:10px;}
 }
 
 	// ----- CONTAINER
@@ -1087,15 +1465,17 @@ XXX#container {
 #container .module {
     width: 100%;
     height: auto;
-    margin: 0;z-index: 5;
+    margin: 0;
+
+		z-index: 5;
 }
 
 #container .module.action {	// SWAP
     //position: fixed;
     position: absolute;
     bottom: 0;
-		//right: 0px;
-		left: 0px;
+		right: 0;
+		//left: 0;
 			 //background: #fff;
 
 }
@@ -1107,11 +1487,20 @@ XXX#container {
 
 }
 #feed-module {
-    width: 100%;
-    height: calc(100vh - 320px);
+	display: block;
+	//height: 570px;
+	//height: calc(100vh - 320px);
+	height:100vh;
+	//width: 415px;
+	width: 100%;
+
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
     border: 0;
-		padding:10px 20px;
-	//	padding:10px 0;
+		//padding:10px;
+		padding:1rem;
+		padding-bottom: 340px;
+
     text-align: center;
 }
 .infight #feed-module {
@@ -1202,12 +1591,29 @@ a.ammoboxLink {
 
 /* ---------------NAV */
 .nav {    position: relative;
-    bottom: 60px;
+	//bottom: 60px;
+	bottom: 6rem;
    // background: #eee;
-	background:rgba(0,0,0,.75);
+	// background:rgba(0,0,0,.75);
 
     height: 260px;
 	z-index:-2;
+
+	background: #000;
+	background: rgba(40, 60, 40, 0.95);
+	background: rgba(40, 60, 100, 0.95);
+	background: rgba(70, 60, 40, 0.95);
+	background: rgba(40, 70, 30, 0.95);
+	background:rgba(50, 50, 50, 0.95);
+
+
+	 .bar {
+     height: 1rem;
+     margin: 0 0 0.5rem;
+     font-size: 1.4rem;
+     line-height: 0.9;
+     text-shadow: 0 0 0.3rem #333;
+}
 	}
 
 .nav p {
@@ -1220,17 +1626,20 @@ bottom: 115px;
     bottom: 75px;
     left: 20px;
 }
+.navhud {
+    position: absolute;
+    left: 1rem;
+    bottom: 0.5rem;
+    //width: 40rem;
+		width: 30%;
+
+}
 .nav-center {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
 	height: 260px;
-}
-
-.feed input {
-    width: auto;
-    padding: 8px 16px;
-    color: #fff;
+	padding: 1rem;
 }
 
 .module.feed .infoBlock {
@@ -1275,12 +1684,13 @@ bottom: 115px;
     z-index: -1;
     background: $darkestgray;
     position: fixed;
-    bottom: 60px;
+  //  bottom: 60px;
+		bottom: 6rem;
 
 		input {
-			background: #fff;
+			//background: #fff;
 			width: 100%;
-			padding:20px 15px;
+			//padding:20px 15px;
 		}
 			.spellBtnBox {
 		display: inline-block;
@@ -1308,14 +1718,18 @@ bottom: 115px;
 
 .battleTabs {
 	position: absolute;
-	top: -56px;
-	width: 100%;
-	font-size: 14px;
+	  //  top: -43px;
+			    top: -4rem;
+	    width: 100%;
+			line-height: 2.5rem;
+
+
 	a {
 		width: 30%;
-		border-radius: 10px 10px 0 0;
-		background: #333;
-		margin: 0;
+    border-radius: 10px 10px 0 0;
+    background: #333;
+    margin: 0;
+
 	}
 	i {
 	display: block;
@@ -1330,6 +1744,8 @@ bottom: 115px;
 	padding: 10px;
     overflow: auto;
     height: 280px;
+		z-index: 0;
+position: relative;
 	&.active {
     display: block;
 	}
@@ -1475,16 +1891,20 @@ bottom: 115px;
 
 	.bar {
 		width: 100%;
-		height: 5px;
-		background: #666;
-		margin: 1px 0 0;
-		position: relative;
+    height: 1rem;
+    background: #666;
+    margin: 0px 0 0.2rem;
+    position: relative;
+    border-radius: 2rem;
+    overflow: hidden;
 		}
+		.bar.mpBar {
+    width: 90%;
+    height: 1rem;
+	}
 	.barMid {
 		position: absolute;
-		bottom: 0;
-		height: 5px;
-
+    height: 100%;
 		}
 
 	.extrahpBox {
@@ -1502,23 +1922,14 @@ bottom: 115px;
 
 
 	 h3 {
-    font-size: 22px;
+    font-size: 2.4rem;
     margin: 0;
     letter-spacing: -0.02em;
 	line-height:1em;
 	white-space: nowrap;
 	overflow-x: auto;
 	overflow-y: inherit;
-	}
 
-	.magicarmorBox {
-    width: auto;
-    padding: 2px 5px 0;
-    font-size: 10px;
-    position: absolute;
-    top: -5px;
-    right: 20px;
-    color: #fff;
 	}
 	.maxstat {
     float: left;position:relative;
@@ -1556,11 +1967,9 @@ bottom: 115px;
 }
 
 .magicarmorBox {
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    font-size: 14px;
-    overflow: hidden;
+	position: absolute;
+			top: 6.5rem;
+			right: 0.9rem;
 }
 
 
@@ -1572,30 +1981,30 @@ bottom: 115px;
 	background:$darkestgray;
 	color:#ccc;
 	top: 0;
-	padding: 20px 20px 0;
+	padding: 2rem 2rem 0;
 	width: 50%;
-	height: 105px;
+	height: 9.5rem;
 	line-height: 1.4em;
-	font-size: 14px;
 	float: left;
-	//border-bottom: solid 10px $ddgray;
 	overflow: hidden;
 	@include transition(all,.25s);
 }
 
 .buffbound {
-	font-size: 10px;
-//	position: absolute;
-	position: relative;
+	position: absolute;
+//	position: relative;
 	top: 0;
-	width: calc(100% - 40px);
+	width: calc(100% - 6rem);
 	overflow: auto;
 	white-space: nowrap;
 	display: block;
+	    text-transform: uppercase;
+			font-size:1.2rem;
 	}
 	.buffBox {
-    margin: 0px 4px 0 0;
-    border-bottom: 1px solid;
+		margin: 0px 0.5rem 0 0;
+    border-bottom: 0.2rem solid;
+
 	}
 #eBox {
 	left: 0;
@@ -1603,11 +2012,17 @@ bottom: 115px;
 
 	.barMid {
     	right: 0;
-		height: 11px;
+	//	height: 11px;
 	}
-	.bar {
-    	height: 11px;
+	 .bar {
+	    height: 2.2rem;
 	}
+	 .statBox {
+//    float: left;
+    position: absolute;
+    left: 2rem;
+    bottom: .5rem;
+}
 	}
 // -------- USER BOX
 
@@ -1615,10 +2030,14 @@ bottom: 115px;
     right: -50%;
 
 	.statBox {
-    display: block;
-    white-space: nowrap;
-	overflow-x: auto;
-	overflow-y: hidden;
+//    display: block;
+//    white-space: nowrap;
+//	overflow-x: auto;
+//	overflow-y: hidden;
+	  //  float: right;
+			position: absolute;
+right: 2rem;
+bottom: 0.5rem;
 	i {
 				padding: 0 2px 0 4px;
 				position: relative;
@@ -1629,31 +2048,32 @@ bottom: 115px;
 
 
 .vsBox {
-    position: absolute;
-    top: 36px;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    color: #fff;
-    padding: 3px;
-    height: 30px;
-    width: 30px;
-    background: $red;
-    border-radius: 50%;
-    text-align: center;
+	position: absolute;
+	top: -1rem;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	color: #fff;
+	background: #db6c64;
+	border-radius: 50%;
+	text-align: center;
+	font-size: 4rem;
+	width: 6rem;
+	height: 6rem;
+	background: rgba(0,0,0,.3);
 }
 .lvlBox {
     background: $gold;
-    color: #444;
-    border-radius: 50%;
-    font-size: 12px;
-    padding: 0px;
-    width: 20px;
-    height: 20px;
-    display: inline-block;
-    text-align: center;
-    position: relative;
-    top: -2px;
+		    color: #444;
+		    border-radius: 50%;
+		    font-size: 1.4rem;
+		    padding: 0px;
+		    width: 2rem;
+		    height: 2rem;
+		    display: inline-block;
+		    text-align: center;
+		    position: relative;
+		    top: -2px;
 }
 
 
@@ -1680,25 +2100,16 @@ bottom: 115px;
 
 
 .iStat {
-    float: right;    font-size: 20px;
+  //  float: right;
+		font-size: 2rem;
+line-height: 1.5rem;
 
 }
-.statcat {
-font-size: 32px;
-	line-height: 1em;
+.statcat, .maxstat {
+	font-size: 3.6rem;
+	    line-height:0.8em;
 }
-.maxstat {
-    font-size: 32px;
-}
-.feed .roomBox {
-  //  opacity: .2;
-	padding: 100px 10px 10px;
-}
-//.roomBox:nth-last-of-type(3),
-//.roomBox:nth-last-of-type(2),
-.feed .roomBox:last-of-type {
-  //  opacity: 1;
-}
+
 .roomBox p {
     margin-bottom: 10px;
 }
@@ -1706,201 +2117,180 @@ font-size: 32px;
 
 
 .roomIcon {
-    font-size: 72px;
+    font-size: 7.2rem;
     //padding: 0px 10px 0 0;
     //float: left;
-    margin: -5px 0 5px;
+    margin: 2rem 0;
+		border:solid 2rem pink;
 }
 
-.feed a {
-   padding:10px;
-    display: block;
-    margin: 5px 0;
-    text-decoration: none;
-	//		@include border-radius(50px);
-			@include inset-highlight();
-
-	background: #aaa;
-    font-weight: 900;
-	color:#fff;
-	text-align:center;
-}
-.feed .w33 {min-width:32%;margin: 0;display:inline-block;}
-.feed .w50 {min-width:49%;margin: 0;display:inline-block;}
 
 
-@media (min-width:800px) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// -------- RESPONSE 600
+@media (min-width:600px) {
+	html {
+		//font-size:24px;
+		font-size: 15px;
+	}
+
 	#feed-module {
-    height: calc(100vh - 260px);
+		padding-bottom: 380px;
 	}
-	#container .module.action {
-    width: 50%;
-    height: 100%;
-    overflow-y: hidden;
-    overflow-x: visible;
-	}
-	#container .module.feed { // SWAP
-width: 50%;
-    height: 100vh;
-    overflow: hidden;
-		//left:0;
-    right: 0;
-    position: absolute;
-}
-.feed .roomBox {
-    //background: #fff;
-	padding: 20px;
-	margin: 20px 0 20px;
 
+	.infight #feed-module {
+		padding-bottom: 440px;
+	}
 }
 
-.infoBlock.nav {
-    height: 100%;
+
+// -------- RESPONSE 1000
+@media (min-width:1000px) {
+	.nav-center {
+    top: 38%;
+    height: 260px;
+    transform: scale(1.5);
+    width: 66%;
+    margin: 0 auto;
 }
-	.panel {
-	width: 50%;
-		    //top: -100%;
-			&.active {
-				//top: 80px;
-			}
-
-
-
-	}
-	.menu {
-width:50%;
-
+.quickBox {
+    transform: scale(0.66);
+    transform-origin: right;
+    right: .5rem;
 }
-	.mapCube {
-	width: 12vw;
-	height: 12vw;
-	margin: 1vw;
-	}
-	#hud {
-    width: 50%;
-    left: 50%;
-	bottom: 0;
-		pointer-events: none;
-	}
-	.battleBlock {
-    width: 50%;
-		bottom:0;
-		pointer-events: initial;
+	#feed-module, .infight #feed-module {
+		padding-bottom: 100px;
 	}
 	.infight #feed-module {
-    	//padding-bottom: 340px;
-		height:calc(100vh - 280px);
+		//padding-bottom: 340px;
+		height: calc(100vh - 280px);
+	}
+	#container .module.action {
+		width: 50%;
+		height: 100%;
+		overflow-y: hidden;
+		overflow-x: visible;
+	}
+
+	#container .module.feed {
+		// SWAP
+		width: 50%;
+		height: 100vh;
+		overflow: hidden;
+		left:0;
+		//right: 0;
+		position: absolute;
+	}
+
+	.feed .roomBox {
+		padding: 20px;
+		margin: 20px 0;
+	}
+
+	.infoBlock.nav {
+		height: 100%;
+	}
+
+	.panel {
+		width: 50%;
+	}
+
+	.menu {
+		width: 50%;
+	}
+
+	.mapCube {
+		width: 12vw;
+		height: 12vw;
+		margin: 1vw;
+	}
+
+	#hud {
+		width: 50%;
+		pointer-events: none;
+	}
+
+	.battleBlock {
+		width: 50%;
+		bottom: 0;
+		pointer-events: initial;
+
 	}
 	.nav {
-    position: fixed;
-    right: 0;
-    width: 50%;
-    bottom: 0;
-   // background: $lightgray;
-		z-index: 1;
+		position: fixed;
+		right: 0;
+		width: 50%;
+		bottom: 0;
+		// background: $lightgray;
+		//z-index: 1;
 	}
-
-	.subMenu {
-	bottom: 80px;
-	height: 40px;
+	.nav {
+		position: absolute;
+		height: calc(100% - 6rem);
+		width: 100%;
+		top: 0;
+		z-index: -2;
 	}
-	.menuIcon {
-    height: 80px;
-    padding: 12px 0 0px;
-    font-size: 38px;
-		span {
- 		   bottom: 2px;
+	.badges {
+			right: 0;
+			top: 0%;
+		//	z-index: 1;
+			margin: 0;
 		}
+
+	#container .module.feed {
+		box-shadow: -5px 5px 10px rgba(0,0,0,.2);
 	}
-.nav {
-	position: absolute;
-	height: calc(100% - 80px);
-	width: 100%;
-	top: 0;
-	z-index: -1;
-}
 
+	#container #action-module {
+		position: absolute;
+		box-shadow: -5px 5px 10px rgba(0,0,0,.2);
+	}
 
+	.panel {
+		position: absolute;
+		width: 100%;
+	}
 
+	.menu {
+		position: absolute;
+		width: 100%;
+	}
 
-#container .module.feed {
-	box-shadow: -5px 5px 10px rgba(0,0,0,.2);
-}
-
-
-
-
-#container #action-module {
-
-	position: absolute;
-	box-shadow: -5px 5px 10px rgba(0,0,0,.2);
-
-}
-
-.panel {
-	position: absolute;
-	width: 100%;
-}
-
-.menu {
-	position: absolute;
-	width: 100%;
-}
-
-
-.quickBox {
-	top: initial;
-	bottom: 30px;
-	display: inline-block;
-	position: absolute;
-	height: initial;
-}
-
-#feed-module {
-	height: 100%;
+	#feed-module {
+		height: 100%;
 		padding-bottom: 100px;
-}
-
-.quickBox {
-}
-
-
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-/* super small response, iphone 5 */
- @media (max-width:340px) {
-.mapFrame {
-    width: 40%;
-    float: left;
-    margin: 0 20px 0 35px;
+	#map.active {
+    bottom: -50vw;
+    width: 100%;
+    height: 125vw;
+	}
 }
+// -------- SUPER BIG RESPONSE 1400 - wide desktop
+@media (min-width:1400px) {
+	html {
+		//	font-size:20px;
+	}
 }
 
-
-
-
-
-
-
- @-webkit-keyframes rotate {100% {-webkit-transform:rotate(360deg)
-}
-}
-@keyframes rotate {100% {transform:rotate(360deg);-webkit-transform:rotate(360deg);}}
- @-webkit-keyframes bounce {0%, 100% {-webkit-transform:scale(0.0);}
- 50% {-webkit-transform:scale(1.0)
-}
-}
- @keyframes bounce {0%, 100% {transform:scale(0.0);-webkit-transform:scale(0.0);}
-50% {transform:scale(1.0);-webkit-transform:scale(1.0);}
+// -------- SUPER BIG RESPONSE 340 - iphone 5
+@media (max-width:340px) {
+	html {
+		font-size:8px;
+	}
 }

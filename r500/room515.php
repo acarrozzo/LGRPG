@@ -47,7 +47,7 @@ Get a FREE BOW upon Initation! <br/>
 }
 // ---------------------- QUEST 57) Ranger's Guild Initiation ---------------------- //
 if($input=='info 57') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 57 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 57 Info</strong><br>
 		To join the RANGERS Guild you have to defeat a Dark Ranger. You can find them hiding in the Dark Forest. </div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -68,7 +68,7 @@ else if($input=='complete 57')
 		$results = $link->query("UPDATE $user SET quest57 = 2");
 	} 
 	else if ($quest57 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 57 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 57 Not Complete</strong><br>
 	To complete this quest you need to find and defeat a Dark Ranger. They rarely spawn in the Dark Forest.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  

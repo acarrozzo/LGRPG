@@ -1,10 +1,15 @@
-<!--<link type="text/css" rel="stylesheet" href="style-login.css" />-->
+
 <?php
-ini_set('display_errors', 'on');
-error_reporting(E_ALL);
+echo '<h5>You are logged in as  </h5> <h2 class="blue">'.$username.'</h2>';
+echo '<a class="btn greenBG" href="/">Click here to start the game</a>';
+
+//ini_set('display_errors', 'on');
+//error_reporting(E_ALL);
 
 // -------------------------DB CONNECT!
-include('db-connect.php');
+//include('db-connect.php');
+// -------------------------DB CONNECT!
+//require_once('db-connect.php');
 
 $username = $_SESSION['username'];
 $pass = $_SESSION['pass'];
@@ -186,8 +191,9 @@ while ($row = $result->fetch_assoc()) { 	//if the cookie has the wrong password,
             // include ('room-desc.php');
 
 
-            echo '<h5>You are logged in as <strong class="px20 blue">'.$username.'</strong></h5>';
-            die('<a class="btn gamestart" href="index.php">Click here to start the game</a>');
+            echo '<h4>You are logged in as </h4>
+            <h3 class="blue">'.$username.'</strong></h3>';
+            die('<a class="btn goldBG" href="index.php">Click here to start the game</a>');
         }
     }
 }

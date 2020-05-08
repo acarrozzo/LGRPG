@@ -45,7 +45,7 @@ if($input=='start quests') {
 
 // ---------------------- QUEST 61) Frozen Fourth Flower ---------------------- //
 if($input=='info 61') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 61 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 61 Info</strong><br>
 		An elderly woman at the camp requests you bring her 4 flowers. After getting the first 3 you can find the final one past the stone bridge up in the mountains.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -67,7 +67,7 @@ else if($input=='complete 61')
 		$results = $link->query("UPDATE $user SET quest61 = 2");
 	} 
 	else if ($quest61 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 61 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 61 Not Complete</strong><br>
 	Quest not complete. To complete this quest you need to collect 4 flowers. Start with the one in the grassy field, then Red Town, then the ocean, and then finally the one here in the mountains over the stone bridge.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -77,7 +77,7 @@ else if($input=='complete 61')
 
 // ---------------------- QUEST 62) Balm Mixer ---------------------- //
 if($input=='info 62') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 62 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 62 Info</strong><br>
 		You see a snow covered shaman in the corner of camp mixing some potions with mud. He will teach you how make potent balms if you bring the correct ingredients.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -101,7 +101,7 @@ else if($input=='complete 62')
 		$results = $link->query("UPDATE $user SET quest62 = 2");
 	} 
 	else if ($quest62 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 62 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 62 Not Complete</strong><br>
 	Quest not complete. To complete this quest you need to bring the snowy shaman 5 red potions, 5 blue potions, and 10 mud.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -111,7 +111,7 @@ else if($input=='complete 62')
 
 // ---------------------- QUEST 63) Ulfberht the Viking ---------------------- //
 if($input=='info 63') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 63 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 63 Info</strong><br>
 		The leader of the camp approaches you with a bounty. Defeat the undead viking found in the Neverending mine and you will be rewarded with a loyal companion.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -132,7 +132,7 @@ else if($input=='complete 63')
 		$results = $link->query("UPDATE $user SET quest63 = 2");
 	} 
 	else if ($quest63 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 63 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 63 Not Complete</strong><br>
 	Quest not complete. To complete this quest you need to defeat Ulfberht found at mine level 15 in the Neverending Mine.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  

@@ -28,7 +28,7 @@
 
 <body>
 <h1> Light Gray RPG - The Longest Eon</h1>
-<div id="wrapper" class="vert"> 
+<div id="wrapper" class="vert">
     <!---------------------------------------------------------------------- MAIN TABS -->
     <ul class="tabs">
         <li><a href="#" class="tab1 defaultTab fa fa-eye" rel="tabs1">
@@ -71,7 +71,7 @@
         <!---------------------------------------------------------------------- 1a - LOOK - NAV & DESCRIPTION -->
         <div class="sub-tab-content" id="tabs1a">
             <!---------------------------------------------------------------------- GLOBAL BOX -->
-            <div id="globalBox" class=""> 
+            <div id="globalBox" class="">
                 <!---------------------------------------------------------------------- dPad - MAP & NAV -->
                 <div class="gFrame navFrame">
                 <h2 class="toggler"><i class="fa fa-minus"></i> NAV</h2>
@@ -115,9 +115,9 @@
                         <p><span class="icon fa fa-plus"></span>add action</p>
                     </div>
                 </div>
-            
+
               <!---------------------------------------------------------------------- LAST ACTION & FEED -->
-                <div class="gFrame feedFrame heightRead"> 
+                <div class="gFrame feedFrame heightRead">
                     <!---------------------------------------------------------------------- FEED -->
                     <div id="feed">
                         <p>this is the top of the feed</p>
@@ -127,78 +127,78 @@
                         <span>[ <i class="red">+2 hp</i> ]</span>
                         <span>[ <i class="blue">+1 mp</i> ]</span>
                         </p>
-                        
+
                         <p>You travel northwest to the Healing Springs<br>
                         <span>[ <i class="red">+2 hp</i> ]</span>
                         <span>[ <i class="blue">+1 mp</i> ]</span>
                         </p>
-                        
+
                         <p>You rest at the waterfall and supercharge your HP and MP!<br>
                         <span>[ <i class="red">full hp +10</i> ]</span>
                         <span>[ <i class="blue">full mp +2</i> ]</span>
                         </p>
-                        
+
                         <p>You travel south to the Flower Patch<br>
                         <span>[ <i class="red">+2 hp</i> ]</span>
                         <span>[ <i class="blue">+1 mp</i> ]</span>
                         </p>
-                        
+
                         <p>You pick up a flower<br>
                         <span>[ <i class="yellow">+1 flower</i> ]</span>
                         <span>[ <i class="red">full hp +10</i> ]</span>
                         <span>[ <i class="blue">full mp +2</i> ]</span>
                         </p>
-                        
+
                         <p>You travel east to the Grassy Field Crossroads<br>
                         <span>[ <i class="red">+2 hp</i> ]</span>
                         <span>[ <i class="blue">+1 mp</i> ]</span>
                         </p>
-                        
-                        
+
+
                         <p>You travel northwest to the Healing Springs<br>
                         <span>[ <i class="red">+2 hp</i> ]</span>
                         <span>[ <i class="blue">+1 mp</i> ]</span>
                         </p>
-                        
+
                         <p>You rest at the waterfall and supercharge your HP and MP!<br>
                         <span>[ <i class="red">full hp +10</i> ]</span>
                         <span>[ <i class="blue">full mp +2</i> ]</span>
                         </p>
-                        
+
                         <p>You travel south to the Flower Patch<br>
                         <span>[ <i class="red">+2 hp</i> ]</span>
                         <span>[ <i class="blue">+1 mp</i> ]</span>
                         </p>
-                        
+
                         <p>You pick up a flower<br>
                         <span>[ <i class="yellow">+1 flower</i> ]</span>
                         <span>[ <i class="red">full hp +10</i> ]</span>
                         <span>[ <i class="blue">full mp +2</i> ]</span>
                         </p>
-                        
+
                         <p>You travel east to the Grassy Field Crossroads<br>
                         <span>[ <i class="red">+2 hp</i> ]</span>
                         <span>[ <i class="blue">+1 mp</i> ]</span>
                         </p>
-                        
-                        
-                        
+
+
+
                     </div>
                     <!---------------------------------------------------------------------- LAST ACTION -->
                     <div class="lastAction dgrayBG white">
-                        <p><span class="lastActionLabel">last action</span> 
+                        <p><span class="lastActionLabel">last action</span>
                           You look around:
                         <strong>Grassy Field Crossroads </strong>
                         <span>[ <i class="red">+2 hp</i> ]</span>
                         <span>[ <i class="blue">+1 mp</i> ]</span>
-                        
+
                         </p>
                         <div class="toggleFeed fa fa-angle-up"><p>feed</p></div>
                     </div>
                 </div>
-              
+
             </div>
-            
+
             <!---------------------------------------------------------------------- ROOM BOX -->
             <div id="roomBox" class="gFrame heightRead">
                 <h2 class="toggler"><i class="fa fa-minus"></i> ROOM</h2>
@@ -207,12 +207,12 @@
                     <h2 class="green">Grassy Field Crossroads</h2>
                     <p class="roomStat lgray">#001 - no danger</p>
                     <p class="roomDesc">The air is warm and the sky above is bright blue. You are standing at an intersection of paths. <strong>There is a sign here with a gold chest at it's base.</strong>  To the southeast you see a dark cave and to the southwest you see an inviting cabin. To the west you see a flower patch.</p>
-                    
+
                 </div>
-                
+
                 <!---------------------------------------------------------------------- ACTION BUTTONS -->
-                
-                <div id="roomActions" class="collapsed"> 
+
+                <div id="roomActions" class="collapsed">
         <!------------------------------- BTN - read sign -->
                 <div class="btn greenBG pop">
                         <p><i class="icon icon-sign"></i>read sign</p>
@@ -262,7 +262,7 @@
                                 <span class='medImg fa fa-plus red'></span>
                                 <div class="okBtn close" >OK</div>
                             </div>
-                        </div> 
+                        </div>
                     </div>
                            <!------------------------------- BTN - pick redberry -->
                     <div class="btn redBG pop" >
@@ -279,8 +279,8 @@
                                 <span class='medImg fa fa-plus red'></span>
                                 <div class="okBtn close" >OK</div>
                             </div>
-                        </div> 
-                    </div>     
+                        </div>
+                    </div>
                <!------------------------------- BTN - cook meat -->
                     <div class="btn redBG pop" >
                         <p><span class="icon fa fa-fire"></span>cook meat </p>
@@ -315,9 +315,9 @@
                             </div>
                         </div>
                     </div>
-                                       
-                    
-                    
+
+
+
 <a class="btnToggler" ><i class="fa fa-angle-down"></i></a>
                 </div>
             </div>
@@ -354,7 +354,7 @@
         <div class="sub-tab-content" id="tabs1d">
             <h2>Book</h2>
             <!---------------------------------------------------------------------- MANUAL / LIST -->
-            
+
             <div class="listBox">
                 <h2>Manual</h2>
                 <ul class="list">
@@ -425,7 +425,7 @@
                 </ul>
             </div>
         </div>
-    </div> 
+    </div>
     <!---------------------------------------------------------------------- 2 - BATTLE -->
     <div class="tab-content battleTAB" id="tabs2">
         <ul class="subTabs">
@@ -434,7 +434,7 @@
             <li><a href="#" class="fa fa-plus" rel="tabs2c"></a></li>
             <li><a href="#" class="fa fa-plus" rel="tabs2d"></a></li>
         </ul>
-        
+
     <!---------------------------------------------------------------------- BATTLE TAB MAIN -->
          <div class="sub-tab-content" id="tabs2a">
     <!---------------------------------------------------------------------- BATTLE FRAME -->
@@ -442,10 +442,10 @@
                 <h2 class="toggler"><i class="fa fa-minus"></i> BATTLE</h2>
     <!---------------------------------------------------------------------- BATTLE BOX -->
                 <div class="battleBox redBorder">
-             
+
                     <div class="uAtt">
                         <i class="uAttImg  fa fa-male"></i>                        <span class="blueBG uAttFinal">7</span>
-                        
+
                         <div span="uAttMath">
                             <span>You attack the Gator with your gladius for <i class="red">7</i> damage.</span>
                         </div>
@@ -453,14 +453,14 @@
                             <span class="red">( 7 + 0 ) - 0 = 7</span>
                         </div>
                     </div>
-                    
+
                     <div class="eAtt">
-                        <em class="eAttImg fa fa-male"></em> 
+                        <em class="eAttImg fa fa-male"></em>
                         <span class="blackBG eAttFinal">7</span>
-                        
+
                         <div span="eAttMath">
                             <span>The Gator attacks you for <em class="red">2</em> damage. </span>
-                        </div> 
+                        </div>
                         <div span="eAttMath">
                             <span class="red">4 - 2 = 2</span>                 		</div>
                     </div>
@@ -469,10 +469,10 @@
 
 <!---------------------------------------------------------------------- BATTLE INFO BOX -->
                 <div class="battleBox bb2 darkergrayBG white">
-             
+
                     <div class="">
                         <i class="uAttImg  fa fa-male"></i>                        <span class="blueBG uAttFinal">7</span>
-                        
+
                         <div span="uAttMath">
                             <span>You attack the Gator with your gladius for <i class="red">7</i> damage.</span>
                         </div>
@@ -480,33 +480,33 @@
                             <span class="red">( 7 + 0 ) - 0 = 7</span>
                         </div>
                     </div>
-                    
+
                     <div class="">
-                    
+
                     <span class="">circle</span>
-                    
-                    
-                        <i class="eAttImg fa fa-male"></i> 
-                        
+
+
+                        <i class="eAttImg fa fa-male"></i>
+
                         <div span="eAttMath">
                             <span>The Gator attacks you for <em class="red">2</em> damage. </span>
-                        </div> 
+                        </div>
                         <div span="eAttMath">
                             <span class="red">4 - 2 = 2</span>                 		</div>
                     </div>
-				</div>                
-                
-                
-                
-                
+				</div>
+
+
+
+
            	</div>
-           
-           
-           
+
+
+
         </div>
-        
-        
-        
+
+
+
     </div>
     <!---------------------------------------------------------------------- 3 - INV -->
     <div class="tab-content invTAB" id="tabs3">
@@ -529,7 +529,7 @@
             <li><a href="#" class="icon-fireball" rel="tabs4c"></a></li>
             <li><a href="#" class="icon-full-stats" rel="tabs4d"></a></li>
         </ul>
-        <div class="sub-tab-content" id="tabs4a"> 
+        <div class="sub-tab-content" id="tabs4a">
             <!---------------------------------------------------------------------- 4-1 - MAIN CHARACTER STAT BOX -->
             <div id="statBox">
                 <header> <span class="points gold"> BP <em class="white"> 1 </em> SP <em class="white">21</em> coin <em class="yellow"> 14k</em></span> <span class="name">Character Name</span> <span class="level red">lvl 16</span> </header>
@@ -601,20 +601,20 @@
         <div class="sub-tab-content" id="tabs7c">X</div>
         <div class="sub-tab-content" id="tabs7d">Settings</div>
     </div>
-    
+
     <!---------------------------------------------------------------------- POP UP BOX FRAME -->
-    <div id="popBox" style="display:none"> 
+    <div id="popBox" style="display:none">
         <!--<span id="close" class="fa fa-times-circle" ></span>-->
-        <div id="popContent"> 
-            <!-- this is where pop up content will be injected --> 
+        <div id="popContent">
+            <!-- this is where pop up content will be injected -->
         </div>
         <span id="close" class="fa fa-times-circle" ></span> </div>
 </div>
-<!---------------------------------------------------------------------- END WRAPPER --> 
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script> 
+<!---------------------------------------------------------------------- END WRAPPER -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="js/lg.js"></script>
 
-<!---------------------------------------------------------------------- CROP IT PLUGIN --> 
+<!---------------------------------------------------------------------- CROP IT PLUGIN -->
 <script src="plugins/cropit-master/dist/jquery.cropit.min.js"></script>
 <script>
 //$('#image-cropper').cropit();
@@ -654,7 +654,7 @@
 <div id="image-cropper" class="gFrame">
   <!-- This is where the preview image is displayed -->
   <div class="cropit-image-preview"></div>
-  
+
   <!-- This range input controls zoom -->
   <!-- You can add additional elements here, e.g. the image icons -->
   <input type="range" class="cropit-image-zoom-input" />
@@ -670,7 +670,7 @@
 
 <script>
 // This totally disables body scrolling on iOS devices. Locks site in place.
-// document.ontouchmove = function(e){ e.preventDefault(); } 
+// document.ontouchmove = function(e){ e.preventDefault(); }
 </script>
 
 

@@ -1,5 +1,5 @@
 <?php session_start(); ?>
-<!--<!DOCTYPE html>-->
+<!--<!DOCTYPE html>--
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable = no">
@@ -8,23 +8,25 @@
 
 <link type="text/css" rel="stylesheet" href="css/lg.min.css" />
 <link rel="stylesheet" type="text/css" href="css/rpg-awesome.css" >
-<!--<link rel="stylesheet" type="text/css" href="css/font-awesome.css" >-->
 <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
 
 </head>
+-->
+<?php include('head.php');?>
 
 <?php
 // -------------------------DB CONNECT!
 
 include('db-connect.php');
 
+echo '<div id="container">';
 echo '<div id="title">';
 //This code runs if the form has been submitted
 if (isset($_POST['submit'])) {
 
  //This makes sure they did not leave any fields blank
     if (!$_POST['username'] | !$_POST['pass'] | !$_POST['pass2']) {
-        echo'<p class="alert">You did not complete all of the required fields</p>';
+        echo'<p class="red">You did not complete all of the required fields</p>';
         include('register-form.php');
         die('');
     }
@@ -39,14 +41,14 @@ if (isset($_POST['submit'])) {
 
     //if the name exists it gives an error
     if ($result->num_rows > 0) {
-        echo '<p class="alert">Sorry, the username '.$_POST['username'].' is already in use.</p>';
+        echo '<p class="red">Sorry, the username '.$_POST['username'].' is already in use.</p>';
         include('register-form.php');
         die('');
     }
 
     // this makes sure both passwords entered match
     if ($_POST['pass'] != $_POST['pass2']) {
-        echo'<p class="alert">Your passwords did not match. </p>';
+        echo'<p class="red">Your passwords did not match. </p>';
         include('register-form.php');
         die('');
     }
@@ -1020,7 +1022,7 @@ starcityspellsFlag int
     $insert = ("INSERT INTO $username VALUES ('".$_POST['username']."', '".$_POST['pass']."','001',0,'001','FEEED!',0,0,
 1,0,0,0,7,0,0,0,0,0,10,10,2,2,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-'<span>fists</span>', '<span> - - - </span>','<span> - - - </span>','<span> - - - </span>','<span> - - - </span>','<span> - - - </span>','<span> - - - </span>','<span> - - - </span>','<span> - - - </span>','<span> - - - </span>','<span> - - - </span>','<span> - - - </span>','<span> - - - </span>','<span> - - - </span>','<span> - - - </span>','<span> - - - </span>',
+'fists', '<span> - - - </span>','<span> - - - </span>','<span> - - - </span>','<span> - - - </span>','<span> - - - </span>','<span> - - - </span>','<span> - - - </span>','<span> - - - </span>','<span> - - - </span>','<span> - - - </span>','<span> - - - </span>','<span> - - - </span>','<span> - - - </span>','<span> - - - </span>','<span> - - - </span>',
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -1048,31 +1050,41 @@ starcityspellsFlag int
 )");
     mysqli_query($link, $insert); ?>
 <?php
-$feed_start = '..........................................................................feed initialized<br>
+$feed_start = '
+
+<span class="icon darkergray lg-logo">'.file_get_contents("img/svg/lg-logo.svg").'</span>
+<br>
+....................feed initialized<br>
 +<br>
-<span class="strong">Welcome '.$username.'!</span><br>
+<h2>Welcome <span  class="blue">'.$username.'!</span></h2><br>
 +<br>
-<strong>Interactive with the world by clicking the buttons on screen.</strong>
+<h3>Interactive with the world by clicking the buttons on screen.</h3>
 <br><br>
-<strong>When you interact with the world, the results will appear here, in this feed.</strong>
+<h3>When you interact with the world, the results will appear here, in this feed.</h3>
 <br><br>
-<strong>Use the tabs below to check Stats, Items, and Quests.
+<h3>Use the tabs below to check Stats, Items, and Quests.</h3>
 <br><br>
-<strong>To explore you need to move around. Click the arrows below to navigate.</strong>
+<h3>To explore you need to move around. Click the arrows below to navigate.</h3>
 <br><br>
-<span class="strong">When in doubt, LOOK around</span>';
+<h3>...Scroll Up...</h3>';
+    //<h3>When in doubt, LOOK around</h3>';
+
     //$query = $link->prepare("UPDATE $user SET feed = ? ");
     $query = $link->prepare("UPDATE $user SET feed = ? ");
     $query->bind_param("s", $feed_start);
     $query->execute();
 
-    echo '<h3 class="registerstart" >Thank you, you have registered: <span>'.$_POST['username'].' </span></h3>';
+
+    echo '<span class="icon gold key">'.file_get_contents("img/svg/character.svg").'</span>';
+
+    echo '<h3 class="registerstart" >Thank you, you have registered: </h3>
+    <h1 class="blue">'.$_POST['username'].' </h1>';
     //  echo 'USX: '.$_SESSION['username'] = $username;
     //  echo ' | USP: '.$_SESSION['pass'] = $pass;
 
     //include('members.php');
 
-    echo '<a class="btn gamestart" href="index.php">Login Here</a></div> ';
+    echo '<a class="btn goldBG" href="index.php">Login Here</a></div> ';
 } else {
     include('register-form.php');
     $input='look';
@@ -1080,4 +1092,5 @@ $feed_start = '.................................................................
 
  ?>
 
+</div>
 </div>

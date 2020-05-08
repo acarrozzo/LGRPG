@@ -38,7 +38,7 @@ if($input=='start quests') {
 }
 // ---------------------- QUEST 28) Rare Gray Matter ---------------------- //
 if($input=='info 28') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 28 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 28 Info</strong><br>
 		Find a rare piece of gray matter and give it to Morty. Rare creatures drop gray matter, you will come across them randomly in your travels.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -61,7 +61,7 @@ else if($input=='complete 28')
 		$results = $link->query("UPDATE $user SET quest28 = 2");
 	} 
 	else if ($quest28 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 28 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 28 Not Complete</strong><br>
 	 	To complete this quest you need to find a piece of gray matter. It is dropped by rare enemies.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -70,7 +70,7 @@ else if($input=='complete 28')
 
 // ---------------------- QUEST 29) Omar & Victoria the Dead ---------------------- //
 if($input=='info 29') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 29 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 29 Info</strong><br>
 		Defeat the undead duo, Omar and Victoria, in the haunted Catacombs below Red Town. Omar packs a mean punch and Victoria is immune to magic, so be prepared.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -91,7 +91,7 @@ else if($input=='complete 29')
 		$results = $link->query("UPDATE $user SET quest29 = 2");
 	} 
 	else if ($quest29 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 29 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 29 Not Complete</strong><br>
 	 	To complete this quest you need to defeat Omar and Victoria the Dead found deep in the Catacombs under Red Town.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -101,7 +101,7 @@ else if($input=='complete 29')
 
 // ---------------------- QUEST 30) Magic and the Troll Queen ---------------------- //
 if($input=='info 30') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 30 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 30 Info</strong><br>
 		 Defeat the evil and magical Troll Queen found deep in the Dark Forest to the far north.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -122,7 +122,7 @@ else if($input=='complete 30')
 		$results = $link->query("UPDATE $user SET quest30 = 2");
 	} 
 	else if ($quest30 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 30 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 30 Not Complete</strong><br>
 	 	To complete this quest you need to defeat the Troll Queen. Travel to her nest in the Dark Forest and use magic to defeat her.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  

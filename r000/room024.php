@@ -145,7 +145,7 @@ else if($input=='complete 8')
 // -------------------------------------------------------------------------- QUEST 9 - Goblin Chief Bounty
 else if($input=='info 9') 
 {
-       echo $message="<div class='menuAction'><strong class='green px30'>Quest 9 Info</strong><br>
+       echo $message="<div class='menuAction'><strong class='green'>Quest 9 Info</strong><br>
 		The Goblin Chief is hiding out somewhere in the Bat Cave. You will have to search in a specific room to find the hiding spot. It will be a difficult fight, so go prepared.</div>";
 		include ('update_feed.php'); // --- update feed
 }

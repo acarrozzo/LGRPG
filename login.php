@@ -23,7 +23,7 @@ if (isset($_SESSION['username'])) {
 if (isset($_POST['submit'])) {  // if form has been submitted
  // makes sure they filled it in
     if (!$_POST['username'] | !$_POST['pass']) {
-        echo '<div class="login"><p class="alert">You did not fill in a required field.</p>';
+        echo '<div class="login"><p class="red">You did not fill in a required field.</p>';
         die('<a class="btn" href="">return home</a></div>');
         //die();
     }
@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {  // if form has been submitted
     $result = $link->query($query);
 
     if ($result == '') {
-        echo '<div class="login"><p class="alert">That user does not exist in our database.</p> ';
+        echo '<div class="login"><p class="red">That user does not exist in our database.</p> ';
 
         die('<a class="btn" href="/">return home</a></div>');
         //die();
@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {  // if form has been submitted
     while ($row = $result->fetch_assoc()) {
         //gives error if the password is wrong
         if (!password_verify($_POST['pass'], $row['password'])) {
-            echo'<div class="login"><p class="alert">Incorrect password, please try again.<p>';
+            echo'<div class="login"><p class="red">Incorrect password, please try again.<p>';
             die('<a class="btn" href="/">return home</a></div>');
         //die();
         } else {

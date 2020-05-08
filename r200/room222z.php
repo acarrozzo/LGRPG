@@ -40,7 +40,7 @@ if($input=='grab iron javelins' )  // ---- GRAB iron javelins
 }
 // ---------------------- QUEST 24) Scorpion King Bounty ---------------------- //
 if($input=='info 24') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 24 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 24 Info</strong><br>
 		The Scorpion King is located at the end of the lair below the Spider Cave. You have to flip a switch down there to open a secret passageway to his throne room. </div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -63,7 +63,7 @@ else if($input=='complete 24')
 		$results = $link->query("UPDATE $user SET quest24 = 2");
 	} 
 	else if ($quest24 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 24 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 24 Not Complete</strong><br>
 	To complete this quest you need defeat the Scorpion King. You can find him in his lair below the Grassy Field Spider Cave.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  

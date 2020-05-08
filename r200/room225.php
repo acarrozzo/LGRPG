@@ -62,7 +62,7 @@ Get 2 Free Wizard Items upon Initation! <br/>
 }
 // ---------------------- QUEST 20) Defeat the Kobold Master ---------------------- //
 if($input=='info 20') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 20 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 20 Info</strong><br>
 		To join the Wizards Guild you have to defeat the Kobold Master. His Lair is found in the northwest part of the Forest Map. Follow the path out of town all the way north and then go SW when you can't go any further. </div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -85,7 +85,7 @@ else if($input=='complete 20')
 		$results = $link->query("UPDATE $user SET quest20 = 2");
 	} 
 	else if ($quest20 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 20 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 20 Not Complete</strong><br>
 	To complete this quest you need to find and kill the Kobold Master. Find him in his lair north of here.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  

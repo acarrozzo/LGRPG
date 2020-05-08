@@ -375,38 +375,36 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
         $results = $link->query("UPDATE $user SET scorpiontail = scorpiontail + 2");
         $rand=rand(1, 2);				// rand bonus
         $bonus = '';
-
-
         $rand2 = rand(1, 4);
         if ($rand2 == 1) {
-            $alwaysdrop = '+ Red Hood<br> ';
+            $bonus = '+ Red Hood<br> ';
             $results = $link->query("UPDATE $user SET redhood = redhood + 1");
         }
         if ($rand2 == 2) {
-            $alwaysdrop = '+ Blue Hood<br> ';
+            $bonus = '+ Blue Hood<br> ';
             $results = $link->query("UPDATE $user SET bluehood = bluehood + 1");
         }
         if ($rand2 == 3) {
-            $alwaysdrop = '+ Green Hood<br> ';
+            $bonus = '+ Green Hood<br> ';
             $results = $link->query("UPDATE $user SET greenhood = greenhood + 1");
         }
         if ($rand2 == 4) {
-            $alwaysdrop = '+ Basic Hood<br> ';
+            $bonus = '+ Basic Hood<br> ';
             $results = $link->query("UPDATE $user SET basichood = basichood + 1");
         }
 
         if ($rand == 1) { // 25%
-            $bonus = '+ Broad Sword<br> ';
+            $bonus2 = '+ Broad Sword<br> ';
             $results = $link->query("UPDATE $user SET broadsword = broadsword + 1");
         }
         if ($rand == 2) { // 25%
-            $bonus = '+ Long Sword<br> ';
+            $bonus2 = '+ Long Sword<br> ';
             $results = $link->query("UPDATE $user SET longsword = longsword + 1");
         }
         echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
 + 8 xp<br>
   + $currencyadd $currency<br>
-  $alwaysdrop$bonus</div>";
+  $alwaysdrop$bonus$bonus2</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 8"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");

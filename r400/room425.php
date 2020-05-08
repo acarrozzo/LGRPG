@@ -151,7 +151,7 @@ while ($row = $result->fetch_assoc()) {
 
     // ---------------------- QUEST 47) Test of Strength ---------------------- //
     if ($input=='info 47') {
-        echo $message="<div class='menuAction'><strong class='green px30'>Quest 47 Info</strong><br>
+        echo $message="<div class='menuAction'><strong class='green'>Quest 47 Info</strong><br>
 		You need to defeat the Thunder Barbarian found at the Red Water Temple. Be careful, the Barbarian hits hard with Power and Critical strikes.</div>";
         include('update_feed.php'); // --- update feed
     } elseif ($input=='complete 47') {
@@ -170,7 +170,7 @@ while ($row = $result->fetch_assoc()) {
             $results = $link->query("UPDATE $user SET thunderboots = thunderboots + 1");
             $results = $link->query("UPDATE $user SET quest47 = 2");
         } elseif ($quest47 == 1) {
-            echo $message="<div class='menuAction'><strong class='green px30'>Quest 47 Not Complete</strong><br>
+            echo $message="<div class='menuAction'><strong class='green'>Quest 47 Not Complete</strong><br>
 		To complete this quest you need to defeat the Thunder Barbarian found at the Red Water Temple.</div>";
             include('update_feed.php'); // --- update feed
         }
@@ -178,7 +178,7 @@ while ($row = $result->fetch_assoc()) {
 
     // ---------------------- QUEST 48) Test of Dexterity ---------------------- //
     if ($input=='info 48') {
-        echo $message="<div class='menuAction'><strong class='green px30'>Quest 48 Info</strong><br>
+        echo $message="<div class='menuAction'><strong class='green'>Quest 48 Info</strong><br>
 		You need to defeat the Smooth Ranger found at the Green Water Temple. Be prepared for a long fight as the Ranger can heal itself.</div>";
         include('update_feed.php'); // --- update feed
     } elseif ($input=='complete 48') {
@@ -197,7 +197,7 @@ while ($row = $result->fetch_assoc()) {
             $results = $link->query("UPDATE $user SET silkbracers = silkbracers + 1");
             $results = $link->query("UPDATE $user SET quest48 = 2");
         } elseif ($quest48 == 1) {
-            echo $message="<div class='menuAction'><strong class='green px30'>Quest 48 Not Complete</strong><br>
+            echo $message="<div class='menuAction'><strong class='green'>Quest 48 Not Complete</strong><br>
 		 To complete this quest you need to defeat the Smooth Ranger found at the Green Water Temple.
 </div>";
             include('update_feed.php'); // --- update feed
@@ -205,7 +205,7 @@ while ($row = $result->fetch_assoc()) {
     }
     // ---------------------- QUEST 49) Test of Magic ---------------------- //
     if ($input=='info 49') {
-        echo $message="<div class='menuAction'><strong class='green px30'>Quest 49 Info</strong><br>
+        echo $message="<div class='menuAction'><strong class='green'>Quest 49 Info</strong><br>
 		You need to defeat the Coral Wizard found at the Blue Water Temple. Don't expect to use magic to defeat him though, the Wizard is immune.</div>";
         include('update_feed.php'); // --- update feed
     } elseif ($input=='complete 49') {
@@ -224,7 +224,7 @@ while ($row = $result->fetch_assoc()) {
             $results = $link->query("UPDATE $user SET coralnecklace = coralnecklace + 1");
             $results = $link->query("UPDATE $user SET quest49 = 2");
         } elseif ($quest49 == 1) {
-            echo $message="<div class='menuAction'><strong class='green px30'>Quest 49 Not Complete</strong><br>
+            echo $message="<div class='menuAction'><strong class='green'>Quest 49 Not Complete</strong><br>
 		 To complete this quest you need to defeat the Coral Wizard found at the Blue Water Temple.
 </div>";
             include('update_feed.php'); // --- update feed
@@ -232,7 +232,7 @@ while ($row = $result->fetch_assoc()) {
     }
     // ---------------------- QUEST 50) Test of Defense ---------------------- //
     if ($input=='info 50') {
-        echo $message="<div class='menuAction'><strong class='green px30'>Quest 50 Info</strong><br>
+        echo $message="<div class='menuAction'><strong class='green'>Quest 50 Info</strong><br>
 		You need to defeat the Heavy Walrus found at the Yellow Water Temple. You have to hit him hard though, he has very high pure defense.</div>";
         include('update_feed.php'); // --- update feed
     } elseif ($input=='complete 50') {
@@ -251,7 +251,7 @@ while ($row = $result->fetch_assoc()) {
             $results = $link->query("UPDATE $user SET heavyspear = heavyspear + 1");
             $results = $link->query("UPDATE $user SET quest50 = 2");
         } elseif ($quest50 == 1) {
-            echo $message="<div class='menuAction'><strong class='green px30'>Quest 50 Not Complete</strong><br>
+            echo $message="<div class='menuAction'><strong class='green'>Quest 50 Not Complete</strong><br>
 		To complete this quest you need to defeat the Heavy Walrus found at the Yellow Water Temple.
 		</div>";
             include('update_feed.php'); // --- update feed

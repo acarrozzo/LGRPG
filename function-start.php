@@ -36,7 +36,6 @@ while ($row = $result->fetch_assoc()) {
 
 
 
-
     // --------------------------------------------------------------------------- GLOBAL CHAT
     if (strpos($input, 'chat') !== false && strpos($input[0], 'c') !== false && strpos($input[1], 'h') !== false && strpos($input[2], 'a') !== false) {
         $chatString='You chat: '.substr($input, 4, 120);
@@ -50,7 +49,7 @@ while ($row = $result->fetch_assoc()) {
     // --------------------------------------------------------------------------- LOOK!
     elseif ($input=='look' || $input=='l' || $input=='look around' || $input=='+') {
         $message = 'You look around: '.$roomname.$_SESSION['lookdesc']; //$lookdesc
-        echo 'You look around: <span class="px16">'.$roomname.'</span><br/>';
+        echo 'You look around: <span class="gold">'.$roomname.'</span><br/>';
         include('update_feed.php'); // --- update feed
     }
     // --------------------------------------------------------------------------- REST HEAL
@@ -196,7 +195,7 @@ while ($row = $result->fetch_assoc()) {
         echo '<i>refreshed</i></br>';
         $message = ' ';
         include('update_feed.php'); // --- update feed
-$funflag=1;
+        $funflag=1;
     }
 
     // --------------------------------------------------------------------------- command fun flags

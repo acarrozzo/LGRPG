@@ -42,7 +42,7 @@ if($input=='start 10' || $input=='start quest 10')
 
 // -------------------------------------------------------------------------- QUEST 10) Craft with Leather
 if($input=='info 10') { 
-echo $message="<div class='menuAction'><strong class='green px30'>Quest 10 Info</strong><br>You can craft leather equipment using the CRAFT interface with a Crafting Table built. Collect Leather from the cows to the north. You have to pay a 50 $currency toll each time you want to enter and can only collect a maximum of 5 leather here.</div>";
+echo $message="<div class='menuAction'><strong class='green'>Quest 10 Info</strong><br>You can craft leather equipment using the CRAFT interface with a Crafting Table built. Collect Leather from the cows to the north. You have to pay a 50 $currency toll each time you want to enter and can only collect a maximum of 5 leather here.</div>";
 		include ('update_feed.php'); // --- update feed
 		}
 else if($input=='complete 10') 
@@ -75,7 +75,7 @@ else if($input=='complete 10')
 	} 
 	else if ($quest10 == 1)
 	 {
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 10 Not Complete</strong><br>You need to craft a single piece of Leather Equipment. Go north to harvest leather from Freddie's cows and then craft some equipment.</div>";
+		echo $message="<div class='menuAction'><strong class='green'>Quest 10 Not Complete</strong><br>You need to craft a single piece of Leather Equipment. Go north to harvest leather from Freddie's cows and then craft some equipment.</div>";
 	   	include ('update_feed.php'); // --- update feed
 	 } 	 
 }

@@ -71,7 +71,7 @@ if ($quest35 == 2 && $quest36 == 2 && $quest37 == 2) {
 			
 // ---------------------- QUEST 35) Clear out the Abandoned Mine ---------------------- //
 if($input=='info 35') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 35 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 35 Info</strong><br>
 		The Abandoned Mine to the west has been overrun with hideous mutated creatures. Clear them out and return here for a reward.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -92,7 +92,7 @@ else if($input=='complete 35')
 		$results = $link->query("UPDATE $user SET quest35 = 2");
 	} 
 	else if ($quest35 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 35 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 35 Not Complete</strong><br>
 		To complete this quest you need to kill the 3 unique creatures found in the abandoned mine to the west.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -100,7 +100,7 @@ else if($input=='complete 35')
 
 // ---------------------- QUEST 36) Glowing Sea Monster ---------------------- //
 if($input=='info 36') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 36 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 36 Info</strong><br>
 		A Glowing Monster has been spotted under the sea. Find and defeat this beast for a magic imbued bow.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -123,7 +123,7 @@ else if($input=='complete 36')
 		$results = $link->query("UPDATE $user SET quest36 = 2");
 	} 
 	else if ($quest36 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 36 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 36 Not Complete</strong><br>
 		To complete this quest you need to find the rare glowing sea monster.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -133,7 +133,7 @@ else if($input=='complete 36')
 
 // ---------------------- QUEST 37) Missing Dwarf Axeman ---------------------- //
 if($input=='info 37') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 37 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 37 Info</strong><br>
 		A Dwarven Guard has went missing! He was last seen on patrol around the Stone Grotto. Go find him.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -153,7 +153,7 @@ else if($input=='complete 37')
 		$results = $link->query("UPDATE $user SET quest37 = 2");
 	} 
 	else if ($quest37 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 37 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 37 Not Complete</strong><br>
 		To complete this quest you need to find the missing dwarf axeman. Head to the Stone Grotto were he was last seen.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  

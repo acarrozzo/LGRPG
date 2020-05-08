@@ -76,7 +76,7 @@ if($input=='start quests') {
 
 // ---------------------- QUEST 64) Steel Warrior ---------------------- //
 if($input=='info 64') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 64 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 64 Info</strong><br>
 		Impress Hector, the Blue Guard Captain, in a full set of Steel Armor. Collect, buy or craft the armor and return here with it equipped.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -110,7 +110,7 @@ else if($input=='complete 64')
 		$results = $link->query("UPDATE $user SET quest64 = 2");
 	} 
 	else if ($quest64 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 64 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 64 Not Complete</strong><br>
 	Quest not complete. To complete this quest you need to be decked out in all steel. Equip steel weapons and armor in the top 6 slots.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -121,7 +121,7 @@ else if($input=='complete 64')
 
 // ---------------------- QUEST 65) Yeti Hunter ---------------------- //
 if($input=='info 65') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 65 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 65 Info</strong><br>
 		The illusive Yeti has been terrorizing the mountain side. Hector wants you to find and defeat this beast.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -142,7 +142,7 @@ else if($input=='complete 65')
 		$results = $link->query("UPDATE $user SET quest65 = 2");
 	} 
 	else if ($quest65 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 65 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 65 Not Complete</strong><br>
 	Quest not complete. To complete this quest you need to find and slay the rare Yeti. He can be found roaming the mountains.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -154,7 +154,7 @@ else if($input=='complete 65')
 
 // ---------------------- QUEST 66) Dragon Slayer	 ---------------------- //
 if($input=='info 66') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 66 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 66 Info</strong><br>
 		Ferocious dragons have been seen spotted soaring among the mountain tops. There is a big reward for taking one down.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -175,7 +175,7 @@ else if($input=='complete 66')
 		$results = $link->query("UPDATE $user SET quest66 = 2");
 	} 
 	else if ($quest66 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 66 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 66 Not Complete</strong><br>
 	Quest not complete. To complete this quest you need to find and slay a Dragon. They can be found anywhere in the mountains but are seen more frequently in certain areas.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  

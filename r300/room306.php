@@ -104,7 +104,7 @@ if($input=='grab polearm')
 			
 // ---------------------- QUEST 38) Red Beard Bounty ---------------------- //
 if($input=='info 38') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 38 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 38 Info</strong><br>
 		Head to the Red Fort and defeat Red Beard to receive a powerful war axe.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -125,7 +125,7 @@ else if($input=='complete 38')
 		$results = $link->query("UPDATE $user SET quest38 = 2");
 	} 
 	else if ($quest38 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 38 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 38 Not Complete</strong><br>
 		To complete this quest you need to defeat Red Beard. Find him in his Fort southwest of here.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -133,7 +133,7 @@ else if($input=='complete 38')
 
 // ---------------------- QUEST 39) Troll King Bounty ---------------------- //
 if($input=='info 39') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 39 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 39 Info</strong><br>
 		Slay the Troll King found in the the depths of the Dark Forest for a huge reward.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -154,7 +154,7 @@ else if($input=='complete 39')
 		$results = $link->query("UPDATE $user SET quest39 = 2");	
 	} 
 	else if ($quest39 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 39 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 39 Not Complete</strong><br>
 		To complete this quest you need to defeat the Troll King. Find him deep within the Dark Forest.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -162,7 +162,7 @@ else if($input=='complete 39')
 
 // ---------------------- QUEST 40) Gatekeeper Bounty ---------------------- //
 if($input=='info 40') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 40 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 40 Info</strong><br>
 		Slay the Troll King found in the the depths of the Dark Forest for a huge reward.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -183,7 +183,7 @@ else if($input=='complete 40')
 		$results = $link->query("UPDATE $user SET quest40 = 2");
 	} 
 	else if ($quest40 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 40 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 40 Not Complete</strong><br>
 		To complete this quest you need to defeat the Troll King. Find him deep within the Dark Forest.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  

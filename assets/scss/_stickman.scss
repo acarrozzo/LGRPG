@@ -35,8 +35,8 @@
     text-shadow: 2px 2px 10px $color;
 }
 @mixin borderRadius($x) {
-    -webkit-border-radius: $x; 
-    -moz-border-radius: $x; 
+    -webkit-border-radius: $x;
+    -moz-border-radius: $x;
     border-radius: $x; }
 
 
@@ -53,37 +53,37 @@
     width: 300px;
     margin: 0px auto;
     top: 10px;z-index:3;
-           .bPart {background:#ccc;position:absolute;@include borderRadius(10px);@include transitionAll(.5s);} 
-           .bPart .armorPiece {top:2px;left:2px;background:#888;position:absolute;@include borderRadius(10px);@include transitionAll(.5s);} 
-           
-           &.heavy  { .bPart, .armorPiece {width:16px;}}  
+           .bPart {background:#ccc;position:absolute;@include borderRadius(10px);@include transitionAll(.5s);}
+           .bPart .armorPiece {top:2px;left:2px;background:#888;position:absolute;@include borderRadius(10px);@include transitionAll(.5s);}
+
+           &.heavy  { .bPart, .armorPiece {width:16px;}}
            &.light  { .bPart, .armorPiece {width:4px;}}
-           
+
            &.square  { .bPart, .armorPiece {@include borderRadius(0);}}
            &.round  { .bPart, .armorPiece {@include borderRadius(10px);}}
            &.ellipse  { .bPart, .armorPiece {@include borderRadius(50%);}}
-           
+
            .upperHalf {@include transformRotate(0deg);position:relative;top:0px;}
            &.leanBack .upperHalf {@include transformRotate(-5deg);right:12px;}
            &.leanForward .upperHalf {@include transformRotate(5deg);right:-12px;}
 
            &.zoomX2 {transform:scale(2);background:#eee;}
-}   
+}
 #stickman #head {      top: 48px;
-                       left: 50%;  
+                       left: 50%;
                        @include bodyPiece(50px, 50px);
                        @include transformTranslate(-50%,0);
                        @include borderRadius(50%);
-                       
+
                        .eyes {position:absolute;left:0;right:0;top:15px;bottom:0;
                            > i{width:20px;height:20px;@include borderRadius(50%);position:absolute;background:#fff;}
                            > i .pupil {width:7px;height:7px;@include borderRadius(50%);position:absolute;background:#000;top:7px;left:7px;}
                            .e1 {left:3px;}
                            .e2 {left:27px;}
-                       
+
                        }
-                       
-} 
+
+}
 
 #body {      left: 0;
              right: 0;
@@ -106,7 +106,7 @@
              @include bodyPiece(10px, 30px);
              @include transformRotate(-30deg);
              .armorPiece {@include bodyPiece(10px, 30px);}
-} 
+}
 
 #leftLeg {     left: 0;
                right: 32px;
@@ -114,7 +114,7 @@
                @include bodyPiece(10px, 40px);
                @include transformRotate(20deg);
                .armorPiece {@include bodyPiece(10px, 40px);}
-} 
+}
 #rightLeg {      left: 32px;
                  right: 0;
                  top: 145px;
@@ -122,26 +122,7 @@
                  @include transformRotate(-20deg);
                  .armorPiece {@include bodyPiece(10px, 40px);}
 
-} 
-
-
-
-
-
-.buttons {
-    padding: 0 0 20px;
 }
-
-.buttons span {    padding: 8px 10px;
-    font-size: 12px;
-    cursor: pointer;
-    display: inline-block;margin: 2px 0px;}
-	
-	
-
-
-
-
 
 
 #stickman .bPart, #skewBox, #raceBox {
@@ -364,7 +345,7 @@
 
 /* ---------------------------- BattleAxe */
 #equipped.armBattleAxe #swordHand {
-    @include transformRotate(-25deg); 
+    @include transformRotate(-25deg);
     top: 18px;
     left: 15px;
 }
@@ -403,4 +384,3 @@
   top: -60px;
   left: 30px;
 }
- 

@@ -165,27 +165,30 @@ if ($row['hp'] >  $row['hpmax']) { // HP EXTRA
     $extrahp = $row['hp'] - $row['hpmax'];
 }
 
+    if ($_SESSION['magicarmor_amount'] >  0) {
+        echo '<span class="red magicarmorBox">+'.$_SESSION['magicarmor_amount'].'</span>';
+    }
 
     echo '<div>';
     echo '
-
 		<span><strong class="red"> '.$hp.'</strong>hp</span>
 		<span><strong class="blue"> '.$mp.'</strong>mp</span>'; // <span>/'.$hpmax.'hp</span>  //<span>/'.$mpmax.'mp</span>';
 
-
+    // --------------------------------------------------------------------------- Magic Armor Buff Box
 
     echo '<strong class="statBox">';
 
 
     if ($weapontype == 3) {
-        echo '<span class="green"><i class="icon-bow-arrow lgray"></i>'.$row['dexmod'].' </span> ';
+        echo '<span>R</span> <span class="green">'.$row['dexmod'].' </span> ';
+    } elseif ($row['magmod'] > $row['strmod'] && $row['magmod'] > $row['dexmod']) {
+        echo '<span>M</span> <span class="blue">'.$row['magmod'].' </span>';
     } else {
-        echo '<span class="red"><i class="icon-sword lgray"></i>'.$row['strmod'].' </span>';
+        echo '<span>A</span> <span class="red">'.$row['strmod'].' </span>';
     }
 
 
-    echo '<span class="blue"><i class="icon-fireball lgray"></i>'.$row['magmod'].' </span>
-			<span class="gold"><i class="icon-shield lgray"></i>'.$row['defmod'].' </span>
+    echo '<span>D</span> <span class="gold">'.$row['defmod'].' </span>
 			</strong>';
     echo '<div class="buffbound">';
 
@@ -262,9 +265,9 @@ if ($row['hp'] >  $row['hpmax']) { // HP EXTRA
 
 		<div>
 		<strong class="red"> '.$enemyhp.'</strong><span>/'.$enemyhpmax.'hp</span>
-		<div>
-		<span class=""> Att </span><strong class="red">'.$enemyatt.'</strong>
-		<span class=""> Def </span><strong class="gold">'.$enemydef.'</strong>
+		<div class="statBox">
+		<span class=""> A </span><strong class="red">'.$enemyatt.'</strong>
+		<span class=""> D </span><strong class="gold">'.$enemydef.'</strong>
 		</div>
 		';
 
