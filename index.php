@@ -24,7 +24,7 @@ if (!isset($_SESSION['username'])) {			// IF NO ONE IS LOGGED IN SHOW TITLE SCRE
 
     echo '
     <h4>- CHAPTER 1: VEGA -</h4>
-    <p>Welcome to the Light Gray RPG demo where you take the role of a young adventurer with amazing potential. You find yourself in Vega, a distant land with countless opportunities.</p>';
+    <p>Welcome to the Light Gray RPG demo where you take the role of a young adventurer with amazing potential. You find yourself in Vega, a distant land with countless opportunities...</p>';
 
 
     include('stickman.php');
