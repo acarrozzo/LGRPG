@@ -1498,6 +1498,7 @@ XXX#container {
 	//height: 570px;
 	//height: calc(100vh - 320px);
 	height:100vh;
+	height: -webkit-fill-available;
 	//width: 415px;
 	width: 100%;
 

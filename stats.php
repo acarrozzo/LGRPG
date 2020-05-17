@@ -60,7 +60,6 @@ while ($row = $result->fetch_assoc()) {
     $char = file_get_contents("img/svg/character.svg");
     $char = file_get_contents("img/svg/char-spearman.svg");
     $char = file_get_contents("img/svg/char-darkprince.svg");
-    $char = file_get_contents("img/svg/char-commander.svg");
     $char = file_get_contents("img/svg/char-general.svg");
     $char = file_get_contents("img/svg/char-wizard.svg");
     $char = file_get_contents("img/svg/char-wanderer.svg");
@@ -70,6 +69,7 @@ while ($row = $result->fetch_assoc()) {
     $char = file_get_contents("img/svg/char-beastmaster.svg");
     $char = file_get_contents("img/svg/char-barbarian.svg");
     $char = file_get_contents("img/svg/char-ranger1.svg");
+    $char = file_get_contents("img/svg/char-commander.svg");
 
 
     echo '<div class="gbox">';
