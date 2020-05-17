@@ -22,16 +22,17 @@ while ($row = $result->fetch_assoc()) {
     //echo '<article data-pop="craft" id="craft" class="craft">	<ul>';
 
 
-
+    echo '<div class="gbox">';
+    echo'<h2 class="red">Craft<span class="right"><span class="gray">LVL </span> <span class="gold">'.$row['crafting'].'</span></span></h2>';
 
 
     // ---------------------------------------------------------------------------- IF CRAFTING IS 0
     if ($row['crafting'] == 0) {
-        echo'
-<h2>Crafting Menu<span class="right"><span class="px14 dgray">LVL </span> <span class="gold">'.$row['crafting'].'</span></span></h2>
-
-<li><span class="">Visit Jack Lumber to learn how to craft useful weapons, armor and items.</span></li>
-';
+        echo '<div class="gslice">';
+        echo '<span class="icon ddgray npc">'.file_get_contents("img/svg/npc-jacklumber.svg").'</span>';
+        echo '<h4>Talk to <span class="gold">Jack Lumber</span> to learn how to craft useful weapons, armor and items.</h4>';
+        echo '<h4 class="gray">Jack can be found at his Tree Farm east of the Grassy Field.</h4>';
+        echo '</div>';
     }
 
     // ---------------------------------------------------------------------------- IF CRAFTING IS > 1
@@ -1011,6 +1012,9 @@ while ($row = $result->fetch_assoc()) {
 
         echo '</span></span>';
     }
+
+    echo '</div>';
+
     //	echo '</ul></article>';
 }
 //	       </form>

@@ -43,11 +43,13 @@ elseif (($input == 'cook all meat' || $input == 'cook meat' || $input == 'cook r
     $results = $link->query("UPDATE $user SET rawmeat = rawmeat - $times");
     $results = $link->query("UPDATE $user SET cookedmeat = cookedmeat + $times");
     include('update_feed.php'); // --- update feed
-} elseif (($input == 'cook all meat' || $input == 'cook meat' || $input == 'cook raw meat') && $quest3 <= 1) {
-    echo $message = "<i>You need to complete Quest 3 to gain access to the cooking fire.</i><br/>";
-    include('update_feed.php'); // --- update feed
-} elseif (($input == 'cook all meat' || $input == 'cook meat' || $input == 'cook raw meat') && $rawmeat <= 0) {
-    echo $message = "<i>You have no raw meat left to cook.</i><br/>";
+}
+//elseif (($input == 'cook all meat' || $input == 'cook meat' || $input == 'cook raw meat') && $quest3 <= 1) {
+//    echo $message = "<i>You need to complete Quest 3 to gain access to the cooking fire.</i><br/>";
+//    include('update_feed.php'); // --- update feed
+//}
+elseif (($input == 'cook all meat' || $input == 'cook meat' || $input == 'cook raw meat') && $rawmeat <= 0) {
+    echo $message = "<i>You have no raw meat to cook.</i><br/>";
     include('update_feed.php'); // --- update feed
 }
 /*

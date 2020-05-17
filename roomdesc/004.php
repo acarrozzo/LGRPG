@@ -9,14 +9,14 @@ $dirW='active dirt';
     $icon = file_get_contents("img/svg/flower.svg");
 //}
 echo '<div class="roomBox">
-    <span class="icon gold">'.$icon.'</span>
-    <h2 class="greenfield">Grassy Field West</h2>
-    <h4 class="gold">Flower Patch</h2>
+    <span class="icon gold small">'.$icon.'</span>
+    <h3 class="greenfield">Grassy Field West</h3>
+    <h4 class="gold">Flower Patch</h3>
     <p>A bright flower patch grows here. You see a cabin to the south and the beach to the west.</p>
     <form id="mainForm" method="post" action="" name="formInput">
-    <input type="submit" name="input1" value="west" />
-    <input type="submit" name="input1" value="north" />
-    <input type="submit" name="input1" value="south" />
-    <input type="submit" name="input1" value="east" />
-    <input class="goldBG" type="submit" name="input1" value="pick flower" />
+    <button type="submit" name="input1" value="west">West</button>
+    <button type="submit" name="input1" value="north">North</button>
+    <button type="submit" name="input1" value="south">South</button>
+    <button type="submit" name="input1" value="east">East</button>
+    <button class="goldBG" type="submit" name="input1" value="pick flower">Pick Flower</button>
 	</form></div>';

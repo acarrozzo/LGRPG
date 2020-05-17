@@ -14,7 +14,7 @@ if (!isset($_SESSION['username'])) {			// IF NO ONE IS LOGGED IN SHOW TITLE SCRE
     echo '<div id="title">
     <span class="icon darkergray lg-logo">'.file_get_contents("img/svg/lg-logo.svg").'</span>
 	<h1 class="hide">Light Gray RPG</h1>
-  <h5>THE DEMO XXX</h5>
+  <h5>THE DEMO v0.5</h5>
   <span class="icon gold chest">'.file_get_contents("img/svg/chest.svg").'</span>';
     include('login.php');
     echo '<h3>New to Light Gray?</h3>
@@ -133,10 +133,10 @@ $user = $username = $_SESSION['username'];
     //<h2> All Actions</h2>
     echo '
 <div class="roomBox">
-<input type="submit" class=" redBG" name="input1" value="attack">
-<input type="submit" class=" goldBG" name="input1" value="search">
-<input type="submit" class=" greenBG" name="input1" value="rest">
-<input type="submit" class=" blueBG" name="input1" value="look">
+<button type="submit" class=" redBG" name="input1" value="attack">Attack</button>
+<button type="submit" class=" goldBG" name="input1" value="search">Search</button>
+<button type="submit" class=" greenBG" name="input1" value="rest">Rest</button>
+<button type="submit" class=" blueBG" name="input1" value="look">Look</button>
 
 </div>';
 

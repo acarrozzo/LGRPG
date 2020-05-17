@@ -43,6 +43,10 @@ while ($row = $result->fetch_assoc()) {
 
 include('function-start.php');
 
+if ($input == 'attack' || $input == 'a' || $input == 'attack dummy' || $input == 'attack dummy again') {
+    include('battle-dummy.php');
+    $results = $link->query("UPDATE $user SET KLdummy = 1"); // -- update KLdummy
+}
 
 // ---------------------- START ALL QUESTS ---------------------- //
   if ($input=='start quests') {

@@ -15,12 +15,15 @@ while ($row = $result->fetch_assoc()) {
     $chest1 = $row['chest1'];
 
     $quest1 = $row['quest1'];
+    $hatchet = $row['hatchet'];
 }
 
   include('style_map.php'); // -------------------------MAP STYLES!
 
 $mapID= $_SESSION['roomID'];
    //<div class="mapID $mapID"></div>
+
+
 
 /*
 
@@ -56,6 +59,7 @@ function directionReset()
         'dirD' => "0"
        ];
     return $dirReset;
+    $dirSW='x';
 }
 /*
 $files = scandir('roomdesc/');
@@ -93,16 +97,36 @@ foreach (glob("roomdesc/*.php") as $filename) {
         ob_end_clean();
     }
 
-// ----- LOOP TO PRESET ALL ROOM DESCRIPTIONS 000 - 009
-$i = 10;
-while ($i <= 9) {
-    ob_start();                      // start capturing output
-    directionReset();
-    include("roomdesc/00$i.php");   // execute the file
-    $_SESSION['desc00'.$i] = ob_get_contents();    // get the contents from the buffer
-    ob_end_clean();                  // stop buffering and discard contents
-    $i++;
-}
+    // ----- LOOP TO PRESET ALL ROOM DESCRIPTIONS 000 - 009
+    $i = 10;
+    while ($i <= 9) {
+        ob_start();                      // start capturing output
+        directionReset();
+        include("roomdesc/00$i.php");   // execute the file
+        $_SESSION['desc00'.$i] = ob_get_contents();    // get the contents from the buffer
+        ob_end_clean();                  // stop buffering and discard contents
+        $i++;
+    }
+    // ----- LOOP TO PRESET ALL ROOM DESCRIPTIONS 010 - 099
+    $i = 100;
+    while ($i <= 99) {
+        ob_start();                      // start capturing output
+        directionReset();
+        include("roomdesc/0$i.php");   // execute the file
+        $_SESSION['desc0'.$i] = ob_get_contents();    // get the contents from the buffer
+        ob_end_clean();                  // stop buffering and discard contents
+        $i++;
+    }
+    // ----- LOOP TO PRESET ALL ROOM DESCRIPTIONS 100 - 999
+    $i = 1000;
+    while ($i <= 999) {
+        ob_start();                      // start capturing output
+        directionReset();
+        include("roomdesc/$i.php");   // execute the file
+        $_SESSION['desc'.$i] = ob_get_contents();    // get the contents from the buffer
+        ob_end_clean();                  // stop buffering and discard contents
+        $i++;
+    }
 
 // --- SET ROOM DESC FOR SPECIFIC ROOM
 $roomSelect = $roomID;
@@ -118,467 +142,6 @@ if ($roomID==$roomSelect) {
 
 
 
-
-
-
-
-
-
-
-
-
-// ---------------------------------------------------- 008 - Spider Cave Exit
-
-if ($roomID=='008') {
-    $_SESSION['dangerLVL'] = "2";
-    $dirN='active greenfield';
-    $dirS='active darkgray';
-}
-$_SESSION['desc008'] = <<<HTML
-	<html><div class="roomBox">
-	<div class="roomIcon darkgray"><i class="icon-spider"></i></div>
-	<h3>Spider Cave Exit</h3>
-	<p>Inside the spider cave. You can exit to the north or continue deeper into the cave by going south.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
-	<input class="redBG" type="submit" name="input1" value="attack" />
-	</form></div></html>
-HTML;
-
-
-
-// ---------------------------------------------------- 009 - Spider Cave
-
-if ($roomID=='009') {
-    $_SESSION['dangerLVL'] = "3";
-    $dirN='active darkgray';
-    $dirE='active darkgray';
-}
-$_SESSION['desc009'] = <<<HTML
-	<html><div class="roomBox">
-	<div class="roomIcon darkgray"><i class="icon-scorpion"></i></div>
-	<h3>Spider Cave</h3>
-	<p>Inside the spider cave.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="east" />
-	</form></div></html>
-HTML;
-// ---------------------------------------------------- 010 - Spider Cave
-
-if ($roomID=='010') {
-    $_SESSION['dangerLVL'] = "4";
-    $dirN='active darkgray';
-    $dirW='active darkgray';
-}
-$_SESSION['desc010'] = <<<HTML
-	<html><div class="roomBox">
-	<div class="roomIcon darkgray"><i class="icon-spider"></i></div>
-	<h3>Spider Cave</h3>
-	<p>Standing in the darker part of the Cave. You see light from the entrance to the northwest. To the northeast you hear some vile sounds.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="north" />
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
-	</form></div></html>
-HTML;
-
-// ---------------------------------------------------- 011 - Spider Cave
-if ($roomID=='011') {
-    $_SESSION['dangerLVL'] = "3";
-    $dirS='active darkgray';
-    $dirE='active darkgray';
-}
-$_SESSION['desc011'] = <<<HTML
-	<html><div class="roomBox">
-	<div class="roomIcon darkgray"><i class="icon-spider2"></i></div>
-	<h3>Spider Cave</h3>
-	<p>Inside the spider cave.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="east" />
-	</form></div></html>
-HTML;
-
-// ---------------------------------------------------- 012 - Scorpion Pit Entrance
-if ($roomID=='012') {
-    $_SESSION['dangerLVL'] = "5";
-    $dirW='active darkgray';
-    $dirD='active redbrown';
-}
-$_SESSION['desc012'] = <<<HTML
-	<html><div class="roomBox">
-	<div class="roomIcon darkgray"><i class="icon-scorpion2"></i></div>
-	<h3>Scorpion Pit Entrance</h3>
-	<p>An opening to a dark cave leads below. There is a warning sign here.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input class="redbrownBG" type="submit" name="input1" value="down" />
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
-	</form></div></html>
-HTML;
-// ---------------------------------------------------- 012b - Scorpion Pit Exit
-if ($roomID=='012b') {
-    $_SESSION['dangerLVL'] = "5";
-    $dirU='active darkgray';
-    $dirS='active redbrown';
-}
-$_SESSION['desc012b'] = <<<HTML
-	<html><div class="roomBox">
-	<div class="roomIcon redbrown"><i class="icon-scorpion2"></i></div>
-	<h3 class="redbrown">Scorpion Pit Exit</h3>
-	<p>Head up to the much safer Spider Cave. If you are feeling brave continue south through the Scorpion Pit.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input  type="submit" name="input1" value="south" />
-	<input class="darkgrayBG" type="submit" name="input1" value="up" />
-	</form></div></html>
-HTML;
-
-// ---------------------------------------------------- 012c - Scorpion Pit Path
-if ($roomID=='012c') {
-    $_SESSION['dangerLVL'] = "6";
-    $dirNW='active redbrown';
-    $dirN='active redbrown';
-}
-$_SESSION['desc012c'] = <<<HTML
-	<html><div class="roomBox">
-	<div class="roomIcon redbrown"><i class="icon-scorpion2"></i></div>
-	<h3 class="redbrown">Scorpion Pit Path</h3>
-	<p>You continue through the dark scorpion lair.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="north" />
-	</form></div></html>
-HTML;
-// ---------------------------------------------------- 012d - Scorpion Control Room
-if ($roomID=='012d') {
-    $_SESSION['dangerLVL'] = "5";
-    $dirN='active redbrown';
-}
-$_SESSION['desc012d'] = <<<HTML
-	<html><div class="roomBox">
-	<div class="roomIcon redbrown px50"><i class="icon-scorpion2"></i></div>
-	<h3 class="redbrown">Scorpion Control Room</h3>
-	<p>This room is lighter than the others. There is a lever on the wall.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input class="goldBG" type="submit" name="input1" value="flip lever" />
-	</form></div></html>
-HTML;
-// ---------------------------------------------------- 012e - Scorpion Guard Room
-if ($roomID=='012e') {
-    $_SESSION['dangerLVL'] = "7";
-    $dirS='active redbrown';
-    $dirN='active redbrown';
-    $dirSE='active redbrown';
-}
-$_SESSION['desc012e'] = <<<HTML
-	<html><div class="roomBox">
-	<div class="roomIcon redbrown px150"><i class="icon-scorpion"></i></div>
-	<h3 class="redbrown">Scorpion Guard Room</h3>
-	<p>Guards patrol this dark room.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="southeast" />
-	<input type="submit" name="input1" value="south" />
-	</form></div></html>
-HTML;
-// ---------------------------------------------------- 012f - Scorpion Hall
-if ($roomID=='012f') {
-    $_SESSION['dangerLVL'] = "10";
-    $dirS='active redbrown';
-    $dirNE='active redbrown';
-}
-$_SESSION['desc012f'] = <<<HTML
-	<html><div class="roomBox">
-	<div class="roomIcon redbrown px150"><i class="icon-scorpion2"></i></div>
-	<h3 class="redbrown">Scorpion Hall</h3>
-	<p>A very, very large room. Giant Scorpion tracks line the floor.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="south" />
-	</form></div></html>
-HTML;
-// ---------------------------------------------------- 012g - Scorpion Nest
-if ($roomID=='012g') {
-    $_SESSION['dangerLVL'] = "15";
-    $dirN='active redbrown';
-    $dirSW='active redbrown';
-}
-$_SESSION['desc012g'] = <<<HTML
-	<html><div class="roomBox">
-	<div class="roomIcon redbrown px150"><i class="icon-scorpion3"></i></div>
-	<h3 class="redbrown">Scorpion Nest</h3>
-	<p>The vicious Scorpion Queen lives here. You have killed many of her children and she is not happy. </p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="southwest" />
-	</form></div></html>
-HTML;
-
-// ---------------------------------------------------- 012h - Scorpion Throne Room
-if ($roomID=='012h') {
-    $_SESSION['dangerLVL'] = "30";
-    $dirS='active redbrown';
-}
-$_SESSION['desc012h'] = <<<HTML
-	<html><div class="roomBox">
-	<div class="roomIcon redbrown px300"><i class="icon-scorpion3"></i></div>
-	<h3 class="redbrown">Scorpion Throne Room</h3>
-	<p>You stand in an enormous throne room. Very few travelers have reached. The King of all Scorpions calls this place home. There is a black chest here.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="south" />
-	<input class="darkestgrayBG" type="submit" name="input1" value="open chest" />
-	</form></div></html>
-HTML;
-
-
-// ---------------------------------------------------- 013 - Marsh Behind the Cabin
-if ($roomID=='013') {
-    $_SESSION['dangerLVL'] = "5";
-    $dirNE='active greenfield';
-}
-$_SESSION['desc013'] = <<<HTML
-<html><div class="roomBox">
-	<div class="roomIcon swamp px150"><i class="icon-gator"></i></div>
-<h3 class="swamp">Marsh Behind the Cabin</h3>
-	<p>A gross swampy marsh. You see some alligator tracks in the mud.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northeast" />
-   	<input class="redBG" type="submit" name="input1" value="attack gator" />
-	</form>
-	</div></html>
-HTML;
-// ---------------------------------------------------- 014 - Dirt Road West
-if ($roomID=='014') {
-    $_SESSION['dangerLVL'] = "0";
-    $dirW='active sand';
-    $dirE='active greenfield';
-}
-$_SESSION['desc014'] = <<<HTML
-<html><div class="roomBox">
-<h3 class="dirt">Dirt Road West</h3>
-	<p>You are on a dirt path heading down to the beach.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="east" />
-	</form>
-</div></html>
-HTML;
-// ---------------------------------------------------- 015 - On the Beach
-if ($roomID=='015') {
-    $_SESSION['dangerLVL'] = "2";
-    $dirS='active sand';
-}
-$_SESSION['desc015'] = <<<HTML
-<html><div class="roomBox">
-
-<div class="roomIcon sand"><i class="icon-sun"></i></div>
-
-	<h3 class="blue">On the Beach by a Giant Rock</h3>
-	<p>The Sun is directly overhead and there is a cool breeze. You can mine stone from the giant rocks here.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="south" />
-	<input class="dgrayBG" type="submit" name="input1" value="mine stone" />
-	</form>
-</div></html>
-HTML;
-// ---------------------------------------------------- 016 - Abandoned Docks On the Beach
-if ($roomID=='016') {
-    $_SESSION['dangerLVL'] = "2";
-    $dirS='active sand';
-    $dirN='active sand';
-    $dirW='active ocean';
-}
-$_SESSION['desc016'] = <<<HTML
-<html><div class="roomBox">
-<div class="roomIcon sand"><i class="icon-sun"></i></div>
-<h3 class="blue">Abandoned Docks On the Beach</h3>
-	<p>You stand on a worn wooden dock. A vast blue ocean is to your west.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
-	<input class="brownBG" type="submit" name="input1" value="use wooden boat" />
-	</form>
-</div></html>
-HTML;
-// ---------------------------------------------------- 017 - On the Beach
-if ($roomID=='017') {
-    $_SESSION['dangerLVL'] = "2";
-    $dirS='active sand';
-    $dirE='active dirt';
-    $dirN='active sand';
-}
-$_SESSION['desc017'] = <<<HTML
-<html><div class="roomBox">
-
-	<div class="roomIcon sand"><i class="icon-sun"></i></div>
-
-
-<h3 class="blue">On the Beach</h3>
-	<p>The Sun is directly overhead and there is a cool breeze. The waves slowly roll in.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="south" />
-	</form>
-</div></html>
-HTML;
-// ---------------------------------------------------- 018 - On the Beach
-if ($roomID=='018') {
-    $_SESSION['dangerLVL'] = "2";
-    $dirS='active sand';
-    $dirN='active sand';
-}
-$_SESSION['desc018'] = <<<HTML
-<html><div class="roomBox">
-<div class="roomIcon sand"><i class="icon-sun"></i></div>
-<h3 class="blue">On the Beach</h3>
-	<p>The Sun is directly overhead and there is a cool breeze. The waves slowly roll in.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
-	</form>
-</div></html>
-HTML;
-// ---------------------------------------------------- 019 - Sand Crab Nest
-if ($roomID=='019') {
-    $_SESSION['dangerLVL'] = "3";
-    $dirN='active sand';
-}
-$_SESSION['desc019'] = <<<HTML
-<html><div class="roomBox">
-<div class="roomIcon sand"><i class="icon-crab"></i></div>
-<h3 class="blue">Sand Crab Nest</h3>
-	<p>This part of the beach is swarming with Sand Crabs. They just won't stop! Teleport to the Grassy Field to escape here.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input class="greenBG" type="submit" name="input1" value="grassy field" />
-	<input class="redBG" type="submit" name="input1" value="attack" />
-	</form>
-</div></html>
-HTML;
-// ---------------------------------------------------- 20 - Healing Springs
-if ($roomID=='020') {
-    $_SESSION['dangerLVL'] = "0";
-    $dirS='active greenfield';
-    $dirSE='active greenfield';
-    $dirE='active greenfield';
-    $dirNW='active blue';
-}
-$_SESSION['desc020'] = <<<HTML
-	<html><div class="roomBox">
-	<div class="roomIcon blue"><i class="icon-waterfall"></i></div>
-	<h3 class="blue">Healing Springs</h3>
-	<h4>Mountain Waterfall</h4>
-	<p>Relax in the warm waters that have formed here. Along your journey you will come across many waterfalls, lakes, fountains and other natural springs. Rest at these locations to supercharge your Health and Mana.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input class="blueBG" type="submit" name="input1" value="nw" />
-	<input type="submit" name="input1" value="s" />
-	<input type="submit" name="input1" value="se" />
-	<input type="submit" name="input1" value="e" />
-	<input class="greenBG" type="submit" name="input1" value="rest" />
-	</form>
-	</div></html>
-HTML;
-
-// ---------------------------------------------------- 21 - Pajama Shaman
-if ($roomID=='021') {
-    $_SESSION['dangerLVL'] = "0";
-    $dirW='active greenfield';
-    $dirSW='active greenfield';
-    $dirS='active greenfield';
-}
-$_SESSION['desc021'] = <<<HTML
-<html><div class="roomBox ">
-   	<div class="roomIcon purple"><i class="icon-tent"></i></div>
-	<h3 class="purple">Pajama Shaman</h3>
-	<h4>Shop & Skills</h4>
-	<p>A hooded man has set up a strange tent here with a makeshift shop. He is selling some basic items and also teaching some important skills.</p>
-
-	<a href data-link="shop" class="btn purpleBG">Shop </a>
-	<a href data-link2="skills" class="btn purpleBG">Skills </a>
-	<a href data-link2="spells" class="btn purpleBG">Spells </a>
-
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="south" />
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
-	</form>
-</div></html>
-HTML;
-// ---------------------------------------------------- 022 - Dirt Road East
-if ($roomID=='022') {
-    $_SESSION['dangerLVL'] = "0";
-    $dirW='active greenfield';
-    $dirE='active dirt';
-}
-$_SESSION['desc022'] = <<<HTML
-<html><div class="roomBox"><h3 class="dirt">Dirt Road East</h3>
-	<p>You are on a dirt path heading towards the forest. To the west you see the grassy field.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="east" />
-	</form>
-</div></html>
-HTML;
-// ---------------------------------------------------- 023 - Entrance to the Forest
-if ($roomID=='023') {
-    $_SESSION['dangerLVL'] = "0";
-    $dirW='active dirt';
-    $dirE='active forest';
-    $dirN='active greenfield';
-}
-$_SESSION['desc023'] = <<<HTML
-<html><div class="roomBox"><h3 class="green">Jack's Forest Gate</h3>
-	<p>A guard dressed in all red stands in front of the Forest Entrance. To the north you see a log cabin with a sign that reads 'Free Trees'.</p>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="east" />
-	</form></div></html>
-HTML;
-// ---------------------------------------------------- 024 - Jack Lumber
-if ($roomID=='024') {
-    $_SESSION['dangerLVL'] = "0";
-    $dirS='active dirt';
-    $dirN='active greenfield';
-}
-$_SESSION['desc024'] = <<<HTML
-<html><div class="roomBox">
-	<div class="roomIcon brown"><i class="icon-hatchet"></i></div>
-	<h3 class="green">Jack Lumber</h3>
-	<h4 class="brown">Professional Lumberjack</h4>
-	<p>A flannel wearing hatchet wielding man has a wood workshop set up here. He has a few quests available for you if you are ready. Completing his quests will open up the path to the forest.</p>
-	<a href data-link="quests" class="btn goldBG">Quests </a>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
-	<input class="brownBG" type="submit" name="input1" value="get hatchet" />
-	</form></div></html>
-HTML;
-// ---------------------------------------------------- 025 - Free Trees
-if ($roomID=='025') {
-    $_SESSION['dangerLVL'] = "0";
-    $dirS='active greenfield';
-}
-$_SESSION['desc025'] = <<<HTML
-<html><div class="roomBox">
-	<div class="roomIcon forest"><i class="icon-tree"></i></div>
-	<h3 class="forest">Free Trees</h3>
-	<p>Jack Lumber has a pretty nice tree farm here. Feel free to chop down some trees. Equip a hatchet and have at it.</p>
-	<a href data-link2="craft" class="goldBG btn">Craft </a>
-	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="s" />
-	<input class="brownBG" type="submit" name="input1" value="get hatchet" />
-	<input class="forestBG" type="submit" name="input1" value="chop tree" />
-	</form>
-</div></html>
-HTML;
 // ---------------------------------------------------- 026 - Stone Path South
 if ($roomID=='026') {
     $_SESSION['dangerLVL'] = "0";
@@ -590,8 +153,8 @@ $_SESSION['desc026'] = <<<HTML
 <html><div class="roomBox"><h3>Stone Path South</h3>
 	<p>On a stone path south of the grassy field.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
 	</form>
 </div></html>
 HTML;
@@ -607,9 +170,9 @@ $_SESSION['desc027'] = <<<HTML
 <html><div class="roomBox"><h3>Entrance to the Stone Mines</h3>
 	<p>An armored dwarf guards the path to the Mining Village. You see the entrance to the bat cave to the west.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="west" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="west">West</button>
 	</form>
 </div></html>
 HTML;
@@ -627,11 +190,11 @@ $_SESSION['desc028'] = <<<HTML
 	<h3>Bat Cave Entrance</h3>
 	<p>Go below to enter the cave. There is a sign here warning of the dangerous creatures within.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="ne" />
+	<button type="submit" name="input1" value="ne">Northeast</button>
 	<input type="submit" name="input1" value="e" />
 	<input type="submit" name="input1" class="goldBG" value="down" />
 
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	</form>
 </div></html>
 HTML;
@@ -648,10 +211,10 @@ $_SESSION['desc028b'] = <<<HTML
 	<h3>Bat Cave Exit</h3>
 	<p>A way out of the bat cave.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="up" />
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="up">Up</button>
 
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	<input class="goldBG" type="submit" name="input1" value="pick up map" />
 	</form>
 </div></html>
@@ -670,8 +233,8 @@ $_SESSION['desc028c'] = <<<HTML
 	<h3>Abandoned Workshop in the Bat Cave</h3>
 	<p>A busted table and broken tools are thrown all across the room. You see a hammer on the floor that might be useful for crafting weapons and armor. Pick it up.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="w" />
-	<input type="submit" name="input1" value="nw" />
+	<button type="submit" name="input1" value="w">West</button>
+	<button type="submit" name="input1" value="nw">Northwest</button>
 
 	<input class="goldBG" type="submit" name="input1" value="get hammer" />
 	<input class="goldBG" type="submit" name="input1" value="get string" />
@@ -691,10 +254,10 @@ $_SESSION['desc028d'] = <<<HTML
 	<h3>Bat Cave</h3>
 	<p>In the bat cave.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="se" />
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="se">southeast</button>
 
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	</form>
 </div></html>
 HTML;
@@ -714,9 +277,9 @@ $_SESSION['desc028e'] = <<<HTML
 	<h3>Bat Nest</h3>
 	<p>In the bat cave by the nest. Bats are flying all around the room.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="nw" />
-	<input type="submit" name="input1" value="n" />
-	<input type="submit" name="input1" value="ne" />
+	<button type="submit" name="input1" value="nw">Northwest</button>
+	<button type="submit" name="input1" value="n">North</button>
+	<button type="submit" name="input1" value="ne">Northeast</button>
 	<input type="submit" name="input1" value="e" />
 	</form>
 </div></html>
@@ -734,8 +297,8 @@ $_SESSION['desc028f'] = <<<HTML
 	<h3 class="blue">Salamander Cavern</h3>
 	<p>These magical salamanders mean business. Go west for goblins or south for bats.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="w" />
-	<input type="submit" name="input1" value="s" />
+	<button type="submit" name="input1" value="w">West</button>
+	<button type="submit" name="input1" value="s">South</button>
 	</form>
 </div></html>
 HTML;
@@ -753,11 +316,11 @@ $_SESSION['desc028g'] = <<<HTML
 	<h3>Goblin Tracks</h3>
 	<p>The bats don't dare fly to this part of the cave. You can put away your boomerang and use a melee weapon.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="n" />
+	<button type="submit" name="input1" value="n">North</button>
 	<input type="submit" name="input1" value="e" />
-	<input type="submit" name="input1" value="se" />
+	<button type="submit" name="input1" value="se">southeast</button>
 
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	</form>
 </div></html>
 HTML;
@@ -774,7 +337,7 @@ $_SESSION['desc028h'] = <<<HTML
 	<h3>Goblin Dead End</h3>
 	<p>You come to a dead end in the cave.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="south">South</button>
 
 	<input class="goldBG" type="submit" name="input1" value="search" />
 	</form>
@@ -792,7 +355,7 @@ $_SESSION['desc028i'] = <<<HTML
 	<h3 class="redbrown">Goblin Chief Hideout</h3>
 	<p>You find yourself in the Secret Goblin Hideout. The Goblin Chief lives here as well as several bandits.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="south">South</button>
 	</form>
 </div></html>
 HTML;
@@ -815,8 +378,8 @@ $_SESSION['desc029'] = <<<HTML
 	<input type="submit" name="input1" class=" goldBG" value="grand quest 4" /> Mountain Savior</br>
 	<input type="submit" name="input1" class=" goldBG" value="grand quest 5" /> Star City Savior</br>
 
-	<input type="submit" name="input1" value="nw" />
-	<input type="submit" name="input1" value="s" />
+	<button type="submit" name="input1" value="nw">Northwest</button>
+	<button type="submit" name="input1" value="s">South</button>
 	</form>
 </div></html>
 HTML;
@@ -836,9 +399,9 @@ $_SESSION['desc030'] = <<<HTML
 
 
 <input type="submit" class="percent100 XXXredBG px20" name="input1" value="attack friendly giant" /><br>
-		<input type="submit" name="input1" value="n" />
+		<button type="submit" name="input1" value="n">North</button>
 
-	<input type="submit" name="input1" value="se" />
+	<button type="submit" name="input1" value="se">southeast</button>
 
 
 	</form>
@@ -878,8 +441,8 @@ $_SESSION['desc101'] = <<<HTML
 	<h3 class="green">Path to the Forest</h3>
 	<p>You begin on a path to the Forest. Go west to return to the Grassy Field.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	</form>
 </div></html>
 HTML;
@@ -897,9 +460,9 @@ $_SESSION['desc102'] = <<<HTML
 	<h3 class="green">Path to the Forest near a Farm</h3>
 	<p>The path runs northwest to east here. Head north to visit Freddie's Cow Farm.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -918,8 +481,8 @@ $_SESSION['desc103'] = <<<HTML
 	<a href data-link="quests" class="btn greenBG">Freddie's Quest</a>
 	<form id="mainForm" method="post" action="" name="formInput">
 
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
 
 	<input class="blueBG" type="submit" name="input1" value="get hammer" />
 	<input class="goldBG" type="submit" name="input1" value="pay toll" />
@@ -948,8 +511,8 @@ $_SESSION['desc103b'] = <<<HTML
 	<h3 class="brown">Cows</h3>
 	<p>Some cows</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="south">South</button>
 
 	<input class="redBG" type="submit" name="input1" value="attack cow" />
 	</form>
@@ -966,7 +529,7 @@ $_SESSION['desc103c'] = <<<HTML
 	<h3 class="brown">More Cows</h3>
 	<p>Even more cows. There is also a pile of wood here.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="east">East</button>
 	<input class="brownBG" type="submit" name="input1" value="get wood" />
 	<input class="redBG" type="submit" name="input1" value="attack cow" />
 	<input class="goldBG" type="submit" name="input1" value="craft" />
@@ -988,12 +551,12 @@ $_SESSION['desc104'] = <<<HTML
 	<h3 class="green">On a Stone Path by a Forest Gate</h3>
 	<p>A stone path runs north to south here. Head west to return back to the Grassy Field and northeast to enter the Forest. There is a sign here.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="south">South</button>
 
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	<input class="goldBG" type="submit" name="input1" value="pick up map" />
 	</form>
 </div></html>
@@ -1013,8 +576,8 @@ $_SESSION['desc105'] = <<<HTML
 	<a href data-link2="spells" class="btn purpleBG">Spells </a>
 	<p>Fireball and Frostball are essentially the same spell.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
 	</form>
 </div></html>
 HTML;
@@ -1034,8 +597,8 @@ $_SESSION['desc106'] = <<<HTML
 	<p>A SLICE attack will increase the damage you do with One-handed weapons, and SMASH will increase Two-handed damage.</p>
 
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
 	</form>
 </div></html>
 HTML;
@@ -1053,11 +616,11 @@ $_SESSION['desc107'] = <<<HTML
 	<h3>Gate to Red Town</h3>
 	<p>2 Red Guards stand here. To the north you see the traveling warrior and to the west a dirt path.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
 
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	</form>
 </div></html>
 HTML;
@@ -1073,8 +636,8 @@ $_SESSION['desc108'] = <<<HTML
 	<h3 class="dirt">Dirt Path behind a Hill</h3>
 	<p>The dirt path leads northwest. The Red Town Gate is east of here.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -1091,9 +654,9 @@ $_SESSION['desc109'] = <<<HTML
 	<h3 class="dirt">Behind a Hill by a Cave</h3>
 	<p>You are on a dirt path. You see a cave entrance to the east.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	</form>
 </div></html>
 HTML;
@@ -1108,7 +671,7 @@ $_SESSION['desc110'] = <<<HTML
 	<h3 class="dirt">Behind a Hill</h3>
 	<p>At a dead end on a dirt path.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="south">South</button>
 	</form>
 </div></html>
 HTML;
@@ -1126,9 +689,9 @@ $_SESSION['desc111'] = <<<HTML
 	<h3 class="">Ogre Lair Entrance</h3>
 	<p>A cave entrance leads underground. There is a sign here.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
+	<button type="submit" name="input1" value="west">West</button>
 	<input class="gold" type="submit" name="input1" value="down" />
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	</form>
 </div></html>
 HTML;
@@ -1148,10 +711,10 @@ $_SESSION['desc111a'] = <<<HTML
 	<h3>Ogre Lair <span class="gold">Exit</span></h3>
 	<p>An exit in the cave. </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="east">East</button>
 	<input class="goldBG" type="submit" name="input1" value="up" />
 	</form>
 </div></html>
@@ -1167,8 +730,8 @@ $_SESSION['desc111b'] = <<<HTML
 <html><div class="roomBox"><h3>Goblin Tent</h3>
 	<p>A ratty tent is set up with a rat cooking over a fire. Goblin tracks run all across the dirt floor.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	</form>
 </div></html>
 HTML;
@@ -1181,7 +744,7 @@ $_SESSION['desc111c'] = <<<HTML
 <html><div class="roomBox"><h3>Rat's Nest</h3>
 	<p>A filthy rat's nest. If you need some meat you can hunt here, otherwise get out because it stinks.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northeast" />
+	<button type="submit" name="input1" value="northeast">Northeast</button>
 	</form>
 </div></html>
 HTML;
@@ -1195,8 +758,8 @@ $_SESSION['desc111d'] = <<<HTML
 <html><div class="roomBox"><h3>Hob Goblin Tent</h3>
 	<p>A sturdy tent is set up here with assorted bows and arrows hanging from weapon racks. The goblins that live here seem a little more intelligent than the normal ones.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="north" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="north">North</button>
 	</form>
 </div></html>
 HTML;
@@ -1210,8 +773,8 @@ $_SESSION['desc111e'] = <<<HTML
 <html><div class="roomBox"><h3>Ogre Path</h3>
 	<p>You are on a wide path through the Ogre Lair. You see a map on the floor.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 
 	<input class="goldBG" type="submit" name="input1" value="pick up map" /></form>
 </div></html>
@@ -1226,8 +789,8 @@ $_SESSION['desc111f'] = <<<HTML
 <html><div class="roomBox"><h3>Orc Den</h3>
 	<p>Violent crossbow wielding orcs live here.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="north" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="north">North</button>
 	</form>
 </div></html>
 HTML;
@@ -1241,8 +804,8 @@ $_SESSION['desc111g'] = <<<HTML
 <html><div class="roomBox"><h3>Ogre Yard</h3>
 	<p>At a large clearing in the cave.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="east">East</button>
 
 	<input class="goldBG" type="submit" name="input1" value="search" />
 	</form>
@@ -1257,7 +820,7 @@ $_SESSION['desc111h'] = <<<HTML
 <html><div class="roomBox"><h3>Ogre Treasure Room</h3>
 	<p>You see a black treasure chest in the center of this secret room.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	<input type="submit" name="input1" value="open chest" />
 	</form>
 </div></html>
@@ -1274,8 +837,8 @@ $_SESSION['desc111i'] = <<<HTML
 	<h3>Ogre <span class="green">Guard</span> Room</h3>
 	<p>Several guard posts line the eastern wall of the room. Impressive looking weapons hang on the wall.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -1291,8 +854,8 @@ $_SESSION['desc111j'] = <<<HTML
 	<h3>Ogress <span class="red">Fire</span> Altar</h3>
 	<p>A pillar stands in the center of the room with a large flame shooting out. You hear grunts and chanting from within the shadows.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="south">South</button>
 	</form>
 </div></html>
 HTML;
@@ -1307,7 +870,7 @@ $_SESSION['desc111k'] = <<<HTML
 	<h3>Ogre <span class="blue">Lieutenant</span> Quarters</h3>
 	<p>The room here is dark and the floor is splattered with blood and goblin carcasses.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
+	<button type="submit" name="input1" value="north">North</button>
 	</form>
 </div></html>
 HTML;
@@ -1325,8 +888,8 @@ $_SESSION['desc112'] = <<<HTML
 	<p>A stone pillar encased in vines stands here, waiting for those who are worthy to arrive.</p> <a href data-link2="kl" class="btn goldBG">Kill List </a>
 	<p>Defeat every enemy in the Forest Map. This includes the Forest Path, Ogre Lair & Kobold Lair</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
 	</form>
 </div></html>
 HTML;
@@ -1341,8 +904,8 @@ $_SESSION['desc113'] = <<<HTML
 	<h3>On a Stone Path</h3>
 	<p>You continue on the path.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
 	</form>
 </div></html>
 HTML;
@@ -1361,9 +924,9 @@ $_SESSION['desc114'] = <<<HTML
 	<p>To go north you must be a member of the Wizard's Guild</p>
 	<p>To join the Wizard's Guild you must defeat the Kobold Master found in the cave to the southwest.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="south">South</button>
 	</form>
 </div></html>
 HTML;
@@ -1380,9 +943,9 @@ $_SESSION['desc115'] = <<<HTML
 	<h3 class="dirt">Kobold Lair Entrance</h3>
 	<p>The cave entrance below is dark. There is a sign here. </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northeast" />
+	<button type="submit" name="input1" value="northeast">Northeast</button>
 	<input class="goldBG" type="submit" name="input1" value="down" />
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	</form>
 </div></html>
 HTML;
@@ -1401,8 +964,8 @@ $_SESSION['desc115a'] = <<<HTML
 	<p>At an exit in the Kobold Cave. Head up to safety. </p>
 	<form id="mainForm" method="post" action="" name="formInput">
 	<input class="goldBG" type="submit" name="input1" value="up" />
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -1416,7 +979,7 @@ $_SESSION['desc115b'] = <<<HTML
 	<h3 class="">Kobold Dead End</h3>
 	<p>At a Dead End in the Kobold Lair. You see marks in the ceiling and walls that might indicate flying creatures. Have your boomerang, bow or crossbow ready on standby.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -1432,9 +995,9 @@ $_SESSION['desc115c'] = <<<HTML
 	<h3 class="">Kobold Twisted Path</h3>
 	<p>The main path continues southeast. You hear chanting and drumming coming from the northwest.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	</form>
 </div></html>
 HTML;
@@ -1450,8 +1013,8 @@ $_SESSION['desc115d'] = <<<HTML
 	<h3 class="">Kobold <span class="green">Temple</span></h3>
 	<p>An altar made out of bone stands in the center of the temple. It appears the kobolds sacrifice rats and other animals here.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	</form>
 </div></html>
 HTML;
@@ -1469,9 +1032,9 @@ $_SESSION['desc115e'] = <<<HTML
 	<h3 class="">Kobold Bloody Path</h3>
 	<p>The path here is bloodier than usual. You hear a lot of grumbling and squealing to the east.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	</form>
 </div></html>
 HTML;
@@ -1486,7 +1049,7 @@ $_SESSION['desc115f'] = <<<HTML
 	<h3 class="">Kobold <span class="gold">Hidden</span> Chamber</h3>
 	<p>A secret room in the lair. A gray chest sits against the far wall.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="east">East</button>
 	<input class="darkgrayBG" type="submit" name="input1" value="open chest" />
 	</form>
 </div></html>
@@ -1505,10 +1068,10 @@ $_SESSION['desc115g'] = <<<HTML
 	<h3 class="">Kobold <span class="redbrown">Dark</span> Courtyard</h3>
 	<p>In a large dark room. You hear many noises coming from the shadows.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="southeast" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -1525,10 +1088,10 @@ $_SESSION['desc115h'] = <<<HTML
 	<h3 class="">Kobold <span class="redbrown">Control</span> Room</h3>
 	<p>A dark corner of the Kobold Courtyard. You hear many noises coming from the shadows. A lever is mounted to the wall here. </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="east">East</button>
 
 	<input class="goldBG" type="submit" name="input1" value="flip lever" />
 	</form>
@@ -1546,9 +1109,9 @@ $_SESSION['desc115i'] = <<<HTML
 	<h3 class="">Kobold <span class="blue">Magic</span> Altar</h3>
 	<p>A Glowing Magical Altar stands in this corner of the Courtyard. Warlocks can be heard chanting in the shadows.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="north" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="north">North</button>
 	</form>
 </div></html>
 HTML;
@@ -1565,9 +1128,9 @@ $_SESSION['desc115j'] = <<<HTML
 <html><div class="roomBox"><h3 class="">Kobold <span class="redbrown">Champion</span> Arena</h3>
 	<p>The floor here is paved flat. You see huge bloody footprints and pieces of weaker kobolds all over the floor.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
 	</form>
 </div></html>
 HTML;
@@ -1582,7 +1145,7 @@ $_SESSION['desc115k'] = <<<HTML
 	<h3>Kobold <span class="blue">Master</span> Chambers</h3>
 	<p>The room here is oddly clean. There are lit candles everywhere and unique weapons are mounted on the walls. </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="south">South</button>
 	</form>
 </div></html>
 HTML;
@@ -1607,11 +1170,11 @@ $_SESSION['desc116'] = <<<HTML
 	<h3 class="green">Forest <span class="gold">EXIT</span></h3>
 	<p>A way out of the forest. Go southwest to return to the stone path. Go any other direction to venture deeper into the forest.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 
 	<input class="brownBG" type="submit" name="input1" value="chop tree" />
 	</form>
@@ -1630,9 +1193,9 @@ $_SESSION['desc117'] = <<<HTML
 	<h3 class="green">Under a Massive Tree in a Large Clearing</h3>
 	<p>An enormous tree and its canopy encompass all you see overhead. You see some animal skins scattered on the ground.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="east">East</button>
 	<input class="brownBG" type="submit" name="input1" value="chop tree" />
 	<input class="goldBG brownBG" type="submit" name="input1" value="get leather" />
 	</form>
@@ -1660,11 +1223,11 @@ $_SESSION['desc118'] = <<<HTML
 	<p>AIM will let you do extra damage with ranged attacks. DODGE will let give you a chance to dodge an enemies attack.</p>
 
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="southeast" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
+	<button type="submit" name="input1" value="south">South</button>
 
 	<input class="greenBG" type="submit" name="input1" value="rest" />
 	</form>
@@ -1682,10 +1245,10 @@ $_SESSION['desc119'] = <<<HTML
 	<h3 class="green">In the Forest by a Gold Chest</h3>
 	<p>A river is running through the area here and you see a campfire to the southwest. A large, shiny golden chest sits in the grass. There is a sign here.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="south">South</button>
 
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	<input class="brownBG" type="submit" name="input1" value="chop tree" />
 	<input class="goldBG"type="submit" name="input1" value="open chest" />
 	</form>
@@ -1704,9 +1267,9 @@ $_SESSION['desc120'] = <<<HTML
 	<h3 class="green">In the Forest by a River</h3>
 	<p>A river runs south here. to the west you see a campfire and to the south you see a glowing teleport. A gold chest can be seen to the north. You see a shiny green ring on the ground.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
 
 	<input class="brownBG" type="submit" name="input1" value="chop tree" />
 	<input class="goldBG" type="submit" name="input1" value="grab ring" />
@@ -1730,15 +1293,15 @@ $_SESSION['desc121'] = <<<HTML
 	<h3 class="green">The Forest Teleport</h3>
 	<p>A green glowing pillar stands here. Paths go off in all directions. There is a directory here.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	</form>
 </div></html>
 HTML;
@@ -1755,9 +1318,9 @@ $_SESSION['desc122'] = <<<HTML
 	<h3 class="green">In the Forest by a Fork in the Road</h3>
 	<p>You are on the main path that connects the north part of the Forest with the south. The Forest exit is to the west.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
 
 	<input class="brownBG" type="submit" name="input1" value="chop tree" />
 	</form>
@@ -1777,10 +1340,10 @@ $_SESSION['desc123'] = <<<HTML
 	<h3 class="green">In the Forest on a Beaten Path</h3>
 	<p>You are on a worn Forest Path. You see a Red Tower peeking through the tree tops to the south and a graveyard to the southeast. Head northwest to exit the Forest.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 
 	<input class="brownBG" type="submit" name="input1" value="chop tree" />
 	</form>
@@ -1799,9 +1362,9 @@ $_SESSION['desc124'] = <<<HTML
 	<h3 class="green">In the Forest by a Red Guard Tower</h3>
 	<p>Red Town lies to the south and a small graveyard to the east. Most of the Forest lies to your north. You see a bundle of arrows resting against the tower.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="east">East</button>
 
 	<input class="brownBG" type="submit" name="input1" value="chop tree" />
 	<input class="goldBG" type="submit" name="input1" value="grab arrows" />
@@ -1822,10 +1385,10 @@ $_SESSION['desc125'] = <<<HTML
 	<h3 class="green">In the Forest by a Small Graveyard</h3>
 	<p>A handful of makeshift gravestones are placed here. This area of the Forest seems darker than the rest. There are some redberry bushes scattered around.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="east">East</button>
 
 	<input class="brownBG" type="submit" name="input1" value="chop tree" />
 	<input class="redBG" type="submit" name="input1" value="pick redberry" />
@@ -1846,10 +1409,10 @@ $_SESSION['desc126'] = <<<HTML
 	<h3 class="green">In the Forest by a Cliff</h3>
 	<p>You can walk to the edge of this cliff and overlook a vast desert to your east. To the north you see a very dense area of the Forest.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
 
 	<input class="brownBG" type="submit" name="input1" value="chop tree" />
 	</form>
@@ -1868,9 +1431,9 @@ $_SESSION['desc127'] = <<<HTML
 	<h3 class="green">In the Forest Surrounded by Trees</h3>
 	<p>So many trees here. To the southwest you see a small graveyard and to the west you see a tree hut.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="south">South</button>
 
 	<input class="brownBG" type="submit" name="input1" value="chop tree" />
 	<input class="goldBG" type="submit" name="input1" value="search" />
@@ -1892,8 +1455,8 @@ $_SESSION['desc128'] = <<<HTML
 	<p>A tiny gnome has a cozy tree hut set up here. He has a set of quests available for you and a free hatchet if you need one.</p>
 	<a href data-link="quests" class="btn goldBG">Quests </a>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southeast" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="southeast">Southeast</button>
+	<button type="submit" name="input1" value="east">East</button>
 
 	<input type="submit" name="input1" class="brownBG" value="get hatchet" />
 	</form>
@@ -1910,7 +1473,7 @@ $_SESSION['desc129'] = <<<HTML
 	<h3 class="green">Forest Dead End</h3>
 	<p>The forest path ends here. There are some blueberry bushes scattered around. </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
+	<button type="submit" name="input1" value="north">North</button>
 
 	<input class="brownBG" type="submit" name="input1" value="chop tree" />
 	<input class="blueBG" type="submit" name="input1" value="pick blueberry" />
@@ -1928,7 +1491,7 @@ $_SESSION['desc130'] = <<<HTML
 	<h3 class="green">Abandoned Campsite</h3>
 	<p>There is a vacant firepit and campground set up here next to the river. It looks like there was an animal attack and whoever was here, decided to leave. There are some redberry bushes here. Head back west to the Forest Teleport.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
+	<button type="submit" name="input1" value="west">West</button>
 
 	<input class="brownBG" type="submit" name="input1" value="chop tree" />
 	<input class="redBG" type="submit" name="input1" value="pick redberry" />
@@ -1947,8 +1510,8 @@ $_SESSION['desc131'] = <<<HTML
 	<h3 class="green">In the Forest by a Lake</h3>
 	<p>The river flows into a lake here. Head NW to return back to the Forest Teleport or east along a rocky Forest Path.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="east">East</button>
 
 	<input class="brownBG" type="submit" name="input1" value="chop tree" />
 	</form>
@@ -1966,8 +1529,8 @@ $_SESSION['desc132'] = <<<HTML
 	<h3 class="green">In the Forest on a Rocky Path</h3>
 	<p>The path veers west to north here. The path north seems to be a little darker. </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="north" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="north">North</button>
 
 	<input class="brownBG" type="submit" name="input1" value="chop tree" />
 	<input class="goldBG" type="submit" name="input1" value="search" />
@@ -1987,9 +1550,9 @@ $_SESSION['desc133'] = <<<HTML
 	<h3 class="green">In the Forest on a Twisted Path</h3>
 	<p>The path is getting darker and more treacherous as you head north. </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
 
 	<input class="brownBG" type="submit" name="input1" value="chop tree" />
 	</form>
@@ -2008,9 +1571,9 @@ $_SESSION['desc134'] = <<<HTML
 	<h3 class="green">In the Forest approaching Troll Territory</h3>
 	<p>The Forest gets very dark to the north. You hear grunting and squealing coming from that direction as well. A hill stands to your west. Head back south to return to a safer part of the forest.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
 
 	<input class="brownBG" type="submit" name="input1" value="chop tree" />
 	</form>
@@ -2030,10 +1593,10 @@ $_SESSION['desc135'] = <<<HTML
 	<h3 class="green">In the Forest atop a Hill</h3>
 	<p>You stand on top of a hill in the Forest. You think you can jump over the river to west if you time it correctly. </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 
 	<input class="brownBG" type="submit" name="input1" value="chop tree" />
 	<input class="blueBG" type="submit" name="input1" value="pick blueberry" />
@@ -2053,9 +1616,9 @@ $_SESSION['desc136'] = <<<HTML
 	<h3 class="green">Adandoned Troll Guard Post</h3>
 	<p>The Forest is getting very dark here. You see a Troll Camp to the west. Head south if you want to return to a safer part of the Forest.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="south">South</button>
 
 	<input class="brownBG" type="submit" name="input1" value="chop tree" />
 	</form>
@@ -2074,8 +1637,8 @@ $_SESSION['desc137'] = <<<HTML
 	<p>Guard Posts are set up here in the darkest part of the Forest. You hear Trolls rustling behind the trees all around you. </p>
 	<p>Trolls are quite strong. They have a power attack that can do up to 3 times damage!</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -2154,8 +1717,8 @@ $_SESSION['desc201'] = <<<HTML
 	<h3 class="">On a Path to Red Town by a Forest Gate</h3>
 	<p>To the north you see a forest path and to the far south you see the Red Town Gates.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="southwest" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
 	</form>
 </div></html>
 HTML;
@@ -2171,8 +1734,8 @@ $_SESSION['desc202'] = <<<HTML
 	<h3>On a Stone Path by Red Town</h3>
 	<p>Continue southwest to Red Town. North to the forest.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
 	</form>
 </div></html>
 HTML;
@@ -2189,9 +1752,9 @@ $_SESSION['desc203'] = <<<HTML
 	<h3>On a Stone Path by a Farm</h3>
 	<p>A cabin and farm can be seen to the west. You see a big red gate to the south.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="south">South</button>
 	</form>
 </div></html>
 HTML;
@@ -2210,10 +1773,10 @@ $_SESSION['desc204'] = <<<HTML
 	<h3 class="red">Red Town Grand Gate</h3>
 	<p>Four Red Guards stand watch over the massive open doors of the Red Gate. Head east to get to the Grand Square and everything else Red Town has to offer. To the west you see a large stone gate.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -2231,8 +1794,8 @@ $_SESSION['desc205'] = <<<HTML
 	<h3 class="darkgray">Stone Mine Gate</h3>
 	<p>A dwarf guard blocks the entrance to the Stone Mine Map.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -2245,9 +1808,9 @@ $_SESSION['desc206'] = <<<HTML
 <html><div class="roomBox"><h3>Iron Altar</h3>
 	<p>A massive iron structure is assembled here. 10 iron pillars are arranged in a circular formation. At the back of the altar is an empty iron chest with a sign next to it.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="south">South</button>
 
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	<input type="submit" name="input1" value="offer stone" />
 	</form>
 </div></html>
@@ -2268,8 +1831,8 @@ $_SESSION['desc207'] = <<<HTML
 	<a class="btn goldBG" data-link="shop">Veggie Shop</a>
 	<form id="mainForm" method="post" action="" name="formInput">
 	<input type="submit" name="input1" class="wide brownBG" value="sell all dung" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -2285,7 +1848,7 @@ $_SESSION['desc208'] = <<<HTML
 	<h3 class="green">Rob's Farm</h3>
 	<p>Rows and rows of fruits and veggies  are growing here.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="south">South</button>
 
 	<input class="goldBG" type="submit" name="input1" value="grab veggies" />
 	</form>
@@ -2304,8 +1867,8 @@ $_SESSION['desc209'] = <<<HTML
 	<h3 class="red">Red Town Grand Path</h3>
 	<p>The main road heading to the Grand Square is very busy. There is also a stall here with free Red Town maps. Head back west to exit town. </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="east">East</button>
 
 	<input class="goldBG" type="submit" name="input1" value="pick up map" />
 	</form>
@@ -2330,16 +1893,16 @@ $_SESSION['desc210'] = <<<HTML
 	<h3 class="red">Red Town Grand Square</h3>
 	<p>The heart of New Babylon. This is easily the busiest area in town. There is a bubbling fountain here as well as a crafting table and fire.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	<input class="greenBG" type="submit" name="input1" value="rest" />
 	</form>
 </div></html>
@@ -2357,8 +1920,8 @@ $_SESSION['desc211'] = <<<HTML
 	<h3 class="red">Red Town Warrior's Way</h3>
 	<p>On a path north of the Grand Square. Continue north to visit the Red Guard Barracks.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
 	</form>
 </div></html>
 HTML;
@@ -2376,9 +1939,9 @@ $_SESSION['desc212'] = <<<HTML
 	<h3 class="red">Red Guard Barracks</h3>
 	<p>In the large main room for the Red Guard. Head east to the living quarters or north to go through the captain's office to the forest lookout tower. There are some free weapons here.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="east">East</button>
 	<br>
 	<input class="goldBG"type="submit" name="input1" value="grab mace" />
 	<input class="goldBG auto"type="submit" name="input1" value="grab long sword" />
@@ -2398,9 +1961,9 @@ $_SESSION['desc213'] = <<<HTML
 	<h3 class="red">Red Guard Living Quarters</h3>
 	<p>Beds and dressers line the walls here. Men are seen sleeping, eating or preparing for their work shift. Some are even playing cards. There is a table here with some cooked meat that's up for grabs.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
 	<input class="goldBG" type="submit" name="input1" value="grab meat" />
 	</form>
 </div></html>
@@ -2418,10 +1981,10 @@ $_SESSION['desc214'] = <<<HTML
 	<h3 class="red">Red Guard Captain's Office</h3>
 	<p>This office is empty, no one is around. Head south to exit the Barracks, or northeast to visit the Captain at the Lookout Tower.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="northeast" />
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
 
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	<input class="goldBG" type="submit" name="input1" value="grab ring" />
 	</form>
 </div></html>
@@ -2441,8 +2004,8 @@ $_SESSION['desc215'] = <<<HTML
 	<p>Standing on the Lookout Tower you see most of the Forest below. Large areas of trees are divided by natural dirt paths. A tree hut is clearly visible as well. The Red Guard Captain has some quests  for you.</p>
 	<a href data-link="quests" class="btn goldBG">Red Guard Captain's Quests</a>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="north" />
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="north">North</button>
 	</form>
 </div></html>
 HTML;
@@ -2460,7 +2023,7 @@ $_SESSION['desc216'] = <<<HTML
 	<p>Adam has a neat and tidy shop set up here. </p>
 	<a href data-link="shop" class="btn goldBG">Shop </a>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southwest" />
+	<button type="submit" name="input1" value="southwest">Southwest</button>
 	</form>
 </div></html>
 HTML;
@@ -2475,8 +2038,8 @@ $_SESSION['desc217'] = <<<HTML
 <html><div class="roomBox"><h3 class="red">Red Town Royal Road</h3>
 	<p>You are on a pristine road connecting Town Hall with the Shops and Guilds to the west.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -2497,14 +2060,14 @@ $_SESSION['desc218'] = <<<HTML
 	<h3 class="red">Red Town Courtyard</h3>
 	<p>Many people are bustling through the courtyard. Paths come and go in all directions. There is a sign here as well as an entrance to the sewers below.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="southeast" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="down" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="down">Down</button>
 
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	</form>
 </div></html>
 HTML;
@@ -2519,7 +2082,7 @@ $_SESSION['desc219'] = <<<HTML
 	<h3 class="red">Vacant Lot</h3>
 	<p>It's a vacant lot. One day you might build a house here. But for now, nothing, all you can do is go back south.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="south">South</button>
 	</form>
 </div></html>
 HTML;
@@ -2536,7 +2099,7 @@ $_SESSION['desc220'] = <<<HTML
 	<p>All sorts of bubbling vials and beakers are set up here. Before any long journey make sure you stock up with plenty of healing potions and other useful consumables.</p>
 	<a href data-link="shop" class="btn goldBG">Shop </a>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
+	<button type="submit" name="input1" value="west">West</button>
 	</form>
 </div></html>
 HTML;
@@ -2554,8 +2117,8 @@ $_SESSION['desc221'] = <<<HTML
 	<p>The Red Town Plaza has many benches and tables set up for its citizens. People are mingling and taking care of business. Some are looking for help and offering rewards.</p>
 	<a href data-link="quests" class="btn goldBG">Town Hall Plaza Quests</a>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="north" />
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="north">North</button>
 	</form>
 </div></html>
 HTML;
@@ -2573,10 +2136,10 @@ $_SESSION['desc222'] = <<<HTML
 	<h3 class="red">Town Hall Royal Courtyard</h3>
 	<p>A large lavish courtyard is lined with benches to relax. Potted plants are placed everywhere. You see the gardens to the west and the dining room to the north. The Mayor can be reached upstairs.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="up" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="up">Up</button>
 	</form>
 </div></html>
 HTML;
@@ -2594,7 +2157,7 @@ $_SESSION['desc222z'] = <<<HTML
 	<p>Most important business for Red Town is handled in this room. The Mayor is sitting down at his desk going through some paper work. He has a BIG quest available for you if you are up for the challenge.</p>
 	<a href data-link="quests" class="btn goldBG">Town Hall Quest</a>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="down" />
+	<button type="submit" name="input1" value="down">Down</button>
 	<input class="brownBG auto" type="submit" name="input1" value="grab iron javelins" />
 	</form>
 </div></html>
@@ -2612,7 +2175,7 @@ $_SESSION['desc223'] = <<<HTML
 	<h3 class="red">Red Dining Room</h3>
 	<p>A table that can easily sit over 20 is in the center of this very large room. Fancy glass cabinets filled with fine china and silverware line the walls. Some food stuffs are available for you to take.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="south">South</button>
 	<input class="goldBG" type="submit" name="input1" value="grab meat" />
 	<input class="goldBG" type="submit" name="input1" value="grab veggies" />
 	<input class="goldBG" type="submit" name="input1" value="grab coffee" />
@@ -2631,7 +2194,7 @@ $_SESSION['desc224'] = <<<HTML
 	<h3 class="green">Babylon Gardens</h3>
 	<p>A perfectly manicured garden is displayed here. All sorts of flowers and bushes are growing, including thick vines climbing the trellises above, creating a lush green shelter with a gold chest in its center.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="east">East</button>
 	<input class="goldBG" type="submit" name="input1" value="pick flower" />
 	<input class="goldBG" type="submit" name="input1" value="open chest" />
 	</form>
@@ -2652,9 +2215,9 @@ $_SESSION['desc225'] = <<<HTML
   	<form id="mainForm" method="post" action="" name="formInput">
 	<a href data-link="quests" class="btn goldBG">Quests</a>
 	<input class="long purpleBG" type="submit" name="input1" value="teleport to kobold lair" />
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="up" />
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="up">Up</button>
 	</form>
 </div></html>
 HTML;
@@ -2674,9 +2237,9 @@ $_SESSION['desc226'] = <<<HTML
   	<form id="mainForm" method="post" action="" name="formInput">
 	<a href data-link="quests" class="btn goldBG">Quests</a>
 	<input class="long blueBG" type="submit" name="input1" value="teleport to ogre lair" />
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
-	<input type="submit" name="input1" value="southeast" />
-	<input type="submit" name="input1" value="up" />
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
+	<button type="submit" name="input1" value="up">Up</button>
 	</form>
 </div></html>
 HTML;
@@ -2689,10 +2252,10 @@ $_SESSION['desc226a'] = <<<HTML
 <html><div class="roomBox"><h3>Warrior's Guild EXIT</h3>
 	<p>Head down to exit the Guild. Go North for Weapons and Armor. Go West for Skills. Head NW to access the Grand Mess Hall and Warrior Quests.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="down" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="down">Down</button>
 	</form>
 </div></html>
 HTML;
@@ -2706,9 +2269,9 @@ $_SESSION['desc226b'] = <<<HTML
 	<p>Rows and rows of shiny weapons and armor are on display in this Shop. Upgrade your weapons to gain the edge in battle.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
   <a href data-link="shop" class="btn redBG">Warrior Shop </a>
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="south">South</button>
 	</form>
 </div></html>
 HTML;
@@ -2726,9 +2289,9 @@ $_SESSION['desc226c'] = <<<HTML
     BLOCK will increase the amount of damage you deflect with a shield!
     </p>
 	  	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -2740,10 +2303,10 @@ $_SESSION['desc226d'] = <<<HTML
 <html><div class="roomBox"><h3>Warrior's Grand Hall</h3>
 	<p>Many seasoned warriors congregate here trading war stories while eating chickens whole. Rows of tables with hearty food is available for all members. A fire roars in the corner where you can cook up some meat if you so desire. Resting here also super charges your HP.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="south">South</button>
 	<input type="submit" name="input1" value="southest" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="east">East</button>
 
 	<input class="goldBG" type="submit" name="input1" value="cook all meat" />
 	<input class="goldBG" type="submit" name="input1" value="grab red potion" />
@@ -2763,7 +2326,7 @@ $_SESSION['desc226e'] = <<<HTML
   <a href data-link="quests" class="btn redBG">Warrior Pete's Quests</a>
 
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -2777,7 +2340,7 @@ $_SESSION['desc226f'] = <<<HTML
 	<form id="mainForm" method="post" action="" name="formInput">
 	MISSIONS COMING SOON:<br/>
 
-	<input type="submit" name="input1" value="north" />
+	<button type="submit" name="input1" value="north">North</button>
 	</form>
 </div></html>
 HTML;
@@ -2792,8 +2355,8 @@ $_SESSION['desc225a'] = <<<HTML
 <html><div class="roomBox"><h3>Wizard's Guild Exit</h3>
 	<p>At the Wizard's Main Exit. Head down to get back to Red Town or go southeast to get to the rest of the guild, including spells, skills, items and quests.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southeast" />
-	<input type="submit" name="input1" value="down" />
+	<button type="submit" name="input1" value="southeast">Southeast</button>
+	<button type="submit" name="input1" value="down">Down</button>
 	</form>
 </div></html>
 HTML;
@@ -2806,14 +2369,14 @@ $_SESSION['desc225b'] = <<<HTML
 <html><div class="roomBox"><h3>Wizard's Guild Lobby</h3>
 	<p>Many spell casters are seen mingling in this very large room. There are tables with food and drink, and a fire is lit in the corner. You can cook up your meat here or grab some free food or potions off the tables. There is a directory here to help you navigate around the guild.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="southeast" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="west" />
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="west">West</button>
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	<input class="goldBG" type="submit" name="input1" value="grab veggies" />
 	<input class="goldBG" type="submit" name="input1" value="grab blue potion" />
 	<input class="goldBG" type="submit" name="input1" value="cook all meat" />
@@ -2830,7 +2393,7 @@ $_SESSION['desc225c'] = <<<HTML
 	<p>Some great wizard items are for sale here. Stock up on blue potions and some stronger staffs before you venture out.</p>
 	<a href data-link="shop" class="btn goldBG">Shop </a>
    	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southwest" />
+	<button type="submit" name="input1" value="southwest">Southwest</button>
 	</form>
 </div></html>
 HTML;
@@ -2842,7 +2405,7 @@ $_SESSION['desc225d'] = <<<HTML
 <html><div class="roomBox"><h3>Guild Master Quinn's Office</h3>
 	<p>Grandmaster Quinn has a neat and tidy office with all sorts of personal experiments laying about. He has a bowl on his desk with a bunch of mana regen rings. // ELITE QUESTS Coming Soon!</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
+	<button type="submit" name="input1" value="west">West</button>
 
 	<input class="goldBG" type="submit" name="input1" value="grab ring" />
 	</form>
@@ -2859,7 +2422,7 @@ $_SESSION['desc225e'] = <<<HTML
 	<p>ATOMIC BLAST is a super powerful spell, but uses alot of MP</p>
 	<form id="mainForm" method="post" action="" name="formInput">
 
-	<input type="submit" name="input1" value="northwest" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
 	</form>
 </div></html>
 HTML;
@@ -2873,7 +2436,7 @@ $_SESSION['desc225f'] = <<<HTML
 	<a href data-link="shop" class="btn goldBG">Shop </a>
  	<form id="mainForm" method="post" action="" name="formInput">
 
-	<input type="submit" name="input1" value="northeast" />
+	<button type="submit" name="input1" value="northeast">Northeast</button>
 	</form>
 </div></html>
 HTML;
@@ -2886,7 +2449,7 @@ $_SESSION['desc225g'] = <<<HTML
 	<p>The hilarious wizard Morty has several quests available for you. Complete these 3 quests to become one of the strongest Wizards known.</p>
   <a href data-link="quests" class="btn purpleBG">Wizard Morty's Quests</a>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
+	<button type="submit" name="input1" value="north">North</button>
 	</form>
 </div></html>
 HTML;
@@ -2901,7 +2464,7 @@ $_SESSION['desc225h'] = <<<HTML
 	<form id="mainForm" method="post" action="" name="formInput">
 	Quests Coming Soon:<br/>
 
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -2918,7 +2481,7 @@ $_SESSION['desc227'] = <<<HTML
 	<p>Michael has a fully functional weapons distribution business set up here. Time to upgrade your weapon if you have the coin.</p>
 	<a href data-link="shop" class="btn goldBG">Shop </a>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northeast" />
+	<button type="submit" name="input1" value="northeast">Northeast</button>
 	</form>
 </div></html>
 HTML;
@@ -2935,9 +2498,9 @@ $_SESSION['desc228'] = <<<HTML
 <html><div class="roomBox"><h3 class="red">Wizards Way</h3>
 	<p>On a path heading to the southern part of town. You can reach the south gate as well as Vincenzo's Meat & Produce Stand. The road splits to the southeast into a dark alley.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
     </form>
 </div></html>
 HTML;
@@ -2955,7 +2518,7 @@ $_SESSION['desc229'] = <<<HTML
 	<p>Chatty Vinny has a wooden stand set up here with some home-grown meat and produce for sale. There are chickens running all around you.</p>
 	<a href data-link="shop" class="btn goldBG">Shop </a>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="east">East</button>
     </form>
 </div></html>
 HTML;
@@ -2973,9 +2536,9 @@ $_SESSION['desc230'] = <<<HTML
 	<h3 class="red">Red Town South Gate</h3>
 	<p>The South Gate is currently locked down by the Red Guard. The southern Plains have creatures that you could not possibly survive against. To the west you see a giddy bearded man waving to grab your attention.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
     </form>
 </div></html>
 HTML;
@@ -2991,8 +2554,8 @@ $_SESSION['desc231'] = <<<HTML
 <html><div class="roomBox"><h3 class="">Red Town Back Alley</h3>
 	<p>A shady looking alley continues east here. Head back northwest to the safer part of town.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="east">East</button>
     </form>
 </div></html>
 HTML;
@@ -3012,9 +2575,9 @@ $_SESSION['desc232'] = <<<HTML
 	<p>A sewer entrance is here with the cap removed. You can head down if you want, but be prepared to somewhat dangerous, but mostly smelly, enemies. There are some strange looking banners hanging on the building walls here as well.</p>
  	<form id="mainForm" method="post" action="" name="formInput">
 
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="down" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="down">Down</button>
 
 	<input class="goldBG" type="submit" name="input1" value="search" />
     </form>
@@ -3031,8 +2594,8 @@ $_SESSION['desc233'] = <<<HTML
 <html><div class="roomBox"><h3 class="">Turn in the Back Alley</h3>
 	<p>A dark corner in the alley. You don't know what is lurking in the shadows nor do you want to.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="northwest" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="northwest">Northwest</button>
     </form>
 </div></html>
 HTML;
@@ -3048,8 +2611,8 @@ $_SESSION['desc234'] = <<<HTML
 <html><div class="roomBox"><h3 class="">Red Town Back Alley</h3>
 	<p>The back alley continues southeast here. Head back north to the safer part of town.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
     </form>
 </div></html>
 HTML;
@@ -3067,7 +2630,7 @@ $_SESSION['desc235'] = <<<HTML
 	<h3 class="dirt">Red Town Docks</h3>
 	<p>You get a whiff of salty air here. The Sea to the East contains creatures that are currently too strong for you to deal with. [ DOCKS CURRENTLY CLOSED ]</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
     </form>
 </div></html>
 HTML;
@@ -3085,7 +2648,7 @@ $_SESSION['desc236'] = <<<HTML
 	<p>A shady looking character has a shady shop set up here. Shady, i know. He has some weapons, consumables and ammunition available at discounted prices.</p>
 	<a href data-link="shop" class="btn goldBG">Shop </a>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
+	<button type="submit" name="input1" value="north">North</button>
     </form>
 </div></html>
 HTML;
@@ -3103,7 +2666,7 @@ $_SESSION['desc237'] = <<<HTML
 	<p>A large selection of horses and other strong mounts are available for purchase here, if you have the coin.</p>
 	<a class="btn goldBG" data-link="shop">Stables</a>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northeast" />
+	<button type="submit" name="input1" value="northeast">Northeast</button>
 	</form>
 </div></html>
 HTML;
@@ -3123,10 +2686,10 @@ $_SESSION['desc232a'] = <<<HTML
 	<h3>South Sewer EXIT</h3>
 	<p>A way out of this dark and smelly sewer. Head up to return to the back alley or explore what this awful place might have to offer.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="up" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="up">Up</button>
 	</form>
 </div></html>
 HTML;
@@ -3140,8 +2703,8 @@ $_SESSION['desc232b'] = <<<HTML
 <html><div class="roomBox"><h3>By a Large Curved Pipe in the Sewer</h3>
 	<p>The sewer curves here along the path of a huge pipe.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="southwest" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
 
 	<input class="goldBG" type="submit" name="input1" value="search" />
 	</form>
@@ -3161,10 +2724,10 @@ $_SESSION['desc232c'] = <<<HTML
 	<h3>North Sewer EXIT</h3>
 	<p>Head up to exit the sewer and reach the Royal Courtyard. </p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="southeast" />
-	<input type="submit" name="input1" value="up" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
+	<button type="submit" name="input1" value="up">Up</button>
 	</form>
 </div></html>
 HTML;
@@ -3180,10 +2743,10 @@ $_SESSION['desc232d'] = <<<HTML
 <html><div class="roomBox"><h3>A Fork in the Sewer</h3>
 	<p>The filthy sewer path splits here.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="south">South</button>
 	<input class="blueBG" type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -3201,12 +2764,12 @@ $_SESSION['desc232e'] = <<<HTML
 <html><div class="roomBox"><h3>Sewer Crossroads</h3>
 	<p>Many paths intersect here. And every path is covered with crap.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	</form>
 </div></html>
 HTML;
@@ -3221,9 +2784,9 @@ $_SESSION['desc232f'] = <<<HTML
 <html><div class="roomBox"><h3>In the Sewer near the exit</h3>
 	<p>Head east to reach the exit of this awful place or west to go deeper into the garbage.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -3238,9 +2801,9 @@ $_SESSION['desc232g'] = <<<HTML
 <html><div class="roomBox"><h3>In the Sewer by a Smelly "Pond"</h3>
 	<p>The pond is made mostly of poop, incase you didn't pick up on that.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -3256,10 +2819,10 @@ $_SESSION['desc232h'] = <<<HTML
 <html><div class="roomBox"><h3>Crossing the Sewer Path</h3>
 	<p>The sewer opens up here. Two wide paths intersect here.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	</form>
 </div></html>
 HTML;
@@ -3275,10 +2838,10 @@ $_SESSION['desc232i'] = <<<HTML
 <html><div class="roomBox"><h3>In the Sewer by a "Waterfall"</h3>
 	<p>This is not the type of waterfall you want to splash around in. </p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="southeast" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -3293,9 +2856,9 @@ $_SESSION['desc232j'] = <<<HTML
 <html><div class="roomBox"><h3>In the Sewer by the Catacombs</h3>
 	<p>You get an uneasy feeling here. There is a massive stone wall to your north. You can reach the rest of the sewer by heading south.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="southeast" />
-	<input type="submit" name="input1" value="northeast" />
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
 
 	<input class="goldBG" type="submit" name="input1" value="search" />
 	</form>
@@ -3311,8 +2874,8 @@ $_SESSION['desc232k'] = <<<HTML
 <html><div class="roomBox"><h3>It's Pitch Black in the Sewer</h3>
 	<p>You can barely see a thing. You stumble over dead animals, trash and of course, shit. You hear some muffled screaming coming from the north. </p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	</form>
 </div></html>
 HTML;
@@ -3326,8 +2889,8 @@ $_SESSION['desc232l'] = <<<HTML
 <html><div class="roomBox"><h3>At a Dead End in the Sewers</h3>
 	<p>You reached a dead end in the sewers and there's nothing you can do about it. Just give up now.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="northeast" />
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
 	<input class="goldBG" type="submit" name="input1" value="search" />
 	</form>
 </div></html>
@@ -3344,7 +2907,7 @@ $_SESSION['desc232mm'] = <<<HTML
 	<h3 class="dirt">Thieve’s Den Secret Entrance</h3>
 	<p>You managed to find a secret entrance to the Thieve's Den. Head down to make your way to the Thieve's Treasure Room.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="down" />
+	<button type="submit" name="input1" value="down">Down</button>
 	</form>
 </div></html>
 HTML;
@@ -3360,8 +2923,8 @@ $_SESSION['desc232m'] = <<<HTML
 	<h3 class="dirt">Thieve's Den Hangout</h3>
 	<p>Chairs and tables are set up here for card games and eating. Stolen merchandise seems to be all over the place. You see a stash of crossbow bolts in the corner of the room.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="east">East</button>
 	<input class="goldBG" type="submit" name="input1" value="grab bolts" />
 	</form>
 </div></html>
@@ -3378,8 +2941,8 @@ $_SESSION['desc232n'] = <<<HTML
 	<h3 class="dirt">Thieve's Den Training Room</h3>
 	<p>This heavily fortified training room is used quite often by Brute Thieves. Be wary.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -3395,7 +2958,7 @@ $_SESSION['desc232o'] = <<<HTML
 	<h3 class="dirt">Thieve's Den Treasure Room</h3>
 	<p>This room is littered with gold, treasures and other shiny things. There is a large chest here as well.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
+	<button type="submit" name="input1" value="west">West</button>
 	<input class="goldBG" type="submit" name="input1" value="open chest" />
 	</form>
 </div></html>
@@ -3411,9 +2974,9 @@ $_SESSION['desc232p'] = <<<HTML
 <html><div class="roomBox"><h3>The Catacombs EXIT</h3>
 	<p>A massive stone door is to your southwest. The Catacombs extend very far towards the west. You see some burnt books on the ground and several skulls embedded in the stone walls.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="north" />
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="north">North</button>
 	</form>
 </div></html>
 HTML;
@@ -3428,9 +2991,9 @@ $_SESSION['desc232q'] = <<<HTML
 <html><div class="roomBox"><h3>The Catacombs Library</h3>
 	<p>Destroyed bookshelves are littered all across this room. Charred books cover the floor. You see the Catacombs Exit to the south and a very shiny walkway to the east. Head west to go deeper into the catacombs.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -3445,9 +3008,9 @@ $_SESSION['desc232r'] = <<<HTML
 <html><div class="roomBox"><h3>The Catacombs Gallery</h3>
 	<p>Faded paintings and murals cover the walls in the gallery. There are shattered bone pieces piled up in the corners.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -3462,9 +3025,9 @@ $_SESSION['desc232s'] = <<<HTML
 <html><div class="roomBox"><h3>The Catacombs Armory</h3>
 	<p>Several skeletons are standing upright in this room. Some are still wearing armor but most of their weapons and equipment are scattered along the floor.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -3479,9 +3042,9 @@ $_SESSION['desc232t'] = <<<HTML
 <html><div class="roomBox"><h3>The Catacombs Torture Chamber</h3>
 	<p>Various torture devices line the bloody walls of this room.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -3496,9 +3059,9 @@ $_SESSION['desc232u'] = <<<HTML
 <html><div class="roomBox"><h3>The Catacombs Room of Skulls</h3>
 	<p>Hundreds of skulls are placed into little cubbies along every wall in this room. Candles are lit in every eye socket.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -3512,8 +3075,8 @@ $_SESSION['desc232v'] = <<<HTML
 <html><div class="roomBox"><h3>The Catacombs Sacred Altar</h3>
 	<p>Elaborate skull pillars are arranged in a circular fashion around a bone altar. There is a bowl of what can only be assumed is holy water in the center of the altar.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -3527,8 +3090,8 @@ $_SESSION['desc232w'] = <<<HTML
 <html><div class="roomBox"><h3>The Catacombs Sacrificial Chamber</h3>
 	<p>A blood soaked stone table is covered with several ornamental daggers of various shapes and sizes. Every single wall, floor and ceiling surface in this chamber is made entirely of bone. </p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -3546,10 +3109,10 @@ $_SESSION['desc232x'] = <<<HTML
 	<h3 class="blue">A Sewer Oasis</h3>
 	<p>You have found the only safe haven in the sewers. Rest up here before you head back out into the stink.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="east">East</button>
 
 	<input class="greenBG" type="submit" name="input1" value="rest" />
 	</form>
@@ -3564,7 +3127,7 @@ $_SESSION['desc232y'] = <<<HTML
 <html><div class="roomBox"><h3>Across a Sewer River by a Gray Chest</h3>
 	<p>The secret sewer alcove here has a shiny gray chest. There are also some potions to pick up!</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="south">South</button>
 
 	<input class="blueBG" type="submit" name="input1" value="get wings potion" />
 	<input class="" type="submit" name="input1" value="open chest" />
@@ -3580,7 +3143,7 @@ $_SESSION['desc232z'] = <<<HTML
 <html><div class="roomBox"><h3>Silver Vault</h3>
 	<p>A silver chest stands in the center of this shimmering room.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
+	<button type="submit" name="input1" value="west">West</button>
 	</form>
 </div></html>
 HTML;
@@ -3598,8 +3161,8 @@ $_SESSION['desc301'] = <<<HTML
 <html><div class="roomBox"><h3>On a Stone Path near Red Town</h3>
 	<p>To the east you see the Grand Red Gates approaching New Babylon (a.k.a. Red Town). To the west you can access the rest of the Stone Mine map.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -3613,8 +3176,8 @@ $_SESSION['desc302'] = <<<HTML
 <html><div class="roomBox"><h3>On a Stone Path</h3>
 	<p>Head northwest for the Stone Mine Crossroads. Head east to return to Red Town.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -3633,14 +3196,14 @@ $_SESSION['desc303'] = <<<HTML
   	<p>The Dwarven Captain stands guard here, enforcing the law for the area. He has 3 quests available for you. There is a map directory here as well.</p>
 	<a href data-link="quests" class="btn goldBG">Dwarf Captain Quests</a>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	</form>
 </div></html>
 HTML;
@@ -3655,8 +3218,8 @@ $_SESSION['desc304'] = <<<HTML
 <html><div class="roomBox"><h3>On a Stone Path</h3>
 	<p>Head north to get to the Grassy Field or southeast for the Stone Mine Crossroads. </p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	</form>
 </div></html>
 HTML;
@@ -3670,8 +3233,8 @@ $_SESSION['desc305'] = <<<HTML
 <html><div class="roomBox"><h3>On a Stone Path near the Grassy Field</h3>
 	<p>Head north to get to the Grassy Field (and Blue Ocean) or go south for the rest of the Stone Mine Map.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
 	</form>
 </div></html>
 HTML;
@@ -3687,9 +3250,9 @@ $_SESSION['desc306'] = <<<HTML
 	<p>You are in the heavily fortified stone building that houses the Dwarf Guard. There is a bounty board here with available quests that have huge rewards. Some free weapons and supplies are here for you to take too.</p>
 	<a href data-link="quests" class="btn goldBG">Bounty Board Quests</a>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 
 	<input class="blueBG" type="submit" name="input1" value="grab arrows" />
 	<input class="blueBG" type="submit" name="input1" value="grab bolts" />
@@ -3713,14 +3276,14 @@ $_SESSION['desc307'] = <<<HTML
 <html><div class="roomBox"><h3>Stone Mine - Dwarf Village Square</h3>
 	<p>The common area and teleport point for the Mining Village. You see a shiny shop set up to north. A pathway marked 'Dwarf Treasury' heads northwest. To the East is the Mining Guild and Northeast is the Neverending Mine. Head south for the Dwarf Guard Bounty Bourd and SW to leave the Village. There is a coal fire burning here where you can rest up.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="south">South</button>
 	<input class="greenBG" type="submit" name="input1" value="rest" />
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	</form>
 </div></html>
 HTML;
@@ -3737,10 +3300,10 @@ $_SESSION['desc308'] = <<<HTML
 	<p>You see dwarves bustling all around the Guild Entrance. There is a uniformed dwarf offering access to the Mining Guild below if you complete the quest here.</p>
 	<a href data-link="quests" class="btn goldBG">Mining Guild Initiation Quest</a>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="down" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="down">Down</button>
 	</form>
 </div></html>
 HTML;
@@ -3758,8 +3321,8 @@ $_SESSION['desc308b'] = <<<HTML
 <html><div class="roomBox"><h3>Mining Guild EXIT</h3>
 	<p>You've made it to the Mining Guild! Here you will learn how to craft strong equipment out of Iron, Steel and Mithril by digging down to new depths over at the mine. To get there go northeast from the FORGE, which is west of here. Head up to exit the Guild and reach the Dwarf Village. </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="up" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="up">Up</button>
 	</form>
 </div></html>
 HTML;
@@ -3777,13 +3340,13 @@ $_SESSION['desc308a'] = <<<HTML
 <html><div class="roomBox"><h3>Mining Guild FORGE</h3>
 	<p>A blacksmith forge burns non stop here. This large well lit room easily has the most guild members in it, all taking turns creating armor and weapons. Feel free to craft items or rest here. There is also a Guild Directory.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="south">South</button>
 
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
    	<input class="greenBG" type="submit" submit" name="input1" value="rest" />
 
 	</form>
@@ -3802,7 +3365,7 @@ $_SESSION['desc308c'] = <<<HTML
 	<p>This room is business central for the guild, you see many upper level dwarfs discussing rocks and such. The Guild Leader stands behind a desk near the far wall.</p>
 	<a href data-link="quests" class="btn goldBG">Mining Guild Quests</a>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
+	<button type="submit" name="input1" value="north">North</button>
    </form>
 </div></html>
 HTML;
@@ -3817,7 +3380,7 @@ $_SESSION['desc308d'] = <<<HTML
 	<p>A strange looking dwarf has a shop set up here. There are buckets of tools and long racks of stones all over the place. In the midst of all the junk is a perfectly organized display of brand new pickaxes and hammers. iron, steel and mithril, all for sale.</p>
 	<a class="btn goldBG" data-link="shop">Mining Guild Shop</a>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="east">East</button>
    </form>
 </div></html>
 HTML;
@@ -3831,7 +3394,7 @@ $_SESSION['desc308e'] = <<<HTML
    <html><div class="roomBox"><h3>The Sentinel Room</h3>
 	<p>A massive fighting arena surrounded by walls of smooth stone.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-		<input type="submit" name="input1" value="southeast" />
+		<button type="submit" name="input1" value="southeast">Southeast</button>
 
 		<input type="submit" class="percent100 darkgrayBG  px20" name="input1" value="attack stone sentinel" /> LVL 20 - cost: 10 stone
 		<input type="submit" class="percent100 brownBG  px20" name="input1" value="attack iron sentinel" /> LVL 40 - cost: 10 iron
@@ -3870,7 +3433,7 @@ $_SESSION['descm01'] = <<<HTML
 	<p>You are in the neverending mine. You can mine down another level or mine here some more.
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" />
+	<button type="submit" name="input1" value="up">Up</button>
 	<input class="brownBG" type="submit" name="input1" value="mine here" />
 	<input class="redBG" type="submit" name="input1" value="mine down" />
    </form>
@@ -3887,7 +3450,7 @@ $_SESSION['descm02'] = <<<HTML
 	<p>You are in the neverending mine. You can mine down another level or mine here some more.
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" /><br>
+	<button type="submit" name="input1" value="up">Up</button><br>
 	<input class="brownBG" type="submit" name="input1" value="mine here" />
 	<input class="redBG" type="submit" name="input1" value="mine down" />
    </form>
@@ -3904,7 +3467,7 @@ $_SESSION['descm03'] = <<<HTML
 	<p>You are in the neverending mine. You can mine down another level or mine here some more.
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" /><br>
+	<button type="submit" name="input1" value="up">Up</button><br>
 	<input class="brownBG" type="submit" name="input1" value="mine here" />
 	<input class="redBG" type="submit" name="input1" value="mine down" />
    </form>
@@ -3921,7 +3484,7 @@ $_SESSION['descm04'] = <<<HTML
 	<p>You are in the neverending mine. You can mine down another level or mine here some more.
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" /><br>
+	<button type="submit" name="input1" value="up">Up</button><br>
 	<input class="brownBG" type="submit" name="input1" value="mine here" />
 	<input class="redBG" type="submit" name="input1" value="mine down" />
    </form>
@@ -3938,7 +3501,7 @@ $_SESSION['descm05'] = <<<HTML
 	<p>You are in the neverending mine. You can mine down another level or mine here some more.
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" /><br>
+	<button type="submit" name="input1" value="up">Up</button><br>
 	<input class="brownBG" type="submit" name="input1" value="mine here" />
 	<input class="redBG" type="submit" name="input1" value="mine down" />
    </form>
@@ -3955,7 +3518,7 @@ $_SESSION['descm06'] = <<<HTML
 	<p>You are in the neverending mine. You can mine down another level or mine here some more.
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" /><br>
+	<button type="submit" name="input1" value="up">Up</button><br>
 	<input class="brownBG" type="submit" name="input1" value="mine here" />
 	<input class="redBG" type="submit" name="input1" value="mine down" />
    </form>
@@ -3972,7 +3535,7 @@ $_SESSION['descm07'] = <<<HTML
 	<p>You are in the neverending mine. You can mine down another level or mine here some more.
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" /><br>
+	<button type="submit" name="input1" value="up">Up</button><br>
 	<input class="brownBG" type="submit" name="input1" value="mine here" />
 	<input class="redBG" type="submit" name="input1" value="mine down" />
    </form>
@@ -3989,7 +3552,7 @@ $_SESSION['descm08'] = <<<HTML
 	<p>You are in the neverending mine. You can mine down another level or mine here some more.
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" /><br>
+	<button type="submit" name="input1" value="up">Up</button><br>
 	<input class="brownBG" type="submit" name="input1" value="mine here" />
 	<input class="redBG" type="submit" name="input1" value="mine down" />
    </form>
@@ -4006,7 +3569,7 @@ $_SESSION['descm09'] = <<<HTML
 	<p>You are in the neverending mine. You can mine down another level or mine here some more.
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" /><br>
+	<button type="submit" name="input1" value="up">Up</button><br>
 	<input class="brownBG" type="submit" name="input1" value="mine here" />
 	<input class="redBG" type="submit" name="input1" value="mine down" />
    </form>
@@ -4023,7 +3586,7 @@ $_SESSION['descm10'] = <<<HTML
 	<p>You are in the neverending mine. You can mine down another level or mine here some more.
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" /><br>
+	<button type="submit" name="input1" value="up">Up</button><br>
 	<input class="brownBG" type="submit" name="input1" value="mine here" />
 	<input class="redBG" type="submit" name="input1" value="mine down" />
    </form>
@@ -4040,7 +3603,7 @@ $_SESSION['descm11'] = <<<HTML
 	<p>You are in the neverending mine. You can mine down another level or mine here some more.
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" /><br>
+	<button type="submit" name="input1" value="up">Up</button><br>
 	<input class="brownBG" type="submit" name="input1" value="mine here" />
 	<input class="redBG" type="submit" name="input1" value="mine down" />
    </form>
@@ -4057,7 +3620,7 @@ $_SESSION['descm12'] = <<<HTML
 	<p>You are in the neverending mine. You can mine down another level or mine here some more.
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" /><br>
+	<button type="submit" name="input1" value="up">Up</button><br>
 	<input class="brownBG" type="submit" name="input1" value="mine here" />
 	<input class="redBG" type="submit" name="input1" value="mine down" />
    </form>
@@ -4074,7 +3637,7 @@ $_SESSION['descm13'] = <<<HTML
 	<p>You are in the neverending mine. You can mine down another level or mine here some more.
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" /><br>
+	<button type="submit" name="input1" value="up">Up</button><br>
 	<input class="brownBG" type="submit" name="input1" value="mine here" />
 	<input class="redBG" type="submit" name="input1" value="mine down" />
    </form>
@@ -4091,7 +3654,7 @@ $_SESSION['descm14'] = <<<HTML
 	<p>You are in the neverending mine. You can mine down another level or mine here some more.
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" /><br>
+	<button type="submit" name="input1" value="up">Up</button><br>
 	<input class="brownBG" type="submit" name="input1" value="mine here" />
 	<input class="redBG" type="submit" name="input1" value="mine down" />
    </form>
@@ -4108,7 +3671,7 @@ $_SESSION['descm15'] = <<<HTML
 	<p>You are in the neverending mine. You can mine down another level or mine here some more.
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" /><br>
+	<button type="submit" name="input1" value="up">Up</button><br>
 	<input class="brownBG" type="submit" name="input1" value="mine here" />
 	<input class="redBG" type="submit" name="input1" value="mine down" />
    </form>
@@ -4125,7 +3688,7 @@ $_SESSION['descm16'] = <<<HTML
 	<p>You are in the neverending mine. You can mine down another level or mine here some more.
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" /><br>
+	<button type="submit" name="input1" value="up">Up</button><br>
 	<input class="brownBG" type="submit" name="input1" value="mine here" />
 	<input class="redBG" type="submit" name="input1" value="mine down" />
    </form>
@@ -4142,7 +3705,7 @@ $_SESSION['descm17'] = <<<HTML
 	<p>You are in the neverending mine. You can mine down another level or mine here some more.
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" /><br>
+	<button type="submit" name="input1" value="up">Up</button><br>
 	<input class="brownBG" type="submit" name="input1" value="mine here" />
 	<input class="redBG" type="submit" name="input1" value="mine down" />
    </form>
@@ -4159,7 +3722,7 @@ $_SESSION['descm18'] = <<<HTML
 	<p>You are in the neverending mine. You can mine down another level or mine here some more.
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" /><br>
+	<button type="submit" name="input1" value="up">Up</button><br>
 	<input class="brownBG" type="submit" name="input1" value="mine here" />
 	<input class="redBG" type="submit" name="input1" value="mine down" />
    </form>
@@ -4176,7 +3739,7 @@ $_SESSION['descm19'] = <<<HTML
 	<p>You are in the neverending mine. You can mine down another level or mine here some more.
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" /><br>
+	<button type="submit" name="input1" value="up">Up</button><br>
 	<input class="brownBG" type="submit" name="input1" value="mine here" />
 	<input class="redBG" type="submit" name="input1" value="mine down" />
    </form>
@@ -4193,7 +3756,7 @@ $_SESSION['descm20'] = <<<HTML
 	<p>You are in the neverending mine. You can mine down another level or mine here some more.
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" /><br>
+	<button type="submit" name="input1" value="up">Up</button><br>
 	<input class="brownBG" type="submit" name="input1" value="mine here" />
 	<input class="redBG" type="submit" name="input1" value="mine down" />
    </form>
@@ -4216,7 +3779,7 @@ $_SESSION['desc309'] = <<<HTML
 <html><div class="roomBox"><h3>Dwarf Treasury</h3>
 	<p>The Treasury is decorated very nicely with rare metals and jewels embedded in the furniture, walls and ceiling. There is a shimmering steel display here with a Gold and Silver Chest. If you have any keys, please help yourself.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 
 	<input class="goldBG auto" type="submit" name="input1" value="open gold chest" />
 	</form>
@@ -4234,8 +3797,8 @@ $_SESSION['desc310'] = <<<HTML
   	<form id="mainForm" method="post" action="" name="formInput">
       <a class="btn grayBG" data-link="shop">Silver Shop</a>
 
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	</form>
 </div></html>
 HTML;
@@ -4250,9 +3813,9 @@ $_SESSION['desc311'] = <<<HTML
 <html><div class="roomBox"><h3>The Neverending Mine - Base Camp</h3>
 	<p>You stand atop the Neverending mine owned by the Mining Guild. Several miners are seen here preparing for future expeditions. Head on down to enter level 1 of the Mine. If you don't have access yet complete the Mining Guild quest to the south. There are also some free mining supplies here and a fire to rest at.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="down" />
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="down">Down</button>
 	<br>
 	<input class="goldBG" type="submit" name="input1" value="grab pickaxe" />
 	<input class="goldBG" type="submit" name="input1" value="grab red potion" />
@@ -4271,8 +3834,8 @@ $_SESSION['desc312'] = <<<HTML
 <html><div class="roomBox"><h3>On a Muddy Path by the Crossroads</h3>
 	<p>The path west starts to get muddy here. To the east you see the Dwarf Captain standing guard.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -4286,8 +3849,8 @@ $_SESSION['desc313'] = <<<HTML
 <html><div class="roomBox"><h3>On a Muddy Path</h3>
 	<p>That's pretty much it. It's muddy.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -4302,9 +3865,9 @@ $_SESSION['desc314'] = <<<HTML
 <html><div class="roomBox"><h3>On a Muddy Path by an Abandoned Mine</h3>
 	<p>The path continues northwest towards the Swamp. Another path splits off sharply to the northeast heading up a hill to the Abandoned Mine.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -4318,10 +3881,10 @@ $_SESSION['desc315'] = <<<HTML
 <html><div class="roomBox"><h3>Abandoned Mine ENTRANCE</h3>
 	<p>The entrance to the mine is a mess. There are broken tools and stone scattered everywhere. There is a sign here.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="down" />
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="down">Down</button>
 
-   <input class="brownBG" type="submit" name="input1" value="read sign" />
+   <button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	</form>
 </div></html>
 HTML;
@@ -4336,8 +3899,8 @@ $_SESSION['desc315a'] = <<<HTML
 <html><div class="roomBox"><h3>Abandoned Mine EXIT</h3>
 	<p>A way out of the Abandoned Mine. Head up to exit or southeast to travel deeper into the condemned mine.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" />
-	<input type="submit" name="input1" value="southwest" />
+	<button type="submit" name="input1" value="up">Up</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
 	</form>
 </div></html>
 HTML;
@@ -4352,8 +3915,8 @@ $_SESSION['desc315b'] = <<<HTML
 <html><div class="roomBox"><h3>Bloody Skeever Tracks</h3>
 	<p>Large rodent tracks go every which way in this room.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="northeast" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
 	</form>
 </div></html>
 HTML;
@@ -4367,8 +3930,8 @@ $_SESSION['desc315c'] = <<<HTML
 <html><div class="roomBox"><h3>Bleeding Nests</h3>
 	<p>Slimy, bloody nests are found all over this room. You hear buzzing and screeching all around you.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -4382,8 +3945,8 @@ $_SESSION['desc315d'] = <<<HTML
 <html><div class="roomBox"><h3>Lair of the Worm</h3>
 	<p>This room is almost completely covered in a slimy mucus, and it smells… bad. Watch out for the giant, poisonous boss worm here.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="southwest" />
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
 	</form>
 </div></html>
 HTML;
@@ -4398,8 +3961,8 @@ $_SESSION['desc316'] = <<<HTML
 <html><div class="roomBox"><h3>On a Muddy Path approaching a Swamp</h3>
 	<p>A Blue Guard stands here blocking the path to the Swamp. If you wish to gain access to the Swamp Path you must open the Gold Chest in the Dwarf Mining Village. Otherwise head back southeast.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	</form>
 </div></html>
 HTML;
@@ -4416,10 +3979,10 @@ $_SESSION['desc317'] = <<<HTML
 <html><div class="roomBox"><h3>On a Grass Path</h3>
 	<p>You are at a junction of paths. To the north you see the Dwarf Guard Captain. To the southeast you see a massive red stone pillar and to the south there is a locked gate. The path continues to the southwest.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	</form>
 </div></html>
 HTML;
@@ -4434,9 +3997,9 @@ $_SESSION['desc318'] = <<<HTML
 <html><div class="roomBox"><h3>On a Grass Path near a Fortress</h3>
 	<p>You see a massive Red Fort to the west. The grass path continues northeast and south.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="south">South</button>
 	</form>
 </div></html>
 HTML;
@@ -4451,9 +4014,9 @@ $_SESSION['desc319'] = <<<HTML
 <html><div class="roomBox"><h3>On a Grass Path near the Grotto</h3>
 	<p>An intricately carved stone door blocks the Grotto Entrance to the southwest. You have a feeling a lever in the nearby Fort might open it. The grass path continues north and south. </p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="north" />
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="north">North</button>
 	</form>
 </div></html>
 HTML;
@@ -4467,8 +4030,8 @@ $_SESSION['desc320'] = <<<HTML
 <html><div class="roomBox"><h3>On a Grass Path Approaching the Savannah</h3>
 	<p>A Gray Guard blocks the Savannah entrance here. He remains silent as you try to look past him. To exit head back north.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
 	</form>
 </div></html>
 HTML;
@@ -4483,8 +4046,8 @@ $_SESSION['desc321'] = <<<HTML
 	<p>This stone cave has many lush trees and bushes growing in its natural running water. There is a small pond here surrounded by intricately carved dwarven statues. The statues have a variety of small birds and glowing dragonflies buzzing around them. Behind one of the statues you see a wide spiral staircase made of stone and covered with moss. The staircase descends under the ground.
 </p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="down" />
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="down">Down</button>
 
 	<input class="goldBG" type="submit" name="input1" value="search" />
 	</form>
@@ -4499,7 +4062,7 @@ $_SESSION['desc321b'] = <<<HTML
 <html><div class="roomBox"><h3>Under the Grotto</h3>
 	<p>Even more bushes and colorful flowers grow here beneath the roots. There is a big echo in this chamber and you hear odd noises coming from all around you. There are the same statues down here that are above. The statues all have their hands open ready to receive an offering. You see a strange pair of light blue gloves in the hands of one of the statues.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" />
+	<button type="submit" name="input1" value="up">Up</button>
 
 	<input class="goldBG" type="submit" name="input1" value="ex gloves" />
 	</form>
@@ -4515,10 +4078,10 @@ $_SESSION['desc322'] = <<<HTML
 <html><div class="roomBox"><h3>Red Fort Courtyard</h3>
 	<p>A nicely groomed lawn is here with little patches of bushes and flower. Try not to mess any of them up fighting the bandits. The path continues west into the Red Fort.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="east">East</button>
 
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	</form>
 </div></html>
 HTML;
@@ -4532,8 +4095,8 @@ $_SESSION['desc323'] = <<<HTML
 <html><div class="roomBox"><h3>Red Fort Hallway</h3>
 	<p>This large decorated hallway leads deeper into the Fort.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -4549,9 +4112,9 @@ $_SESSION['desc324'] = <<<HTML
 <html><div class="roomBox"><h3>Red Fort Barracks</h3>
 	<p>Swords, axes, and armor for Red Beard's bandits are stored in this room. Might be useful to search for equipment here. You also smell some good cooking to the south.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="east">East</button>
 
 	<input class="goldBG" type="submit" name="input1" value="search" />
 	</form>
@@ -4566,7 +4129,7 @@ $_SESSION['desc325'] = <<<HTML
 <html><div class="roomBox"><h3>Red Fort Kitchen</h3>
 	<p>The infamous Red Fort Kitchen. Many great meals have been prepared here for the Red Bandits. Watch out for the Butcher though. He has a reputation for having a mean streak.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
+	<button type="submit" name="input1" value="north">North</button>
 
 	<input class="goldBG" type="submit" name="input1" value="flip switch" />
 	</form>
@@ -4581,7 +4144,7 @@ $_SESSION['desc326'] = <<<HTML
 <html><div class="roomBox"><h3>Red Beard's War Room</h3>
 	<p>A large oak table has a big map of the surrounding area with red markers to represent the bandits' location as well as all the opposing guards who watch over the land. This is where Red Beard can usually be found. Be cautious though, he packs quite a punch.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="south">South</button>
 	</form>
 </div></html>
 HTML;
@@ -4594,9 +4157,9 @@ $_SESSION['desc327'] = <<<HTML
 <html><div class="roomBox"><h3>Demigod of Strength</h3>
 	<p>A large red pillar stands in the center of this huge arena. You can summon the Demigod of Strength by simply attacking.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
 
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	<input class="goldBG" type="submit" name="input1" value="attack" />
 	</form>
 </div></html>
@@ -4609,8 +4172,8 @@ $_SESSION['desc328'] = <<<HTML
 <html><div class="roomBox"><h3>Silver Mine</h3>
 	<p>The silver mine is below. Awesome.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="down" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="down">Down</button>
 	</form>
 </div></html>
 HTML;
@@ -4622,7 +4185,7 @@ $_SESSION['desc329'] = <<<HTML
 <html><div class="roomBox"><h3>Stone Mine Perfection Pillar</h3>
 	<p>A large stone pillar stands here. Defeat every creature in this map to receive its reward.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -4643,9 +4206,9 @@ $_SESSION['desc401'] = <<<HTML
 	<h3 class="ocean">In the Ocean near the Docks</h3>
 	<p>The ocean's waves slowly roll in. The natural water current here wants to take you to the southwest. To the northwest is a smaller but calmer part of the ocean. Go east to return to the Grassy Field.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -4659,7 +4222,7 @@ $_SESSION['desc402'] = <<<HTML
 	<h3 class="ocean">Quiet in the Ocean</h3>
 	<p>The waves calm down here and the ocean is very pleasant. A nice breeze is rolling off the mountains to the northeast. You think you might even be able to go under the water here.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	</form>
 </div></html>
 HTML;
@@ -4674,8 +4237,8 @@ $_SESSION['desc403'] = <<<HTML
 	<h3 class="ocean">In the Waves by the Beach</h3>
 	<p>The waves are somewhat choppy here. Head west to reach the rest of the ocean or east for the beach and grassy field.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -4692,10 +4255,10 @@ $_SESSION['desc404'] = <<<HTML
 	<h3 class="ocean">Cruising Along a Beachside Current</h3>
 	<p>A swirling current breaks off in many directions here. Far to the east you see a beach and to the south you see a large yellow temple. Go west to get to the rest of the ocean.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="south">South</button>
 	<input type="submit" name="input1" value="northest" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -4714,9 +4277,9 @@ $_SESSION['desc405'] = <<<HTML
   	<p>The Heavy Walrus has insanely high Defense. You will need some big hits to defeat it.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
 	<input type="submit" class="percent100 goldBG px20" name="input1" value="attack temple boss" />
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	</form>
 </div></html>
 HTML;
@@ -4733,10 +4296,10 @@ $_SESSION['desc406'] = <<<HTML
 	<h3 class="ocean">Blue Ocean Crossing</h3>
 	<p>The vast ocean is quite beautiful here. You can go off in any direction. You see a storm brewing far to the north. The Yellow Water Temple lies to the east. A muddy island can be found to the south and more ocean lies to the west.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -4752,9 +4315,9 @@ $_SESSION['desc407'] = <<<HTML
 	<h3 class="ocean">Storm to the North</h3>
 	<p>You can go north, but be cautious, there is a massive storm forming. You can go around the storm if you go northwest. Head back south for the rest of the ocean.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
 	</form>
 </div></html>
 HTML;
@@ -4770,9 +4333,9 @@ $_SESSION['desc408'] = <<<HTML
 	<h3 class="ocean">Traveling Along a Jetty</h3>
 	<p>A fast moving jetty is traveling around the storm. You see a giant Blue Temple to the northeast. Head back southeast to get to the rest of the ocean.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="southeast" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
+	<button type="submit" name="input1" value="south">South</button>
 	</form>
 </div></html>
 HTML;
@@ -4791,9 +4354,9 @@ $_SESSION['desc409'] = <<<HTML
 	<p>To summon the Blue Water Temple Boss, simply attack! Be prepared though, the Coral Wizard hits strong with magic.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
 	<input type="submit" class="percent100 blueBG px20" name="input1" value="attack temple boss" /><br>
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -4807,7 +4370,7 @@ $_SESSION['desc410'] = <<<HTML
 	<h3 class="ocean">In the Ocean trapped under the Storm</h3>
 	<p>Dark clouds churn above you. You are surrounded by thunder and lightening and unable to find your way out of the storm. Head down under the ocean if you can, or teleport out of here to safety.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="down" />
+	<button type="submit" name="input1" value="down">Down</button>
 	</form>
 </div></html>
 HTML;
@@ -4824,10 +4387,10 @@ $_SESSION['desc411'] = <<<HTML
 	<h3 class="ocean">In the Ocean near Mud Island</h3>
 	<p>You see a muddy island to the southeast. The rest of the ocean is to the north and west. </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	</form>
 </div></html>
 HTML;
@@ -4842,8 +4405,8 @@ $_SESSION['desc412'] = <<<HTML
 	<h3 class="redbrown">Mud Island</h3>
 	<p>Your cool boots are now covered with mud. There is a cave entrance here leading below. </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="down" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="down">Down</button>
 	</form>
 </div></html>
 HTML;
@@ -4863,9 +4426,9 @@ $_SESSION['desc413'] = <<<HTML
 	<a href data-link="quests" class="btn goldBG"><i class="ra ra-player"></i> Friendly Pirate Quests</a>
 
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 
 	<input class="redBG " type="submit" name="input1" value="pick 20 redberry" />
 	<input class="blueBG " type="submit" name="input1" value="pick 20 blueberry" />
@@ -4886,9 +4449,9 @@ $_SESSION['desc414'] = <<<HTML
 	<h3 class="ocean">In the Ocean</h3>
 	<p>You are in the middle of the ocean. To the north you see a beautiful Island Oasis. To the far east you see a yellow temple and south is more ocean.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -4905,10 +4468,10 @@ $_SESSION['desc415'] = <<<HTML
 	<h3 class="ocean">Ocean Calm</h3>
 	<p>The waves have calmed down in this part of the Ocean. To the west you see a Green Temple and to the east you see a Muddy Island. Head south to the Swamp and northeast for more Ocean.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -4924,9 +4487,9 @@ $_SESSION['desc416'] = <<<HTML
 	<h3 class="ocean">On the Ocean by the Swamp Entrance</h3>
 	<p>Head south to leave the Ocean and enter the Swamp. To the northwest is the Green Temple and to the west you see a whirlpool.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="south">South</button>
 	</form>
 </div></html>
 HTML;
@@ -4942,9 +4505,9 @@ $_SESSION['desc417'] = <<<HTML
 	<h3 class="ocean">A Secret Way Under the Sea</h3>
 	<p>A giant whirlpool here draws the surface water below. You can go under the Ocean here if you are breathing water, or head north for the Green Temple, or east for the Swamp Entrance.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="down" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="down">Down</button>
 	</form>
 </div></html>
 HTML;
@@ -4964,10 +4527,10 @@ $_SESSION['desc418'] = <<<HTML
 	<p>To summon the Green Water Temple Boss, simply attack! Be prepared though, the Smooth Ranger attacks with a powerful bow and can also heal.</p>
 <form id="mainForm" method="post" action="" name="formInput">
 	<input type="submit" class="percent100 greenBG px20" name="input1" value="attack temple boss" /><br>
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	</form>
 </div></html>
 HTML;
@@ -4983,7 +4546,7 @@ $_SESSION['desc419'] = <<<HTML
 	<h3 class="ocean">Trapped in a Swirling Current</h3>
 	<p>You find yourself stuck in a swirling current. The only way you can escape is by heading back west.</p>
 <form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
+	<button type="submit" name="input1" value="west">West</button>
 	</form>
 </div></html>
 HTML;
@@ -4999,9 +4562,9 @@ $_SESSION['desc420'] = <<<HTML
 	<h3 class="ocean">Near an Oasis</h3>
 	<p>You see a beautiful island oasis to the east. You see a series of tornadoes forming to the southwest. It looks like you can also go underwater here.</p>
 <form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="down" />
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="down">Down</button>
 	</form>
 </div></html>
 HTML;
@@ -5016,8 +4579,8 @@ $_SESSION['desc421'] = <<<HTML
 	<h3 class="ocean">Riding a Massive Wave</h3>
 	<p>All the currents of the ocean lead here to create the gnarliest wave you've ever seen. Be careful though, this area is easily the most dangerous place in the whole ocean. Surfs up.</p>
 <form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -5036,11 +4599,11 @@ $_SESSION['desc422'] = <<<HTML
 	<p>The never-ending cycle of tornadoes here makes the area very dangerous. On top of the weather conditions you need to watch out for vicious crocodiles! Head west for the Red Water Temple and southeast for the Green Water Temple. You see a lush green island to the southwest.
 </p>
 <form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	</form>
 </div></html>
 HTML;
@@ -5059,9 +4622,9 @@ $_SESSION['desc423'] = <<<HTML
   	<p>To summon the Red Water Temple Boss, simply attack! Be prepared though, the Thunder Barbarian can hit hard with POWER and CRITICAL attacks!</p>
 	<form id="mainForm" method="post" action="" name="formInput">
 	<input type="submit" class="percent100 redBG px20" name="input1" value="attack temple boss" /><br>
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -5076,7 +4639,7 @@ $_SESSION['desc424'] = <<<HTML
 	<p>The island here is covered with lush trees and bushes and is very humid. Jungle Jim has a simple Tree Hut set up here and has some quests available for you. O and watch out for Crocs. </p>
 	<a href data-link="quests" class="btn goldBG">Jungle Jim Quests </a>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northeast" />
+	<button type="submit" name="input1" value="northeast">Northeast</button>
 	</form>
 </div></html>
 HTML;
@@ -5099,10 +4662,10 @@ $_SESSION['desc425'] = <<<HTML
 	<input type="submit" class="redBG" name="input1" value="attack guardian" />
 	<input type="submit" name="input1" class="goldBG" value="grab master pack" />
 	<input type="submit" name="input1" class="greenBG" value="rest" />
-		<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="southeast" />
+		<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	</form>
 </div></html>
 HTML;
@@ -5116,7 +4679,7 @@ $_SESSION['desc425p'] = <<<HTML
 	<h3 class="ocean">Poseidon's Temple</h3>
 	<p>You are flying miles high in Poseidon's Grand Temple. Floating rivers of water are flowing in and around the temple's massive pillars. Summon Poseidon by simply attacking, but understand, he is a true god and has godly stats. You will not survive. </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="down" />
+	<button type="submit" name="input1" value="down">Down</button>
 	</form>
 </div></html>
 HTML;
@@ -5133,7 +4696,7 @@ $_SESSION['desc480'] = <<<HTML
 <html><div class="roomBox"><h3>Underwater Silver Chest</h3>
 	<p>The ocean floor smooths out here and in the smoothest area you see a silver chest. The ocean walls rise up here in all directions. The only exit you see is back northeast.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northeast" />
+	<button type="submit" name="input1" value="northeast">Northeast</button>
 	<input class="goldBG" type="submit" name="input1" value="open silver chest" />
 	</form>
 </div></html>
@@ -5148,8 +4711,8 @@ $_SESSION['desc481'] = <<<HTML
 <html><div class="roomBox"><h3>By a School of Jellyfish</h3>
 	<p>A mix of red, blue and silver jellyfish bob up and down in the chilly water here.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="north" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="north">North</button>
 	</form>
 </div></html>
 HTML;
@@ -5164,9 +4727,9 @@ $_SESSION['desc482'] = <<<HTML
 <html><div class="roomBox"><h3>Deep Under the Ocean</h3>
 	<p>You are very deep under the ocean. The ocean get's brighter and warmer to the northeast. You see a pair of jellyfish swim to the south.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="up">Up</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="south">South</button>
 	</form>
 </div></html>
 HTML;
@@ -5179,7 +4742,7 @@ $_SESSION['desc483'] = <<<HTML
 <html><div class="roomBox"><h3>Surrounded by Coral</h3>
 	<p>You are in the most colorful coral reef you have ever seen. Vibrant jellyfish, eels and crustaceans swim all around you. There are many other small critters scurrying about amongst the reef. There is a piece of coral here in the shape of a lever.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
+	<button type="submit" name="input1" value="north">North</button>
 	<input class="goldBG" type="submit" name="input1" value="flip lever" />
 	</form>
 </div></html>
@@ -5198,14 +4761,14 @@ $_SESSION['desc484'] = <<<HTML
 <html><div class="roomBox"><h3>A Vast Underwater Landscape</h3>
 	<p>The ocean floor stretches in all directions as far as your eyes can see. You see an opening above you where you can swim to the surface. The ocean floor dips down to the southwest and get's increasingly colorful to the south. You see a gold shimmer to the north as well as a school of sharks swim by. The wide ocean floor continues to the east. It appears someone left a sign here.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" />
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="southwest" />
+	<button type="submit" name="input1" value="up">Up</button>
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
 
-   	<input class="brownBG" type="submit" name="input1" value="read sign" />
+   	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	</form>
 </div></html>
 HTML;
@@ -5218,7 +4781,7 @@ $_SESSION['desc485'] = <<<HTML
 <html><div class="roomBox"><h3>Underwater Gold Shrine</h3>
 	<p>The gold chest here is centered on a solid gold platform with golden pillars at each corner. It's a lot of gold.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southwest" />
+	<button type="submit" name="input1" value="southwest">Southwest</button>
 	<input class="goldBG" type="submit" name="input1" value="open chest" />
 	</form>
 </div></html>
@@ -5233,8 +4796,8 @@ $_SESSION['desc486'] = <<<HTML
 <html><div class="roomBox"><h3>On the Ocean Floor</h3>
 	<p>Assorted shells and rocks are all over the ocean floor here. You feel a current dragging you to the southeast. To the west you see the sun's light shining down into the ocean</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	</form>
 </div></html>
 HTML;
@@ -5248,8 +4811,8 @@ $_SESSION['desc487'] = <<<HTML
 <html><div class="roomBox"><h3>In an Underwater Current</h3>
 	<p>A strong current drags you to the east.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -5263,8 +4826,8 @@ $_SESSION['desc488'] = <<<HTML
 <html><div class="roomBox"><h3>Giant Turtle Nest</h3>
 	<p>You see baby turtles swimming all around. Some momma turtles pop their head out of the nest here. You see an opening up to the surface from here and what appears to be a ship to the southwest.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" />
-	<input type="submit" name="input1" value="southwest" />
+	<button type="submit" name="input1" value="up">Up</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
 	</form>
 </div></html>
 HTML;
@@ -5279,9 +4842,9 @@ $_SESSION['desc489'] = <<<HTML
 <html><div class="roomBox"><h3>Sunken Ship</h3>
 	<p>An ancient sunken ship lies on the ocean floor. Tattered pirate flags wave in the waters. Fish and sharks swim in and out of the ships cracks. There are many explorable cabins and exposed crevices inside the ship.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	<input class="goldBG" type="submit" name="input1" value="search" />
 	</form>
 </div></html>
@@ -5298,9 +4861,9 @@ $_SESSION['desc490'] = <<<HTML
 	<h3 class="redbrown">Mud Cave EXIT</h3>
 	<p>This cave is completely covered in mud. You hear many many little crabs scurrying around you. Go east into the muddy tunnel or northeast to where you see most of the crabs coming from.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="up">Up</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -5315,8 +4878,8 @@ $_SESSION['desc491'] = <<<HTML
 	<h3 class="redbrown">A Muddy Tunnel</h3>
 	<p>You didn't think it was possible but this place is more muddy than the last.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="north" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="north">North</button>
 	<input class="goldBG" type="submit" name="input1" value="search" />
 	</form>
 </div></html>
@@ -5333,9 +4896,9 @@ $_SESSION['desc492'] = <<<HTML
 	<h3 class="redbrown">Mud Crab Nest</h3>
 	<p>The crabs never stop flowing out the walls!</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="south" />
-	<input class="redBG" type="submit" name="input1" value="attack" />
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button class="redBG" type="submit" name="input1" value="attack">Attack</button>
 	</form>
 </div></html>
 HTML;
@@ -5350,7 +4913,7 @@ $_SESSION['desc493'] = <<<HTML
 <html><div class="roomBox"><h3>An Underwater Alcove</h3>
 	<p>Sparse patches of glowing coral pop out of the dark ocean floor. Impressive looking statues frame a large door made out of coral to the east.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -5364,7 +4927,7 @@ $_SESSION['desc494'] = <<<HTML
 <html><div class="roomBox"><h3>Underwater Flower Patch</h3>
 	<p>A bright yellow flower patch grows on the ocean floor here. You see white and gold fish swim in and out of the flowers.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
+	<button type="submit" name="input1" value="west">West</button>
 	<input class="goldBG" type="submit" name="input1" value="pick flower" />
 	</form>
 </div></html>
@@ -5380,8 +4943,8 @@ $_SESSION['desc495'] = <<<HTML
 <html><div class="roomBox"><h3>Shark Infested Water</h3>
 	<p>Little fish are scared to swim here due to the many aggressive sharks hunting. You see all sorts of larger fish, sharks and even giant squids swimming in and out of the shadows.  Go west to continue through the shark infested water or head back southeast to return to a slightly safer part of the ocean.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	</form>
 </div></html>
 HTML;
@@ -5396,8 +4959,8 @@ $_SESSION['desc496'] = <<<HTML
 <html><div class="roomBox"><h3>Great White Gauntlet</h3>
 	<p>You see only sharks swimming here, no other fish can survive. You can't even count the number of great whites circling you. You hear a low rumble and then a high pitched scream come from the northwest. Go east to escape this very dangerous area. </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -5412,7 +4975,7 @@ $_SESSION['desc497'] = <<<HTML
 	<p>Fancy jewels and shiny stones jut out of the rocks here. There is plenty of random junk scattered around the ocean floor that you can search through. There is also a glowing green pillar here that you can rest at. After you are done exploring all you can do is return to the surface.
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" />
+	<button type="submit" name="input1" value="up">Up</button>
 	</form>
 </div></html>
 HTML;
@@ -5426,7 +4989,7 @@ $_SESSION['desc498'] = <<<HTML
 <html><div class="roomBox"><h3>Blue Ocean Perfection Pillar</h3>
 	<p>A rarely visited area below the ocean, you see a glowing blue pillar standing here. You need to defeat every enemy above and below the Ocean to receive its reward.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
 	<input class="goldBG" type="submit" name="input1" value="ocean perfection" />
 	</form>
 </div></html>
@@ -5441,7 +5004,7 @@ $_SESSION['desc499'] = <<<HTML
 <html><div class="roomBox"><h3>The Kraken</h3>
 	<p>You are in the lair of the Kraken. This unique beast attacks by launching multiple spiked projectiles in your direction while having the ability to heal itself and dodge your attacks. The kraken drops some great loot though, due to all the previous explorers and equipment it has consumed throughout the eons.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	</form>
 </div></html>
 HTML;
@@ -5460,9 +5023,9 @@ $_SESSION['desc501'] = <<<HTML
 	<p>A chilly stream flows west to east below your feet. You see many large dark trees to the northeast. Over the bridge to the north you see a Ranger Outpost. Back to the south you see the forest path that leads all the way to Red Town.
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	</form>
 </div></html>
 HTML;
@@ -5478,8 +5041,8 @@ $_SESSION['desc502'] = <<<HTML
 		<p>A Ranger Outpost is set up here as a deterrent to would be criminals and thieves. Head west to follow the path to the Stone Mountains or south to reach the Forest and Red Town. Once you complete all 3 quests here you can access the Dark Forest to the northeast from this Outpost, otherwise you must enter from the forest to the southeast.</p>
 	<a href data-link="quests" class="btn goldBG">Dark Forest Outpost Quests </a>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="south">South</button>
 	</form>
 </div></html>
 HTML;
@@ -5495,8 +5058,8 @@ $_SESSION['desc503'] = <<<HTML
 <html><div class="roomBox"><h3>Stone Path by the Outpost</h3>
 	<p>On a rocky stone path between the Highway Mountain Toll  and the Ranger Guard Outpost. Watch out for highwaymen.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -5513,10 +5076,10 @@ $_SESSION['desc504'] = <<<HTML
 	<p>"Pay up or go back to where you came from!" -Highwayman</p>
 	<form id="mainForm" method="post" action="" name="formInput">
 
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="east">East</button>
 
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	<input class="goldBG" type="submit" name="input1" value="pay toll" />
 	<input type="submit" class="percent100 redBG px20" name="input1" value="fight highwayman" /><br>
 	</form>
@@ -5538,9 +5101,9 @@ $_SESSION['desc505'] = <<<HTML
 	<p>You enter the Dark Forest and immediately notice the trees are much larger and the leaves much darker. You hear grunting and clanging coming from the hill to the north. To the northeast lies a massive stone door. Follow the path northwest through the clearing to get to the rest of the Dark Forest.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
 
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="northeast" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
 	<input class="darkgreenBG" type="submit" name="input1" value="chop tree" />
 	</form>
 </div></html>
@@ -5564,8 +5127,8 @@ $_SESSION['desc506'] = <<<HTML
 
 	<form id="mainForm" method="post" action="" name="formInput">
 
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 
 	<input type="submit" name="input1" class="greenBG" value="rest" />
 	<input type="submit" name="input1" class="greenBG" value="grab tea" />
@@ -5587,11 +5150,11 @@ $_SESSION['desc507'] = <<<HTML
 	<h3 class="darkgreen">Dark Forest Teleport</h3>
 	<p>A gold pillar stands in the center of a murky pool here. The pillar glows a soft orange and appears to be carved with odd symbols. The trees tower above you, so lush and dense that very little light reaches the ground. To the southeast you see a Tree Hut and to the north you see a faint golden glow coming from the darkness. There is an oak sign here with an iron axe leaning against it.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="southeast" />
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	<input type="submit" name="input1" class="brownBG" value="grab iron hatchet" />
 	<input class="darkgreenBG" type="submit" name="input1" value="chop tree" />
 	</form>
@@ -5611,8 +5174,8 @@ $_SESSION['desc508'] = <<<HTML
 	<p>You’re on a path through the forest. It’s getting dark. To the west lies the Dark Forest Teleport. To the northeast you hear many strange screeching and howling sounds.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
 
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="northeast" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
 	<input class="darkgreenBG" type="submit" name="input1" value="chop tree" />
 	</form>
 </div></html>
@@ -5630,8 +5193,8 @@ $_SESSION['desc509'] = <<<HTML
 	<h3 class="darkgreen">Dark Grove</h3>
 	<p>A small, unique group of trees grows here. You are surrounded by the dark forest in all directions. You feel like you might be lost here, but you are not.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	<input class="darkgreenBG" type="submit" name="input1" value="chop tree" />
 	<input class="goldBG" type="submit" name="input1" value="search" />
 	</form>
@@ -5650,8 +5213,8 @@ $_SESSION['desc510'] = <<<HTML
 	<h3 class="darkgreen">Bloody Path</h3>
 	<p>Damn. Things just got bloody. The red splattered path turns west here up to the top of a hill where you hear grunting and clanging. Return northwest to the grove.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="west" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="west">West</button>
 	<input class="darkgreenBG" type="submit" name="input1" value="chop tree" />
 	</form>
 </div></html>
@@ -5670,7 +5233,7 @@ $_SESSION['desc511'] = <<<HTML
 	<h3 class="darkgreen">Champion's Camp</h3>
 	<p>Only the strongest trolls make it to the top of the hill. Remain and they will try to smash your face in. You can attempt to search all the scattered equipment if you can withstand the beating.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="east">East</button>
 	<input class="darkgreenBG" type="submit" name="input1" value="chop tree" />
 	<input class="goldBG" type="submit" name="input1" value="flip lever" />
 	<input class="goldBG" type="submit" name="input1" value="search" />
@@ -5690,7 +5253,7 @@ $_SESSION['desc512'] = <<<HTML
 	<h3 class="darkgreen">Dark Forest Silver Chest</h3>
 	<p>A vine covered silver chest sits between 2 massive trees here at the edge of a steep ledge. You can jump north off the ledge, or return southwest through the open stone doors.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southwest" />
+	<button type="submit" name="input1" value="southwest">Southwest</button>
 	<input class="darkgreenBG" type="submit" name="input1" value="chop tree" />
 	<input class="lightblueBG darkestgray" type="submit" name="input1" value="open silver chest" />
 	</form>
@@ -5709,8 +5272,8 @@ $_SESSION['desc513'] = <<<HTML
 	<h3 class="darkgreen">Dark Forest Gold Chest</h3>
 	<p>Surrounded by thorny bushes this gold chest sits on a wide stump. There are large trees all around you, especially to the north. To the northwest you see an iron fence and an open gate.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="south">South</button>
 	<input class="darkgreenBG" type="submit" name="input1" value="chop tree" />
 	<input class="goldBG autoX" type="submit" name="input1" value="open gold chest" />
 	</form>
@@ -5753,8 +5316,8 @@ $_SESSION['desc515'] = <<<HTML
   <a href data-link="quests" class="btn dgreenBG">Quests </a>
 
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="up" />
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
+	<button type="submit" name="input1" value="up">Up</button>
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	</form>
 </div></html>
 HTML;
@@ -5777,10 +5340,10 @@ $_SESSION['desc515a'] = <<<HTML
 	S - Ranger Skills/Spells<br>
 	W - Ranger Shop </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="east">East</button>
 	<input class="goldBG" type="submit" name="input1" value="cook all meat" />
 	<input class="goldBG" type="submit" name="input1" value="grab ranger pack" />
 	<input class="greenBG" type="submit" name="input1" value="rest" />
@@ -5801,9 +5364,9 @@ $_SESSION['desc515b'] = <<<HTML
 	<p>Young Ranger Lego is just chillin here re-stringing his bow and crafting some arrows. He has 3 quests for you to complete.</p>
 	<a href data-link="quests" class="btn goldBG">Ranger Quests</a>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	</form>
 </div></html>
 HTML;
@@ -5822,11 +5385,11 @@ $_SESSION['desc515c'] = <<<HTML
 	<h3 class="dgreen">Silver Shaman | Silver Aura</h3>
 	<p>The Silver Shaman can be seen levitating in the corner of this fancy room.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="down" />
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="southwest" />
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
+	<button type="submit" name="input1" value="down">Down</button>
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	<input class="lightblueBG darkestgray" type="submit" name="input1" value="learn silver aura" />
 	</form>
 </div></html>
@@ -5846,10 +5409,10 @@ $_SESSION['desc515d'] = <<<HTML
 	<p>Only the most skilled guild members are here to distill their knowledge of the bow. </p>
 	<a href data-link2="skills" class="btn blueBG">Skills </a>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="northeast" />
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	</form>
 </div></html>
 HTML;
@@ -5869,10 +5432,10 @@ $_SESSION['desc515e'] = <<<HTML
 	<p>Welcome to the Ranger’s Guild Shop. Guild Merchant Flynn has some great weapons, armor and ammo for sale. The Guild’s Main Lobby is to the east. Lego is offering quests to the northeast and you can learn some great new skills to the southeast. Welcome Ranger.</p>
   <a class="btn goldBG" data-link="shop">Shop</a>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="down" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="down">Down</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	</form>
 </div></html>
 HTML;
@@ -5900,9 +5463,9 @@ $_SESSION['desc516'] = <<<HTML
 <html><div class="roomBox"><h3 class="darkgreen">Dark Keep Courtyard</h3>
 	<p>This fenced in courtyard is dark and creepy. There are gruesome statues and twisted stone paths all around. You see the Dark Keep looming in the fog to the west.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	<input class="darkgreenBG" type="submit" name="input1" value="chop tree" />
 	</form>
 </div></html>
@@ -5923,10 +5486,10 @@ $_SESSION['desc516a'] = <<<HTML
 	<h3 class="darkergray">Dark Keep Main Hall</h3>
 	<p>You are in the main gathering hall of the Dark Keep. Paths go to the west and south. There is a solid steel door to the southwest.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="southwest" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
 	</form>
 </div></html>
 HTML;
@@ -5942,7 +5505,7 @@ $_SESSION['desc516b'] = <<<HTML
 	<h3 class="darkergray">Dark Keep Storeroom</h3>
 	<p>You can rummage through this dusty storeroom. Beware of evil beasts though. There is a lever on the wall here.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="east">East</button>
 	<input class="goldBG" type="submit" name="input1" value="flip lever" />
 	<input class="goldBG" type="submit" name="input1" value="search" />
 	</form>
@@ -5961,7 +5524,7 @@ $_SESSION['desc516c'] = <<<HTML
 	<h3 class="darkergray">Dark Keep Burial Chamber</h3>
 	<p>There are many stone coffins in this room. Most are closed, but some are open. There is a lever on the wall here.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
+	<button type="submit" name="input1" value="north">North</button>
 	<input class="goldBG" type="submit" name="input1" value="flip lever" />
 	</form>
 </div></html>
@@ -5980,8 +5543,8 @@ $_SESSION['desc516d'] = <<<HTML
 	<h3 class="darkergray">Dark Stairwell</h3>
 	<p>A winding stone stairwell makes it’s way up the keep here. Beware the stairwell guardian, a beast made completely of stone.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="up" />
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="up">Up</button>
 	</form>
 </div></html>
 HTML;
@@ -6003,9 +5566,9 @@ $_SESSION['desc516e'] = <<<HTML
 	<h3 class="darkergray">Top of the Stairwell</h3>
 	<p>You’ve made it to the top of the Keep. A massive ornate door stands to your northeast.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="northeast" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
 	</form>
 </div></html>
 HTML;
@@ -6021,7 +5584,7 @@ $_SESSION['desc516f'] = <<<HTML
 	<h3 class="darkergray">Dark Keep Barracks</h3>
 	<p>All sorts of elite weapons and armor are stored in this room. Flip the switch or search through the rows of equipment.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
+	<button type="submit" name="input1" value="west">West</button>
 	<input class="goldBG" type="submit" name="input1" value="flip lever" />
 	<input class="goldBG" type="submit" name="input1" value="search" />
 	</form>
@@ -6039,7 +5602,7 @@ $_SESSION['desc516g'] = <<<HTML
 	<h3 class="darkergray">Paladin Altar</h3>
 	<p>The most holy of site’s for the disciplined paladins who guard the prince’s throne room. They will not allow you to desecrate it with your demonic presence any further.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="south">South</button>
 	<input class="goldBG" type="submit" name="input1" value="flip lever" />
 	</form>
 </div></html>
@@ -6057,7 +5620,7 @@ $_SESSION['desc516h'] = <<<HTML
 	<p>A crown sits atop an impressive stone and steel build throne. This giant throne room has the largest windows in the keep. Glancing to the east you see the magnificent Dark Forest. The trees continue to tower much higher than you already are. To the north you see a light greenish pillar of light. Beyond that you think you see an even Darker Forest, but that’s for another time. Right now there’s a crown.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
 	<input class="goldBG" type="submit" name="input1" value="grab crown" />
-	<input type="submit" name="input1" value="southwest" />
+	<button type="submit" name="input1" value="southwest">Southwest</button>
 	</form>
 </div></html>
 HTML;
@@ -6101,9 +5664,9 @@ $_SESSION['desc517'] = <<<HTML
 	</p>
 	<a href data-link2="kl" class="btn goldBG">Kill List </a>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	<input class="darkgreenBG" type="submit" name="input1" value="chop tree" />
 	<input class="goldBG long" type="submit" name="input1" value="dark forest perfection" />
 	</form>
@@ -6122,8 +5685,8 @@ $_SESSION['desc518'] = <<<HTML
 	<h3 class="darkgreen">Dark Twisted Path</h3>
 	<p>The path gets really dark here and has many sharp twists and turns. Go east to head further into the forest or northwest to go back to the perfection pillar. </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="east">East</button>
 	<input class="darkgreenBG" type="submit" name="input1" value="chop tree" />
 	</form>
 </div></html>
@@ -6142,8 +5705,8 @@ $_SESSION['desc519'] = <<<HTML
 	<p>A giant tree has fallen here. You have to navigate around the massive trunk and through many twisted branches. The path continues to the east.
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="east">East</button>
 	<input class="darkgreenBG" type="submit" name="input1" value="chop tree" />
 	<input class="goldBG" type="submit" name="input1" value="search" />
 	</form>
@@ -6163,8 +5726,8 @@ $_SESSION['desc520'] = <<<HTML
 	<p>The path gets all twisty again here. Large thorny bushes are scattered all over. be careful or you’ll get stuck.
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="northwest" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="northwest">Northwest</button>
 	<input class="darkgreenBG" type="submit" name="input1" value="chop tree" />
 	</form>
 </div></html>
@@ -6186,9 +5749,9 @@ $_SESSION['desc521'] = <<<HTML
 	<p>You are in the heart of the Dark Forest where the magical Troll Queen guards the nest. There is an opening in the trees to the northwest and northeast. Go southeast to return to the path.
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	<input class="darkgreenBG" type="submit" name="input1" value="chop tree" />
 	</form>
 </div></html>
@@ -6205,7 +5768,7 @@ $_SESSION['desc522'] = <<<HTML
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
 	<input type="submit" class="percent100 goldBG px20" name="input1" value="attack demigod of defense" /><br>
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	<input class="darkgreenBG" type="submit" name="input1" value="chop tree" />
 	</form>
 </div></html>
@@ -6226,7 +5789,7 @@ $_SESSION['desc523'] = <<<HTML
 </p>
 
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southwest" />
+	<button type="submit" name="input1" value="southwest">Southwest</button>
 	<input class="darkgreenBG" type="submit" name="input1" value="chop tree" />
 	</form>
 </div></html>
@@ -6247,9 +5810,9 @@ $_SESSION['desc524'] = <<<HTML
 	<p>You get an uneasy feeling when you lean into the darkness below
 </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="down" />
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="down">Down</button>
 	</form>
 </div></html>
 HTML;
@@ -6267,7 +5830,7 @@ $_SESSION['desc525'] = <<<HTML
 
 	<form id="mainForm" method="post" action="" name="formInput">
 	<input class="percent100 px20 darkgreenBG " type="submit" name="input1" value="battle forest princess" /><br>
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="east">East</button>
 	<input class="brownBG" type="submit" name="input1" value="chop tree" />
 	<input class="greenBG" type="submit" name="input1" value="rest" />
 	</form>
@@ -6301,8 +5864,8 @@ $_SESSION['desc601'] = <<<HTML
 <html><div class="roomBox"><h3>Mountain Path by the Dark Forest</h3>
 	<p>The stone path continues west up the mountain. The path east will take you back to the forest. To the northwest you see a large patch of spruce trees growing on the mountain side.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -6318,8 +5881,8 @@ $_SESSION['desc602'] = <<<HTML
 <html><div class="roomBox"><h3>Mountain Path</h3>
 	<p>The most generic mountain path you can think of.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>
 HTML;
@@ -6340,10 +5903,10 @@ $_SESSION['desc603'] = <<<HTML
 	<h3 class="gray"><span class="dgreen">Wooded</span> Mountain Path</h3>
 	<p>There are a few trees lining the mountain path here. You see many more trees to the east. You hear a faint noise come from the west.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northwest" />
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="northwest">Northwest</button>
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 	</form>
 </div></html>
 HTML;
@@ -6367,7 +5930,7 @@ $_SESSION['desc604'] = <<<HTML
 • Cathedral (lvl 40 - 60)<br>
 </p>
 <form id="mainForm" method="post" action="" name="formInput">
-<input type="submit" name="input1" value="northeast" />
+<button type="submit" name="input1" value="northeast">Northeast</button>
 </form>
 </div></html>
 HTML;
@@ -6386,9 +5949,9 @@ $_SESSION['desc605'] = <<<HTML
 	<h3 class="lgray">Snowy Mountain Clearing</h3>
 	<p>The chilly air gets warmer here in this large clearing. Mountains surround you in all directions. There is a sign here. </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="southeast" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="southeast">Southeast</button>
 
 	</form>
 </div></html>
@@ -6408,7 +5971,7 @@ $_SESSION['desc606'] = <<<HTML
 	<form id="mainForm" method="post" action="" name="formInput">
 	<input type="submit" class=" blueBG " name="input1" value="take lift north" /> One Way Lift Ticket: 500 coin
 	<br/>
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="south">South</button>
 	</form>
 </div></html>
 HTML;
@@ -6429,8 +5992,8 @@ $_SESSION['desc607'] = <<<HTML
 	<form id="mainForm" method="post" action="" name="formInput">
 	<input type="submit" class=" blueBG " name="input1" value="take lift south" /> One Way Lift Ticket: 500 coin
 	<br>
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="northeast" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
 
    </form>
 </div></html>
@@ -6453,10 +6016,10 @@ $_SESSION['desc608'] = <<<HTML
 	<p>A sturdy outpost made out of stone and wood stands here. Occupied by the Blue Guard, they keep this area safe. You can reach Star City by going west and more mountains by going east. There is a sign here. Talk to Hector the Blue Guard Captain for some quests.</p>
 	<a href data-link="quests" class="btn goldBG">Mountain Outpost Quests </a>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="west" />
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="west">West</button>
    </form>
 </div></html>
 HTML;
@@ -6475,8 +6038,8 @@ $_SESSION['desc609'] = <<<HTML
 	<p>Chilly Pete has a nice cabin set up here in the Mountains. You're surprised at how chilly it is even though there’s a fire burning. There is some tea available for adventurers passing through.</p>
 	<a href data-link="quests" class="btn goldBG">Chilly Pete's Quests </a>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="south">South</button>
 	<input type="submit" name="input1" class="greenBG" value="get tea" />
    </form>
 </div></html>
@@ -6501,8 +6064,8 @@ $_SESSION['desc610'] = <<<HTML
 	<a href data-link2="skills" class="btn blueBG">Pro Skills </a>
 
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="east">East</button>
    </form>
 </div></html>
 HTML;
@@ -6524,9 +6087,9 @@ $_SESSION['desc611'] = <<<HTML
 	<p>You stand at the main gate to the city. It is an elaborate shiny structure, consisting of many moving pieces all clicking and popping in complex synchronization. Massive stone walls travel far to the north and south. Standing tall by the gate is Rigel the Knight.</p>
 	<a href data-link="quests" class="btn goldBG">Blue Gate Quest </a>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="east" />
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="east">East</button>
    </form>
 </div></html>
 HTML;
@@ -6546,8 +6109,8 @@ $_SESSION['desc612'] = <<<HTML
 	<h3 class="gray">In the Mountains Surrounded by <span class="dgreen">Trees</span></h3>
 	<p>Now we’re talking. It’s a lumberjack’s dream. You’re surrounded by massive trees in all directions.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="northeast" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="northeast">Northeast</button>
 	<input class="dgreenBG" type="submit" name="input1" value="chop tree" />
    </form>
 </div></html>
@@ -6566,8 +6129,8 @@ $_SESSION['desc613'] = <<<HTML
    	<h3 class="lgray">Foggy Mountain Path</h3>
 	<p>The dense fog makes it difficult to see where the path is going. </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="northwest" />
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="northwest">Northwest</button>
    </form>
 </div></html>
 HTML;
@@ -6586,8 +6149,8 @@ $_SESSION['desc614'] = <<<HTML
    	<h3 class="gray"><span class="blue">Icy</span> Mountain Path</h3>
 	<p>The mountain path is dangerously slippery here. Proceed with caution.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="southeast" />
-	<input type="submit" name="input1" value="west" />
+	<button type="submit" name="input1" value="southeast">Southeast</button>
+	<button type="submit" name="input1" value="west">West</button>
    </form>
 </div></html>
 HTML;
@@ -6605,7 +6168,7 @@ $_SESSION['desc615'] = <<<HTML
     <h3 class="darkgray">Bottom of a Ledge</h3>
 	<p>You are in cold, dank pit. The only way out is to crawl up the south ledge.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="south" />
+	<button type="submit" name="input1" value="south">South</button>
    </form>
 </div></html>
 HTML;
@@ -6638,8 +6201,8 @@ $_SESSION['desc617'] = <<<HTML
    	<h3 class="gray">Stone Mountain Peak</h3>
 	<p>You stand atop of the highest mountain peak. The largest giants wander around at this altitude. Stay frosty. </p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="southwest" />
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
    </form>
 </div></html>
 HTML;
@@ -6658,9 +6221,9 @@ $_SESSION['desc618'] = <<<HTML
    <html><div class="roomBox"><h3>Deserted Mountain Campsite</h3>
 	<p>The remains of a camp and fire are here. To the west you see a stone bridge and to the northeast the path continues to the cathedral.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="northeast" />
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="west" />
+	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="west">West</button>
    </form>
 </div></html>
 HTML;
@@ -6677,8 +6240,8 @@ $_SESSION['desc619'] = <<<HTML
    <html><div class="roomBox"><h3>Mountain Bridge</h3>
 	<p>You walk on a stone bridge spanning over a large chasm below. The air here is frigid and brisk. You see a broken sign on the ground reading “Do not try to cross! Beware the Gatekeeper!”</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="east" />
-	<input type="submit" name="input1" value="west" />
+	<button type="submit" name="input1" value="east">East</button>
+	<button type="submit" name="input1" value="west">West</button>
    </form>
 </div></html>
 HTML;
@@ -6695,7 +6258,7 @@ $_SESSION['desc620'] = <<<HTML
    <html><div class="roomBox"><h3>Dragon’s Ledge</h3>
 	<p>You stand at the edge of a mountain cliff overlooking the chasms below. To the northwest there is a vast expanse of unexplored mountains shining in the light. To the east is the stone bridge.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="east">East</button>
 	<input class="goldBG" type="submit" name="input1" value="pick flower" />
    </form>
 </div></html>
@@ -6718,8 +6281,8 @@ $_SESSION['desc621'] = <<<HTML
 	<form id="mainForm" method="post" action="" name="formInput">
 	<div class="roomIcon gold px50"><i class="icon-chest"></i></div>
 	<input class="goldBG" type="submit" name="input1" value="open chest" />
-	<input type="submit" name="input1" value="southwest" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="east">East</button>
    </form>
 </div></html>
 HTML;
@@ -6738,8 +6301,8 @@ $_SESSION['desc622'] = <<<HTML
    	<h3 class="gold">Cathedral Nave</h3>
 	<p>You stand in the largest and most decorated room of the cathedral. Pillars and walls with intricate sculptures frame out ancient paintings and ornate tapestries. The is a carved marble fount here filled with holy water. There are many dark corners and shadows to be weary of. Head west to leave the cathedral or east to get to the main altar.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="west">West</button>
+	<button type="submit" name="input1" value="east">East</button>
    </form>
 </div></html>
 HTML;
@@ -6755,7 +6318,7 @@ $_SESSION['desc623'] = <<<HTML
    	<h3 class="purple">Cathedral Altar</h3>
 	<p>Marble stairs lead up to an altar decorated with rare stones and gems. Candles burn on every surface of the altar as well as the walls around you. The uneasy feeling in this room is almost unbearable.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="west" />
+	<button type="submit" name="input1" value="west">West</button>
    </form>
 </div></html>
 HTML;
@@ -6779,7 +6342,7 @@ $_SESSION['desc701'] = <<<HTML
 	<h3 class="gray">Camp Hero</span></h3>
 	<p>Now this is a proper camp for a proper hero. There is a breathtaking view of Star City to the west. There are many areas to sit and mingle here and some food and supplies to grab. Rest at the fountain and feel fantastic.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<input type="submit" name="input1" value="east" />
+	<button type="submit" name="input1" value="east">East</button>
 	<input class="greenBG" type="submit" name="input1" value="rest" />
    </form>
 </div></html>

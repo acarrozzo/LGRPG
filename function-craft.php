@@ -473,6 +473,11 @@ while ($row = $result->fetch_assoc()) {
             $results = $link->query("UPDATE $user SET craftingtable = room"); // -- crafting table set up
             $results = $link->query("UPDATE $user SET wood = wood - 3");
             include('update_feed.php'); // --- update feed
+            $message = "
+            <p>A <span class='red'>Crafting Table </span> is set up here</p>
+            <a href data-link2='craft' class='redBG btn'>
+            <i class='icon white small'>".file_get_contents("img/svg/table.svg")."</i> Craft Now</a> ";
+            include('update_feed_alt.php'); // --- update feed
         }
     }
 
@@ -489,6 +494,11 @@ while ($row = $result->fetch_assoc()) {
             $results = $link->query("UPDATE $user SET fire = room");
             $results = $link->query("UPDATE $user SET wood = wood - 1");
             include('update_feed.php'); // --- update feed
+            $message = "
+            <p>A <span class='red'>Cooking Fire </span> burns here</p>
+            <a href data-link2='craft' class='redBG btn'>
+            <i class='icon white small'>".file_get_contents("img/svg/fire.svg")."</i> Cook</a> ";
+            include('update_feed_alt.php'); // --- update feed
         } else {
             echo "<span class='gold'>You don't have any wood to build a fire.</span><br/>";
             $message = "You don't have any wood to build a fire.<br/>";
@@ -728,7 +738,7 @@ while ($row = $result->fetch_assoc()) {
         $results = $link->query("UPDATE $user SET leatherhood = leatherhood + 1");
         $results = $link->query("UPDATE $user SET leather = leather - 3");
         include('update_feed.php'); // --- update feed
-    $input='craft';
+        $input='craft';
     }
     // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx leather helmet
     elseif ($craftingtable==$room && $crafting >= 1 && $input=='craft leather helmet' && $hammer >=1 && $leather >=5) {
@@ -736,7 +746,7 @@ while ($row = $result->fetch_assoc()) {
         $results = $link->query("UPDATE $user SET leatherhelmet = leatherhelmet + 1");
         $results = $link->query("UPDATE $user SET leather = leather - 5");
         include('update_feed.php'); // --- update feed
-    $input='craft';
+        $input='craft';
     }
     // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx leather vest
     elseif ($craftingtable==$room && $crafting >= 1 && $input=='craft leather vest' && $hammer >=1 && $leather >=7) {
@@ -744,7 +754,7 @@ while ($row = $result->fetch_assoc()) {
         $results = $link->query("UPDATE $user SET leathervest = leathervest + 1");
         $results = $link->query("UPDATE $user SET leather = leather - 7");
         include('update_feed.php'); // --- update feed
-    $input='craft';
+        $input='craft';
     }
     // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx leather armor
     elseif ($craftingtable==$room && $crafting >= 1 && $input=='craft leather armor' && $hammer >=1 && $leather >=10) {
@@ -752,7 +762,7 @@ while ($row = $result->fetch_assoc()) {
         $results = $link->query("UPDATE $user SET leatherarmor = leatherarmor + 1");
         $results = $link->query("UPDATE $user SET leather = leather - 10");
         include('update_feed.php'); // --- update feed
-    $input='craft';
+        $input='craft';
     }
     // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx leather gloves
     elseif ($craftingtable==$room && $crafting >= 1 && $input=='craft leather gloves' && $hammer >=1 && $leather >=3) {
@@ -760,7 +770,7 @@ while ($row = $result->fetch_assoc()) {
         $results = $link->query("UPDATE $user SET leathergloves = leathergloves + 1");
         $results = $link->query("UPDATE $user SET leather = leather - 3");
         include('update_feed.php'); // --- update feed
-    $input='craft';
+        $input='craft';
     }
     // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx leather boots
     elseif ($craftingtable==$room && $crafting >= 1 && $input=='craft leather boots' && $hammer >=1 && $leather >=3) {
@@ -768,7 +778,7 @@ while ($row = $result->fetch_assoc()) {
         $results = $link->query("UPDATE $user SET leatherboots = leatherboots + 1");
         $results = $link->query("UPDATE $user SET leather = leather - 3");
         include('update_feed.php'); // --- update feed
-    $input='craft';
+        $input='craft';
     }
 
 
@@ -977,25 +987,25 @@ while ($row = $result->fetch_assoc()) {
         $results = $link->query("UPDATE $user SET ringofstrength = ringofstrength - 2");
         $results = $link->query("UPDATE $user SET ringofstrengthII = ringofstrengthII + 1");
         include('update_feed.php'); // --- update feed
-    $input='craft';
+        $input='craft';
     } elseif ($craftingtable==$room && $crafting >= 1 && ($input == 'auto combine' || $input=='craft ring of dexterity II') && $hammer >=1 && $ringofdexterity >=2) {
         echo $message = "You combine your 2 rings into a Ring of Dexterity II<br/>";
         $results = $link->query("UPDATE $user SET ringofdexterity = ringofdexterity - 2");
         $results = $link->query("UPDATE $user SET ringofdexterityII = ringofdexterityII + 1");
         include('update_feed.php'); // --- update feed
-    $input='craft';
+        $input='craft';
     } elseif ($craftingtable==$room && $crafting >= 1 && ($input == 'auto combine' || $input=='craft ring of magic II') && $hammer >=1 && $ringofmagic >=2) {
         echo $message = "You combine your 2 rings into a Ring of Magic II<br/>";
         $results = $link->query("UPDATE $user SET ringofmagic = ringofmagic - 2");
         $results = $link->query("UPDATE $user SET ringofmagicII = ringofmagicII + 1");
         include('update_feed.php'); // --- update feed
-    $input='craft';
+        $input='craft';
     } elseif ($craftingtable==$room && $crafting >= 1 && ($input == 'auto combine' || $input=='craft ring of defense II') && $hammer >=1 && $ringofdefense >=2) {
         echo $message = "You combine your 2 rings into a Ring of Defense II<br/>";
         $results = $link->query("UPDATE $user SET ringofdefense = ringofdefense - 2");
         $results = $link->query("UPDATE $user SET ringofdefenseII = ringofdefenseII + 1");
         include('update_feed.php'); // --- update feed
-    $input='craft';
+        $input='craft';
     }
     // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx rings III
     elseif ($craftingtable==$room && $crafting >= 1 && ($input == 'auto combine' || $input=='craft ring of strength III') && $hammer >=1 && $ringofstrengthII >=2) {
@@ -1003,25 +1013,25 @@ while ($row = $result->fetch_assoc()) {
         $results = $link->query("UPDATE $user SET ringofstrengthII = ringofstrengthII - 2");
         $results = $link->query("UPDATE $user SET ringofstrengthIII = ringofstrengthIII + 1");
         include('update_feed.php'); // --- update feed
-    $input='craft';
+        $input='craft';
     } elseif ($craftingtable==$room && $crafting >= 1 && ($input == 'auto combine' || $input=='craft ring of dexterity III') && $hammer >=1 && $ringofdexterityII >=2) {
         echo $message = "You combine your 2 rings into a Ring of Dexterity III<br/>";
         $results = $link->query("UPDATE $user SET ringofdexterityII = ringofdexterityII - 2");
         $results = $link->query("UPDATE $user SET ringofdexterityIII = ringofdexterityIII + 1");
         include('update_feed.php'); // --- update feed
-    $input='craft';
+        $input='craft';
     } elseif ($craftingtable==$room && $crafting >= 1 && ($input == 'auto combine' || $input=='craft ring of magic III') && $hammer >=1 && $ringofmagicII >=2) {
         echo $message = "You combine your 2 rings into a Ring of Magic III<br/>";
         $results = $link->query("UPDATE $user SET ringofmagicII = ringofmagicII - 2");
         $results = $link->query("UPDATE $user SET ringofmagicIII = ringofmagicIII + 1");
         include('update_feed.php'); // --- update feed
-    $input='craft';
+        $input='craft';
     } elseif ($craftingtable==$room && $crafting >= 1 && ($input == 'auto combine' || $input=='craft ring of defense III') && $hammer >=1 && $ringofdefenseII >=2) {
         echo $message = "You combine your 2 rings into a Ring of Defense III<br/>";
         $results = $link->query("UPDATE $user SET ringofdefenseII = ringofdefenseII - 2");
         $results = $link->query("UPDATE $user SET ringofdefenseIII = ringofdefenseIII + 1");
         include('update_feed.php'); // --- update feed
-    $input='craft';
+        $input='craft';
     }
     // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx rings IV
     elseif ($craftingtable==$room && $crafting >= 1 && ($input == 'auto combine' || $input=='craft ring of strength IV') && $hammer >=1 && $ringofstrengthIII >=2) {
@@ -1029,25 +1039,25 @@ while ($row = $result->fetch_assoc()) {
         $results = $link->query("UPDATE $user SET ringofstrengthIII = ringofstrengthIII - 2");
         $results = $link->query("UPDATE $user SET ringofstrengthIV = ringofstrengthIV + 1");
         include('update_feed.php'); // --- update feed
-    $input='craft';
+        $input='craft';
     } elseif ($craftingtable==$room && $crafting >= 1 && ($input == 'auto combine' || $input=='craft ring of dexterity IV') && $hammer >=1 && $ringofdexterityIII >=2) {
         echo $message = "You combine your 2 rings into a Ring of Dexterity IV<br/>";
         $results = $link->query("UPDATE $user SET ringofdexterityIII = ringofdexterityIII - 2");
         $results = $link->query("UPDATE $user SET ringofdexterityIV = ringofdexterityIV + 1");
         include('update_feed.php'); // --- update feed
-    $input='craft';
+        $input='craft';
     } elseif ($craftingtable==$room && $crafting >= 1 && ($input == 'auto combine' || $input=='craft ring of magic IV') && $hammer >=1 && $ringofmagicIII >=2) {
         echo $message = "You combine your 2 rings into a Ring of Magic IV<br/>";
         $results = $link->query("UPDATE $user SET ringofmagicIII = ringofmagicIII - 2");
         $results = $link->query("UPDATE $user SET ringofmagicIV = ringofmagicIV + 1");
         include('update_feed.php'); // --- update feed
-    $input='craft';
+        $input='craft';
     } elseif ($craftingtable==$room && $crafting >= 1 && ($input == 'auto combine' || $input=='craft ring of defense IV') && $hammer >=1 && $ringofdefenseIII >=2) {
         echo $message = "You combine your 2 rings into a Ring of Defense IV<br/>";
         $results = $link->query("UPDATE $user SET ringofdefenseIII = ringofdefenseIII - 2");
         $results = $link->query("UPDATE $user SET ringofdefenseIV = ringofdefenseIV + 1");
         include('update_feed.php'); // --- update feed
-    $input='craft';
+        $input='craft';
     }
     // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx rings V
     elseif ($craftingtable==$room && $crafting >= 1 && ($input == 'auto combine' || $input=='craft ring of strength V') && $hammer >=1 && $ringofstrengthIV >=2) {
@@ -1055,25 +1065,25 @@ while ($row = $result->fetch_assoc()) {
         $results = $link->query("UPDATE $user SET ringofstrengthIV = ringofstrengthIV - 2");
         $results = $link->query("UPDATE $user SET ringofstrengthV = ringofstrengthV + 1");
         include('update_feed.php'); // --- update feed
-    $input='craft';
+        $input='craft';
     } elseif ($craftingtable==$room && $crafting >= 1 && ($input == 'auto combine' || $input=='craft ring of dexterity V') && $hammer >=1 && $ringofdexterityIV >=2) {
         echo $message = "You combine your 2 rings into a Ring of Dexterity V<br/>";
         $results = $link->query("UPDATE $user SET ringofdexterityIV = ringofdexterityIV - 2");
         $results = $link->query("UPDATE $user SET ringofdexterityV = ringofdexterityV + 1");
         include('update_feed.php'); // --- update feed
-    $input='craft';
+        $input='craft';
     } elseif ($craftingtable==$room && $crafting >= 1 && ($input == 'auto combine' || $input=='craft ring of magic V') && $hammer >=1 && $ringofmagicIV >=2) {
         echo $message = "You combine your 2 rings into a Ring of Magic V<br/>";
         $results = $link->query("UPDATE $user SET ringofmagicIV = ringofmagicIV - 2");
         $results = $link->query("UPDATE $user SET ringofmagicV = ringofmagicV + 1");
         include('update_feed.php'); // --- update feed
-    $input='craft';
+        $input='craft';
     } elseif ($craftingtable==$room && $crafting >= 1 && ($input == 'auto combine' || $input=='craft ring of defense V') && $hammer >=1 && $ringofdefenseIV >=2) {
         echo $message = "You combine your 2 rings into a Ring of Defense V<br/>";
         $results = $link->query("UPDATE $user SET ringofdefenseIV = ringofdefenseIV - 2");
         $results = $link->query("UPDATE $user SET ringofdefenseV = ringofdefenseV + 1");
         include('update_feed.php'); // --- update feed
-    $input='craft';
+        $input='craft';
     }
     // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx rings of regen
     elseif ($craftingtable==$room && $crafting >= 1 && ($input == 'auto combine' || $input=='craft ring of health regen II') && $hammer >=1 && $ringofhealthregen >=2) {

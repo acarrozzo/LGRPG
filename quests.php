@@ -55,7 +55,7 @@ while ($row = $result->fetch_assoc()) {
     if ($row['quest1']=='0') { // ------------------------------------- end state
         echo '<h5 class="gslice">'.$checkBox.' Talk to the Old Man in his cabin</h5>';
         if ($row['quest1']=='0' && $row['room']==$questRoom) {
-            echo '<button class="greenBG" type="submit" name="input1" value="start quests"><h4>Talk to the Old Man</h4></button>';
+            echo '<button class="greenBG focus" type="submit" name="input1" value="start quests"><h4>Talk to the Old Man</h4></button>';
         }
     }
     // ----------------------------------------- IN PROGRESS - QUEST 1
@@ -89,7 +89,7 @@ while ($row = $result->fetch_assoc()) {
     if ($row['quest'.$questNumber.'']=='1') {
         $questTag = 'Attack Dummy';
         $questTitle = 'Practice on the Dummy';
-        $questDesc = 'Practice your attacks on the wooden training dummy in the corner of the room. When you attack you will do random damage between 1 and your STR stat.';
+        $questDesc = 'Think you can hit an immoble piece of wood? Practice your attacks on the dummy in the weapons training area west of the Old Man. When you attack you will do random damage between 1 and your STR stat.';
         $color='gold';
         if ($row['KLdummy']>='1') {
             $color='green';
@@ -100,7 +100,7 @@ while ($row = $result->fetch_assoc()) {
         echo '<p class="gray">'.$questDesc.'</p>';
 
         if ($row['quest'.$questNumber.'']=='1' && $row['KLdummy']<'1') {
-            echo '<h5 class="padd">'.$checkBox.' Attack the dummy</h5>';
+            echo '<h5 class="padd">'.$checkBox.' Attack the training dummy</h5>';
         }
         if ($row['quest'.$questNumber.'']=='1' && $row['KLdummy']>='1') {
             echo '<h5 class="padd green">'.$checkedBox.' You have successfully attacked the dummy. Return to the Old Man for your reward.</h5>';
@@ -267,7 +267,7 @@ while ($row = $result->fetch_assoc()) {
     if ($row['quest'.$questNumber.'']=='1') {
         $questTag = 'Item Collect lvl 6';
         $questTitle = 'Training Armor Pro';
-        $questDesc = 'Find the rest of the training equipment. The 4 armor pieces are dropped by specific enemies. Collecting all 4 pieces will reward you with upgraded armor.';
+        $questDesc = 'Find the rest of the training equipment. The pieces are dropped by specific enemies. Collecting all four pieces will reward you with upgraded armor.';
         $color='gold';
         $questflag='0';
         if ($row['traininghelmet'] >= '1'
@@ -343,8 +343,13 @@ while ($row = $result->fetch_assoc()) {
 
 
     if ($row['chest1']=='0') {
-        echo '<div class="gbox">';
-
+        //  echo '<div class="gbox">';
+        $questRoom = '001';
+        echo '<div class="gbox';
+        if ($row['room']==$questRoom) {
+            echo ' tops';
+        }
+        echo '" >';
         // ------------------------------------- FIND GOLD CHEST 1
         echo '<h3 class="gold">Open the Gold Chest</h3>';
         echo '<h4 class="">Grassy Field</h4>';
@@ -362,7 +367,12 @@ while ($row = $result->fetch_assoc()) {
             //  echo '<i class="icon gold checkbox">'.file_get_contents("img/svg/key.svg").'</i>';
 
             echo '<h5 class="gslice green">'.$checkedBox.' You have a Gold Key! Open the gold chest at the Grassy Field Crossroads.</h5>';
+            echo '<span class="icon npc gold">'.file_get_contents("img/svg/chest2.svg").'</span>';
 
+
+            if ($row['room']==$questRoom) {
+                echo '<button class="goldBG" type="submit" name="input1" value="open chest"><h4>Open Chest</h4></button>';
+            }
 //            echo '<h5 class="gslice green"><i class="icon gold checkbox">'.file_get_contents("img/svg/key.svg").'</i> You have a Gold Key! Open the gold chest at the Grassy Field Crossroads.</h5>';
         }
         echo '</div>'; //-end gbox
@@ -433,12 +443,12 @@ while ($row = $result->fetch_assoc()) {
             echo '<p class="gray">'.$questDesc.'</p>';
 
             if ($row['weapontype']!='3' && $row['batwing']<'5') {
-                echo '<h5 class="padd">'.$checkBox.' Equip a RANGED weapon like a boomerang or a bow</h5>';
+                echo '<h5 class="padd">'.$checkBox.' Equip a RANGED weapon like a boomerang or a bow using your INV menu </h5>';
             }
             // elseif ($row['weapontype']=='3') {
             //    echo '<h5 class="padd green">'.$checkedBox.' Equip a ranged weapon</h5>';
             //}
-            if ($row['batwing']<='4') {
+            if ($row['weapontype']=='3' && $row['batwing']<='4') {
                 echo '<h5 class="padd">';
                 if ($row['batwing']>=1) {
                     echo $checkedBox.' ';
@@ -513,7 +523,7 @@ while ($row = $result->fetch_assoc()) {
                     echo '<h5 class="padd green">'.$checkedBox.$checkedBox.$checkedBox.'Chop down 3 wood (have: '.$row['wood'].')</h5>';
                 }
 
-                echo '<h5 class="padd">'.$checkBox.' Create a Crafting Table. Use the CRAFT tab in your ACTIONS menu.</h5>';
+                echo '<h5 class="padd">'.$checkBox.' Create a Crafting Table. Use the CRAFT tab in your ACTION menu.</h5>';
             }
             if ($row['quest'.$questNumber.'']=='1' && $row['craftingtable']>='1') {
                 echo '<h5 class="padd green">'.$checkedBox.' You have successfully created a Crafting Table from wood. Return to Jack Lumber for your reward.</h5>';

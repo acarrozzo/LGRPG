@@ -105,7 +105,7 @@ while ($row = $result->fetch_assoc()) {
     if ($row['wood']<10 && $roomID=='025') {
         $wood10 = 10 - $row['wood'];
         echo '
-      <button class="btn brownBG white badge" type="submit" name="input1" value="chop tree">
+      <button class="btn forestBG white badge" type="submit" name="input1" value="chop tree">
           <i class="icon">'.file_get_contents("img/svg/axelog.svg").'</i>
           <span class="alert">'.$wood10.'</span>
           </button>';
@@ -139,7 +139,6 @@ while ($row = $result->fetch_assoc()) {
     $char = file_get_contents("img/svg/character.svg");
     $char = file_get_contents("img/svg/char-spearman.svg");
     $char = file_get_contents("img/svg/char-darkprince.svg");
-    $char = file_get_contents("img/svg/char-ranger1.svg");
     $char = file_get_contents("img/svg/char-commander.svg");
     $char = file_get_contents("img/svg/char-general.svg");
     $char = file_get_contents("img/svg/char-wizard.svg");
@@ -149,6 +148,8 @@ while ($row = $result->fetch_assoc()) {
     $char = file_get_contents("img/svg/char-soldier.svg");
     $char = file_get_contents("img/svg/char-beastmaster.svg");
     $char = file_get_contents("img/svg/char-barbarian.svg");
+    $char = file_get_contents("img/svg/char-ranger1.svg");
+
 
     echo '<i class="icon ddgray character">'.$char.'</i>';
     echo '<div class="lightgray">'.$row['username'].'<span class="gray"> lvl </span><span class="gold">'. $row['level'].'</span></div>';

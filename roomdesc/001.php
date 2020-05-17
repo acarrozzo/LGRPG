@@ -14,15 +14,15 @@
 echo '<div class="roomBox">
   <span class="icon gold">'.$icon.'</span>
   <h4 class="blue">This is it. The world is yours.</h4>
-	<h2 class="greenfield">Grassy Field Crossroads</h2>
+	<h3 class="greenfield">Grassy Field Crossroads</h3>
 	<p>The air is warm and the sky above is bright blue. You are standing in the center of a large grassy field. There is a sign here with a gold chest at its base. To the southwest you see a cabin.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-    <input type="submit" name="input1" value="west" />
-    <input type="submit" name="input1" value="south" />
-	<input type="submit" name="input1" value="north" />
-	<input type="submit" name="input1" value="east" />
-	<input class="brownBG" type="submit" name="input1" value="read sign" />
-	<input class="blueBG" type="submit" name="input1" value="view map" />
-	<input class="goldBG" type="submit" name="input1" value="open chest" />
+    <button type="submit" name="input1" value="west">West</button>
+    <button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="north">North</button>
+	<button type="submit" name="input1" value="east">East</button>
+	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
+	<button class="blueBG" type="submit" name="input1" value="view map">View Map</button>
+	<button class="goldBG" type="submit" name="input1" value="open chest">Open Chest</button>
 	</form>
   </div>';
