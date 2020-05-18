@@ -145,89 +145,109 @@ svg {
   max-height: 2rem;
 }
 /* line 103, ../assets/scss/_style-main.scss */
+.btn-icon svg {
+  max-height: 2rem;
+  height: 2rem;
+  float: right;
+  padding-left: 1rem;
+  -webkit-filter: drop-shadow(0px 0px 0.3rem rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0px 0px 0.3rem rgba(0, 0, 0, 0.5));
+}
+/* line 111, ../assets/scss/_style-main.scss */
 .menu svg {
   max-height: 2.6rem;
   -webkit-filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5));
   filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5));
 }
-/* line 108, ../assets/scss/_style-main.scss */
+/* line 116, ../assets/scss/_style-main.scss */
 .skills-spells svg {
   float: left;
   margin: 1rem 2rem 8rem 0;
   width: 7rem;
   max-height: initial;
 }
-/* line 114, ../assets/scss/_style-main.scss */
+/* line 122, ../assets/scss/_style-main.scss */
 .npc svg {
   float: right;
   margin: 1rem -1rem 2rem 0;
   width: 40%;
   max-height: initial;
 }
-/* line 121, ../assets/scss/_style-main.scss */
+/* line 129, ../assets/scss/_style-main.scss */
 .skills-spells .disable svg {
   margin-bottom: 2rem;
 }
-/* line 124, ../assets/scss/_style-main.scss */
+/* line 132, ../assets/scss/_style-main.scss */
 .lg-logo svg {
   max-height: 16rem;
   margin: 2rem 0 0;
 }
-/* line 125, ../assets/scss/_style-main.scss */
+/* line 133, ../assets/scss/_style-main.scss */
 .chest svg {
   margin: 5rem 0 7rem;
 }
-/* line 126, ../assets/scss/_style-main.scss */
+/* line 134, ../assets/scss/_style-main.scss */
 .roomBox svg {
   margin: 2rem;
 }
 
-/* line 129, ../assets/scss/_style-main.scss */
+/* line 138, ../assets/scss/_style-main.scss */
+h2 .icon, h3 .icon {
+  float: left;
+  min-width: 4.2rem;
+  margin-right: 0.5rem;
+}
+/* line 145, ../assets/scss/_style-main.scss */
+h3 .icon {
+  min-width: 3.2rem;
+}
+
+/* line 149, ../assets/scss/_style-main.scss */
 .checkbox {
   float: left;
   width: 2rem;
   margin: 0 0.5rem 0 0;
 }
 
-/* line 136, ../assets/scss/_style-main.scss */
+/* line 156, ../assets/scss/_style-main.scss */
 section::-webkit-scrollbar {
   width: 12px;
 }
 
-/* line 139, ../assets/scss/_style-main.scss */
+/* line 159, ../assets/scss/_style-main.scss */
 section::-webkit-scrollbar-thumb {
   background: #999;
 }
 
-/* line 142, ../assets/scss/_style-main.scss */
+/* line 162, ../assets/scss/_style-main.scss */
 section::-webkit-scrollbar-track {
   background: #555;
 }
 
-/* line 145, ../assets/scss/_style-main.scss */
+/* line 165, ../assets/scss/_style-main.scss */
 [data-pop="active"] {
   top: 80px;
 }
 
 /* ---------------MAIN */
-/* line 150, ../assets/scss/_style-main.scss */
+/* line 170, ../assets/scss/_style-main.scss */
 .inline {
   display: inline-block;
   display: inline;
 }
 
-/* line 154, ../assets/scss/_style-main.scss */
+/* line 174, ../assets/scss/_style-main.scss */
 .hide {
   display: none;
 }
 
-/* line 155, ../assets/scss/_style-main.scss */
+/* line 175, ../assets/scss/_style-main.scss */
 .disable {
   opacity: 0.2;
   pointer-events: none;
 }
 
-/* line 160, ../assets/scss/_style-main.scss */
+/* line 180, ../assets/scss/_style-main.scss */
 body, input, button {
   /*
   font-family: 'Arial', serif;
@@ -256,49 +276,49 @@ body, input, button {
   -webkit-appearance: none;
 }
 
-/* line 191, ../assets/scss/_style-main.scss */
+/* line 211, ../assets/scss/_style-main.scss */
 form, p, span {
   margin: 0;
   padding: 0;
 }
 
-/* line 192, ../assets/scss/_style-main.scss */
+/* line 212, ../assets/scss/_style-main.scss */
 #container .clear {
   clear: both;
 }
 
-/* line 193, ../assets/scss/_style-main.scss */
+/* line 213, ../assets/scss/_style-main.scss */
 #container .right {
   float: right;
 }
 
-/* line 194, ../assets/scss/_style-main.scss */
+/* line 214, ../assets/scss/_style-main.scss */
 #container .left {
   float: left;
 }
 
-/* line 195, ../assets/scss/_style-main.scss */
+/* line 215, ../assets/scss/_style-main.scss */
 #container .none {
   float: none;
 }
 
-/* line 196, ../assets/scss/_style-main.scss */
+/* line 216, ../assets/scss/_style-main.scss */
 #container .center {
   text-align: center;
 }
 
-/* line 197, ../assets/scss/_style-main.scss */
+/* line 217, ../assets/scss/_style-main.scss */
 #container .alignL {
   text-align: left;
 }
 
-/* line 198, ../assets/scss/_style-main.scss */
+/* line 218, ../assets/scss/_style-main.scss */
 #container .alignR {
   text-align: right;
 }
 
 /* --------------- HEADERS */
-/* line 203, ../assets/scss/_style-main.scss */
+/* line 223, ../assets/scss/_style-main.scss */
 h1,
 h2,
 h3,
@@ -309,47 +329,47 @@ h6 {
   letter-spacing: -.01em;
 }
 
-/* line 213, ../assets/scss/_style-main.scss */
+/* line 233, ../assets/scss/_style-main.scss */
 h1 {
   font-size: 6rem;
   line-height: 6rem;
 }
 
-/* line 218, ../assets/scss/_style-main.scss */
+/* line 238, ../assets/scss/_style-main.scss */
 h2 {
   font-size: 4.5rem;
   line-height: 4.5rem;
 }
 
-/* line 223, ../assets/scss/_style-main.scss */
+/* line 243, ../assets/scss/_style-main.scss */
 h3 {
   font-size: 3.4rem;
   line-height: 3.4rem;
 }
 
-/* line 228, ../assets/scss/_style-main.scss */
+/* line 248, ../assets/scss/_style-main.scss */
 h4 {
   font-size: 2.5rem;
   line-height: 2.7rem;
 }
 
-/* line 233, ../assets/scss/_style-main.scss */
+/* line 253, ../assets/scss/_style-main.scss */
 h5 {
   font-size: 2.0rem;
   line-height: 2.2rem;
 }
 
-/* line 238, ../assets/scss/_style-main.scss */
+/* line 258, ../assets/scss/_style-main.scss */
 h6 {
   font-size: 1.8rem;
 }
-/* line 241, ../assets/scss/_style-main.scss */
+/* line 261, ../assets/scss/_style-main.scss */
 h6 + h6 {
   margin-top: 0.5rem;
 }
 
 /* --------------- LIST ITEMS */
-/* line 248, ../assets/scss/_style-main.scss */
+/* line 268, ../assets/scss/_style-main.scss */
 ul {
   display: block;
   overflow: hidden;
@@ -357,7 +377,7 @@ ul {
   padding: 0;
 }
 
-/* line 249, ../assets/scss/_style-main.scss */
+/* line 269, ../assets/scss/_style-main.scss */
 li a {
   float: left;
   display: block;
@@ -368,7 +388,7 @@ li a {
 }
 
 /* ------------------------------------ CORE */
-/* line 255, ../assets/scss/_style-main.scss */
+/* line 275, ../assets/scss/_style-main.scss */
 .vc {
   position: relative;
   top: 50%;
@@ -377,7 +397,7 @@ li a {
   transform: translateY(-50%);
 }
 
-/* line 256, ../assets/scss/_style-main.scss */
+/* line 276, ../assets/scss/_style-main.scss */
 .rotate45 {
   -webkit-transform: rotate(45deg);
   /* Chrome, Opera 15+, Safari 3.1+ */
@@ -387,7 +407,7 @@ li a {
   /* Firefox 16+, IE 10+, Opera */
 }
 
-/* line 264, ../assets/scss/_style-main.scss */
+/* line 284, ../assets/scss/_style-main.scss */
 inputX {
   background: #aaa;
   border: none;
@@ -401,7 +421,7 @@ inputX {
   cursor: pointer;
 }
 
-/* line 277, ../assets/scss/_style-main.scss */
+/* line 297, ../assets/scss/_style-main.scss */
 .btn, button, input {
   -moz-border-radius: 50px;
   /* Firefox */
@@ -425,21 +445,21 @@ inputX {
   font-size: 1.8rem;
 }
 
-/* line 294, ../assets/scss/_style-main.scss */
+/* line 314, ../assets/scss/_style-main.scss */
 .focus {
   border: solid #333 0.2rem;
   box-shadow: 0 0 1rem rgba(255, 255, 255, 0.3);
 }
 
 /* --------------- TITLE PAGE */
-/* line 300, ../assets/scss/_style-main.scss */
+/* line 320, ../assets/scss/_style-main.scss */
 #title {
   margin: 0 auto;
   text-align: center;
   padding: 2rem;
   max-width: 44rem;
 }
-/* line 306, ../assets/scss/_style-main.scss */
+/* line 326, ../assets/scss/_style-main.scss */
 #title .module.login a.btn {
   padding: 4px 10px;
   text-decoration: none;
@@ -447,7 +467,7 @@ inputX {
   float: left;
   margin: 10px 10px 0 0;
 }
-/* line 307, ../assets/scss/_style-main.scss */
+/* line 327, ../assets/scss/_style-main.scss */
 #title .login.btn {
   background: #aaa;
   color: #fff;
@@ -455,7 +475,7 @@ inputX {
   padding: 10px 20px;
 }
 
-/* line 312, ../assets/scss/_style-main.scss */
+/* line 332, ../assets/scss/_style-main.scss */
 #title input {
   color: #666;
   width: 100%;
@@ -466,12 +486,12 @@ inputX {
   margin: .5rem auto;
   text-align: center;
 }
-/* line 320, ../assets/scss/_style-main.scss */
+/* line 340, ../assets/scss/_style-main.scss */
 #title input:first-of-type, #title input:nth-of-type(2) {
   box-shadow: 1px 1px 10px inset rgba(0, 0, 0, 0.3);
 }
 
-/* line 326, ../assets/scss/_style-main.scss */
+/* line 346, ../assets/scss/_style-main.scss */
 #title form {
   margin: 0 auto 5rem;
   max-width: 26rem;
@@ -479,31 +499,31 @@ inputX {
   border-bottom: solid 1px #999;
 }
 
-/* line 338, ../assets/scss/_style-main.scss */
+/* line 358, ../assets/scss/_style-main.scss */
 #title .login p.alert {
   display: block;
   margin: 50px auto;
 }
 
-/* line 343, ../assets/scss/_style-main.scss */
+/* line 363, ../assets/scss/_style-main.scss */
 #title strong {
   font-size: 3.2rem;
   line-height: 4.3rem;
   color: #70b9ed;
 }
 
-/* line 350, ../assets/scss/_style-main.scss */
+/* line 370, ../assets/scss/_style-main.scss */
 #tabs {
   display: none;
 }
 
-/* line 351, ../assets/scss/_style-main.scss */
+/* line 371, ../assets/scss/_style-main.scss */
 #tabs.active {
   display: block;
 }
 
 /* --------------- TOGGLE */
-/* line 355, ../assets/scss/_style-main.scss */
+/* line 375, ../assets/scss/_style-main.scss */
 body.rounded #container span, body.rounded #container nav span, body.rounded #container input, body.rounded #container .infoBlock, body.rounded #container .module, body.rounded .barMid, body.rounded .bar, body.rounded #map, body.rounded .feed strong, body.rounded #craft .maxRing, body.rounded .menuAction, body.rounded #container .btn {
   border-radius: 20px;
   -o-transition: all 1s ease;
@@ -513,7 +533,7 @@ body.rounded #container span, body.rounded #container nav span, body.rounded #co
 }
 
 /* -- ----------------------------- Box O LIGHT? -- */
-/* line 357, ../assets/scss/_style-main.scss */
+/* line 377, ../assets/scss/_style-main.scss */
 #boxoflight {
   DISPLAY: NONE;
   display: block;
@@ -527,7 +547,7 @@ body.rounded #container span, body.rounded #container nav span, body.rounded #co
 }
 
 /* -- ----------------------------- TOP NAV BAR -- */
-/* line 359, ../assets/scss/_style-main.scss */
+/* line 379, ../assets/scss/_style-main.scss */
 nav {
   left: 0;
   position: fixed;
@@ -540,12 +560,12 @@ nav {
   z-index: 2;
 }
 
-/* line 360, ../assets/scss/_style-main.scss */
+/* line 380, ../assets/scss/_style-main.scss */
 nav il, span i {
   font-style: normal;
 }
 
-/* line 361, ../assets/scss/_style-main.scss */
+/* line 381, ../assets/scss/_style-main.scss */
 XXXnav ul {
   display: inline-block;
   list-style: none outside none;
@@ -556,18 +576,18 @@ XXXnav ul {
   width: 100%;
 }
 
-/* line 362, ../assets/scss/_style-main.scss */
+/* line 382, ../assets/scss/_style-main.scss */
 XXXnav ul li {
   padding: 0;
   color: #ddd;
 }
 
-/* line 363, ../assets/scss/_style-main.scss */
+/* line 383, ../assets/scss/_style-main.scss */
 nav li a {
   float: none;
 }
 
-/* line 364, ../assets/scss/_style-main.scss */
+/* line 384, ../assets/scss/_style-main.scss */
 nav ul li ul {
   background: #646569;
   padding: 15px 15px 15px 450px;
@@ -583,7 +603,7 @@ nav ul li ul {
   z-index: -12;
 }
 
-/* line 365, ../assets/scss/_style-main.scss */
+/* line 385, ../assets/scss/_style-main.scss */
 nav ul li ul li {
   display: block;
   float: none;
@@ -591,7 +611,7 @@ nav ul li ul li {
   padding: 0;
 }
 
-/* line 366, ../assets/scss/_style-main.scss */
+/* line 386, ../assets/scss/_style-main.scss */
 nav ul li ul li ul {
   top: 0;
   left: 130px;
@@ -601,7 +621,7 @@ nav ul li ul li ul {
   z-index: -1px;
 }
 
-/* line 367, ../assets/scss/_style-main.scss */
+/* line 387, ../assets/scss/_style-main.scss */
 nav input {
   width: auto;
   margin: 0;
@@ -610,21 +630,21 @@ nav input {
   padding: 4px 8px;
 }
 
-/* line 368, ../assets/scss/_style-main.scss */
+/* line 388, ../assets/scss/_style-main.scss */
 nav .equippedXXX {
   padding: 2px 5px;
   text-transform: uppercase;
   margin: 0 0 0 10px;
 }
 
-/* line 369, ../assets/scss/_style-main.scss */
+/* line 389, ../assets/scss/_style-main.scss */
 nav .navHeader {
   background: #77777A;
   text-transform: uppercase;
   padding: 4px 6px 3px !important;
 }
 
-/* line 370, ../assets/scss/_style-main.scss */
+/* line 390, ../assets/scss/_style-main.scss */
 nav .teleport input {
   font-size: 16px;
   color: #fff;
@@ -632,42 +652,42 @@ nav .teleport input {
   margin: 0 0 5px;
 }
 
-/* line 376, ../assets/scss/_style-main.scss */
+/* line 396, ../assets/scss/_style-main.scss */
 nav .equip > span {
   background: #838384;
 }
 
-/* line 377, ../assets/scss/_style-main.scss */
+/* line 397, ../assets/scss/_style-main.scss */
 nav .skills > ul li {
   padding: 5px 10px 4px 0;
 }
 
-/* line 378, ../assets/scss/_style-main.scss */
+/* line 398, ../assets/scss/_style-main.scss */
 nav .stat {
   float: right;
   font-size: 16px;
 }
 
-/* line 379, ../assets/scss/_style-main.scss */
+/* line 399, ../assets/scss/_style-main.scss */
 .navfloat {
   padding: 0;
 }
 
-/* line 383, ../assets/scss/_style-main.scss */
+/* line 403, ../assets/scss/_style-main.scss */
 nav .h3 {
   color: #999;
   font-size: 20px;
   margin: 20px 0 0;
 }
 
-/* line 389, ../assets/scss/_style-main.scss */
+/* line 409, ../assets/scss/_style-main.scss */
 .hilite {
   font-size: 24px;
   line-height: 30px;
   position: relative;
 }
 
-/* line 392, ../assets/scss/_style-main.scss */
+/* line 412, ../assets/scss/_style-main.scss */
 .hilite input {
   font-size: 16px;
   text-transform: capitalize;
@@ -677,14 +697,14 @@ nav .h3 {
   margin: 10px 0;
 }
 
-/* line 398, ../assets/scss/_style-main.scss */
+/* line 418, ../assets/scss/_style-main.scss */
 nav .hilite span {
   color: #f1b238;
   line-height: 18px;
   font-size: 28px;
 }
 
-/* line 399, ../assets/scss/_style-main.scss */
+/* line 419, ../assets/scss/_style-main.scss */
 nav em {
   position: absolute;
   top: 32px;
@@ -693,18 +713,18 @@ nav em {
   font-size: 10px;
 }
 
-/* line 400, ../assets/scss/_style-main.scss */
+/* line 420, ../assets/scss/_style-main.scss */
 #game {
   display: none !important;
 }
 
 /* -- ----------------------------- MENU CLOSE BUTTONS -- */
-/* line 402, ../assets/scss/_style-main.scss */
+/* line 422, ../assets/scss/_style-main.scss */
 #tabs .btn.game, #tabs .btn.game2, #tabs .btn.game3 {
   color: #646569;
 }
 
-/* line 403, ../assets/scss/_style-main.scss */
+/* line 423, ../assets/scss/_style-main.scss */
 #tabs .btn.game2 {
   opacity: 1;
   width: 600px;
@@ -717,7 +737,7 @@ nav em {
   text-align: left;
 }
 
-/* line 412, ../assets/scss/_style-main.scss */
+/* line 432, ../assets/scss/_style-main.scss */
 #tabs .btn.game3 {
   font-size: 18px;
   height: 100%;
@@ -732,7 +752,7 @@ nav em {
   z-index: 1;
 }
 
-/* line 413, ../assets/scss/_style-main.scss */
+/* line 433, ../assets/scss/_style-main.scss */
 #tabs .btn.game2 p {
   letter-spacing: 3px;
   left: 10px;
@@ -745,7 +765,7 @@ nav em {
   transform: rotate(0);
 }
 
-/* line 416, ../assets/scss/_style-main.scss */
+/* line 436, ../assets/scss/_style-main.scss */
 #tabs .btn.game3 p {
   left: 0;
   letter-spacing: 12px;
@@ -758,18 +778,18 @@ nav em {
   transform: rotate(0);
 }
 
-/* line 417, ../assets/scss/_style-main.scss */
+/* line 437, ../assets/scss/_style-main.scss */
 #tabs .btn.game.selected {
   display: none;
 }
 
-/* line 418, ../assets/scss/_style-main.scss */
+/* line 438, ../assets/scss/_style-main.scss */
 #tabs .eqpp {
   background: #87878A;
 }
 
 /* --------------- Kill List Menu */
-/* line 420, ../assets/scss/_style-main.scss */
+/* line 440, ../assets/scss/_style-main.scss */
 XXXnav #kl .h3 {
   margin: 10px -10px 10px;
   background: #47474A;
@@ -777,7 +797,7 @@ XXXnav #kl .h3 {
   padding: 10px;
 }
 
-/* line 421, ../assets/scss/_style-main.scss */
+/* line 441, ../assets/scss/_style-main.scss */
 XXX#kl i {
   font-style: normal;
   color: #77777A;
@@ -785,7 +805,7 @@ XXX#kl i {
   font-size: 14px;
 }
 
-/* line 422, ../assets/scss/_style-main.scss */
+/* line 442, ../assets/scss/_style-main.scss */
 #kl .rare {
   display: inline-block;
   width: 20px;
@@ -802,21 +822,21 @@ XXX#kl i {
   font-size: 12px;
 }
 
-/* line 424, ../assets/scss/_style-main.scss */
+/* line 444, ../assets/scss/_style-main.scss */
 .elvl:before {
   content: 'lvl ';
   font-size: 2rem;
 }
 
 /* -- ----------------------------- MODULE LAYOUT -- */
-/* line 429, ../assets/scss/_style-main.scss */
+/* line 449, ../assets/scss/_style-main.scss */
 .module.login {
   padding: 20px;
   display: none;
   width: 300px;
 }
 
-/* line 430, ../assets/scss/_style-main.scss */
+/* line 450, ../assets/scss/_style-main.scss */
 .heal {
   background: #77777A;
   color: #E8E6E6;
@@ -825,25 +845,25 @@ XXX#kl i {
   z-index: 2;
 }
 
-/* line 431, ../assets/scss/_style-main.scss */
+/* line 451, ../assets/scss/_style-main.scss */
 .module.stats {
   height: 500px;
 }
 
-/* line 433, ../assets/scss/_style-main.scss */
+/* line 453, ../assets/scss/_style-main.scss */
 .rightScroll {
   height: 260px;
   overflow: auto;
   width: 180px;
 }
 
-/* line 434, ../assets/scss/_style-main.scss */
+/* line 454, ../assets/scss/_style-main.scss */
 .rightScroll li {
   color: #999;
 }
 
 /* -- ----------------------------- FEED STYLES -- */
-/* line 436, ../assets/scss/_style-main.scss */
+/* line 456, ../assets/scss/_style-main.scss */
 .feed .strongBox {
   background: #eee;
   display: block;
@@ -852,19 +872,19 @@ XXX#kl i {
 }
 
 /* -- ----------------------------- INPUT FIELD -- */
-/* line 443, ../assets/scss/_style-main.scss */
+/* line 463, ../assets/scss/_style-main.scss */
 input.field {
   padding: 10px;
 }
 
-/* line 444, ../assets/scss/_style-main.scss */
+/* line 464, ../assets/scss/_style-main.scss */
 .action.btn {
   padding: 10px;
   width: auto;
   margin: 0;
 }
 
-/* line 447, ../assets/scss/_style-main.scss */
+/* line 467, ../assets/scss/_style-main.scss */
 #chatbox {
   text-align: left;
   background: #fff;
@@ -876,7 +896,7 @@ input.field {
   padding: 10px;
 }
 
-/* line 449, ../assets/scss/_style-main.scss */
+/* line 469, ../assets/scss/_style-main.scss */
 .rightScroll input, .ammobox input {
   background: rgba(255, 255, 255, 0.7);
   border: 1px solid #999;
@@ -888,12 +908,12 @@ input.field {
 }
 
 /* -----------------  INFO BLOCK  -- */
-/* line 452, ../assets/scss/_style-main.scss */
+/* line 472, ../assets/scss/_style-main.scss */
 .infoBlock p {
   margin: 0;
 }
 
-/* line 453, ../assets/scss/_style-main.scss */
+/* line 473, ../assets/scss/_style-main.scss */
 .globalChat {
   padding: 20px;
   background: #47474A;
@@ -901,7 +921,7 @@ input.field {
   overflow: auto;
 }
 
-/* line 456, ../assets/scss/_style-main.scss */
+/* line 476, ../assets/scss/_style-main.scss */
 .infoBlock .attackBtn {
   display: block;
   float: left;
@@ -909,7 +929,7 @@ input.field {
   margin: 0 5px 0 0;
 }
 
-/* line 457, ../assets/scss/_style-main.scss */
+/* line 477, ../assets/scss/_style-main.scss */
 .infoBlock .bigBtn {
   display: block;
   float: left;
@@ -918,25 +938,25 @@ input.field {
   width: 60px;
 }
 
-/* line 458, ../assets/scss/_style-main.scss */
+/* line 478, ../assets/scss/_style-main.scss */
 .bigBtn.wider {
   width: 124px;
 }
 
-/* line 459, ../assets/scss/_style-main.scss */
+/* line 479, ../assets/scss/_style-main.scss */
 .bigBtn.shorter {
   height: 27px;
   margin-bottom: 5px;
 }
 
-/* line 462, ../assets/scss/_style-main.scss */
+/* line 482, ../assets/scss/_style-main.scss */
 p a {
   color: #646465;
   padding: 0 2px;
   text-decoration: none;
 }
 
-/* line 463, ../assets/scss/_style-main.scss */
+/* line 483, ../assets/scss/_style-main.scss */
 .stats {
   float: left;
   list-style: none outside none;
@@ -945,7 +965,7 @@ p a {
 }
 
 /* ---------------FIG DISPLAY */
-/* line 465, ../assets/scss/_style-main.scss */
+/* line 485, ../assets/scss/_style-main.scss */
 #figDisplay {
   height: auto;
   display: NONE;
@@ -953,7 +973,7 @@ p a {
   width: 100px;
 }
 
-/* line 466, ../assets/scss/_style-main.scss */
+/* line 486, ../assets/scss/_style-main.scss */
 #figDisplay2 {
   height: 100px;
   margin: 0 10px 10px 0;
@@ -961,19 +981,19 @@ p a {
   float: left;
 }
 
-/* line 467, ../assets/scss/_style-main.scss */
+/* line 487, ../assets/scss/_style-main.scss */
 #figDisplay2 {
   width: 10px;
   overflow: hidden;
 }
 
-/* line 468, ../assets/scss/_style-main.scss */
+/* line 488, ../assets/scss/_style-main.scss */
 #figDisplay2 > img {
   width: auto;
 }
 
 /* ---------------COMPASS */
-/* line 470, ../assets/scss/_style-main.scss */
+/* line 490, ../assets/scss/_style-main.scss */
 #compass {
   position: absolute;
   width: 100%;
@@ -984,12 +1004,12 @@ p a {
   right: 0;
 }
 
-/* line 478, ../assets/scss/_style-main.scss */
+/* line 498, ../assets/scss/_style-main.scss */
 #compass .n {
   content: "\f106";
 }
 
-/* line 481, ../assets/scss/_style-main.scss */
+/* line 501, ../assets/scss/_style-main.scss */
 #compass span {
   position: absolute;
   margin: 0 auto;
@@ -1000,12 +1020,12 @@ p a {
   height: 45px;
   opacity: .1;
 }
-/* line 492, ../assets/scss/_style-main.scss */
+/* line 512, ../assets/scss/_style-main.scss */
 #compass span.active {
   opacity: 1;
 }
 
-/* line 495, ../assets/scss/_style-main.scss */
+/* line 515, ../assets/scss/_style-main.scss */
 #compass input {
   margin: 0;
   padding: 0;
@@ -1024,7 +1044,7 @@ p a {
   opacity: 0.9;
 }
 
-/* line 514, ../assets/scss/_style-main.scss */
+/* line 534, ../assets/scss/_style-main.scss */
 #compass .fa {
   position: absolute;
   left: 0;
@@ -1038,72 +1058,72 @@ p a {
   text-shadow: 0px 0px 10px #333, 0px 0px 5px #333;
 }
 
-/* line 528, ../assets/scss/_style-main.scss */
+/* line 548, ../assets/scss/_style-main.scss */
 #compass .nw {
   left: -135px;
   bottom: 176px;
 }
 
-/* line 533, ../assets/scss/_style-main.scss */
+/* line 553, ../assets/scss/_style-main.scss */
 #compass .n {
   bottom: 205px;
 }
 
-/* line 537, ../assets/scss/_style-main.scss */
+/* line 557, ../assets/scss/_style-main.scss */
 #compass .ne {
   right: -135px;
   bottom: 176px;
 }
 
-/* line 542, ../assets/scss/_style-main.scss */
+/* line 562, ../assets/scss/_style-main.scss */
 #compass .w {
   left: -190px;
   bottom: 110px;
 }
 
-/* line 547, ../assets/scss/_style-main.scss */
+/* line 567, ../assets/scss/_style-main.scss */
 #compass .e {
   right: -190px;
   bottom: 110px;
 }
 
-/* line 552, ../assets/scss/_style-main.scss */
+/* line 572, ../assets/scss/_style-main.scss */
 #compass .sw {
   left: -140px;
   bottom: 45px;
 }
 
-/* line 557, ../assets/scss/_style-main.scss */
+/* line 577, ../assets/scss/_style-main.scss */
 #compass .s {
   bottom: 15px;
 }
 
-/* line 561, ../assets/scss/_style-main.scss */
+/* line 581, ../assets/scss/_style-main.scss */
 #compass .se {
   right: -140px;
   bottom: 45px;
 }
 
-/* line 566, ../assets/scss/_style-main.scss */
+/* line 586, ../assets/scss/_style-main.scss */
 #compass .u {
   left: 5%;
   bottom: 190px;
   right: initial;
 }
 
-/* line 573, ../assets/scss/_style-main.scss */
+/* line 593, ../assets/scss/_style-main.scss */
 #compass .d {
   left: 5%;
   bottom: 110px;
   right: initial;
 }
 
-/* line 579, ../assets/scss/_style-main.scss */
+/* line 599, ../assets/scss/_style-main.scss */
 .updown {
   text-align: center;
 }
 
-/* line 589, ../assets/scss/_style-main.scss */
+/* line 609, ../assets/scss/_style-main.scss */
 .nav p {
   bottom: 300px;
   margin: 0;
@@ -1112,13 +1132,13 @@ p a {
   color: #aaa;
 }
 
-/* line 590, ../assets/scss/_style-main.scss */
+/* line 610, ../assets/scss/_style-main.scss */
 .nav p.danger {
   left: 100px;
   width: 90px;
 }
 
-/* line 591, ../assets/scss/_style-main.scss */
+/* line 611, ../assets/scss/_style-main.scss */
 .mapID {
   background: none repeat scroll 0 0 #999;
   margin: 0 10px 0 0;
@@ -1128,7 +1148,7 @@ p a {
 }
 
 /* -------- Menu Map -- */
-/* line 593, ../assets/scss/_style-main.scss */
+/* line 613, ../assets/scss/_style-main.scss */
 #maps .tall.wide {
   border: medium none;
   height: auto;
@@ -1136,28 +1156,28 @@ p a {
   width: 600px;
 }
 
-/* line 594, ../assets/scss/_style-main.scss */
+/* line 614, ../assets/scss/_style-main.scss */
 XXXnav ul li img {
   width: 100%;
   height: 100%;
 }
 
-/* line 595, ../assets/scss/_style-main.scss */
+/* line 615, ../assets/scss/_style-main.scss */
 #maps .mapgroup {
   float: left;
 }
 
-/* line 596, ../assets/scss/_style-main.scss */
+/* line 616, ../assets/scss/_style-main.scss */
 #maps .mapgroup > div {
   display: none;
 }
 
-/* line 597, ../assets/scss/_style-main.scss */
+/* line 617, ../assets/scss/_style-main.scss */
 #maps .maplist {
   float: left;
 }
 
-/* line 598, ../assets/scss/_style-main.scss */
+/* line 618, ../assets/scss/_style-main.scss */
 #maps .maplist a {
   color: #fff;
   clear: both;
@@ -1169,13 +1189,13 @@ XXXnav ul li img {
   width: 180px;
 }
 
-/* line 599, ../assets/scss/_style-main.scss */
+/* line 619, ../assets/scss/_style-main.scss */
 #maps .mapgroup img {
   height: 100%;
 }
 
 /* -------- MENU MAP NEW WITH JS -- */
-/* line 601, ../assets/scss/_style-main.scss */
+/* line 621, ../assets/scss/_style-main.scss */
 #absolutemap {
   background: #000;
   height: 100%;
@@ -1186,17 +1206,17 @@ XXXnav ul li img {
   z-index: 4;
 }
 
-/* line 602, ../assets/scss/_style-main.scss */
+/* line 622, ../assets/scss/_style-main.scss */
 .maplist div img {
   float: left;
 }
 
-/* line 603, ../assets/scss/_style-main.scss */
+/* line 623, ../assets/scss/_style-main.scss */
 .maplist .hidden img {
   display: none;
 }
 
-/* line 604, ../assets/scss/_style-main.scss */
+/* line 624, ../assets/scss/_style-main.scss */
 .maplist img {
   position: absolute;
   top: 10px;
@@ -1206,7 +1226,7 @@ XXXnav ul li img {
   float: left;
 }
 
-/* line 605, ../assets/scss/_style-main.scss */
+/* line 625, ../assets/scss/_style-main.scss */
 .maplist span {
   border: none;
   clear: both;
@@ -1218,13 +1238,13 @@ XXXnav ul li img {
   width: 150px;
 }
 
-/* line 606, ../assets/scss/_style-main.scss */
+/* line 626, ../assets/scss/_style-main.scss */
 .mapimage {
   width: 100%;
   height: auto;
 }
 
-/* line 610, ../assets/scss/_style-main.scss */
+/* line 630, ../assets/scss/_style-main.scss */
 .graysheet {
   background: #333;
   width: 100%;
@@ -1235,18 +1255,18 @@ XXXnav ul li img {
 }
 
 /* -------- ALT COLOR STYLES -- */
-/* line 612, ../assets/scss/_style-main.scss */
+/* line 632, ../assets/scss/_style-main.scss */
 .alt, .feed .alt {
   color: #55565A;
 }
 
-/* line 613, ../assets/scss/_style-main.scss */
+/* line 633, ../assets/scss/_style-main.scss */
 .alt, .feed .alt {
   color: #333;
 }
 
 /* --------  TAB STYLES -- */
-/* line 617, ../assets/scss/_style-main.scss */
+/* line 637, ../assets/scss/_style-main.scss */
 #panelwrap {
   clear: both;
   overflow: hidden;
@@ -1254,18 +1274,18 @@ XXXnav ul li img {
   height: 100% !important;
 }
 
-/* line 618, ../assets/scss/_style-main.scss */
+/* line 638, ../assets/scss/_style-main.scss */
 #tabs {
   margin: 0 0 0 100px;
   padding: 0;
 }
 
-/* line 619, ../assets/scss/_style-main.scss */
+/* line 639, ../assets/scss/_style-main.scss */
 #tabs li {
   float: left;
 }
 
-/* line 620, ../assets/scss/_style-main.scss */
+/* line 640, ../assets/scss/_style-main.scss */
 #tabs li a {
   display: block;
   padding: 7px 12px;
@@ -1275,19 +1295,19 @@ XXXnav ul li img {
   text-decoration: none;
 }
 
-/* line 621, ../assets/scss/_style-main.scss */
+/* line 641, ../assets/scss/_style-main.scss */
 #tabs li .selected, #tabs li .tabbb.hilight.selected {
   background: #646569;
   color: #f1b238;
 }
 
-/* line 622, ../assets/scss/_style-main.scss */
+/* line 642, ../assets/scss/_style-main.scss */
 #tabs .tabbb.hilight {
   background: none repeat scroll 0 0 #f1b238;
   color: #646569;
 }
 
-/* line 623, ../assets/scss/_style-main.scss */
+/* line 643, ../assets/scss/_style-main.scss */
 article {
   display: none;
   background: #646569;
@@ -1299,12 +1319,12 @@ article {
   width: 420px;
 }
 
-/* line 624, ../assets/scss/_style-main.scss */
+/* line 644, ../assets/scss/_style-main.scss */
 article.active {
   display: block;
 }
 
-/* line 627, ../assets/scss/_style-main.scss */
+/* line 647, ../assets/scss/_style-main.scss */
 .eqpcat {
   color: #f1b238;
   min-width: 60px;
@@ -1314,7 +1334,7 @@ article.active {
   display: inline-block;
 }
 
-/* line 634, ../assets/scss/_style-main.scss */
+/* line 654, ../assets/scss/_style-main.scss */
 .comps {
   position: absolute;
   right: 15px;
@@ -1323,7 +1343,7 @@ article.active {
 }
 
 /* --------  SHOP DISPLAY  -- */
-/* line 636, ../assets/scss/_style-main.scss */
+/* line 656, ../assets/scss/_style-main.scss */
 .shop {
   background: #77777A;
   color: #CAC8C8;
@@ -1332,31 +1352,31 @@ article.active {
   position: relative;
 }
 
-/* line 637, ../assets/scss/_style-main.scss */
+/* line 657, ../assets/scss/_style-main.scss */
 .shop h4 {
   color: #CAC8C8;
 }
 
-/* line 638, ../assets/scss/_style-main.scss */
+/* line 658, ../assets/scss/_style-main.scss */
 .shop h3 {
   color: #55565A;
   margin: 10px 0 0;
   font-size: 16px;
 }
 
-/* line 639, ../assets/scss/_style-main.scss */
+/* line 659, ../assets/scss/_style-main.scss */
 .shop .command {
   display: none;
 }
 
-/* line 640, ../assets/scss/_style-main.scss */
+/* line 660, ../assets/scss/_style-main.scss */
 .shop #mainForm > br:firs
 t-child {
   display: none;
 }
 
 /* ---------- GOLD CHEST DISPLAY */
-/* line 644, ../assets/scss/_style-main.scss */
+/* line 664, ../assets/scss/_style-main.scss */
 .goldchestopen {
   background: #ffff00;
   border: 15px solid #f1b238;
@@ -1368,19 +1388,19 @@ t-child {
 }
 
 /* ---------- BUTTONS */
-/* line 646, ../assets/scss/_style-main.scss */
+/* line 666, ../assets/scss/_style-main.scss */
 .shop input {
   background: #646569;
 }
 
-/* line 647, ../assets/scss/_style-main.scss */
+/* line 667, ../assets/scss/_style-main.scss */
 article input {
   padding: 6px;
   background: #f1b238;
   color: #555;
 }
 
-/* line 651, ../assets/scss/_style-main.scss */
+/* line 671, ../assets/scss/_style-main.scss */
 input.equipBtn {
   width: 4.2rem;
   padding: 6px 3px;
@@ -1388,7 +1408,7 @@ input.equipBtn {
   color: #333;
 }
 
-/* line 652, ../assets/scss/_style-main.scss */
+/* line 672, ../assets/scss/_style-main.scss */
 input.mountBtn {
   width: 4.7rem;
   padding: 6px 3px;
@@ -1396,7 +1416,7 @@ input.mountBtn {
   color: #333;
 }
 
-/* line 653, ../assets/scss/_style-main.scss */
+/* line 673, ../assets/scss/_style-main.scss */
 input.viewBtn {
   width: 3.5rem;
   padding: 6px 3px;
@@ -1404,7 +1424,7 @@ input.viewBtn {
   color: #333;
 }
 
-/* line 654, ../assets/scss/_style-main.scss */
+/* line 674, ../assets/scss/_style-main.scss */
 input.eatBtn {
   width: 2.7rem;
   padding: 6px 3px;
@@ -1412,7 +1432,7 @@ input.eatBtn {
   color: #333;
 }
 
-/* line 655, ../assets/scss/_style-main.scss */
+/* line 675, ../assets/scss/_style-main.scss */
 input.drinkBtn {
   width: 4.2rem;
   padding: 6px 3px;
@@ -1420,7 +1440,7 @@ input.drinkBtn {
   color: #333;
 }
 
-/* line 656, ../assets/scss/_style-main.scss */
+/* line 676, ../assets/scss/_style-main.scss */
 input.buyBtn {
   width: 2.4rem;
   padding: 6px 3px;
@@ -1428,7 +1448,7 @@ input.buyBtn {
   color: #333;
 }
 
-/* line 658, ../assets/scss/_style-main.scss */
+/* line 678, ../assets/scss/_style-main.scss */
 input.sellBtn {
   width: 3.5rem;
   padding: 0 0.5rem;
@@ -1436,7 +1456,7 @@ input.sellBtn {
   color: #77777A;
 }
 
-/* line 666, ../assets/scss/_style-main.scss */
+/* line 686, ../assets/scss/_style-main.scss */
 input.sellallBtn {
   width: 36px;
   padding: 2px 3px;
@@ -1444,13 +1464,13 @@ input.sellallBtn {
   color: #77777A;
 }
 
-/* line 668, ../assets/scss/_style-main.scss */
+/* line 688, ../assets/scss/_style-main.scss */
 .sellPrice {
   float: right;
   color: #f1b238;
 }
 
-/* line 669, ../assets/scss/_style-main.scss */
+/* line 689, ../assets/scss/_style-main.scss */
 #container .sellspan {
   background: #999;
   color: #fff;
@@ -1458,7 +1478,7 @@ input.sellallBtn {
   display: inline-block;
 }
 
-/* line 673, ../assets/scss/_style-main.scss */
+/* line 693, ../assets/scss/_style-main.scss */
 input.learnBtn {
   width: 32px;
   padding: 9px 3px;
@@ -1466,7 +1486,7 @@ input.learnBtn {
   color: #77777A;
 }
 
-/* line 674, ../assets/scss/_style-main.scss */
+/* line 694, ../assets/scss/_style-main.scss */
 input.craftBtn, input.craftMoreBtn {
   padding: 2px 3px;
   background: #f1b238;
@@ -1474,25 +1494,25 @@ input.craftBtn, input.craftMoreBtn {
   color: #55565A;
 }
 
-/* line 675, ../assets/scss/_style-main.scss */
+/* line 695, ../assets/scss/_style-main.scss */
 .increaseBtn, .increaseBtn10 {
   margin: 0 1rem 1rem 0;
   padding: 0.5rem 1rem;
 }
 
-/* line 683, ../assets/scss/_style-main.scss */
+/* line 703, ../assets/scss/_style-main.scss */
 input.helpBtn {
   background: none;
   padding: 2px 3px;
   width: 26px;
 }
 
-/* line 684, ../assets/scss/_style-main.scss */
+/* line 704, ../assets/scss/_style-main.scss */
 input.long {
   width: 203px;
 }
 
-/* line 685, ../assets/scss/_style-main.scss */
+/* line 705, ../assets/scss/_style-main.scss */
 input.activateBtn {
   width: 45px;
   padding: 3px 3px;
@@ -1500,26 +1520,26 @@ input.activateBtn {
   margin: 2px 0 2px;
 }
 
-/* line 686, ../assets/scss/_style-main.scss */
+/* line 706, ../assets/scss/_style-main.scss */
 input.auto {
   padding: 7px 12px;
   width: auto;
 }
 
-/* line 687, ../assets/scss/_style-main.scss */
+/* line 707, ../assets/scss/_style-main.scss */
 input.third {
   width: 78px;
 }
 
 /* ---------- SKILLS MENU */
-/* line 689, ../assets/scss/_style-main.scss */
+/* line 709, ../assets/scss/_style-main.scss */
 .descrip {
   background: #47474A;
   margin: 0 0 1rem;
   padding: 2rem;
 }
 
-/* line 693, ../assets/scss/_style-main.scss */
+/* line 713, ../assets/scss/_style-main.scss */
 .spCount {
   right: 2rem;
   top: 0;
@@ -1531,7 +1551,7 @@ input.third {
   display: inline-block;
 }
 
-/* line 706, ../assets/scss/_style-main.scss */
+/* line 726, ../assets/scss/_style-main.scss */
 .navhud .character {
   width: 3rem;
   height: 4.4rem;
@@ -1543,7 +1563,7 @@ input.third {
   float: none;
 }
 
-/* line 719, ../assets/scss/_style-main.scss */
+/* line 739, ../assets/scss/_style-main.scss */
 .card {
   float: left;
   width: 15rem;
@@ -1553,12 +1573,12 @@ input.third {
   padding: 1rem;
   background: #666;
 }
-/* line 727, ../assets/scss/_style-main.scss */
+/* line 747, ../assets/scss/_style-main.scss */
 .card svg {
   max-height: initial;
 }
 
-/* line 733, ../assets/scss/_style-main.scss */
+/* line 753, ../assets/scss/_style-main.scss */
 #container .maxed {
   background: none;
   color: #00FFFF;
@@ -1568,14 +1588,14 @@ input.third {
   right: 0;
 }
 
-/* line 734, ../assets/scss/_style-main.scss */
+/* line 754, ../assets/scss/_style-main.scss */
 #skills .px12.gold, #spells .px12.gold {
   position: absolute;
   top: 8px;
   right: 90px;
 }
 
-/* line 735, ../assets/scss/_style-main.scss */
+/* line 755, ../assets/scss/_style-main.scss */
 .menuAction.maxout {
   color: #00ffff;
   font-size: 30px;
@@ -1583,14 +1603,14 @@ input.third {
 }
 
 /* ---------- SHOP MENU */
-/* line 738, ../assets/scss/_style-main.scss */
+/* line 758, ../assets/scss/_style-main.scss */
 #shop li {
   border-bottom: 1px solid #47474A;
   padding: 1rem 1rem;
   color: #eee;
 }
 
-/* line 744, ../assets/scss/_style-main.scss */
+/* line 764, ../assets/scss/_style-main.scss */
 #shop .buyBtn {
   font-size: 14px;
   width: auto;
@@ -1601,7 +1621,7 @@ input.third {
 }
 
 /* ---------- feed */
-/* line 751, ../assets/scss/_style-main.scss */
+/* line 771, ../assets/scss/_style-main.scss */
 #bottomActionBar {
   float: left;
   width: 400px;
@@ -1609,7 +1629,7 @@ input.third {
   height: 40px;
 }
 
-/* line 752, ../assets/scss/_style-main.scss */
+/* line 772, ../assets/scss/_style-main.scss */
 .equipped {
   color: #fff000;
   cursor: default;
@@ -1624,7 +1644,7 @@ input.third {
   margin-left: -10rem;
 }
 
-/* line 766, ../assets/scss/_style-main.scss */
+/* line 786, ../assets/scss/_style-main.scss */
 nav .btn {
   background: #646569;
   display: block;
@@ -1633,12 +1653,12 @@ nav .btn {
 }
 
 /* ---------------------------------------------------------------------------------------------------- CRAFT MENU -- */
-/* line 769, ../assets/scss/_style-main.scss */
+/* line 789, ../assets/scss/_style-main.scss */
 .crafttable, .craftfire {
   text-align: center;
 }
 
-/* line 770, ../assets/scss/_style-main.scss */
+/* line 790, ../assets/scss/_style-main.scss */
 #craft .noTable {
   font-size: 28px;
   margin: 5px 10px 10px;
@@ -1646,17 +1666,17 @@ nav .btn {
   width: 220px;
 }
 
-/* line 771, ../assets/scss/_style-main.scss */
+/* line 791, ../assets/scss/_style-main.scss */
 #craft i.fa {
   margin: 0 10px 0 0;
 }
 
-/* line 772, ../assets/scss/_style-main.scss */
+/* line 792, ../assets/scss/_style-main.scss */
 #craft li {
   margin: 5px 0;
 }
 
-/* line 773, ../assets/scss/_style-main.scss */
+/* line 793, ../assets/scss/_style-main.scss */
 #craft .maxRing {
   display: inline-block;
   float: left;
@@ -1667,47 +1687,47 @@ nav .btn {
   font-size: 40px;
 }
 
-/* line 774, ../assets/scss/_style-main.scss */
+/* line 794, ../assets/scss/_style-main.scss */
 #craft .craftBox {
   max-height: 45px;
   overflow: hidden;
 }
 
-/* line 775, ../assets/scss/_style-main.scss */
+/* line 795, ../assets/scss/_style-main.scss */
 #craft .craftBox.active {
   max-height: 700px;
 }
 
-/* line 776, ../assets/scss/_style-main.scss */
+/* line 796, ../assets/scss/_style-main.scss */
 #craft .craftBox .fa-chevron-up {
   display: none;
   margin: 5px 0 0 0;
 }
 
-/* line 777, ../assets/scss/_style-main.scss */
+/* line 797, ../assets/scss/_style-main.scss */
 #craft .craftBox .fa-chevron-down {
   display: block;
   margin: 5px 0 0 0;
 }
 
-/* line 778, ../assets/scss/_style-main.scss */
+/* line 798, ../assets/scss/_style-main.scss */
 #craft .craftBox.active .fa-chevron-down {
   display: none;
 }
 
-/* line 779, ../assets/scss/_style-main.scss */
+/* line 799, ../assets/scss/_style-main.scss */
 #craft .craftBox.active .fa-chevron-up {
   display: block;
 }
 
-/* line 780, ../assets/scss/_style-main.scss */
+/* line 800, ../assets/scss/_style-main.scss */
 #craft li.gray.center {
   border-top: solid 1px;
 }
 
 /* ---------------------------------------------------------------------------------------------------- Spell Button --
 .spellBtnBox {position:relative;display:inline-block;} */
-/* line 783, ../assets/scss/_style-main.scss */
+/* line 803, ../assets/scss/_style-main.scss */
 .spellLvl {
   pointer-events: none;
   position: absolute;
@@ -1717,13 +1737,13 @@ nav .btn {
   left: 0;
 }
 
-/* line 789, ../assets/scss/_style-main.scss */
+/* line 809, ../assets/scss/_style-main.scss */
 .spellLvl:before {
   content: 'lvl';
   font-size: 10px;
 }
 
-/* line 790, ../assets/scss/_style-main.scss */
+/* line 810, ../assets/scss/_style-main.scss */
 .spellCost {
   position: absolute;
   right: 0;
@@ -1733,7 +1753,7 @@ nav .btn {
   font-size: 14px;
 }
 
-/* line 797, ../assets/scss/_style-main.scss */
+/* line 817, ../assets/scss/_style-main.scss */
 .rightScroll .spellBtn {
   width: 170px;
   background: rgba(255, 255, 255, 0.7);
@@ -1745,7 +1765,7 @@ nav .btn {
 }
 
 /* ---------------------------------------------------------------------------------------------------- COMMAND ICON */
-/* line 799, ../assets/scss/_style-main.scss */
+/* line 819, ../assets/scss/_style-main.scss */
 span.command {
   margin: 50px 0 0;
   display: block;
@@ -1755,18 +1775,18 @@ span.command {
   font-weight: 900;
 }
 
-/* line 809, ../assets/scss/_style-main.scss */
+/* line 829, ../assets/scss/_style-main.scss */
 .cap {
   text-transform: uppercase;
 }
 
 /* ---------- SPAN OTHER STYLES */
-/* line 821, ../assets/scss/_style-main.scss */
+/* line 841, ../assets/scss/_style-main.scss */
 span.strong {
   font-size: 150%;
 }
 
-/* line 822, ../assets/scss/_style-main.scss */
+/* line 842, ../assets/scss/_style-main.scss */
 span.width {
   width: 110px;
   display: block;
@@ -1775,14 +1795,14 @@ span.width {
 }
 
 /* ---------- TINY SCROLL BAR */
-/* line 825, ../assets/scss/_style-main.scss */
+/* line 845, ../assets/scss/_style-main.scss */
 #scrollbar1 {
   clear: both;
   margin: 20px 0 10px;
   display: none;
 }
 
-/* line 826, ../assets/scss/_style-main.scss */
+/* line 846, ../assets/scss/_style-main.scss */
 #scrollbar1 .viewport {
   height: 200px;
   overflow: hidden;
@@ -1790,7 +1810,7 @@ span.width {
   display: none;
 }
 
-/* line 827, ../assets/scss/_style-main.scss */
+/* line 847, ../assets/scss/_style-main.scss */
 #scrollbar1 .overview {
   list-style: none;
   position: absolute;
@@ -1798,19 +1818,19 @@ span.width {
   top: 0;
 }
 
-/* line 828, ../assets/scss/_style-main.scss */
+/* line 848, ../assets/scss/_style-main.scss */
 #scrollbar1 .thumb .end, #scrollbar1 .thumb {
   background-color: #003D5D;
 }
 
-/* line 829, ../assets/scss/_style-main.scss */
+/* line 849, ../assets/scss/_style-main.scss */
 #scrollbar1 .scrollbar {
   position: relative;
   float: right;
   width: 15px;
 }
 
-/* line 830, ../assets/scss/_style-main.scss */
+/* line 850, ../assets/scss/_style-main.scss */
 #scrollbar1 .track {
   background-color: #D8EEFD;
   height: 100%;
@@ -1819,7 +1839,7 @@ span.width {
   padding: 0 1px;
 }
 
-/* line 831, ../assets/scss/_style-main.scss */
+/* line 851, ../assets/scss/_style-main.scss */
 #scrollbar1 .thumb {
   height: 20px;
   width: 13px;
@@ -1830,19 +1850,19 @@ span.width {
   display: none;
 }
 
-/* line 832, ../assets/scss/_style-main.scss */
+/* line 852, ../assets/scss/_style-main.scss */
 #scrollbar1 .thumb .end {
   overflow: hidden;
   height: 5px;
   width: 13px;
 }
 
-/* line 833, ../assets/scss/_style-main.scss */
+/* line 853, ../assets/scss/_style-main.scss */
 #scrollbar1 .disable {
   display: none;
 }
 
-/* line 834, ../assets/scss/_style-main.scss */
+/* line 854, ../assets/scss/_style-main.scss */
 .noSelect {
   -o-user-select: none;
   -moz-user-select: none;
@@ -1852,30 +1872,30 @@ span.width {
 }
 
 /* ---------- COLLAPSIBLE DIV PANELS*/
-/* line 836, ../assets/scss/_style-main.scss */
+/* line 856, ../assets/scss/_style-main.scss */
 p.content-one, p.content-one2 {
   display: none;
 }
 
-/* line 837, ../assets/scss/_style-main.scss */
+/* line 857, ../assets/scss/_style-main.scss */
 #expand-one p a {
   color: #777;
   text-transform: uppercase;
 }
 
 /* ---------------HUD STATS */
-/* line 839, ../assets/scss/_style-main.scss */
+/* line 859, ../assets/scss/_style-main.scss */
 .maxstat {
   float: right;
 }
 
-/* line 842, ../assets/scss/_style-main.scss */
+/* line 862, ../assets/scss/_style-main.scss */
 #hud .magicarmorBox, article .magicarmorBox {
   top: 2.9rem;
   right: 3rem;
 }
 
-/* line 846, ../assets/scss/_style-main.scss */
+/* line 866, ../assets/scss/_style-main.scss */
 #hud .extrahpBox, article .extrahpBox {
   position: absolute;
   right: 0px;
@@ -1885,14 +1905,14 @@ p.content-one, p.content-one2 {
 }
 
 /* --------------- HUD BATTLE STATUS */
-/* line 857, ../assets/scss/_style-main.scss */
+/* line 877, ../assets/scss/_style-main.scss */
 .attacknumber {
   display: inline-block;
   margin: 0 5px 0 5px;
   padding: 0 5px;
 }
 
-/* line 858, ../assets/scss/_style-main.scss */
+/* line 878, ../assets/scss/_style-main.scss */
 input.attack {
   background: #f1b238;
   padding: 3px 20px 2px;
@@ -1901,7 +1921,7 @@ input.attack {
   color: #646569;
 }
 
-/* line 859, ../assets/scss/_style-main.scss */
+/* line 879, ../assets/scss/_style-main.scss */
 .dead {
   color: #ed4949;
   font-size: 32px;
@@ -1909,194 +1929,194 @@ input.attack {
 }
 
 /* --------------- FONT SIZE RE-ADJUSTMENT */
-/* line 862, ../assets/scss/_style-main.scss */
+/* line 882, ../assets/scss/_style-main.scss */
 #container .px300 {
   font-size: 300px;
   line-height: 250px;
 }
 
-/* line 863, ../assets/scss/_style-main.scss */
+/* line 883, ../assets/scss/_style-main.scss */
 #container .px200 {
   font-size: 200px;
   line-height: 170px;
 }
 
-/* line 864, ../assets/scss/_style-main.scss */
+/* line 884, ../assets/scss/_style-main.scss */
 #container .px150 {
   font-size: 150px;
   line-height: 120px;
 }
 
-/* line 865, ../assets/scss/_style-main.scss */
+/* line 885, ../assets/scss/_style-main.scss */
 #container .px100 {
   font-size: 100px;
   line-height: 80px;
 }
 
-/* line 866, ../assets/scss/_style-main.scss */
+/* line 886, ../assets/scss/_style-main.scss */
 #container .px90 {
   font-size: 90px;
   line-height: 70px;
 }
 
-/* line 867, ../assets/scss/_style-main.scss */
+/* line 887, ../assets/scss/_style-main.scss */
 #container .px80 {
   font-size: 80px;
   line-height: 64px;
 }
 
-/* line 868, ../assets/scss/_style-main.scss */
+/* line 888, ../assets/scss/_style-main.scss */
 #container .px70 {
   font-size: 70px;
 }
 
-/* line 869, ../assets/scss/_style-main.scss */
+/* line 889, ../assets/scss/_style-main.scss */
 #container .px60 {
   font-size: 60px;
 }
 
-/* line 870, ../assets/scss/_style-main.scss */
+/* line 890, ../assets/scss/_style-main.scss */
 #container .px50 {
   font-size: 50px;
   line-height: 50px;
 }
 
-/* line 871, ../assets/scss/_style-main.scss */
+/* line 891, ../assets/scss/_style-main.scss */
 #container .px40 {
   font-size: 40px;
 }
 
-/* line 872, ../assets/scss/_style-main.scss */
+/* line 892, ../assets/scss/_style-main.scss */
 #container .px30 {
   font-size: 30px;
   line-height: 34px;
 }
 
-/* line 873, ../assets/scss/_style-main.scss */
+/* line 893, ../assets/scss/_style-main.scss */
 #container .px25 {
   font-size: 25px;
   line-height: 27px;
 }
 
-/* line 874, ../assets/scss/_style-main.scss */
+/* line 894, ../assets/scss/_style-main.scss */
 #container .px24 {
   font-size: 24px;
 }
 
-/* line 875, ../assets/scss/_style-main.scss */
+/* line 895, ../assets/scss/_style-main.scss */
 #container .px20 {
   font-size: 20px;
   line-height: 24px;
 }
 
-/* line 876, ../assets/scss/_style-main.scss */
+/* line 896, ../assets/scss/_style-main.scss */
 #container .px18 {
   font-size: 18px;
   line-height: 22px;
 }
 
-/* line 877, ../assets/scss/_style-main.scss */
+/* line 897, ../assets/scss/_style-main.scss */
 #container .px16 {
   font-size: 16px;
   line-height: 20px;
 }
 
-/* line 878, ../assets/scss/_style-main.scss */
+/* line 898, ../assets/scss/_style-main.scss */
 #container .px14 {
   font-size: 14px;
 }
 
-/* line 879, ../assets/scss/_style-main.scss */
+/* line 899, ../assets/scss/_style-main.scss */
 #container .px12 {
   font-size: 12px;
 }
 
-/* line 880, ../assets/scss/_style-main.scss */
+/* line 900, ../assets/scss/_style-main.scss */
 #container .px10 {
   font-size: 10px;
 }
 
 /* --------------- WIDTH RE-ADJUSTMENT */
-/* line 882, ../assets/scss/_style-main.scss */
+/* line 902, ../assets/scss/_style-main.scss */
 #container .w25 {
   width: 25px;
 }
 
-/* line 883, ../assets/scss/_style-main.scss */
+/* line 903, ../assets/scss/_style-main.scss */
 #container .w60 {
   width: 60px;
 }
 
-/* line 884, ../assets/scss/_style-main.scss */
+/* line 904, ../assets/scss/_style-main.scss */
 #container .w75 {
   width: 75px;
 }
 
-/* line 885, ../assets/scss/_style-main.scss */
+/* line 905, ../assets/scss/_style-main.scss */
 #container .w100 {
   width: 100px;
 }
 
-/* line 886, ../assets/scss/_style-main.scss */
+/* line 906, ../assets/scss/_style-main.scss */
 #container .w110 {
   width: 110px;
 }
 
-/* line 886, ../assets/scss/_style-main.scss */
+/* line 906, ../assets/scss/_style-main.scss */
 cu
 #container .w120 {
   width: 120px;
 }
 
-/* line 888, ../assets/scss/_style-main.scss */
+/* line 908, ../assets/scss/_style-main.scss */
 #container .w130 {
   width: 130px;
 }
 
-/* line 889, ../assets/scss/_style-main.scss */
+/* line 909, ../assets/scss/_style-main.scss */
 #container .w140 {
   width: 140px;
 }
 
-/* line 890, ../assets/scss/_style-main.scss */
+/* line 910, ../assets/scss/_style-main.scss */
 #container .w150 {
   width: 150px;
 }
 
-/* line 891, ../assets/scss/_style-main.scss */
+/* line 911, ../assets/scss/_style-main.scss */
 #container .w200 {
   width: 200px;
 }
 
-/* line 892, ../assets/scss/_style-main.scss */
+/* line 912, ../assets/scss/_style-main.scss */
 #container .w250 {
   width: 250px;
 }
 
-/* line 893, ../assets/scss/_style-main.scss */
+/* line 913, ../assets/scss/_style-main.scss */
 #container .w290 {
   width: 290px;
 }
 
-/* line 894, ../assets/scss/_style-main.scss */
+/* line 914, ../assets/scss/_style-main.scss */
 #container .w300 {
   width: 300px;
 }
 
-/* line 895, ../assets/scss/_style-main.scss */
+/* line 915, ../assets/scss/_style-main.scss */
 #container .percent100 {
   width: 100%;
 }
 
 /* --------------- TELEPORT */
-/* line 897, ../assets/scss/_style-main.scss */
+/* line 917, ../assets/scss/_style-main.scss */
 .teleport.shop {
   text-align: center;
   background: #70b9ed;
   font-size: 100px;
 }
 
-/* line 898, ../assets/scss/_style-main.scss */
+/* line 918, ../assets/scss/_style-main.scss */
 input.teleportBtn {
   padding: 3px;
   background: #c6e4ff;
@@ -2106,7 +2126,7 @@ input.teleportBtn {
   font-size: 100px;
 }
 
-/* line 899, ../assets/scss/_style-main.scss */
+/* line 919, ../assets/scss/_style-main.scss */
 .teleport h4 {
   color: #fff;
   text-transform: uppercase;
@@ -2115,13 +2135,13 @@ input.teleportBtn {
 }
 
 /* --------------- QUEST  */
-/* line 902, ../assets/scss/_style-main.scss */
+/* line 922, ../assets/scss/_style-main.scss */
 #quests .completed {
   opacity: .5;
   display: block;
 }
 
-/* line 911, ../assets/scss/_style-main.scss */
+/* line 931, ../assets/scss/_style-main.scss */
 #quests h2 i {
   display: block;
   float: none;
@@ -2129,12 +2149,12 @@ input.teleportBtn {
   color: #eee;
 }
 
-/* line 918, ../assets/scss/_style-main.scss */
+/* line 938, ../assets/scss/_style-main.scss */
 .questhead.completed {
   background: #999;
 }
 
-/* line 920, ../assets/scss/_style-main.scss */
+/* line 940, ../assets/scss/_style-main.scss */
 #quests input {
   width: 45%;
   text-transform: uppercase;
@@ -2142,7 +2162,7 @@ input.teleportBtn {
   margin: .5rem .5rem 2rem;
 }
 
-/* line 925, ../assets/scss/_style-main.scss */
+/* line 945, ../assets/scss/_style-main.scss */
 #quests .startall {
   font-size: 40px;
   width: 100%;
@@ -2150,7 +2170,7 @@ input.teleportBtn {
   background: #f1b238;
 }
 
-/* line 926, ../assets/scss/_style-main.scss */
+/* line 946, ../assets/scss/_style-main.scss */
 #quests .qbox {
   width: 24px;
   margin: 5px 5px 0 0;
@@ -2161,33 +2181,33 @@ input.teleportBtn {
   display: inline-block;
 }
 
-/* line 927, ../assets/scss/_style-main.scss */
+/* line 947, ../assets/scss/_style-main.scss */
 #quests .q0 {
   background: #646569;
 }
 
-/* line 928, ../assets/scss/_style-main.scss */
+/* line 948, ../assets/scss/_style-main.scss */
 #quests .q1 {
   background: #f1b238;
 }
 
-/* line 929, ../assets/scss/_style-main.scss */
+/* line 949, ../assets/scss/_style-main.scss */
 #quests .q2 {
   background: #87d63f;
 }
 
-/* line 931, ../assets/scss/_style-main.scss */
+/* line 951, ../assets/scss/_style-main.scss */
 .questhead h5:nth-child(4) {
   display: none;
 }
 
-/* line 932, ../assets/scss/_style-main.scss */
+/* line 952, ../assets/scss/_style-main.scss */
 .questLvlBox {
   text-transform: uppercase;
   color: #999;
 }
 
-/* line 937, ../assets/scss/_style-main.scss */
+/* line 957, ../assets/scss/_style-main.scss */
 .num {
   margin-right: 10px;
   border: #999 1px solid;
@@ -2195,26 +2215,26 @@ input.teleportBtn {
   DISPLAY: NONE;
 }
 
-/* line 941, ../assets/scss/_style-main.scss */
+/* line 961, ../assets/scss/_style-main.scss */
 nav .px14.none.fa {
   margin-right: 5px;
   float: left;
 }
 
-/* line 942, ../assets/scss/_style-main.scss */
+/* line 962, ../assets/scss/_style-main.scss */
 .questboxXXX .fa {
   padding: 3px 15px 4px 0px;
   font-size: 50px;
   float: left;
 }
 
-/* line 944, ../assets/scss/_style-main.scss */
+/* line 964, ../assets/scss/_style-main.scss */
 .none.fa.fa-square-o, .none.fa.fa-check-square-o {
   margin: 0 5px 0 0;
 }
 
 /* --------------- TELEPORT  */
-/* line 949, ../assets/scss/_style-main.scss */
+/* line 969, ../assets/scss/_style-main.scss */
 .mapCube {
   width: 27vw;
   height: 27vw;
@@ -2228,7 +2248,7 @@ nav .px14.none.fa {
 }
 
 /* --------------- buy box */
-/* line 960, ../assets/scss/_style-main.scss */
+/* line 980, ../assets/scss/_style-main.scss */
 .buybox {
   background: #333;
   padding: 10px;
@@ -2237,17 +2257,17 @@ nav .px14.none.fa {
 }
 
 /* --------------- MENU ACTION - IN FEED */
-/* line 962, ../assets/scss/_style-main.scss */
+/* line 982, ../assets/scss/_style-main.scss */
 .menuAction {
   padding: 2rem;
   border: dashed .1rem;
 }
-/* line 968, ../assets/scss/_style-main.scss */
+/* line 988, ../assets/scss/_style-main.scss */
 .menuAction strong {
   font-size: 2rem;
 }
 
-/* line 970, ../assets/scss/_style-main.scss */
+/* line 990, ../assets/scss/_style-main.scss */
 .menuAction .fa, .menuAction i {
   font-size: 28px;
   color: #70b9ed;
@@ -2255,12 +2275,12 @@ nav .px14.none.fa {
   display: block;
 }
 
-/* line 974, ../assets/scss/_style-main.scss */
+/* line 994, ../assets/scss/_style-main.scss */
 .menuAction span {
   color: #f1b238;
 }
 
-/* line 975, ../assets/scss/_style-main.scss */
+/* line 995, ../assets/scss/_style-main.scss */
 .menuAction > .goldbox {
   background: #f1b238;
   padding: 10px 5px;
@@ -2275,7 +2295,7 @@ nav .px14.none.fa {
   text-align: center;
 }
 
-/* line 976, ../assets/scss/_style-main.scss */
+/* line 996, ../assets/scss/_style-main.scss */
 .menuAction em {
   font-style: normal;
 }
@@ -2283,14 +2303,14 @@ nav .px14.none.fa {
 /* --------------- QUEST WIN BOX */
 /* --------------- LEVEL WIN BOX */
 /* ---------- SIGN DISPLAY */
-/* line 982, ../assets/scss/_style-main.scss */
+/* line 1002, ../assets/scss/_style-main.scss */
 .sign .direc {
   display: inline-block;
   font-style: italic;
   margin: 8px 0 0;
 }
 
-/* line 983, ../assets/scss/_style-main.scss */
+/* line 1003, ../assets/scss/_style-main.scss */
 .direc > input {
   background: none;
   font-size: 14px;
@@ -2300,7 +2320,7 @@ nav .px14.none.fa {
   width: auto;
 }
 
-/* line 985, ../assets/scss/_style-main.scss */
+/* line 1005, ../assets/scss/_style-main.scss */
 .levelWin, .questWin, .battlewin, .sign, .fbox {
   padding: 2rem;
   margin: 0 0 10px;
@@ -2313,34 +2333,34 @@ nav .px14.none.fa {
   text-shadow: 0 0 1rem rgba(30, 30, 30, 0.2), 0 0 0.5rem rgba(30, 30, 30, 0.5);
   background: #333;
 }
-/* line 996, ../assets/scss/_style-main.scss */
+/* line 1016, ../assets/scss/_style-main.scss */
 .levelWin h4, .questWin h4, .battlewin h4, .sign h4, .fbox h4 {
   color: #f1b238;
 }
-/* line 999, ../assets/scss/_style-main.scss */
+/* line 1019, ../assets/scss/_style-main.scss */
 .levelWin .hilight, .questWin .hilight, .battlewin .hilight, .sign .hilight, .fbox .hilight {
   color: #f1b238;
 }
 
-/* line 1002, ../assets/scss/_style-main.scss */
+/* line 1022, ../assets/scss/_style-main.scss */
 .levelWin {
   background: #7ebe63;
   background: #87d63f;
 }
 
-/* line 1006, ../assets/scss/_style-main.scss */
+/* line 1026, ../assets/scss/_style-main.scss */
 .battlewin {
   background: #689cc1;
 }
 
-/* line 1007, ../assets/scss/_style-main.scss */
+/* line 1027, ../assets/scss/_style-main.scss */
 .sign {
   background: #9c7a60;
   font-size: 1.6rem;
 }
 
 /* --------------- LEVEL WIN BOX */
-/* line 1011, ../assets/scss/_style-main.scss */
+/* line 1031, ../assets/scss/_style-main.scss */
 .evolveBox {
   background: #333;
   padding: 15px;
@@ -2351,7 +2371,7 @@ nav .px14.none.fa {
 }
 
 /* --------------- LEARN BOX */
-/* line 1013, ../assets/scss/_style-main.scss */
+/* line 1033, ../assets/scss/_style-main.scss */
 .learnBox strong {
   display: block;
   font-weight: 900;
@@ -2360,7 +2380,7 @@ nav .px14.none.fa {
 }
 
 /* --------------- AMMOBOX */
-/* line 1021, ../assets/scss/_style-main.scss */
+/* line 1041, ../assets/scss/_style-main.scss */
 .ammobox li.hilight {
   opacity: 1;
   filter: alpha(opacity=100);
@@ -2371,7 +2391,7 @@ nav .px14.none.fa {
   transition: opacity .2s ease-in-out;
 }
 
-/* line 1022, ../assets/scss/_style-main.scss */
+/* line 1042, ../assets/scss/_style-main.scss */
 .ammobox {
   bottom: 0;
   left: 180px;
@@ -2384,7 +2404,7 @@ nav .px14.none.fa {
   DISPLAY: BLOCK;
 }
 
-/* line 1023, ../assets/scss/_style-main.scss */
+/* line 1043, ../assets/scss/_style-main.scss */
 .ammobox li {
   clear: both;
   color: #999;
@@ -2396,65 +2416,65 @@ nav .px14.none.fa {
   width: 200px;
 }
 
-/* line 1024, ../assets/scss/_style-main.scss */
+/* line 1044, ../assets/scss/_style-main.scss */
 .ammobox li.head {
   text-transform: uppercase;
   margin-top: 10px;
 }
 
-/* line 1025, ../assets/scss/_style-main.scss */
+/* line 1045, ../assets/scss/_style-main.scss */
 .ammobox li.head:nth-child(2) {
   margin-top: 0;
 }
 
-/* line 1026, ../assets/scss/_style-main.scss */
+/* line 1046, ../assets/scss/_style-main.scss */
 .ammobox input {
   margin: 1px 0;
 }
 
-/* line 1027, ../assets/scss/_style-main.scss */
+/* line 1047, ../assets/scss/_style-main.scss */
 .ammobox .red {
   color: #ed4949;
 }
 
-/* line 1028, ../assets/scss/_style-main.scss */
+/* line 1048, ../assets/scss/_style-main.scss */
 .ammobox .blue {
   color: #518fbc;
 }
 
-/* line 1029, ../assets/scss/_style-main.scss */
+/* line 1049, ../assets/scss/_style-main.scss */
 .ammobox .purple {
   color: #6d3eb8;
 }
 
-/* line 1030, ../assets/scss/_style-main.scss */
+/* line 1050, ../assets/scss/_style-main.scss */
 .ammobox span {
   color: #848485;
 }
 
-/* line 1031, ../assets/scss/_style-main.scss */
+/* line 1051, ../assets/scss/_style-main.scss */
 .ammobox .smaller {
   font-size: 11px;
 }
 
 /* ---------- INVENTORY INV STYLE */
-/* line 1033, ../assets/scss/_style-main.scss */
+/* line 1053, ../assets/scss/_style-main.scss */
 #inv {
   padding: 0;
 }
 
-/* line 1034, ../assets/scss/_style-main.scss */
+/* line 1054, ../assets/scss/_style-main.scss */
 body li {
   list-style: none;
 }
 
 /* ----------  INV STAT FONT INCREASE */
-/* line 1036, ../assets/scss/_style-main.scss */
+/* line 1056, ../assets/scss/_style-main.scss */
 XXXli span i {
   font-size: 18px;
 }
 
-/* line 1037, ../assets/scss/_style-main.scss */
+/* line 1057, ../assets/scss/_style-main.scss */
 XXXli span i.black {
   font-size: 14px;
 }
@@ -2462,7 +2482,7 @@ XXXli span i.black {
 /* --------------- ICONS */
 /* --------------- ICONS */
 /* --------------- ICONS */
-/* line 1041, ../assets/scss/_style-main.scss */
+/* line 1061, ../assets/scss/_style-main.scss */
 .feedIcon {
   display: block;
   height: 50px;
@@ -2473,7 +2493,7 @@ XXXli span i.black {
 }
 
 /* --------------- LOADING */
-/* line 1043, ../assets/scss/_style-main.scss */
+/* line 1063, ../assets/scss/_style-main.scss */
 #loading {
   width: 100%;
   height: 100%;
@@ -2485,7 +2505,7 @@ XXXli span i.black {
 }
 
 /* --------------- DOWNLOADED CSS LOADER */
-/* line 1046, ../assets/scss/_style-main.scss */
+/* line 1066, ../assets/scss/_style-main.scss */
 .spinner {
   width: 40px;
   height: 40px;
@@ -2495,7 +2515,7 @@ XXXli span i.black {
   animation: rotate 2.0s infinite linear;
 }
 
-/* line 1047, ../assets/scss/_style-main.scss */
+/* line 1067, ../assets/scss/_style-main.scss */
 .dot1, .dot2 {
   width: 60%;
   height: 60%;
@@ -2508,7 +2528,7 @@ XXXli span i.black {
   animation: bounce 2.0s infinite ease-in-out;
 }
 
-/* line 1048, ../assets/scss/_style-main.scss */
+/* line 1068, ../assets/scss/_style-main.scss */
 .dot2 {
   top: auto;
   bottom: 0px;
@@ -2516,7 +2536,7 @@ XXXli span i.black {
   animation-delay: -1.0s;
 }
 
-/* line 1065, ../assets/scss/_style-main.scss */
+/* line 1085, ../assets/scss/_style-main.scss */
 #tabs {
   bottom: 0;
   z-index: 6;
@@ -2526,13 +2546,13 @@ XXXli span i.black {
   margin: 0;
   background: #666;
 }
-/* line 1073, ../assets/scss/_style-main.scss */
+/* line 1093, ../assets/scss/_style-main.scss */
 #tabs li {
   width: 20%;
   text-align: center;
   border: solid 1px #666;
 }
-/* line 1074, ../assets/scss/_style-main.scss */
+/* line 1094, ../assets/scss/_style-main.scss */
 #tabs .btn.game {
   position: fixed;
   bottom: 0;
@@ -2550,22 +2570,22 @@ XXXli span i.black {
   border-radius: 0;
   /* CSS3 */
 }
-/* line 1087, ../assets/scss/_style-main.scss */
+/* line 1107, ../assets/scss/_style-main.scss */
 #tabs .btn.game p {
   padding: 13px;
   color: #ffd016;
 }
-/* line 1090, ../assets/scss/_style-main.scss */
+/* line 1110, ../assets/scss/_style-main.scss */
 #tabs .btn.game2, #tabs .btn.game3 {
   display: none;
 }
 
-/* line 1096, ../assets/scss/_style-main.scss */
+/* line 1116, ../assets/scss/_style-main.scss */
 #panelwrap {
   height: auto;
 }
 
-/* line 1099, ../assets/scss/_style-main.scss */
+/* line 1119, ../assets/scss/_style-main.scss */
 article {
   height: calc(100vh - 150px);
   height: calc(100vh - 230px);
@@ -2579,12 +2599,12 @@ article {
   position: absolute;
   bottom: 0;
 }
-/* line 1111, ../assets/scss/_style-main.scss */
+/* line 1131, ../assets/scss/_style-main.scss */
 article span {
   color: #999;
 }
 
-/* line 1115, ../assets/scss/_style-main.scss */
+/* line 1135, ../assets/scss/_style-main.scss */
 nav {
   background: 0;
   top: 0;
@@ -2592,12 +2612,12 @@ nav {
 }
 
 /* --------------- MENU ICON */
-/* line 1132, ../assets/scss/_style-main.scss */
+/* line 1152, ../assets/scss/_style-main.scss */
 #tabs.active {
   display: none !important;
 }
 
-/* line 1135, ../assets/scss/_style-main.scss */
+/* line 1155, ../assets/scss/_style-main.scss */
 .menu {
   width: 100%;
   bottom: 0;
@@ -2607,7 +2627,7 @@ nav {
   left: 0;
 }
 
-/* line 1144, ../assets/scss/_style-main.scss */
+/* line 1164, ../assets/scss/_style-main.scss */
 .subMenu {
   position: absolute;
   width: 100%;
@@ -2617,7 +2637,7 @@ nav {
   line-height: 2em;
 }
 
-/* line 1153, ../assets/scss/_style-main.scss */
+/* line 1173, ../assets/scss/_style-main.scss */
 .menuIcon {
   text-align: center;
   text-decoration: none;
@@ -2630,7 +2650,7 @@ nav {
   height: 6rem;
   padding: 0.8rem 0 0;
 }
-/* line 1166, ../assets/scss/_style-main.scss */
+/* line 1186, ../assets/scss/_style-main.scss */
 .menuIcon span {
   color: #ccc;
   position: absolute;
@@ -2640,21 +2660,21 @@ nav {
   left: 0;
   text-shadow: 0px 0px 5px #111, 0px 0px 10px #111;
 }
-/* line 1176, ../assets/scss/_style-main.scss */
+/* line 1196, ../assets/scss/_style-main.scss */
 .menuIcon i {
   color: #ccc;
 }
-/* line 1180, ../assets/scss/_style-main.scss */
+/* line 1200, ../assets/scss/_style-main.scss */
 .menuIcon.active {
   background: #47474A;
 }
-/* line 1182, ../assets/scss/_style-main.scss */
+/* line 1202, ../assets/scss/_style-main.scss */
 .menuIcon.active span {
   color: #eee;
   color: #fff;
 }
 
-/* line 1191, ../assets/scss/_style-main.scss */
+/* line 1211, ../assets/scss/_style-main.scss */
 .menuIcon2 {
   padding: 5px 12px;
   padding: 0.5rem 1.7rem;
@@ -2662,33 +2682,33 @@ nav {
   cursor: pointer;
   border-right: solid 0.2rem #555;
 }
-/* line 1198, ../assets/scss/_style-main.scss */
+/* line 1218, ../assets/scss/_style-main.scss */
 .menuIcon2.active {
   color: #f1b238;
   background: #555;
 }
 
-/* line 1204, ../assets/scss/_style-main.scss */
+/* line 1224, ../assets/scss/_style-main.scss */
 [data-pop="stats"] .subMenu .active {
   color: #9f8ac2;
 }
 
-/* line 1205, ../assets/scss/_style-main.scss */
+/* line 1225, ../assets/scss/_style-main.scss */
 [data-pop="inv"] .subMenu .active {
   color: #7ebe63;
 }
 
-/* line 1206, ../assets/scss/_style-main.scss */
+/* line 1226, ../assets/scss/_style-main.scss */
 [data-pop="world"] .subMenu .active {
   color: #689cc1;
 }
 
-/* line 1207, ../assets/scss/_style-main.scss */
+/* line 1227, ../assets/scss/_style-main.scss */
 [data-pop="action"] .subMenu .active {
   color: #db6c64;
 }
 
-/* line 1208, ../assets/scss/_style-main.scss */
+/* line 1228, ../assets/scss/_style-main.scss */
 .panel {
   width: 100%;
   height: 100%;
@@ -2698,11 +2718,11 @@ nav {
   color: #eee;
   right: 0;
 }
-/* line 1218, ../assets/scss/_style-main.scss */
+/* line 1238, ../assets/scss/_style-main.scss */
 .panel.active {
   bottom: 0;
 }
-/* line 1221, ../assets/scss/_style-main.scss */
+/* line 1241, ../assets/scss/_style-main.scss */
 .panel.active.custom-input {
   position: absolute;
   z-index: 1;
@@ -2713,7 +2733,7 @@ nav {
   top: 0;
 }
 
-/* line 1232, ../assets/scss/_style-main.scss */
+/* line 1252, ../assets/scss/_style-main.scss */
 section {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -2722,29 +2742,29 @@ section {
   position: relative;
 }
 
-/* line 1239, ../assets/scss/_style-main.scss */
+/* line 1259, ../assets/scss/_style-main.scss */
 .flex-contain {
   display: flex;
   flex-wrap: wrap;
 }
-/* line 1242, ../assets/scss/_style-main.scss */
+/* line 1262, ../assets/scss/_style-main.scss */
 .flex-contain > div {
   width: 100%;
   position: relative;
 }
-/* line 1243, ../assets/scss/_style-main.scss */
+/* line 1263, ../assets/scss/_style-main.scss */
 .stats .flex-contain > div:nth-child(1) {
   order: -2;
 }
-/* line 1244, ../assets/scss/_style-main.scss */
+/* line 1264, ../assets/scss/_style-main.scss */
 .stats .flex-contain > div:nth-child(2) {
   order: 0;
 }
-/* line 1245, ../assets/scss/_style-main.scss */
+/* line 1265, ../assets/scss/_style-main.scss */
 .stats .flex-contain > div:nth-child(3) {
   order: -1;
 }
-/* line 1246, ../assets/scss/_style-main.scss */
+/* line 1266, ../assets/scss/_style-main.scss */
 .flex-contain .tops {
   order: -1;
   margin: 0 -2rem;
@@ -2753,13 +2773,13 @@ section {
   min-width: calc(100% + 4rem);
   background: #333;
 }
-/* line 1256, ../assets/scss/_style-main.scss */
+/* line 1276, ../assets/scss/_style-main.scss */
 .flex-contain .end {
   order: 2;
   opacity: .5;
 }
 
-/* line 1261, ../assets/scss/_style-main.scss */
+/* line 1281, ../assets/scss/_style-main.scss */
 .infobar {
   position: absolute;
   top: 0;
@@ -2767,46 +2787,46 @@ section {
   width: 100%;
   z-index: 1;
 }
-/* line 1267, ../assets/scss/_style-main.scss */
+/* line 1287, ../assets/scss/_style-main.scss */
 .infobar a {
   padding: 0.5rem 1rem;
   display: inline-block;
   text-decoration: none;
 }
 
-/* line 1274, ../assets/scss/_style-main.scss */
+/* line 1294, ../assets/scss/_style-main.scss */
 .gbox {
   border-bottom: solid 0.5rem #47474A;
   padding: 2rem 0;
   display: inline-block;
   width: 100%;
 }
-/* line 1282, ../assets/scss/_style-main.scss */
+/* line 1302, ../assets/scss/_style-main.scss */
 #quests .gbox:not(:first-child) {
   padding-top: 8rem;
 }
 
-/* line 1286, ../assets/scss/_style-main.scss */
+/* line 1306, ../assets/scss/_style-main.scss */
 .gslice {
   padding: 2rem 0;
   border-top: solid 0.1rem #47474A;
   margin: 1rem 0;
 }
-/* line 1290, ../assets/scss/_style-main.scss */
+/* line 1310, ../assets/scss/_style-main.scss */
 .gslice:first-of-type {
   border: 0;
 }
-/* line 1291, ../assets/scss/_style-main.scss */
+/* line 1311, ../assets/scss/_style-main.scss */
 .skills-spells .gslice {
   clear: both;
 }
 
-/* line 1295, ../assets/scss/_style-main.scss */
+/* line 1315, ../assets/scss/_style-main.scss */
 .padd {
   padding: 1rem 0;
 }
 
-/* line 1299, ../assets/scss/_style-main.scss */
+/* line 1319, ../assets/scss/_style-main.scss */
 .closeMenu {
   position: absolute;
   font-size: 2rem;
@@ -2820,14 +2840,14 @@ section {
   box-shadow: 0 0 1rem #333;
 }
 
-/* line 1314, ../assets/scss/_style-main.scss */
+/* line 1334, ../assets/scss/_style-main.scss */
 .topright {
   position: absolute;
   top: 1rem;
   right: 0;
 }
 
-/* line 1320, ../assets/scss/_style-main.scss */
+/* line 1340, ../assets/scss/_style-main.scss */
 .box {
   background: #47474A;
   padding: 1rem 1.5rem;
@@ -2835,20 +2855,20 @@ section {
   top: 0;
 }
 
-/* line 1327, ../assets/scss/_style-main.scss */
+/* line 1347, ../assets/scss/_style-main.scss */
 .sticky {
   top: 0;
   position: sticky;
   float: right;
 }
 
-/* line 1336, ../assets/scss/_style-main.scss */
+/* line 1356, ../assets/scss/_style-main.scss */
 .tabs a {
   margin: 1.5rem 0 0;
   padding: .2rem 1rem;
 }
 
-/* line 1343, ../assets/scss/_style-main.scss */
+/* line 1363, ../assets/scss/_style-main.scss */
 .badges {
   position: fixed;
   top: 0;
@@ -2860,7 +2880,7 @@ section {
   z-index: -1;
 }
 
-/* line 1353, ../assets/scss/_style-main.scss */
+/* line 1373, ../assets/scss/_style-main.scss */
 .badge {
   width: 5rem;
   height: 5rem;
@@ -2871,7 +2891,7 @@ section {
   position: relative;
 }
 
-/* line 1361, ../assets/scss/_style-main.scss */
+/* line 1381, ../assets/scss/_style-main.scss */
 .alert {
   position: absolute;
   background: #db6c64;
@@ -2891,23 +2911,23 @@ section {
   color: #333;
 }
 
-/* line 1381, ../assets/scss/_style-main.scss */
+/* line 1401, ../assets/scss/_style-main.scss */
 #action .menuIcon2 {
   float: none;
   display: inline-block;
   font-size: 18px;
   padding: 4px 20px;
 }
-/* line 1386, ../assets/scss/_style-main.scss */
+/* line 1406, ../assets/scss/_style-main.scss */
 #action.panel.active {
   right: 0;
 }
-/* line 1389, ../assets/scss/_style-main.scss */
+/* line 1409, ../assets/scss/_style-main.scss */
 #action.active section {
   left: 0;
 }
 
-/* line 1393, ../assets/scss/_style-main.scss */
+/* line 1413, ../assets/scss/_style-main.scss */
 .quickBox {
   position: absolute;
   padding: 0;
@@ -2916,7 +2936,7 @@ section {
   right: 1rem;
   top: 20px;
 }
-/* line 1401, ../assets/scss/_style-main.scss */
+/* line 1421, ../assets/scss/_style-main.scss */
 .quickBox input {
   border-radius: 0;
   text-transform: capitalize;
@@ -2934,7 +2954,7 @@ section {
   box-shadow: 0px 0px 10px #333, 0px 0px 5px #333;
 }
 
-/* line 1422, ../assets/scss/_style-main.scss */
+/* line 1442, ../assets/scss/_style-main.scss */
 .bar {
   background: #666;
   color: #eee;
@@ -2946,28 +2966,28 @@ section {
   font-size: 2rem;
 }
 
-/* line 1433, ../assets/scss/_style-main.scss */
+/* line 1453, ../assets/scss/_style-main.scss */
 .barMid {
   position: relative;
   padding: 0 0 0 1rem;
 }
-/* line 1436, ../assets/scss/_style-main.scss */
+/* line 1456, ../assets/scss/_style-main.scss */
 .stats .barMid {
   line-height: 2.7rem;
 }
 
-/* line 1443, ../assets/scss/_style-main.scss */
+/* line 1463, ../assets/scss/_style-main.scss */
 .maxxer {
   position: absolute;
   right: 1rem;
   top: -0.1rem;
 }
-/* line 1448, ../assets/scss/_style-main.scss */
+/* line 1468, ../assets/scss/_style-main.scss */
 .stats .maxxer {
   top: 0.3rem;
 }
 
-/* line 1455, ../assets/scss/_style-main.scss */
+/* line 1475, ../assets/scss/_style-main.scss */
 .lastActionBox {
   border-bottom: solid 0.2rem #db6c64;
   margin: 0 -2rem;
@@ -2975,7 +2995,7 @@ section {
   padding: 2rem;
 }
 
-/* line 1466, ../assets/scss/_style-main.scss */
+/* line 1486, ../assets/scss/_style-main.scss */
 XXX#container {
   width: 100%;
   margin: 0;
@@ -2983,7 +3003,7 @@ XXX#container {
   top: 0;
 }
 
-/* line 1472, ../assets/scss/_style-main.scss */
+/* line 1492, ../assets/scss/_style-main.scss */
 #container .module {
   width: 100%;
   height: auto;
@@ -2991,35 +3011,48 @@ XXX#container {
   z-index: 5;
 }
 
-/* line 1480, ../assets/scss/_style-main.scss */
+/* line 1500, ../assets/scss/_style-main.scss */
 #container .module.action {
   position: absolute;
   bottom: 0;
   right: 0;
 }
 
-/* line 1489, ../assets/scss/_style-main.scss */
+/* line 1509, ../assets/scss/_style-main.scss */
 #container .module.feed {
   top: 0px;
   position: relative;
   z-index: 1;
 }
 
-/* line 1496, ../assets/scss/_style-main.scss */
+/* line 1518, ../assets/scss/_style-main.scss */
 #feed-module {
   display: block;
   height: 100vh;
-  height: -webkit-fill-available;
   width: 100%;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   border: 0;
-  padding: 1rem;
-  padding-bottom: 340px;
+  padding: 0 1rem 1rem;
   text-align: center;
 }
 
-/* line 1518, ../assets/scss/_style-main.scss */
+@supports (-webkit-touch-callout: none) {
+  /* CSS specific to iOS devices */
+  /* line 1537, ../assets/scss/_style-main.scss */
+  #feed-module {
+    height: -webkit-fill-available;
+  }
+}
+@supports not (-webkit-touch-callout: none) {
+  /* CSS for other than iOS devices */
+}
+/* line 1544, ../assets/scss/_style-main.scss */
+.feedinside {
+  padding-bottom: 320px;
+}
+
+/* line 1547, ../assets/scss/_style-main.scss */
 #map {
   position: absolute;
   bottom: 60px;
@@ -3043,12 +3076,12 @@ XXX#container {
   transition: all 0.5s ease-in-out;
 }
 
-/* line 1531, ../assets/scss/_style-main.scss */
+/* line 1560, ../assets/scss/_style-main.scss */
 .coinBar {
   margin: 10px 0 0;
 }
 
-/* line 1534, ../assets/scss/_style-main.scss */
+/* line 1563, ../assets/scss/_style-main.scss */
 .ammobox {
   right: 0;
   display: none;
@@ -3060,12 +3093,12 @@ XXX#container {
   height: 100%;
 }
 
-/* line 1544, ../assets/scss/_style-main.scss */
+/* line 1573, ../assets/scss/_style-main.scss */
 .ammobox.active {
   display: block;
 }
 
-/* line 1547, ../assets/scss/_style-main.scss */
+/* line 1576, ../assets/scss/_style-main.scss */
 a.ammoboxLink {
   position: fixed;
   top: 0px;
@@ -3076,7 +3109,7 @@ a.ammoboxLink {
   font-size: 20px;
 }
 
-/* line 1566, ../assets/scss/_style-main.scss */
+/* line 1595, ../assets/scss/_style-main.scss */
 #action-moduleXXX {
   overflow-y: scroll;
   position: fixed;
@@ -3102,23 +3135,23 @@ a.ammoboxLink {
   
   		}*/
 }
-/* line 1579, ../assets/scss/_style-main.scss */
+/* line 1608, ../assets/scss/_style-main.scss */
 #action-moduleXXX.active {
   bottom: 0px;
 }
-/* line 1580, ../assets/scss/_style-main.scss */
+/* line 1609, ../assets/scss/_style-main.scss */
 #action-moduleXXX.active .fa-angle-right {
   display: inline-table;
 }
-/* line 1581, ../assets/scss/_style-main.scss */
+/* line 1610, ../assets/scss/_style-main.scss */
 #action-moduleXXX.active .fa-angle-left {
   display: none;
 }
-/* line 1595, ../assets/scss/_style-main.scss */
+/* line 1624, ../assets/scss/_style-main.scss */
 #action-moduleXXX .fa-angle-left {
   display: none;
 }
-/* line 1597, ../assets/scss/_style-main.scss */
+/* line 1626, ../assets/scss/_style-main.scss */
 #action-moduleXXX .menuAction {
   background: none;
   padding: 0;
@@ -3126,7 +3159,7 @@ a.ammoboxLink {
 }
 
 /* ---------------NAV */
-/* line 1601, ../assets/scss/_style-main.scss */
+/* line 1630, ../assets/scss/_style-main.scss */
 .nav {
   position: relative;
   bottom: 6rem;
@@ -3139,7 +3172,7 @@ a.ammoboxLink {
   background: rgba(40, 70, 30, 0.95);
   background: rgba(50, 50, 50, 0.95);
 }
-/* line 1618, ../assets/scss/_style-main.scss */
+/* line 1647, ../assets/scss/_style-main.scss */
 .nav .bar {
   height: 1rem;
   margin: 0 0 0.5rem;
@@ -3148,7 +3181,7 @@ a.ammoboxLink {
   text-shadow: 0 0 0.3rem #333;
 }
 
-/* line 1627, ../assets/scss/_style-main.scss */
+/* line 1656, ../assets/scss/_style-main.scss */
 .nav p {
   bottom: 115px;
   position: fixed;
@@ -3156,13 +3189,13 @@ a.ammoboxLink {
   font-size: 12px;
 }
 
-/* line 1633, ../assets/scss/_style-main.scss */
+/* line 1662, ../assets/scss/_style-main.scss */
 .nav p.danger {
   bottom: 75px;
   left: 20px;
 }
 
-/* line 1637, ../assets/scss/_style-main.scss */
+/* line 1666, ../assets/scss/_style-main.scss */
 .navhud {
   position: absolute;
   left: 1rem;
@@ -3170,7 +3203,7 @@ a.ammoboxLink {
   width: 30%;
 }
 
-/* line 1645, ../assets/scss/_style-main.scss */
+/* line 1674, ../assets/scss/_style-main.scss */
 .nav-center {
   position: relative;
   top: 50%;
@@ -3179,7 +3212,7 @@ a.ammoboxLink {
   padding: 1rem;
 }
 
-/* line 1653, ../assets/scss/_style-main.scss */
+/* line 1682, ../assets/scss/_style-main.scss */
 .module.feed .infoBlock {
   padding: 10px;
   bottom: 220px;
@@ -3187,12 +3220,12 @@ a.ammoboxLink {
   width: 100%;
 }
 
-/* line 1664, ../assets/scss/_style-main.scss */
+/* line 1693, ../assets/scss/_style-main.scss */
 [data-pop] {
   transition: .25s;
 }
 
-/* line 1669, ../assets/scss/_style-main.scss */
+/* line 1698, ../assets/scss/_style-main.scss */
 #map.active {
   position: fixed;
   bottom: 0;
@@ -3214,7 +3247,7 @@ a.ammoboxLink {
   /* CSS3 */
 }
 
-/* line 1687, ../assets/scss/_style-main.scss */
+/* line 1716, ../assets/scss/_style-main.scss */
 .battleBlock {
   width: 100%;
   height: 280px;
@@ -3224,18 +3257,18 @@ a.ammoboxLink {
   position: fixed;
   bottom: 6rem;
 }
-/* line 1698, ../assets/scss/_style-main.scss */
+/* line 1727, ../assets/scss/_style-main.scss */
 .battleBlock input {
   width: 100%;
 }
-/* line 1703, ../assets/scss/_style-main.scss */
+/* line 1732, ../assets/scss/_style-main.scss */
 .battleBlock .spellBtnBox {
   display: inline-block;
   position: relative;
   color: #fff;
   width: 48%;
 }
-/* line 1711, ../assets/scss/_style-main.scss */
+/* line 1740, ../assets/scss/_style-main.scss */
 .battleBlock .retreatBtn {
   background: #111;
   width: auto;
@@ -3248,21 +3281,21 @@ a.ammoboxLink {
 }
 
 /* --------------- BATTLETABS - action, magic, bag  */
-/* line 1727, ../assets/scss/_style-main.scss */
+/* line 1756, ../assets/scss/_style-main.scss */
 .battleTabs {
   position: absolute;
   top: -4rem;
   width: 100%;
   line-height: 2.5rem;
 }
-/* line 1735, ../assets/scss/_style-main.scss */
+/* line 1764, ../assets/scss/_style-main.scss */
 .battleTabs a {
   width: 30%;
   border-radius: 10px 10px 0 0;
   background: #333;
   margin: 0;
 }
-/* line 1742, ../assets/scss/_style-main.scss */
+/* line 1771, ../assets/scss/_style-main.scss */
 .battleTabs i {
   display: block;
   font-size: 22px;
@@ -3270,7 +3303,7 @@ a.ammoboxLink {
   top: 4px;
 }
 
-/* line 1750, ../assets/scss/_style-main.scss */
+/* line 1779, ../assets/scss/_style-main.scss */
 .battleTab {
   display: none;
   padding: 10px;
@@ -3279,77 +3312,77 @@ a.ammoboxLink {
   z-index: 0;
   position: relative;
 }
-/* line 1757, ../assets/scss/_style-main.scss */
+/* line 1786, ../assets/scss/_style-main.scss */
 .battleTab.active {
   display: block;
 }
 
-/* line 1764, ../assets/scss/_style-main.scss */
+/* line 1793, ../assets/scss/_style-main.scss */
 [data-link="battle-actions"] {
   color: #db6c64;
 }
-/* line 1765, ../assets/scss/_style-main.scss */
+/* line 1794, ../assets/scss/_style-main.scss */
 [data-link="battle-actions"].active {
   background: #db6c64;
   color: #fff;
   border: 0;
 }
 
-/* line 1767, ../assets/scss/_style-main.scss */
+/* line 1796, ../assets/scss/_style-main.scss */
 [data-link="battle-actions"].dex {
   color: #7ebe63;
 }
-/* line 1768, ../assets/scss/_style-main.scss */
+/* line 1797, ../assets/scss/_style-main.scss */
 [data-link="battle-actions"].dex.active {
   background: #7ebe63;
   color: #fff;
   border: 0;
 }
 
-/* line 1770, ../assets/scss/_style-main.scss */
+/* line 1799, ../assets/scss/_style-main.scss */
 [data-link="battle-magic"] {
   color: #689cc1;
 }
-/* line 1771, ../assets/scss/_style-main.scss */
+/* line 1800, ../assets/scss/_style-main.scss */
 [data-link="battle-magic"].active {
   background: #689cc1;
   color: #fff;
   border: 0;
 }
 
-/* line 1773, ../assets/scss/_style-main.scss */
+/* line 1802, ../assets/scss/_style-main.scss */
 [data-link="battle-bag"] {
   color: #f1b238;
 }
-/* line 1774, ../assets/scss/_style-main.scss */
+/* line 1803, ../assets/scss/_style-main.scss */
 [data-link="battle-bag"].active {
   background: #f1b238;
   color: #fff;
   border: 0;
 }
 
-/* line 1777, ../assets/scss/_style-main.scss */
+/* line 1806, ../assets/scss/_style-main.scss */
 [data-pop="battle-actions"] {
   border-top: solid 5px #db6c64;
 }
 
-/* line 1778, ../assets/scss/_style-main.scss */
+/* line 1807, ../assets/scss/_style-main.scss */
 [data-pop="battle-actions"].dex {
   border-top: solid 5px #7ebe63;
 }
 
-/* line 1779, ../assets/scss/_style-main.scss */
+/* line 1808, ../assets/scss/_style-main.scss */
 [data-pop="battle-magic"] {
   border-top: solid 5px #689cc1;
 }
 
-/* line 1780, ../assets/scss/_style-main.scss */
+/* line 1809, ../assets/scss/_style-main.scss */
 [data-pop="battle-bag"] {
   border-top: solid 5px #f1b238;
 }
 
 /* --------------- BATTLEBOX  */
-/* line 1783, ../assets/scss/_style-main.scss */
+/* line 1812, ../assets/scss/_style-main.scss */
 .battleBox {
   overflow: hidden;
   width: 46%;
@@ -3362,41 +3395,41 @@ a.ammoboxLink {
   line-height: 1.3em;
 }
 
-/* line 1795, ../assets/scss/_style-main.scss */
+/* line 1824, ../assets/scss/_style-main.scss */
 .actionBox.active {
   left: 0%;
 }
 
-/* line 1798, ../assets/scss/_style-main.scss */
+/* line 1827, ../assets/scss/_style-main.scss */
 .attackMath {
   font-size: 12px;
   line-height: 1.4em;
   display: block;
 }
 
-/* line 1803, ../assets/scss/_style-main.scss */
+/* line 1832, ../assets/scss/_style-main.scss */
 .attackNums {
   display: block;
 }
 
-/* line 1806, ../assets/scss/_style-main.scss */
+/* line 1835, ../assets/scss/_style-main.scss */
 .attackBig {
   display: block;
   font-size: 42px;
   line-height: 46px;
 }
 
-/* line 1812, ../assets/scss/_style-main.scss */
+/* line 1841, ../assets/scss/_style-main.scss */
 .active .actionFrame {
   right: 0%;
 }
 
-/* line 1814, ../assets/scss/_style-main.scss */
+/* line 1843, ../assets/scss/_style-main.scss */
 .actionFrame li {
   width: 100%;
   display: inline-block;
 }
-/* line 1818, ../assets/scss/_style-main.scss */
+/* line 1847, ../assets/scss/_style-main.scss */
 .actionFrame input {
   background: #eee;
   padding: 8px 16px;
@@ -3405,7 +3438,7 @@ a.ammoboxLink {
   float: left;
   margin: 1% 1%;
 }
-/* line 1827, ../assets/scss/_style-main.scss */
+/* line 1856, ../assets/scss/_style-main.scss */
 .actionFrame .head {
   color: #999;
   text-transform: uppercase;
@@ -3415,7 +3448,7 @@ a.ammoboxLink {
   margin: 20px 0 0;
 }
 
-/* line 1839, ../assets/scss/_style-main.scss */
+/* line 1868, ../assets/scss/_style-main.scss */
 .multiHit {
   border-top: solid 5px #ccc;
   padding: 2px 0 0;
@@ -3424,7 +3457,7 @@ a.ammoboxLink {
   display: block;
 }
 
-/* line 1846, ../assets/scss/_style-main.scss */
+/* line 1875, ../assets/scss/_style-main.scss */
 .dodged {
   color: #ccc;
   font-size: 28px;
@@ -3432,23 +3465,23 @@ a.ammoboxLink {
   line-height: 1.6em;
 }
 
-/* line 1852, ../assets/scss/_style-main.scss */
+/* line 1881, ../assets/scss/_style-main.scss */
 .attackCost {
   font-size: 10px;
   color: #689cc1;
 }
 
-/* line 1856, ../assets/scss/_style-main.scss */
+/* line 1885, ../assets/scss/_style-main.scss */
 .attackName {
   color: #db6c64;
 }
 
-/* line 1859, ../assets/scss/_style-main.scss */
+/* line 1888, ../assets/scss/_style-main.scss */
 .attackWeapon {
   color: #474747;
 }
 
-/* line 1865, ../assets/scss/_style-main.scss */
+/* line 1894, ../assets/scss/_style-main.scss */
 #tabs li a {
   display: block;
   padding: 12px 12px;
@@ -3456,23 +3489,23 @@ a.ammoboxLink {
   font-weight: bold;
 }
 
-/* line 1871, ../assets/scss/_style-main.scss */
+/* line 1900, ../assets/scss/_style-main.scss */
 #tabs li a.active {
   background: #f1b238;
   color: #555;
 }
 
-/* line 1877, ../assets/scss/_style-main.scss */
+/* line 1906, ../assets/scss/_style-main.scss */
 #tabs a.hilight {
   color: #f1b238;
 }
 
-/* line 1880, ../assets/scss/_style-main.scss */
+/* line 1909, ../assets/scss/_style-main.scss */
 #tabs a:hover {
   background: #999;
 }
 
-/* line 1889, ../assets/scss/_style-main.scss */
+/* line 1918, ../assets/scss/_style-main.scss */
 #hud {
   position: fixed;
   top: 0;
@@ -3480,19 +3513,19 @@ a.ammoboxLink {
   left: 0;
   z-index: -1;
 }
-/* line 1895, ../assets/scss/_style-main.scss */
+/* line 1924, ../assets/scss/_style-main.scss */
 #hud.active {
   left: 0;
 }
-/* line 1896, ../assets/scss/_style-main.scss */
+/* line 1925, ../assets/scss/_style-main.scss */
 #hud.active #uBox {
   right: 0%;
 }
-/* line 1898, ../assets/scss/_style-main.scss */
+/* line 1927, ../assets/scss/_style-main.scss */
 #hud.inBattle #uBox {
   right: 0%;
 }
-/* line 1900, ../assets/scss/_style-main.scss */
+/* line 1929, ../assets/scss/_style-main.scss */
 #hud .bar {
   width: 100%;
   height: 1rem;
@@ -3502,17 +3535,17 @@ a.ammoboxLink {
   border-radius: 2rem;
   overflow: hidden;
 }
-/* line 1909, ../assets/scss/_style-main.scss */
+/* line 1938, ../assets/scss/_style-main.scss */
 #hud .bar.mpBar {
   width: 90%;
   height: 1rem;
 }
-/* line 1913, ../assets/scss/_style-main.scss */
+/* line 1942, ../assets/scss/_style-main.scss */
 #hud .barMid {
   position: absolute;
   height: 100%;
 }
-/* line 1918, ../assets/scss/_style-main.scss */
+/* line 1947, ../assets/scss/_style-main.scss */
 #hud .extrahpBox {
   top: inherit;
   z-index: 1;
@@ -3524,7 +3557,7 @@ a.ammoboxLink {
   bottom: 15px;
   left: 100%;
 }
-/* line 1932, ../assets/scss/_style-main.scss */
+/* line 1961, ../assets/scss/_style-main.scss */
 #hud h3 {
   font-size: 2.4rem;
   margin: 0;
@@ -3534,25 +3567,25 @@ a.ammoboxLink {
   overflow-x: auto;
   overflow-y: inherit;
 }
-/* line 1942, ../assets/scss/_style-main.scss */
+/* line 1971, ../assets/scss/_style-main.scss */
 #hud .maxstat {
   float: left;
   position: relative;
 }
 
-/* line 1950, ../assets/scss/_style-main.scss */
+/* line 1979, ../assets/scss/_style-main.scss */
 .xpBar, .xpBar div {
   height: 3px;
   width: 70%;
 }
 
-/* line 1955, ../assets/scss/_style-main.scss */
+/* line 1984, ../assets/scss/_style-main.scss */
 .mpBar, .mpBar div {
   height: 10px;
   width: 90%;
 }
 
-/* line 1962, ../assets/scss/_style-main.scss */
+/* line 1991, ../assets/scss/_style-main.scss */
 .maxstat input {
   position: absolute;
   top: 18px;
@@ -3562,21 +3595,21 @@ a.ammoboxLink {
   margin: 0;
 }
 
-/* line 1971, ../assets/scss/_style-main.scss */
+/* line 2000, ../assets/scss/_style-main.scss */
 .maxBox {
   position: absolute;
   top: 20px;
   width: 40%;
 }
 
-/* line 1977, ../assets/scss/_style-main.scss */
+/* line 2006, ../assets/scss/_style-main.scss */
 .magicarmorBox {
   position: absolute;
   top: 6.5rem;
   right: 0.9rem;
 }
 
-/* line 1987, ../assets/scss/_style-main.scss */
+/* line 2016, ../assets/scss/_style-main.scss */
 #eBox, #uBox {
   position: relative;
   background: #474747;
@@ -3594,7 +3627,7 @@ a.ammoboxLink {
   transition: all 0.25s ease-in-out;
 }
 
-/* line 2001, ../assets/scss/_style-main.scss */
+/* line 2030, ../assets/scss/_style-main.scss */
 .buffbound {
   position: absolute;
   top: 0;
@@ -3606,50 +3639,50 @@ a.ammoboxLink {
   font-size: 1.2rem;
 }
 
-/* line 2012, ../assets/scss/_style-main.scss */
+/* line 2041, ../assets/scss/_style-main.scss */
 .buffBox {
   margin: 0px 0.5rem 0 0;
   border-bottom: 0.2rem solid;
 }
 
-/* line 2017, ../assets/scss/_style-main.scss */
+/* line 2046, ../assets/scss/_style-main.scss */
 #eBox {
   left: 0;
   text-align: right;
 }
-/* line 2021, ../assets/scss/_style-main.scss */
+/* line 2050, ../assets/scss/_style-main.scss */
 #eBox .barMid {
   right: 0;
 }
-/* line 2025, ../assets/scss/_style-main.scss */
+/* line 2054, ../assets/scss/_style-main.scss */
 #eBox .bar {
   height: 2.2rem;
 }
-/* line 2028, ../assets/scss/_style-main.scss */
+/* line 2057, ../assets/scss/_style-main.scss */
 #eBox .statBox {
   position: absolute;
   left: 2rem;
   bottom: .5rem;
 }
 
-/* line 2037, ../assets/scss/_style-main.scss */
+/* line 2066, ../assets/scss/_style-main.scss */
 #uBox {
   right: -50%;
 }
-/* line 2040, ../assets/scss/_style-main.scss */
+/* line 2069, ../assets/scss/_style-main.scss */
 #uBox .statBox {
   position: absolute;
   right: 2rem;
   bottom: 0.5rem;
 }
-/* line 2049, ../assets/scss/_style-main.scss */
+/* line 2078, ../assets/scss/_style-main.scss */
 #uBox .statBox i {
   padding: 0 2px 0 4px;
   position: relative;
   top: 3px;
 }
 
-/* line 2058, ../assets/scss/_style-main.scss */
+/* line 2087, ../assets/scss/_style-main.scss */
 .vsBox {
   position: absolute;
   top: -1rem;
@@ -3666,7 +3699,7 @@ a.ammoboxLink {
   background: rgba(0, 0, 0, 0.3);
 }
 
-/* line 2073, ../assets/scss/_style-main.scss */
+/* line 2102, ../assets/scss/_style-main.scss */
 .lvlBox {
   background: #f1b238;
   color: #444;
@@ -3681,7 +3714,7 @@ a.ammoboxLink {
   top: -2px;
 }
 
-/* line 2089, ../assets/scss/_style-main.scss */
+/* line 2118, ../assets/scss/_style-main.scss */
 .maxhpdisplay {
   position: absolute;
   left: 2px;
@@ -3689,45 +3722,45 @@ a.ammoboxLink {
   color: #aaa;
 }
 
-/* line 2096, ../assets/scss/_style-main.scss */
+/* line 2125, ../assets/scss/_style-main.scss */
 .castBox {
   background: #eee;
   padding: 10px;
   margin: 10px 20px 0;
 }
 
-/* line 2101, ../assets/scss/_style-main.scss */
+/* line 2130, ../assets/scss/_style-main.scss */
 #devLog {
   padding: 20px;
   background: #fff;
 }
-/* line 2104, ../assets/scss/_style-main.scss */
+/* line 2133, ../assets/scss/_style-main.scss */
 #devLog p {
   padding: 2px 0;
 }
-/* line 2105, ../assets/scss/_style-main.scss */
+/* line 2134, ../assets/scss/_style-main.scss */
 #devLog h3 {
   margin: 0;
 }
 
-/* line 2110, ../assets/scss/_style-main.scss */
+/* line 2139, ../assets/scss/_style-main.scss */
 .iStat {
   font-size: 2rem;
   line-height: 1.5rem;
 }
 
-/* line 2116, ../assets/scss/_style-main.scss */
+/* line 2145, ../assets/scss/_style-main.scss */
 .statcat, .maxstat {
   font-size: 3.6rem;
   line-height: 0.8em;
 }
 
-/* line 2121, ../assets/scss/_style-main.scss */
+/* line 2150, ../assets/scss/_style-main.scss */
 .roomBox p {
   margin-bottom: 10px;
 }
 
-/* line 2127, ../assets/scss/_style-main.scss */
+/* line 2156, ../assets/scss/_style-main.scss */
 .roomIcon {
   font-size: 7.2rem;
   margin: 2rem 0;
@@ -3735,23 +3768,18 @@ a.ammoboxLink {
 }
 
 @media (min-width: 600px) {
-  /* line 2154, ../assets/scss/_style-main.scss */
+  /* line 2183, ../assets/scss/_style-main.scss */
   html {
     font-size: 15px;
   }
 
-  /* line 2159, ../assets/scss/_style-main.scss */
-  #feed-module {
-    padding-bottom: 380px;
-  }
-
-  /* line 2163, ../assets/scss/_style-main.scss */
+  /* line 2192, ../assets/scss/_style-main.scss */
   .infight #feed-module {
     padding-bottom: 440px;
   }
 }
 @media (min-width: 1000px) {
-  /* line 2171, ../assets/scss/_style-main.scss */
+  /* line 2200, ../assets/scss/_style-main.scss */
   .nav-center {
     top: 38%;
     height: 260px;
@@ -3760,24 +3788,24 @@ a.ammoboxLink {
     margin: 0 auto;
   }
 
-  /* line 2178, ../assets/scss/_style-main.scss */
+  /* line 2207, ../assets/scss/_style-main.scss */
   .quickBox {
     transform: scale(0.66);
     transform-origin: right;
     right: .5rem;
   }
 
-  /* line 2183, ../assets/scss/_style-main.scss */
+  /* line 2212, ../assets/scss/_style-main.scss */
   #feed-module, .infight #feed-module {
     padding-bottom: 100px;
   }
 
-  /* line 2186, ../assets/scss/_style-main.scss */
+  /* line 2215, ../assets/scss/_style-main.scss */
   .infight #feed-module {
     height: calc(100vh - 280px);
   }
 
-  /* line 2190, ../assets/scss/_style-main.scss */
+  /* line 2219, ../assets/scss/_style-main.scss */
   #container .module.action {
     width: 50%;
     height: 100%;
@@ -3785,7 +3813,7 @@ a.ammoboxLink {
     overflow-x: visible;
   }
 
-  /* line 2197, ../assets/scss/_style-main.scss */
+  /* line 2226, ../assets/scss/_style-main.scss */
   #container .module.feed {
     width: 50%;
     height: 100vh;
@@ -3794,48 +3822,48 @@ a.ammoboxLink {
     position: absolute;
   }
 
-  /* line 2207, ../assets/scss/_style-main.scss */
+  /* line 2236, ../assets/scss/_style-main.scss */
   .feed .roomBox {
     padding: 20px;
     margin: 20px 0;
   }
 
-  /* line 2212, ../assets/scss/_style-main.scss */
+  /* line 2241, ../assets/scss/_style-main.scss */
   .infoBlock.nav {
     height: 100%;
   }
 
-  /* line 2216, ../assets/scss/_style-main.scss */
+  /* line 2245, ../assets/scss/_style-main.scss */
   .panel {
     width: 50%;
   }
 
-  /* line 2220, ../assets/scss/_style-main.scss */
+  /* line 2249, ../assets/scss/_style-main.scss */
   .menu {
     width: 50%;
   }
 
-  /* line 2224, ../assets/scss/_style-main.scss */
+  /* line 2253, ../assets/scss/_style-main.scss */
   .mapCube {
     width: 12vw;
     height: 12vw;
     margin: 1vw;
   }
 
-  /* line 2230, ../assets/scss/_style-main.scss */
+  /* line 2259, ../assets/scss/_style-main.scss */
   #hud {
     width: 50%;
     pointer-events: none;
   }
 
-  /* line 2235, ../assets/scss/_style-main.scss */
+  /* line 2264, ../assets/scss/_style-main.scss */
   .battleBlock {
     width: 50%;
     bottom: 0;
     pointer-events: initial;
   }
 
-  /* line 2241, ../assets/scss/_style-main.scss */
+  /* line 2270, ../assets/scss/_style-main.scss */
   .nav {
     position: fixed;
     right: 0;
@@ -3843,7 +3871,7 @@ a.ammoboxLink {
     bottom: 0;
   }
 
-  /* line 2249, ../assets/scss/_style-main.scss */
+  /* line 2278, ../assets/scss/_style-main.scss */
   .nav {
     position: absolute;
     height: calc(100% - 6rem);
@@ -3852,43 +3880,48 @@ a.ammoboxLink {
     z-index: -2;
   }
 
-  /* line 2256, ../assets/scss/_style-main.scss */
+  /* line 2285, ../assets/scss/_style-main.scss */
   .badges {
     right: 0;
     top: 0%;
     margin: 0;
   }
 
-  /* line 2263, ../assets/scss/_style-main.scss */
+  /* line 2292, ../assets/scss/_style-main.scss */
   #container .module.feed {
     box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2);
   }
 
-  /* line 2267, ../assets/scss/_style-main.scss */
+  /* line 2296, ../assets/scss/_style-main.scss */
   #container #action-module {
     position: absolute;
     box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2);
   }
 
-  /* line 2272, ../assets/scss/_style-main.scss */
+  /* line 2301, ../assets/scss/_style-main.scss */
   .panel {
     position: absolute;
     width: 100%;
   }
 
-  /* line 2277, ../assets/scss/_style-main.scss */
+  /* line 2306, ../assets/scss/_style-main.scss */
   .menu {
     position: absolute;
     width: 100%;
   }
 
-  /* line 2282, ../assets/scss/_style-main.scss */
+  /* line 2311, ../assets/scss/_style-main.scss */
   #feed-module {
     height: 100%;
     padding-bottom: 100px;
   }
 
-  /* line 2286, ../assets/scss/_style-main.scss */
+  /* line 2315, ../assets/scss/_style-main.scss */
+  .feedinside {
+    padding-bottom: 0px;
+  }
+
+  /* line 2318, ../assets/scss/_style-main.scss */
   #map.active {
     bottom: -50vw;
     width: 100%;
@@ -3896,13 +3929,13 @@ a.ammoboxLink {
   }
 }
 @media (max-width: 375px) {
-  /* line 2301, ../assets/scss/_style-main.scss */
+  /* line 2333, ../assets/scss/_style-main.scss */
   html {
     font-size: 9px;
   }
 }
 @media (max-width: 340px) {
-  /* line 2307, ../assets/scss/_style-main.scss */
+  /* line 2339, ../assets/scss/_style-main.scss */
   html {
     font-size: 8px;
   }

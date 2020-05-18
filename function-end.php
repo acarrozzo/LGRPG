@@ -28,20 +28,20 @@ while ($row = $result->fetch_assoc()) {
         $message = "
       <p>A <span class='red'>Crafting Table </span> and <span class='gold'>Cooking Fire </span> is set up here</p>
       <a href data-link2='craft' class='redBG btn'>
-      <i class='icon white small'>".file_get_contents("img/svg/table.svg")."</i>
+      <i class='btn-icon white small'>".file_get_contents("img/svg/table.svg")."</i>
        Craft Now</a> ";
         include('update_feed_alt.php'); // --- update feed
     } elseif (($fire == $room) && ($input == 'look' || $room != $lastroom)) {
         $message = "
         <p>A <span class='red'>Cooking Fire </span> burns here</p>
         <a href data-link2='craft' class='redBG btn'>
-        <i class='icon white small'>".file_get_contents("img/svg/fire.svg")."</i> Cook</a> ";
+        <i class='btn-icon white small'>".file_get_contents("img/svg/fire.svg")."</i> Cook</a> ";
         include('update_feed_alt.php'); // --- update feed
     } elseif (($craftingtable == $room) && ($input == 'look' || $room != $lastroom)) {
         $message = "
         <p>A <span class='red'>Crafting Table </span> is set up here</p>
         <a href data-link2='craft' class='redBG btn'>
-        <i class='icon white small'>".file_get_contents("img/svg/table.svg")."</i> Craft Now</a> ";
+        <i class='btn-icon white small'>".file_get_contents("img/svg/table.svg")."</i> Craft Now</a> ";
         include('update_feed_alt.php'); // --- update feed
     }
 

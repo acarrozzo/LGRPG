@@ -24,8 +24,6 @@ while ($row = $result->fetch_assoc()) {
 
     echo '<div class="gbox">';
     echo'<h2 class="red">Craft<span class="right"><span class="gray">LVL </span> <span class="gold">'.$row['crafting'].'</span></span></h2>';
-
-
     // ---------------------------------------------------------------------------- IF CRAFTING IS 0
     if ($row['crafting'] == 0) {
         echo '<div class="gslice">';
@@ -35,29 +33,27 @@ while ($row = $result->fetch_assoc()) {
         echo '</div>';
     }
 
-    // ---------------------------------------------------------------------------- IF CRAFTING IS > 1
+    // ------------------------------------ IF CRAFTING IS > 1
     else {
-        echo'
-<h2>Crafting<span class="right"><span class="px14 dgray">LVL </span> <span class =" gold">'.$row['crafting'].'</span></span></h2>
-';
-
-
-
-        // ------------------------------------------------------------------------------------------------- FIRE!!!!!!!!!!!!!!!!
-        // ---------------------------------------------------------------------------- CRAFT FIRE -  NO FIRE
-        if ($row['fire'] != $room) {
-            echo '<li><input type="submit" class="btn redBG noTable" name="input1" value="build fire" />
-			<span class="gold"> 1 wood <span class="dgray">( have '.$row['wood'].' )</span></span></li>  ';
+        // ------------------------------------ TABLE!!!!!!!!!!!!!!!!
+        // ------------------------------------ CRAFT TABLE -  NO TABLE
+        if ($row['craftingtable'] != $room) {
+            echo '<div class="gslice">';
+            echo '<li class="">
+            <input type="submit" class="btn goldBG noTable" name="input1" value="craft table" />
+<span class="gold"> 3 wood <span class="dgray">( have '.$row['wood'].' )</span></span>
+</li>  ';
+            echo '</div>';
         }
 
 
-        // ------------------------------------------------------------------------------------------------- TABLE!!!!!!!!!!!!!!!!
-        // ---------------------------------------------------------------------------- CRAFT TABLE -  NO TABLE
-        if ($row['craftingtable'] != $room) {
-            echo '
-	<li class=""><input type="submit" class="btn goldBG noTable" name="input1" value="craft table" />
-	<span class="gold"> 3 wood <span class="dgray">( have '.$row['wood'].' )</span></span>
-	</li>  ';
+        // ------------------------------------ FIRE!!!!!!!!!!!!!!!!
+        // ------------------------------------ CRAFT FIRE -  NO FIRE
+        if ($row['fire'] != $room) {
+            echo '<div class="gslice">';
+            echo '<li><input type="submit" class="btn redBG noTable" name="input1" value="build fire" />
+			<span class="gold"> 1 wood <span class="dgray">( have '.$row['wood'].' )</span></span></li>  ';
+            echo '</div>';
         }
 
 
@@ -69,14 +65,10 @@ while ($row = $result->fetch_assoc()) {
         // ---------------------------------------------------------------------------- CRAFT MENU - WITH FIRE!!!
         // ---------------------------------------------------------------------------- CRAFT MENU - WITH FIRE!!!
         if ($row['fire'] == $room) {
-
-//echo '<h2 class="red">Fire</h2>';
-
-
-            //echo '<div class="craftBox transition"> ';
-
-            echo '<h2 class="red"><span class="px40 ra ra-campfire"></span> Cook</h2>';
-
+            echo '<div class="gslice">';
+            echo '<h3 class="red">';
+            echo '<i class="icon ">'.file_get_contents("img/svg/fire.svg").'</i> ';
+            echo 'Cook</h3>';
             if ($row['rawmeat'] >= 1 && $row['fire'] == $room) { // -------------------------------------------------------------------------- raw meat = cook meat
                 echo "<li><input type='submit' class='hov redBG white' name='input1' value='cook all meat' />
 		<i class='dgray'>( +50 HP ) </i> <i class='red'>raw meat</i><i class='dgray'> ( ".$row['rawmeat']." )</i>
@@ -95,7 +87,7 @@ while ($row = $result->fetch_assoc()) {
             } else {
                 echo "<li class='gold'>- Find the Red Town Chef to learn how to cook meatballs.";
             }
-            //echo '</div>';	// -- end craftBox toggle
+            echo '</div>'; // end gslice
         } // -- end fire
 
 
@@ -105,12 +97,12 @@ while ($row = $result->fetch_assoc()) {
         // ----------------------------------------------------------------------- CRAFT MENU - WITH TABLE!!!
         // ----------------------------------------------------------------------- CRAFT MENU - WITH TABLE!!!
         if ($row['craftingtable'] == $room) {
+            echo '<div class="gslice">';
 
-    //echo '<h2 class="brown">Crafting Table:</h2>';
-
-            //echo '<div class="craftBox transition"> ';
             // -------------------------------------------------------------------------- POTIONS
-            echo '<h2 class="blue"><span class="px40 ra ra-round-bottom-flask"></span> Potions</h2>';
+            echo '<h3 class="purple">';
+            echo '<i class="icon purple">'.file_get_contents("img/svg/potion.svg").'</i> ';
+            echo 'Potions</h3>';
 
             // -------------------------------------------------------------------------- redberry = red potion
             if ($row['redberry'] >= 5 && $row['craftingtable'] == $room) {
@@ -147,9 +139,9 @@ while ($row = $result->fetch_assoc()) {
             } else { // -------------------------------------------------------------------------- else
                 echo "<li class='gold'>- find the Traveling Wizard to learn how to craft purple potions.</li>";
             }
+            echo '</div>'; // end gslice
 
 
-            //echo '</div>'; // -- end craftBox toggle
 
 
 
@@ -615,9 +607,8 @@ while ($row = $result->fetch_assoc()) {
 
         // ---------------------------------------------------------------------------- MATERIALS MENU
 
-        echo '<span class="col short">
-			<h2>Materials & Tools</h2>';
-        echo '<span class="col2">';
+        echo '<div class="gslice">';
+        echo '<h2>Materials & Tools</h2>';
         if ($row['wood'] > 0) {
             echo '<li><span>'.$row['wood'].' </span> <span class="brown"> wood</span></li> ';
         } else {
@@ -666,7 +657,8 @@ while ($row = $result->fetch_assoc()) {
         //	if ($row['mithrildagger'] > 0) { echo '<li><span class="gold">'.$row['mithrildagger'].' </span> <span class="blue">mithril</span> dagger</li> '; }
         //								else { echo '<li><span class="dgray">- mithril dagger </span></li> '; }
 
-        echo '</span><span class="col2">';
+        echo '</div>';
+        echo '<div class="gslice">';
         if ($row['stone'] > 0) {
             echo '<li><span>'.$row['stone'].' </span> <span class="gray"> stone</span></li>  ';
         } else {
@@ -695,7 +687,8 @@ while ($row = $result->fetch_assoc()) {
 
 
 
-        echo '</span><span class="col2">';
+        echo '</div>';
+        echo '<div class="gslice">';
         if ($row['hatchet'] > 0) {
             echo '<li><span class="gold">'.$row['hatchet'].' </span> hatchet</li> ';
         } else {
@@ -765,12 +758,13 @@ while ($row = $result->fetch_assoc()) {
 
 
 
-        echo '</span>';	// -- end col2
-    echo '</span>';	// -- end col
+        echo '</div>';
 
-    // ---------------------------------------------------------------------------- RINGS MENU
-        echo '<span class="col">
-		<h2>Combine Rings<span class="right"><span class="dgray">need table & hammer</span> </span></h2>';
+
+        // ---------------------------------------------------------------------------- RINGS MENU
+        echo '<div class="gslice">';
+        echo '<h2>Combine Rings</h2>';
+        echo '<h4 class="gray">need table & hammer</h4>';
 
 
         if (($row['craftingtable'] == $room) && ($row['hammer'] >=1 || $row['ironhammer'] >=1 || $row['steelhammer'] >=1 || $row['mithrilhammer'] >=1)) {
@@ -1008,9 +1002,8 @@ while ($row = $result->fetch_assoc()) {
 
 
 
-
-
-        echo '</span></span>';
+        echo '</div>';
+        //  echo '</div>';
     }
 
     echo '</div>';

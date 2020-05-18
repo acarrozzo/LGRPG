@@ -21,6 +21,11 @@ while ($row = $result->fetch_assoc()) {
 
 
     echo '<div class="badges">';
+    // -------------------------------- ALWAYS LOOK
+    echo '
+      <a href="" data-link2="skills" class="btn blueBG white badge look left">
+          <i class="icon">'.file_get_contents("img/svg/roomzero.svg").'</i>
+          </a>';
 
 
     // -------------------------------- SPEND SP BADGE

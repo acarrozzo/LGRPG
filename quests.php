@@ -449,6 +449,7 @@ while ($row = $result->fetch_assoc()) {
             //    echo '<h5 class="padd green">'.$checkedBox.' Equip a ranged weapon</h5>';
             //}
             if ($row['weapontype']=='3' && $row['batwing']<='4') {
+                echo '<h5 class="padd green">'.$checkedBox.' Equip a RANGED weapon like a boomerang or a bow using your INV menu </h5>';
                 echo '<h5 class="padd">';
                 if ($row['batwing']>=1) {
                     echo $checkedBox.' ';
@@ -543,7 +544,7 @@ while ($row = $result->fetch_assoc()) {
         if ($row['quest'.$questNumber.'']=='1') {
             $questTag = 'Lvl 10 Battle';
             $questTitle = 'Goblin Chief Bounty';
-            $questDesc = 'The Goblin Chief has been sending out his goblins to harass people. Find and eliminate him. He is hiding out in the Bat Cave.';
+            $questDesc = 'The Goblin Chief has been sending out his goblins to terrorize the countryside. Find and eliminate him. He is hiding out in the Bat Cave.';
             $color='gold';
             $questflag='0';
             if ($row['KLgoblinchief'] >= '1') {
