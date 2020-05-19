@@ -52,7 +52,8 @@ if ($_SESSION['lastroom'] != $_SESSION['roomID']) {
 <div class="all-sections">
   <div id="action-module" class="module action">
 
-<?php $infobar = '<div class="infobar">
+<?php
+$infobar = '<div class="infobar">
 <a href="" class="lgray" data-link="stats">
 Light Gray RPG
 </a>
@@ -66,8 +67,9 @@ Enemy List
 <a href="" class="lgray" data-link="stats">
 Lore
 </a>
-</div>
-'; ?>
+</div>';
+
+    $infobar = ''; ?>
 
 
 <div  class="infoBlock panel" data-pop="action">

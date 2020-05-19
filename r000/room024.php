@@ -104,7 +104,7 @@ You can now learn the Ranged SKILL!</div>";
 		<div class='questWin'>
 		<h3>Quest 8 Completed!</h3>
 		<h4>Chop Some Wood, Craft a Table</h4>
-		Congrats! You created a crafting table. Build one at anytime and you will be able to create many new useful items. Here are some materials to start with. CRAFT to see whats available.
+		Congrats! You created a crafting table. Build one at anytime and you will be able to create many new useful items. Here are some materials to start with.
 		<h4>Rewards</h4>
   	  	[ + 50 xp  ]<br />
       	[ + 100 $currency ]<br />

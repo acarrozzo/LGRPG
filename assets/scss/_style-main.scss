@@ -486,6 +486,7 @@ p a {color:#646465;padding:0 2px;text-decoration:none;}
 #figDisplay2 {height:100px;margin:0 10px 10px 0;width:80px;float:left;}
 #figDisplay2 {width:10px;overflow:hidden;}
 #figDisplay2 > img {width:auto;}
+
 /* ---------------COMPASS */
 #compass {
   position: absolute;
@@ -798,6 +799,14 @@ nav .btn {background:#646569;display:block;text-align:center;text-decoration:non
 #craft .craftBox.active .fa-chevron-down {display:none;}
 #craft .craftBox.active .fa-chevron-up {display:block;}
 #craft li.gray.center {border-top:solid 1px;}
+
+.maxRing {
+    width: 25%;
+    display: inline-block;
+    padding: 1rem 2rem;
+    text-align: center;
+    margin: 2rem 0;
+}
 /* ---------------------------------------------------------------------------------------------------- Spell Button --
 .spellBtnBox {position:relative;display:inline-block;} */
 .spellLvl {    pointer-events: none;
@@ -1537,11 +1546,14 @@ XXX#container {
 	#feed-module {
 		height: -webkit-fill-available;
 	}
+	.feedinside {padding-bottom:300px;}
+
 }
 @supports not (-webkit-touch-callout: none) {
   /* CSS for other than iOS devices */
+	.feedinside {padding-bottom:320px;}
+
 }
-.feedinside {padding-bottom:320px;}
 
 
 #map {
@@ -2188,6 +2200,7 @@ line-height: 1.5rem;
 	#feed-module {
 	//	padding-bottom: 380px;
 	}
+	.feedinside {padding-bottom:340px;}
 
 	.infight #feed-module {
 		padding-bottom: 440px;
