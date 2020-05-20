@@ -39,7 +39,7 @@ while ($row = $result->fetch_assoc()) {
 
     echo'<section data-pop2="quests" class="flex-contain">';
 
-    //  include('quest-rooms.php');
+    include('quest-rooms.php');
 
     // ---------------------- Quest Main
     echo '<div class="gbox">';
