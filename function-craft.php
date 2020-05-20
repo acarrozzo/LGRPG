@@ -476,7 +476,7 @@ while ($row = $result->fetch_assoc()) {
             $message = "
             <p>A <span class='red'>Crafting Table </span> is set up here</p>
             <a href data-link2='craft' class='redBG btn'>
-            <i class='icon white small'>".file_get_contents("img/svg/table.svg")."</i> Craft Now</a> ";
+            <i class='icon white btn-icon'>".file_get_contents("img/svg/table.svg")."</i> Craft Now</a> ";
             include('update_feed_alt.php'); // --- update feed
         }
     }
@@ -497,7 +497,7 @@ while ($row = $result->fetch_assoc()) {
             $message = "
             <p>A <span class='red'>Cooking Fire </span> burns here</p>
             <a href data-link2='craft' class='redBG btn'>
-            <i class='icon white small'>".file_get_contents("img/svg/fire.svg")."</i> Cook</a> ";
+            <i class='icon white btn-icon'>".file_get_contents("img/svg/fire.svg")."</i> Cook</a> ";
             include('update_feed_alt.php'); // --- update feed
         } else {
             echo "<span class='gold'>You don't have any wood to build a fire.</span><br/>";

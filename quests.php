@@ -11,9 +11,25 @@ if (!$result = $link->query($sql)) {
 }
 // -------------------------DB OUTPUT!
 while ($row = $result->fetch_assoc()) {
+    //$results = $link->query("UPDATE $user SET leather = 0"); // -- temp
+
+    /*
+      $results = $link->query("UPDATE $user SET quest10 = 0"); // -- temp
+    $results = $link->query("UPDATE $user SET quest11 = 0"); // -- temp
+    $results = $link->query("UPDATE $user SET quest12 = 0"); // -- temp
+    $results = $link->query("UPDATE $user SET quest13 = 0"); // -- temp
+    $results = $link->query("UPDATE $user SET quest14 = 0"); // -- temp
+    $results = $link->query("UPDATE $user SET quest15 = 0"); // -- temp
+    $results = $link->query("UPDATE $user SET quest16 = 0"); // -- temp
+    $results = $link->query("UPDATE $user SET quest17 = 0"); // -- temp
+    $results = $link->query("UPDATE $user SET quest18 = 0"); // -- temp
+    $results = $link->query("UPDATE $user SET quest19 = 0"); // -- temp
+    $results = $link->query("UPDATE $user SET quest20 = 0"); // -- temp
+    */
 
 
-//  $checkedBox = '<i class="fa fa-check-square-o green"></i>';
+
+    //  $checkedBox = '<i class="fa fa-check-square-o green"></i>';
     //  $checkBox = '<i class="fa fa-square-o gold"></i>';
 
     $checkBox = '<span class="icon checkbox white">'.file_get_contents("img/svg/checkbox.svg").'</span>';
@@ -574,115 +590,138 @@ while ($row = $result->fetch_assoc()) {
 
 
 
+    // --------------------------------------- QUEST 10: Freddie Quests appear after goblin chief quest
+    if ($row['quest9']>=2) {
+        // --------------------------------------- QUEST 10: Freddie's Cow Farm
+        // --------------------------------------- QUEST 10: Freddie's Cow Farm
+        // --------------------------------------- QUEST 10: Freddie's Cow Farm
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /////
-    /////
-    /////
-    /////
-    /////
-
-
-
-    // ----------------------------------------- 7-9
-    if ($row['quest7']=='1' || $row['quest8']=='1' || $row['quest9']=='1') {
-        echo '<h4 class="green"><i class="fa fa-user"></i> Jack Lumber</h4>';
+        $questRoom = '103';
+        echo '<div class="gbox';
+        if ($row['room']==$questRoom) {
+            echo ' tops';
+        } elseif ($row['quest10']>=2) {
+            echo ' end';
+        }
+        echo '" >';
+        //  echo '<div class="gslice">';
+        echo '<h4 class="topright box gold">Freddie\'s Cow Farm</h4>';
+        echo '<h2>Freddie</h2>';
+        echo '<span class="icon npc brown">'.file_get_contents("img/svg/npc-freddie.svg").'</span>';
+        if ($row['quest10']<'2') {
+            echo '<p class="gray">Freddie has a nice Cow Farm that you can access for 50 '.$_SESSION['currency'].'. Use the leather harvested from cows to make leather equipment.</p>';
+        } else {
+            echo '<p class="gray">Nice work making some leather armor. Feel free to come back to the Cow Farm if you need some more. You should visit Freddie\'s friend Jungle Jim.</p>';
+            echo '<h5 class="padd">'.$checkBox.' Find Jungle Jim by traveling across the Ocean.</h5>';
+        }
+        if ($row['quest10']=='0') { // ------------------------------------- end state
+            echo '<h5 class="gslice">'.$checkBox.' Talk to Freddie</h5>';
+            if ($row['quest10']=='0' && $row['room']==$questRoom) {
+                echo '<button class="greenBG" type="submit" name="input1" value="start quests"><h4>Talk to Freddie</h4></button>';
+            }
+        }
         // ----------------------------------------- IN PROGRESS - QUEST 7
-        if ($row['quest7']=='1' && $row['batwing']>='5') {
-            echo '<h3 class="green"><i class="fa fa-check-square-o"></i>7) Boomerang Some Bats</h3>
-<p>You have 5 Bat Wings! Return to Jack for your reward.</p>';
-        } elseif ($row['quest7']=='1') {
-            echo '<h3><i class="fa fa-square-o gold"></i>7) Boomerang Some Bats <span class="questLvlBox">lvl 6 item collect</span> </h3>
-	  	<p>Equip your Boomerang (or any ranged weapon) and head to the Bat Cave to collect Bat Wings.</p>';
-            echo 'Bat Wings:<br>';
-            if ($row['batwing']>=1) {
-                echo '<i class="green px14 none fa fa-check-sq
-                uare-o"></i>';
-            } else {
-                echo '<i class="gold px14 none fa fa-square-o "></i>';
+        $questNumber = '10';
+        if ($row['quest'.$questNumber.'']=='1') {
+            $questTag = 'Lvl 4 Craft';
+            $questTitle = 'Craft with Leather';
+            $questDesc = 'Craft some leather equipment using the leather from Freddie\'s cows.';
+            $color='gold';
+            if ($row['leatherhood'] >= 1 ||
+                $row['leatherhelmet'] >= 1 ||
+                $row['leathervest'] >= 1 ||
+                $row['leatherarmor'] >= 1 ||
+                $row['leathergloves'] >= 1 ||
+                $row['leatherboots'] >= 1) {
+                $color='green';
             }
-            if ($row['batwing']>=2) {
-                echo '<i class="green px14 none fa fa-check-square-o"></i>';
+            echo '<div class="gslice">';
+            echo '<p class="questLvlBox"><span class="'.$color.'">Quest '.$questNumber.' </span> '.$questTag.'</p>';
+            echo '<h3>'.$questTitle.'</h3>';
+            echo '<p class="gray">'.$questDesc.'</p>';
+            // elseif ($row['weapontype']=='3') {
+            //    echo '<h5 class="padd green">'.$checkedBox.' Equip a ranged weapon</h5>';
+            //}
+            if ($row['leatherhood'] >= 1 ||
+                $row['leatherhelmet'] >= 1 ||
+                $row['leathervest'] >= 1 ||
+                $row['leatherarmor'] >= 1 ||
+                $row['leathergloves'] >= 1 ||
+                $row['leatherboots'] >= 1) {
+                echo '<h5 class="padd green">'.$checkedBox.' You have a piece of leather equipment. Return to Freddie for your reward.  </h5>';
+                if ($row['room']==$questRoom) {
+                    echo '<button class="greenBG" type="submit" name="input1" value="complete '.$questNumber.'"><h4>Complete Quest</h4></button>';
+                }
             } else {
-                echo '<i class="gold px14 none fa fa-square-o "></i>';
+                if ($row['leather']<'3') {
+                    echo '<h5 class="padd">';
+                    if ($row['leather']>=1) {
+                        echo $checkedBox.' ';
+                    } else {
+                        echo $checkBox.' ';
+                    }
+                    if ($row['leather']>=2) {
+                        echo $checkedBox.' ';
+                    } else {
+                        echo $checkBox.' ';
+                    }
+                    if ($row['leather']>=3) {
+                        echo $checkedBox.' ';
+                    } else {
+                        echo $checkBox.' ';
+                    }
+                    echo 'Gather 3 or more leather from the Cow Farm.</h5>';
+                } else {
+                    echo '<h5 class="padd green">'.$checkedBox.'You have '.$row['leather'].' leather.</h5>';
+                }
+                echo '<h5 class="padd">'.$checkBox.' Create a piece of leather equipment using a crafting table.</h5>';
             }
-            if ($row['batwing']>=3) {
-                echo '<i class="green px14 none fa fa-check-square-o"></i>';
-            } else {
-                echo '<i class="gold px14 none fa fa-square-o "></i>';
-            }
-            if ($row['batwing']>=4) {
-                echo '<i class="green px14 none fa fa-check-square-o"></i>';
-            } else {
-                echo '<i class="gold px14 none fa fa-square-o "></i>';
-            }
-            if ($row['batwing']>=5) {
-                echo '<i class="green px14 none fa fa-check-square-o"></i>';
-            } else {
-                echo '<i class="gold px14 none fa fa-square-o "></i>';
-            }
+            echo '</div>';
         }
-
-        // ----------------------------------------- IN PROGRESS - QUEST 8
-        if ($row['quest8']=='1' && $row['craftingtable']>='1') {
-            echo '<h3 class="green"><i class="fa fa-check-square-o"></i>8) Chop some Wood, Craft a Table</h3>
-	 <p>You crafted a Table! Return to Jack to get your reward.</p>';
-        } elseif ($row['quest8']=='1') {
-            echo '<h3><i class="fa fa-square-o gold"></i>8) Chop some Wood, Craft a Table <span class="questLvlBox">craft</span> </h3>
-	   	<p>Chop 3 wood and then use the CRAFT menu to create a table.</p>';
-            if ($row['wood']>=3) {
-                echo '<i class="green px14 none fa fa-check-square-o"></i>';
-            } else {
-                echo '<i class="gold px14 none fa fa-square-o "></i>';
-            }
-            echo 'Chop Wood<br>';
-            if ($row['wood']>=1000) {
-                echo '<i class="green px14 none fa fa-check-square-o"></i>';
-            } else {
-                echo '<i class="gold px14 none fa fa-square-o "></i>';
-            }
-            echo 'Craft a Table<br>';
-        }
-
-        // ----------------------------------------- IN PROGRESS - QUEST 9
-        if ($row['quest9']=='1' && $row['KLgoblinchief']>='1') {
-            echo '<h3 class="green"><i class="fa fa-check-square-o"></i>9) Goblin Chief Bounty</h3>
-	<p>You have defeated the Goblin Chief! Turn to Jack for your reward.</p>';
-        } elseif ($row['quest9']=='1') {
-            echo '<h3><i class="fa fa-square-o gold"></i>9) Goblin Chief Bounty <span class="questLvlBox">lvl 10</span> </h3>
-	   	<p>Find and eliminate the Goblin Chief hiding out in the Bat Cave.</p>';
-            echo '<i class="gold px14 none fa fa-square-o "></i>';
-            echo '<span class="lightbrown">Goblin Chief</span> lvl 10 - 120 hp - 20 att - 10 def<br>';
-        }
+        echo '</div>';
     }
+
+
+
+    /////
+    /////
+    /////
+    /////
+    /////
+
 
 
     // ----------------------------------------- GRAND QUEST 1 - finished - GO TO GRAND PILLAR
     if ($row['quest1']=='2' && $row['quest2']=='2' && $row['quest3']=='2' && $row['quest4']=='2' && $row['quest5']=='2' && $row['quest6']=='2' && $row['quest7']=='2' && $row['quest8']=='2' && $row['quest9']=='2'  && $row['quest10']=='2' && $row['grandquest1']=='1') {
-        echo '<div class="questhead"><i class="px60 fa fa-star-o "><br></i><h5>MISSIONS 1-10 COMPLETED!</h5><h5 class="px20 lightgray"> Return to the GRAND QUEST PILLAR for your reward.</h5>( 2 spaces north of Grassy Field Crossroad )</div>';
+        $questRoom = '029';
+
+        echo '<div class="questhead gbox">';
+        echo '<h4 class="topright box white">Grand Pillar</h4>';
+
+        echo '<i class="icon npc blue">'.file_get_contents("img/svg/ironskin.svg").'</i>';
+        echo '<h2 class="white">My First 10 Quests!</h2>
+        <p class="gray">Congrats! You have cleared the Grassy Field quests and then some. Go to the GRAND QUEST PILLAR for your reward.</p>';
+        if ($row['room']==$questRoom) {
+            echo '<button type="submit" name="input1" class="greenBG" value="grand quest 1"> Complete Grand Quest</button>';
+        } else {
+            echo '<h5 class="padd">'.$checkBox.' Go to the GRAND QUEST PILLAR which can be found north of the Grassy Field.</h5>';
+        }
+        echo '</div>';
     }
     // ----------------------------------------- GRAND QUEST 1 - END
 
 
-    // ----------------------------------------- 10
+    // -----------------------
+
+
+
+
+
+
+
+
+
+
     if ($row['quest10']=='1') {
         echo '<h4 class="brown">Freddie\'s Cow Farm</h4>';
         // ----------------------------------------- IN PROGRESS - QUEST 10
@@ -713,6 +752,10 @@ while ($row = $result->fetch_assoc()) {
             echo 'Craft a Piece of Leather Equipment</br>';
         }
     }
+
+
+
+
 
 
 

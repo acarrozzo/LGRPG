@@ -99,7 +99,6 @@ svg {
 		.big2 & {		max-height: 20rem;}
 		.big3 & {		max-height: 25rem;}
 		.small & {		max-height: 7rem;}
-		.btn & {		max-height: 2rem;}
 		.btn-icon & {
 		    max-height: 2rem;
 		    height: 2rem;
@@ -119,13 +118,18 @@ svg {
 	    width: 7rem;
 			max-height: initial;
 		}
-		.npc & {
-			float: right;
-	    margin: 1rem -1rem 2rem 0;
-	    width: 40%;
-			max-height: initial;
-		}
+.npc & {
+	float: right;
+	margin: 1rem -1rem 2rem 0;
+	width: 40%;
+	max-height: initial;
 
+	.end & {
+		width: 25%;
+		margin-top: 0;
+		opacity: 0.5;
+	}
+}
 		.skills-spells .disable & {
 					margin-bottom: 2rem;
 			}
@@ -202,8 +206,8 @@ font-family: 'Playfair Display', serif;
 font-family: 'Rubik', serif;
 font-family: 'Girassol', serif;
 font-family: 'IM Fell English', serif;
-font-family: 'Germania One', serif;
 font-family: 'Londrina Solid', serif;
+font-family: 'Germania One', serif;
 
 -webkit-appearance:none;}
 
@@ -932,10 +936,6 @@ input.teleportBtn {padding:3px;background:#c6e4ff;width:345px;color:#55565A;clea
 	  opacity: .5;
     display: block;
 	}
-.questhead {
-	//color: #f1b238;
-  //  padding: 20px 0;
-}
 
 #quests h2 i {
     display: block;
@@ -943,8 +943,6 @@ input.teleportBtn {padding:3px;background:#c6e4ff;width:345px;color:#55565A;clea
   	font-size: 2rem;
     color: #eee;
 }
-
-.questhead.completed {background:#999;}
 
 #quests input { width: 45%;
     text-transform: uppercase;
@@ -957,7 +955,6 @@ input.teleportBtn {padding:3px;background:#c6e4ff;width:345px;color:#55565A;clea
 #quests .q1 {background:$gold;}
 #quests .q2 {background:#87d63f;}
 
-.questhead h5:nth-child(4) {display:none;}
 .questLvlBox {
 text-transform: uppercase;
 color:#999;
@@ -1263,6 +1260,7 @@ section {
 	-webkit-overflow-scrolling: touch;
 	height: 100%;
 	padding: 3rem 2rem 15rem;
+	    padding-top: 0;
 	position: relative;
 	}
 	.flex-contain {
@@ -1284,7 +1282,7 @@ section {
 		}
 		.end {
 		    order: 2;
-		    opacity:.5;
+		   // opacity:.5;
 		}
 	}
 	.infobar {
@@ -1541,6 +1539,12 @@ XXX#container {
 
     text-align: center;
 }
+
+@supports not (-webkit-touch-callout: none) {
+  /* CSS for other than iOS devices */
+	.feedinside {padding-bottom:320px;}
+
+}
 @supports (-webkit-touch-callout: none) {
   /* CSS specific to iOS devices */
 	#feed-module {
@@ -1549,12 +1553,6 @@ XXX#container {
 	.feedinside {padding-bottom:300px;}
 
 }
-@supports not (-webkit-touch-callout: none) {
-  /* CSS for other than iOS devices */
-	.feedinside {padding-bottom:320px;}
-
-}
-
 
 #map {
     position: absolute;
@@ -2169,8 +2167,8 @@ line-height: 1.5rem;
     font-size: 7.2rem;
     //padding: 0px 10px 0 0;
     //float: left;
-    margin: 2rem 0;
-		border:solid 2rem pink;
+  //  margin: 2rem 0;
+	//	border:solid 2rem pink;
 }
 
 

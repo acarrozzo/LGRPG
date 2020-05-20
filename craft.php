@@ -152,11 +152,11 @@ while ($row = $result->fetch_assoc()) {
 
             //echo '<div class="craftBox transition"> ';
             // ------------------------------------------------------------------------------------------------ TABLE - WOOD!
-            echo '<h2 class=" brown"><span class="px40 icon-wood"></span> Wood <i class="gold">x'.$row['wood'].'</i></h2>';
+            echo '<h3 class=" brown"><span class="icon-wood"></span> Wood <span class="gold">x'.$row['wood'].'</span></h3>';
             if ($row['crafting'] < 1) {
-                echo '<i class="gold px16">- To Craft w/ Wood find Jack Lumber</i>';
+                echo '<i class="gold">- To Craft w/ Wood find Jack Lumber</i>';
             } elseif ($row['hammer'] < 1) {
-                echo '<i class="gold px16">- Need Hammer!</i>';
+                echo '<i class="gold">- Need Hammer! You can find one in the Bat Cave</i>';
             }
             echo '</li>';
             // ------------------------------------------------------------------------------------------------- wooden bo
@@ -230,11 +230,11 @@ while ($row = $result->fetch_assoc()) {
 
             //echo '<div class="craftBox transition"> ';
             // ------------------------------------------------------------------------------------------------ TABLE - LEATHER!
-            echo '<h2 class="brown">Leather <i class="gold">x'.$row['leather'].'</i></h2>';
+            echo '<h3 class="brown">Leather <span class="gold">x'.$row['leather'].'</span></h3>';
             if ($row['quest10'] < 1) {
-                echo '<i class="gold px16">- To Craft w/ Leather find Freddy\'s Cow Farm</i>';
+                echo '<i class="gold">- To Craft w/ Leather find Freddy\'s Cow Farm</i>';
             } elseif ($row['hammer'] < 1) {
-                echo '<i class="gold px16">- Need Hammer!</i>';
+                echo '<i class="gold">- Need Hammer!</i>';
             } else {
                 // ------------------------------------------------------------------------------------------------- leather hood
                 if ($row['leather'] >= 3 && $row['craftingtable'] == $room && $row['hammer'] >= 1) {
@@ -764,8 +764,10 @@ while ($row = $result->fetch_assoc()) {
         // ---------------------------------------------------------------------------- RINGS MENU
         echo '<div class="gslice">';
         echo '<h2>Combine Rings</h2>';
-        echo '<h4 class="gray">need table & hammer</h4>';
-
+        //  echo '<h4 class="gray">need table & hammer</h4>';
+        if ($row['hammer'] <1) {
+            echo '<i class="gold">- Need Hammer!</i>';
+        }
 
         if (($row['craftingtable'] == $room) && ($row['hammer'] >=1 || $row['ironhammer'] >=1 || $row['steelhammer'] >=1 || $row['mithrilhammer'] >=1)) {
             echo "<li><input type='submit' class='hov w300 darkestgray goldBG px20' name='input1' value='auto combine' /> </li>";

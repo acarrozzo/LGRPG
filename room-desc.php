@@ -367,7 +367,9 @@ if ($roomID=='029') {
     $dirS='active gray';
 }
 $_SESSION['desc029'] = <<<HTML
-<html><div class="roomBox"><h3>Stone Path North <br>Grand Quest Pillar </h3>
+<html><div class="roomBox">
+  <h3>Stone Path North</h3>
+  <h4>Grand Quest Pillar </h4>
 	<p>A massive stone pillar stands here. When you complete these Grand Quests return here for huge rewards.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
 	</br>
@@ -532,7 +534,7 @@ $_SESSION['desc103c'] = <<<HTML
 	<button type="submit" name="input1" value="east">East</button>
 	<input class="brownBG" type="submit" name="input1" value="get wood" />
 	<input class="redBG" type="submit" name="input1" value="attack cow" />
-	<input class="goldBG" type="submit" name="input1" value="craft" />
+  <a href data-link2="craft" class="goldBG btn">Open Crafting Menu </a>
 	</form>
 </div></html>
 HTML;
