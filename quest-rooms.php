@@ -3,7 +3,7 @@
 //echo '<article data-pop="quests" id="quests">';
     // --------------------------------------------------------------------------------- QUEST ROOMS
     // ---------------------------------------------------------------- 1-3 - Old Man
-    if ($row['room']=='003') {
+    if ($row['room']=='003' && 99999999999999 == 8888888888888888888888) {
         echo '<div class="gbox">';
         echo '<span class="icon brown">'.file_get_contents("img/svg/cabin.svg").'</span>';
         echo '<p class="questLvlBox">Quests 1-3</p>';
@@ -55,7 +55,7 @@
         echo '</div>';
     }
     // ---------------------------------------------------------------- 4-6 - Young Soldier
-    elseif ($row['room']=='003c') {
+    elseif ($row['room']=='003c' && 99999999999999 == 8888888888888888888888) {
         echo '<h2 class="green">Young Soldier</h2><h4>Quests 4-6</h4>
 			';
         if ($row['quest4']=='0') {
@@ -101,7 +101,7 @@
     }
 
     // ---------------------------------------------------------------- 7-9 - Jack Lumber
-    elseif ($row['room']=='024') {
+    elseif ($row['room']=='024' && 99999999999999 == 8888888888888888888888) {
         echo '<h2 class="green">Jack Lumber</h2><h4>Quests 7-9</h4>
 			';
         if ($row['quest7']=='0') {
@@ -141,7 +141,7 @@
         }
     }
     // ---------------------------------------------------------------- 10 - Freddie's Cow Farm
-    elseif ($row['room']=='103') {
+    elseif ($row['room']=='103' && 99999999999999 == 8888888888888888888888) {
         echo '<h2 class="green">Freddie\'s Cow Farm <i class=" lightbrown">Quest 10</h4>
 			';
         if ($row['quest10']=='0') {
@@ -168,7 +168,7 @@
     }
 
     // ---------------------------------------------------------------- 11-13 - Red Guard Captain
-    elseif ($row['room']=='215') {
+    elseif ($row['room']=='215' && 99999999999999 == 8888888888888888888888) {
         echo '<h2 class="lightred">Red Guard Captain</h2><h4>Quests 11-13</h4>
 			';
         if ($row['quest11']=='0') {

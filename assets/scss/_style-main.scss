@@ -1272,13 +1272,14 @@ section {
 	 .stats & > div:nth-child(3)   {order:-1;}
 	 .tops {
 		 order:-1;
-     margin: 0 -2rem;
-     padding: 8rem 2rem 2rem;
+     margin:0 -2rem 4rem;
+     padding: 8rem 2rem 6rem;
   //   border-top: #7ebe63 solid 2rem;
   //   border-bottom: #7ebe63 solid 2rem;
-     border: $green solid 2rem;
+  //   border: $green solid 2rem;
      min-width: calc(100% + 4rem);
      background: #333;
+		 border:0;
 		}
 		.end {
 		    order: 2;
@@ -2207,7 +2208,8 @@ line-height: 1.5rem;
 
 
 // -------- RESPONSE 1000
-@media (min-width:1000px) {
+//@media (min-width:1000px),(max-height:450px) { // For horizontal phone too!
+@media (min-width:1000px){
 	.nav-center {
     top: 38%;
     height: 260px;

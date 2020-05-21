@@ -161,9 +161,9 @@ while ($row = $result->fetch_assoc()) {
    $results = $link->query("UPDATE $user SET room = 214"); // -- room change
    $results = $link->query("UPDATE $user SET endfight = 0"); // -- reset fight
     } elseif ($input=='n' || $input=='north') {
-        if ($quest11 == 2 && $quest12 == 2 && $quest13 == 2) {
-            echo 'You travel north and enter the Forest.<br/>';
-            $message="<i>You travel north and enter the Forest.</i><br/>".$_SESSION['desc124'];
+        if ($quest11 == 2 || $quest12 == 2 || $quest13 == 2) {
+            echo "The Red Guard Captain lets you go down the lookout tower's ladder and you enter the forest.";
+            $message="<i>The Red Guard Captain lets you go down the lookout tower's ladder and you enter the forest.</i><br/>".$_SESSION['desc124'];
             include('update_feed.php'); // --- update feed
     $results = $link->query("UPDATE $user SET room = 124"); // -- room change
     $_SESSION['emptytree'] = 0; // reset tree

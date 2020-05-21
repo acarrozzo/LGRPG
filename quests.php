@@ -59,7 +59,7 @@ while ($row = $result->fetch_assoc()) {
     }
     echo '" >';
     //  echo '<div class="gslice">';
-    echo '<h4 class="topright box gold">Wood Cabin</h4>';
+    echo '<h4 class="toprightX boxX brown">Wood Cabin</h4>';
     echo '<h2>Old Man</h2>';
     echo '<span class="icon npc green">'.file_get_contents("img/svg/npc-oldman.svg").'</span>';
     if ($row['quest1']<'2' || $row['quest2']<'2' || $row['quest3']<'2') {
@@ -176,7 +176,7 @@ while ($row = $result->fetch_assoc()) {
     }
     echo '" >';
     //  echo '<div class="gslice">';
-    echo '<h4 class="topright box blue">Weapons Training</h4>';
+    echo '<h4 class="toprightX boxX blue">Weapons Training</h4>';
     echo '<h2>Young Soldier</h2>';
     echo '<span class="icon npc blue">'.file_get_contents("img/svg/npc-youngsoldier.svg").'</span>';
     if ($row['quest4']<'2' || $row['quest5']<'2' || $row['quest6']<'2') {
@@ -428,7 +428,7 @@ while ($row = $result->fetch_assoc()) {
         }
         echo '" >';
         //  echo '<div class="gslice">';
-        echo '<h4 class="topright box gold">Professional Lumberjack</h4>';
+        echo '<h4 class="toprightX boxX green">Professional Lumberjack</h4>';
         echo '<h2>Jack Lumber</h2>';
         echo '<span class="icon npc green">'.file_get_contents("img/svg/npc-jacklumber.svg").'</span>';
         if ($row['quest7']<'2' || $row['quest8']<'2' || $row['quest9']<'2') {
@@ -520,7 +520,6 @@ while ($row = $result->fetch_assoc()) {
             echo '<p class="questLvlBox"><span class="'.$color.'">Quest '.$questNumber.' </span> '.$questTag.'</p>';
             echo '<h3>'.$questTitle.'</h3>';
             echo '<p class="gray">'.$questDesc.'</p>';
-
             if ($row['quest'.$questNumber.'']=='1' && $row['craftingtable']<='0') {
                 if ($row['wood']<=2) {
                     echo '<h5 class="padd">';
@@ -549,10 +548,6 @@ while ($row = $result->fetch_assoc()) {
                     echo '<button class="greenBG" type="submit" name="input1" value="complete '.$questNumber.'"><h4>Complete Quest</h4></button>';
                 }
             }
-
-
-
-
             echo '</div>';
         }
         // ----------------------------------------- IN PROGRESS - QUEST 9
@@ -605,7 +600,7 @@ while ($row = $result->fetch_assoc()) {
         }
         echo '" >';
         //  echo '<div class="gslice">';
-        echo '<h4 class="topright box gold">Freddie\'s Cow Farm</h4>';
+        echo '<h4 class="toprightX boxX brown">Freddie\'s Cow Farm</h4>';
         echo '<h2>Freddie</h2>';
         echo '<span class="icon npc brown">'.file_get_contents("img/svg/npc-freddie.svg").'</span>';
         if ($row['quest10']<'2') {
@@ -681,22 +676,12 @@ while ($row = $result->fetch_assoc()) {
         echo '</div>';
     }
 
-
-
-    /////
-    /////
-    /////
-    /////
-    /////
-
-
-
     // ----------------------------------------- GRAND QUEST 1 - finished - GO TO GRAND PILLAR
     if ($row['quest1']=='2' && $row['quest2']=='2' && $row['quest3']=='2' && $row['quest4']=='2' && $row['quest5']=='2' && $row['quest6']=='2' && $row['quest7']=='2' && $row['quest8']=='2' && $row['quest9']=='2'  && $row['quest10']=='2' && $row['grandquest1']=='1') {
         $questRoom = '029';
 
         echo '<div class="questhead gbox">';
-        echo '<h4 class="topright box white">Grand Pillar</h4>';
+        echo '<h4 class="toprightX boxX white">Grand Pillar</h4>';
 
         echo '<i class="icon npc blue">'.file_get_contents("img/svg/ironskin.svg").'</i>';
         echo '<h2 class="white">My First 10 Quests!</h2>
@@ -711,6 +696,215 @@ while ($row = $result->fetch_assoc()) {
     // ----------------------------------------- GRAND QUEST 1 - END
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // --------------------------------------- Red Guard Captain Quests appear after Visit the Forest Gate
+    if ($row['teleport2']>=1) {
+        // --------------------------------------- Red Guard Captain QUEST CHAIN
+        // --------------------------------------- Red Guard Captain QUEST CHAIN
+        // --------------------------------------- Red Guard Captain QUEST CHAIN
+        $questRoom = '215';
+        echo '<div class="gbox';
+        if ($row['room']==$questRoom) {
+            echo ' tops';
+        } elseif ($row['quest11']==2 && $row['quest12']==2 && $row['quest13']==2) {
+            echo ' end';
+        }
+        echo '" >';
+        //  echo '<div class="gslice">';
+        echo '<h4 class="toprightX boxX red"><span class="forestX">Forest</span> Lookout</h4>';
+        echo '<h2>Red Guard Captain</h2>';
+        echo '<span class="icon npc red">'.file_get_contents("img/svg/npc-redguardcaptain.svg").'</span>';
+        if ($row['quest11']<'2' || $row['quest12']<'2' || $row['quest13']<'2') { // -- default description
+            echo '<p class="gray">The Red Guard Captain is in charge of the town\'s security. Find him north of the Grand Square.</p>';
+        } else { // --- all quests done
+            echo '<p class="gray">ALL Quests done!</p>';
+            echo '<h5 class="padd">'.$checkBox.' Find XXX</h5>';
+        }
+        if ($row['quest11']=='0') { // ---- end state
+            echo '<h5 class="gslice">'.$checkBox.' Talk to the Red Guard Captain</h5>';
+            if ($row['quest11']=='0' && $row['room']==$questRoom) {
+                echo '<button class="redBG" type="submit" name="input1" value="start quests"><h4>Talk to the Red Guard Captain</h4></button>';
+            }
+        }
+        // ----------------------------------------- IN PROGRESS - QUEST 11
+        $questNumber = '11';
+        if ($row['quest'.$questNumber.'']=='1') {
+            $questTag = 'Lvl 5 Random Encounter';
+            $questTitle = 'Bring 3 Thieves to Justice';
+            $questDesc = 'You will encounter thieves as you travel about the towns and roads. Help out the Captain and take care of any you encounter.';
+            $color='gold';
+            if ($row['KLthief']>=3) {
+                $color='green';
+            }
+            echo '<div class="gslice">';
+            echo '<p class="questLvlBox"><span class="'.$color.'">Quest '.$questNumber.' </span> '.$questTag.'</p>';
+            echo '<h3>'.$questTitle.'</h3>';
+            echo '<p class="gray">'.$questDesc.'</p>';
+
+            if ($row['KLthief']<3) {
+                echo '<h5 class="padd">';
+                if ($row['KLthief']>=1) {
+                    echo $checkedBox.' ';
+                } else {
+                    echo $checkBox.' ';
+                }
+                if ($row['KLthief']>=2) {
+                    echo $checkedBox.' ';
+                } else {
+                    echo $checkBox.' ';
+                }
+                echo $checkBox;
+                echo ' Bring 3 thieves to justice</h5>';
+            }
+
+            if ($row['KLthief']>=3) {
+                echo '<h5 class="padd green">'.$checkedBox.$checkedBox.$checkedBox.' You have brought 3 Thieves to justice! Return to the Red Guard Captain to collect your reward.</h5>';
+                if ($row['room']==$questRoom) {
+                    echo '<button class="greenBG" type="submit" name="input1" value="complete '.$questNumber.'"><h4>Complete Quest</h4></button>';
+                }
+            }
+            echo '</div>';
+        }
+        //$results = $link->query("UPDATE $user SET wood = 0");
+
+        // ----------------------------------------- IN PROGRESS - QUEST 8
+        $questNumber = '12';
+        if ($row['quest'.$questNumber.'']=='1') {
+            $questTag = 'Item Collect';
+            $questTitle = 'Swords for the Red Guard';
+            $questDesc = 'Buy or find 5 long swords for the Red Guard. Alpha Scorpions, Orcs, Kobolds & Tarantulas drop them. Adam and Michael sell them.';
+            $color='gold';
+            if ($row['longsword']>=5) {
+                $color='green';
+            }
+            echo '<div class="gslice">';
+            echo '<p class="questLvlBox"><span class="'.$color.'">Quest '.$questNumber.' </span> '.$questTag.'</p>';
+            echo '<h3>'.$questTitle.'</h3>';
+            echo '<p class="gray">'.$questDesc.'</p>';
+            if ($row['quest'.$questNumber.'']=='1' && $row['longsword']<5) {
+                echo '<h5 class="padd">';
+                if ($row['longsword']>=1) {
+                    echo $checkedBox.' ';
+                } else {
+                    echo $checkBox.' ';
+                }
+                if ($row['longsword']>=2) {
+                    echo $checkedBox.' ';
+                } else {
+                    echo $checkBox.' ';
+                }
+                if ($row['longsword']>=3) {
+                    echo $checkedBox.' ';
+                } else {
+                    echo $checkBox.' ';
+                }
+                if ($row['longsword']>=4) {
+                    echo $checkedBox.' ';
+                } else {
+                    echo $checkBox.' ';
+                }
+                echo $checkBox.' ';
+                echo ' Collect 5 Long Swords</h5>';
+            }
+            if ($row['quest'.$questNumber.'']=='1' && $row['longsword']>='5') {
+                echo '<h5 class="padd green">'.$checkedBox.$checkedBox.$checkedBox.$checkedBox.$checkedBox.' You have 5 Long Swords! Return to the Red Guard Captain to collect your reward.</h5>';
+                if ($row['room']==$questRoom) {
+                    echo '<button class="greenBG" type="submit" name="input1" value="complete '.$questNumber.'"><h4>Complete Quest</h4></button>';
+                }
+            }
+            echo '</div>';
+        }
+        // ----------------------------------------- IN PROGRESS - QUEST 9
+        $questNumber = '13';
+        if ($row['quest'.$questNumber.'']=='1') {
+            $questTag = 'Lvl 10 Battle';
+            $questTitle = 'Sewer Pest Control';
+            $questDesc = 'The sewers under town are infested with all sorts of mutated vermin. Help out by exterminating a Tarantula, Sewer Rat and Red Gator.';
+            $color='gold';
+            $questflag='0';
+            if ($row['KLtarantula']>=1 && $row['KLsewerrat']>=1 && $row['KLredgator']>=1) {
+                $color='green';
+                $questflag = "1";
+            }
+            echo '<div class="gslice">';
+            echo '<p class="questLvlBox"><span class="'.$color.'">Quest '.$questNumber.' </span> '.$questTag.'</p>';
+            echo '<h3>'.$questTitle.'</h3>';
+            echo '<p class="gray">'.$questDesc.'</p>';
+            if ($row['quest'.$questNumber.'']=='1' && $questflag=='0') {
+                if ($row['KLtarantula']>=1) {
+                    echo '<h5 class="padd green">'. $checkedBox.' Tarantula</h5>';
+                } else {
+                    echo '<h5 class="padd">'. $checkBox.' Tarantula</h5>';
+                }
+                if ($row['KLsewerrat']>=1) {
+                    echo '<h5 class="green">'. $checkedBox.' Sewer Rat</h5>';
+                } else {
+                    echo '<h5 class="">'. $checkBox.' Sewer Rat</h5>';
+                }
+                if ($row['KLredgator']>=1) {
+                    echo '<h5 class="padd green">'. $checkedBox.' Red Gator</h5>';
+                } else {
+                    echo '<h5 class="padd">'. $checkBox.' Red Gator</h5>';
+                }
+            }
+            if ($row['quest'.$questNumber.'']=='1' && $questflag=='1') {
+                echo '<h5 class="padd green">'.$checkedBox.$checkedBox.$checkedBox.' You have defeated a Tarantula, a Sewer Rat and a Red Gator! Return to the Red Guard Captain to collect your reward.</h5>';
+                if ($row['room']==$questRoom) {
+                    echo '<button class="greenBG" type="submit" name="input1" value="complete '.$questNumber.'"><h4>Complete Quest</h4></button>';
+                }
+            }
+            echo '</div>';
+        }
+        echo '</div>'; //-end gbox
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    // -----------------------
+
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+
     // -----------------------
 
 
@@ -722,101 +916,7 @@ while ($row = $result->fetch_assoc()) {
 
 
 
-    if ($row['quest10']=='1') {
-        echo '<h4 class="brown">Freddie\'s Cow Farm</h4>';
-        // ----------------------------------------- IN PROGRESS - QUEST 10
-        if ($row['quest10']=='1' && ($row['leatherhood'] >= 1 ||
-                $row['leatherhelmet'] >= 1 ||
-                $row['leathervest'] >= 1 ||
-                $row['leatherarmor'] >= 1 ||
-                $row['leathergloves'] >= 1 ||
-                $row['leatherboots'] >= 1)) {
-            echo '<h3 class="green"><i class="fa fa-check-square-o"></i>10) Craft with Leather</h3>
-				<p>You have crafted a piece of Leather Equipment! Return to the Freddie\'s Farm to collect your reward.</p>';
-        } elseif ($row['quest10']=='1') {
-            echo '<h3><i class="fa fa-square-o gold"></i>10) Craft with Leather <span class="questLvlBox">lvl 4 craft</span> </h3>
 
-	  		<p>Craft some leather equipment using the leather from Freddie\'s cows.</p>';
-
-            if ($row['leather']>=3) {
-                echo '<i class="green px14 none fa fa-check-square-o"></i>';
-            } else {
-                echo '<i class="gold px14 none fa fa-square-o "></i>';
-            }
-            echo 'Collect Leather from Cows</br>';
-            if ($row['leather']>=1000) {
-                echo '<i class="green px14 none fa fa-check-square-o"></i>';
-            } else {
-                echo '<i class="gold px14 none fa fa-square-o "></i>';
-            }
-            echo 'Craft a Piece of Leather Equipment</br>';
-        }
-    }
-
-
-
-
-
-
-
-    // ----------------------------------------- 11-13
-    if ($row['quest11']=='1' || $row['quest12']=='1' || $row['quest13']=='1') {
-        echo '<h4 class="red">Red Guard Captain</h4>';
-        // ----------------------------------------- IN PROGRESS - QUEST 11
-        if ($row['quest11']=='1' && $row['KLthief']>=3) {
-            echo '<h3 class="green"><i class="fa fa-check-square-o"></i>11) Bring 3 Thieves to Justice</h3>
-	<p>You have brought 3 Thieves to justice! Return to the Red Guard Captain to collect your reward.</p>';
-        } elseif ($row['quest11']=='1') {
-            echo '<h3><i class="fa fa-square-o gold"></i>11) Bring 3 Thieves to Justice <span class="questLvlBox">lvl 5, random encounter</span> </h3>
-	   	<p>You will encounter thieves as you travel about. Return when you have brought 3 to justice.</p>';
-            if ($row['KLthief']>=3) {
-                echo '<i class="green px14 none fa fa-check-square-o"></i>';
-            } else {
-                echo '<i class="gold px14 none fa fa-square-o "></i>';
-            }
-            echo 'Thieves - '.$row['KLthief'].'/3 <br>';
-        }
-        // ----------------------------------------- IN PROGRESS - QUEST 12
-        if ($row['quest12']=='1' && $row['longsword']>='5') {
-            echo '<h3 class="green"><i class="fa fa-check-square-o"></i>12) Swords for the Red Guard</h3>
-	 <p>You have 5 Long Swords! Return to the Red Guard Captain to collect your reward.</p>';
-        } elseif ($row['quest12']=='1') {
-            echo '<h3><i class="fa fa-square-o gold"></i>12) Swords for the Red Guard	<span class="questLvlBox">item collect</span> </h3>
-	   	<p>Buy or find 5 long swords. Alpha Scorpions, Orcs, Kobolds & Tarantulas drop them. Adam and Michael sell them.</p>';
-            if ($row['longsword']>=5) {
-                echo '<i class="green px14 none fa fa-check-square-o"></i>';
-            } else {
-                echo '<i class="gold px14 none fa fa-square-o "></i>';
-            }
-            echo 'Long Swords - '.$row['longsword'].'/5 <br>';
-        }
-        // ----------------------------------------- IN PROGRESS - QUEST 13
-        if ($row['quest13']=='1' && $row['KLtarantula']>=1 && $row['KLsewerrat']>=1 && $row['KLredgator']>=1) {
-            echo '<h3 class="green"><i class="fa fa-check-square-o"></i>13) Sewer Pest Control</h3>
-	<p>You have defeated a Tarantula, a Sewer Rat and a Red Gator! Return to the Red Guard Captain to collect your reward.</p>';
-        } elseif ($row['quest13']=='1') {
-            echo '<h3><i class="fa fa-square-o gold"></i>13) Sewer Pest Control	<span class="questLvlBox">lvl 7-10</span> </h3>
-	  	<p>Kill a Tarantula, a Sewer Rat and a Red Gator in the Sewers below Red Town.</p>';
-            if ($row['KLtarantula']>=1) {
-                echo '<i class="green px14 none fa fa-check-square-o"></i>';
-            } else {
-                echo '<i class="gold px14 none fa fa-square-o "></i>';
-            }
-            echo 'Tarantula<br>';
-            if ($row['KLsewerrat']>=1) {
-                echo '<i class="green px14 none fa fa-check-square-o"></i>';
-            } else {
-                echo '<i class="gold px14 none fa fa-square-o "></i>';
-            }
-            echo 'Sewer Rat<br>';
-            if ($row['KLredgator']>=1) {
-                echo '<i class="green px14 none fa fa-check-square-o"></i>';
-            } else {
-                echo '<i class="gold px14 none fa fa-square-o "></i>';
-            }
-            echo 'Red Gator<br>';
-        }
-    }
 
     // ----------------------------------------- 14-16
     if ($row['quest14']=='1' || $row['quest16']=='1') {
