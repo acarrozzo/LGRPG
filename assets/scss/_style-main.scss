@@ -1005,8 +1005,11 @@ strong {font-size:2rem;}
 /* ---------- SIGN DISPLAY */
 
 
-.sign .direc {display:inline-block;font-style:italic;margin:8px 0 0;}
-.direc > input {background:none;font-size:14px;font-style:italic;margin:0 0 0 -5px;padding:0 5px;width:auto;}
+.direc {    display: inline-block;
+    margin: .5rem 0 0;
+}
+.direc > input {    margin: 0;
+    padding: 0.5rem 1rem;}
 
 .levelWin, .questWin, .battlewin, .sign, .fbox {
     padding: 2rem;
@@ -1278,7 +1281,8 @@ section {
   //   border-bottom: #7ebe63 solid 2rem;
   //   border: $green solid 2rem;
      min-width: calc(100% + 4rem);
-     background: #333;
+		 background: #333;
+		 background: #222;
 		 border:0;
 		}
 		.end {
@@ -1299,6 +1303,13 @@ section {
 
 }
 	}
+	// --- GRID COLUMN LAYOUTS
+	.grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;
+}
+// --- group box
 .gbox {
     border-bottom: solid 0.5rem #47474A;
     padding: 2rem 0;
@@ -2247,8 +2258,8 @@ line-height: 1.5rem;
 	}
 
 	.feed .roomBox {
-		padding: 20px;
-		margin: 20px 0;
+		padding: 20px 20px 0;
+    margin: 20px 0 0;
 	}
 
 	.infoBlock.nav {

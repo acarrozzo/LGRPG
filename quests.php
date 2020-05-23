@@ -882,160 +882,481 @@ while ($row = $result->fetch_assoc()) {
 
 
 
-    // -----------------------
-
-    /////
-    /////
-    /////
-    /////
-    /////
-    /////
-    /////
-    /////
-    /////
-    /////
-    /////
-    /////
-    /////
-    /////
-    /////
-    /////
-    /////
-    /////
-    /////
-    /////
-
-    // -----------------------
 
 
 
-
-
-
-
-
-
-
-
-
-    // ----------------------------------------- 14-16
-    if ($row['quest14']=='1' || $row['quest16']=='1') {
-        echo '<h4 class="green">Forest Gnome</h4>';
-        // ----------------------------------------- IN PROGRESS - QUEST 14
-        if ($row['quest14']=='1' && ($row['blueberry']>=20 && $row['redberry']>=20)) {
-            echo '<h3 class="green"><i class="fa fa-check-square-o"></i>14) Gnome Needs Berries</h3>
-	<p>You have 20 redberries and 20 blueberries! Return to the Forest Gnome for your reward.</p>';
-        } elseif ($row['quest14']=='1') {
-            echo '<h3><i class="fa fa-square-o gold"></i>14) Gnome Needs Berries <span class="questLvlBox">item collect</span></h3>
-	   	<p>The Tree Gnome needs some berries. Return with 20 red and 20 blue.</p>';
-            if ($row['redberry']>=20) {
-                echo '<i class="green px14 none fa fa-check-square-o"></i>';
-            } else {
-                echo '<i class="gold px14 none fa fa-square-o "></i>';
-            }
-            echo '<span class="red">Redberry</span> - '.$row['redberry'].'/20 <br>';
-            if ($row['blueberry']>=20) {
-                echo '<i class="green px14 none fa fa-check-square-o"></i>';
-            } else {
-                echo '<i class="gold px14 none fa fa-square-o "></i>';
-            }
-            echo '<span class="blue">Blueberry</span> - '.$row['blueberry'].'/20 <br>';
+    // --------------------------------------- Forest Gnome Quests appear after Visit the Forest Gate
+    if ($row['teleport2']>=1) {
+        // --------------------------------------- Forest Gnome QUEST CHAIN
+        // --------------------------------------- Forest Gnome QUEST CHAIN
+        // --------------------------------------- Forest Gnome QUEST CHAIN
+        $questRoom = '128';
+        echo '<div class="gbox';
+        if ($row['room']==$questRoom) {
+            echo ' tops';
+        } elseif ($row['quest14']==2 && $row['quest15']==2 && $row['quest16']==2) {
+            echo ' end';
         }
-        // ----------------------------------------- IN PROGRESS - QUEST 15
-        if ($row['quest15']=='1' && $row['wood']>=20) {
-            echo '<h3 class="green"><i class="fa fa-check-square-o"></i>15) New Tree Hut Door</h3>
-	<p>You have 20 pieces of wood! Return to the Forest Gnome for your reward.</p>';
-        } elseif ($row['quest15']=='1') {
-            echo '<h3><i class="fa fa-square-o gold"></i>15) New Tree Hut Door <span class="questLvlBox">item collect</span> </h3>
-	  	<p>The Tree Gnome needs a new door for his hut. Go collect 20 wood for him.</p>';
-            if ($row['wood']>=20) {
-                echo '<i class="green px14 none fa fa-check-square-o"></i>';
-            } else {
-                echo '<i class="gold px14 none fa fa-square-o "></i>';
+        echo '" >';
+        //  echo '<div class="gslice">';
+        echo '<h4 class="forest">Tree Hut</h4>';
+        echo '<h2>Forest Gnome</h2>';
+        echo '<span class="icon npc forest">'.file_get_contents("img/svg/npc-forestgnome.svg").'</span>';
+        if ($row['quest14']<'2' || $row['quest15']<'2' || $row['quest16']<'2') { // -- default description
+            echo '<p class="gray">The Forest Gnome has a really chill tree hut set up in the forest. </p>';
+        } else { // --- all quests done
+            echo '<p class="gray">ALL Quests done!</p>';
+            echo '<h5 class="padd">'.$checkBox.' Find XXX</h5>';
+        }
+        if ($row['quest14']=='0') { // ---- end state
+            echo '<h5 class="gslice">'.$checkBox.' Talk to the Forest Gnome</h5>';
+            if ($row['quest14']=='0' && $row['room']==$questRoom) {
+                echo '<button class="forestBG" type="submit" name="input1" value="start quests"><h4>Talk to the Forest Gnome</h4></button>';
             }
-            echo '<span class="lightbrown">Wood</span> - '.$row['wood'].'/20 <br>';
+        }
+        // ----------------------------------------- IN PROGRESS - QUEST 14
+        $questNumber = '14';
+        if ($row['quest'.$questNumber.'']=='1') {
+            $questTag = 'Berry Collect';
+            $questTitle = 'Gnome Needs Berries';
+            $questDesc = 'The Tree Gnome needs some berries. Return with 20 red and 20 blue.';
+            $color='gold';
+            $questflag='0';
+            if ($row['blueberry']>=20 && $row['redberry']>=20) {
+                $color='green';
+                $questflag = "1";
+            }
+            echo '<div class="gslice">';
+            echo '<p class="questLvlBox"><span class="'.$color.'">Quest '.$questNumber.' </span> '.$questTag.'</p>';
+            echo '<h3>'.$questTitle.'</h3>';
+            echo '<p class="gray">'.$questDesc.'</p>';
+
+            if ($row['redberry']<20) {
+                echo '<h5 class="padd">'.$checkBox.' <span class="red">Redberry</span> '.$row['redberry'].'/20</h5>';
+            } else {
+                echo '<h5 class="padd green">'.$checkedBox.' <span class="red">Redberry</span> '.$row['redberry'].'/20 </h5>';
+            }
+            if ($row['blueberry']<20) {
+                echo '<h5 class="">'.$checkBox.' <span class="blue">Blueberry</span> '.$row['blueberry'].'/20 </h5>';
+            } else {
+                echo '<h5 class="green ">'.$checkedBox.' <span class="blue">Blueberry</span> '.$row['blueberry'].'/20 </h5>';
+            }
+
+            if ($questflag=='1') {
+                //  echo '<h5 class="padd red">';
+                //  echo $row['redberry'].'/20 Redberry</h5>';
+                //  echo '<h5 class="blue">';
+                //  echo $row['blueberry'].'/20 Blueberry</h5>';
+                echo '<h5 class="padd green">'.$checkedBox.' You have 20 redberries and 20 blueberries! Return to the Forest Gnome for your reward.</h5>';
+                if ($row['room']==$questRoom) {
+                    echo '<button class="greenBG" type="submit" name="input1" value="complete '.$questNumber.'"><h4>Complete Quest</h4></button>';
+                }
+            }
+            echo '</div>';
+        }
+        //$results = $link->query("UPDATE $user SET wood = 0");
+
+        // ----------------------------------------- IN PROGRESS - QUEST 15
+        $questNumber = '15';
+        if ($row['quest'.$questNumber.'']=='1') {
+            $questTag = 'Item Collect';
+            $questTitle = 'New Tree Hut Door';
+            $questDesc = 'The Tree Gnome needs a new door for his hut. Go collect 20 wood for him.';
+            $color='gold';
+            $questflag='0';
+            if ($row['wood']>=20) {
+                $color='green';
+                $questflag = "1";
+            }
+            echo '<div class="gslice">';
+            echo '<p class="questLvlBox"><span class="'.$color.'">Quest '.$questNumber.' </span> '.$questTag.'</p>';
+            echo '<h3>'.$questTitle.'</h3>';
+            echo '<p class="gray">'.$questDesc.'</p>';
+            //if ($row['quest'.$questNumber.'']=='1') {
+            if ($row['wood']<20) {
+                echo '<h5 class="padd">'.$checkBox.' <span class="brown">Wood</span> '.$row['wood'].'/20</h5>';
+            } else {
+                echo '<h5 class="padd green">'.$checkedBox.' <span class="">Wood</span> '.$row['wood'].'/20 </h5>';
+            }
+
+            if ($questflag=='1') {
+                echo '<h5 class="padd green">'.$checkedBox.' You have 20 pieces of wood! Return to the Forest Gnome for your reward.</h5>';
+                if ($row['room']==$questRoom) {
+                    echo '<button class="greenBG" type="submit" name="input1" value="complete '.$questNumber.'"><h4>Complete Quest</h4></button>';
+                }
+            }
+            //}
+            echo '</div>';
         }
         // ----------------------------------------- IN PROGRESS - QUEST 16
-        if ($row['quest16']=='1' && $row['KLtroll'] >= 3) {
-            echo '<h3 class="green"><i class="fa fa-check-square-o"></i>16) Troll Base Camp</h3>
-	 <p>You have defeated 3 Trolls! Return to the Forest Gnome for your reward.</p>';
-        } elseif ($row['quest16']=='1') {
-            echo '<h3><i class="fa fa-square-o gold"></i>16) Troll Base Camp <span class="questLvlBox">lvl 13</span> </h3>
-	  	<p>Trolls guard the gate to the Dark Forest up north. Go slay 3 of them and return for a reward.</p>';
+        $questNumber = '16';
+        if ($row['quest'.$questNumber.'']=='1') {
+            $questTag = 'Lvl 13 Battle';
+            $questTitle = 'Troll Base Camp';
+            $questDesc = 'Trolls guard the entrance to the Dark Forest up north. Go slay 3 of them and return for a reward.';
+            $color='gold';
+            $questflag='0';
             if ($row['KLtroll']>=3) {
-                echo '<i class="green px14 none fa fa-check-square-o"></i>';
-            } else {
-                echo '<i class="gold px14 none fa fa-square-o "></i>';
+                $color='green';
+                $questflag = "1";
             }
-            echo '<span class="green">Trolls</span> - '.$row['KLtroll'].'/3 <br>';
+            echo '<div class="gslice">';
+            echo '<p class="questLvlBox"><span class="'.$color.'">Quest '.$questNumber.' </span> '.$questTag.'</p>';
+            echo '<h3>'.$questTitle.'</h3>';
+            echo '<p class="gray">'.$questDesc.'</p>';
+
+            if ($row['KLtroll']<3) {
+                if ($row['KLtroll']>=1) {
+                    echo '<h5 class="padd green">'.$checkedBox.' Troll </h5> ';
+                } else {
+                    echo '<h5 class="padd">'.$checkBox.' Troll</h5>';
+                }
+                if ($row['KLtroll']>=2) {
+                    echo '<h5 class="green">'.$checkedBox.' Troll </h5> ';
+                } else {
+                    echo '<h5 class="">'.$checkBox.' Troll</h5>';
+                }
+                echo '<h5 class="padd">'.$checkBox.' ';
+                echo ' Troll</h5>';
+            }
+            if ($questflag=='1') {
+                echo '<h5 class="padd green">'.$checkedBox.$checkedBox.$checkedBox.' You have defeated 3 Trolls! Return to the Forest Gnome for your reward.</h5>';
+                if ($row['room']==$questRoom) {
+                    echo '<button class="greenBG" type="submit" name="input1" value="complete '.$questNumber.'"><h4>Complete Quest</h4></button>';
+                }
+            }
+            echo '</div>';
         }
+        echo '</div>'; //-end gbox
     }
 
 
 
-    // ----------------------------------------- 17-18
-    if ($row['quest17']=='1' || $row['quest18']=='1') {
-        echo '<h4 class="green">Hunter Bill</h4>';
+
+
+
+
+
+
+
+    // --------------------------------------- Hunter Bill Quests appear after Visit the Forest Gate
+    if ($row['teleport2']>=1) {
+        // --------------------------------------- Hunter Bill QUEST CHAIN
+        // --------------------------------------- Hunter Bill QUEST CHAIN
+        // --------------------------------------- Hunter Bill QUEST CHAIN
+        $questRoom = '118';
+        echo '<div class="gbox';
+        if ($row['room']==$questRoom) {
+            echo ' tops';
+        } elseif ($row['quest17']==2 && $row['quest18']==2) {
+            echo ' end';
+        }
+        echo '" >';
+        //  echo '<div class="gslice">';
+        echo '<h4 class="forest">Hunter Skills</h4>';
+        echo '<h2>Hunter Bill</h2>';
+        echo '<span class="icon npc forest">'.file_get_contents("img/svg/npc-hunterbill.svg").'</span>';
+        if ($row['quest17']<2 || $row['quest18']<2) { // -- default description
+            echo '<p class="gray">Hunter Bill is super chill, but not as chill as the gnome. Feel free to hang out and learn some hunting skills at Bill\'s cabin in the Forest. </p>';
+        } else { // --- all quests done
+            echo '<p class="gray">ALL Quests done!</p>';
+            echo '<h5 class="padd">'.$checkBox.' Find XXX</h5>';
+        }
+        if ($row['quest17']=='0') { // ---- end state
+            echo '<h5 class="gslice">'.$checkBox.' Talk to Hunter Bill</h5>';
+            if ($row['quest17']=='0' && $row['room']==$questRoom) {
+                echo '<button class="forestBG" type="submit" name="input1" value="start quests"><h4>Talk to Hunter Bill</h4></button>';
+            }
+        }
         // ----------------------------------------- IN PROGRESS - QUEST 17
-        if ($row['quest17']=='1' && $row['KLbigfoot']>=1) {
-            echo '<h3 class="green"><i class="fa fa-check-square-o"></i>17) Bigfoot Sighting</h3>
-	<p>You\'ve found Bigfoot! Return to Hunter Bill for your reward.</p>';
-        } elseif ($row['quest17']=='1') {
-            echo '<h3><i class="fa fa-square-o gold"></i>17) Bigfoot Sighting 	<span class="questLvlBox">lvl 13 rscoandom encounter</span> </h3>
-	  	<p>Bigfoot is rarely seen. Explore the Forest and he will eventually show up.</p>';
-            echo '<i class="gold px14 none fa fa-square-o "></i>';
-            echo '<span class="lightbrown">Bigfoot</span> lvl 13 - 200 hp - 40 att - 15 def<br>';
+        $questNumber = '17';
+        if ($row['quest'.$questNumber.'']=='1') {
+            $questTag = 'lvl 13 rare encounter';
+            $questTitle = 'Bigfoot Sighting';
+            $questDesc = 'Bigfoot is rarely seen, some say he doesn\'t exist at all. Explore the Forest or Dark Forest and I\'m sure he will eventually show up.';
+            $color='gold';
+            $questflag='0';
+            if ($row['KLbigfoot']>=1) {
+                $color='green';
+                $questflag = "1";
+            }
+            echo '<div class="gslice">';
+            echo '<p class="questLvlBox"><span class="'.$color.'">Quest '.$questNumber.' </span> '.$questTag.'</p>';
+            echo '<h3>'.$questTitle.'</h3>';
+            echo '<p class="gray">'.$questDesc.'</p>';
+
+            if ($row['KLbigfoot']<=0) {
+                echo '<h5 class="padd">'.$checkBox.' Find Bigfoot</h5>';
+            }
+
+            if ($questflag=='1') {
+                echo '<h5 class="padd green">'.$checkedBox.' You\'ve found Bigfoot! Return to Hunter Bill for your reward.</h5>';
+                if ($row['room']==$questRoom) {
+                    echo '<button class="greenBG" type="submit" name="input1" value="complete '.$questNumber.'"><h4>Complete Quest</h4></button>';
+                }
+            }
+            echo '</div>';
         }
+        //$results = $link->query("UPDATE $user SET wood = 0");
+
         // ----------------------------------------- IN PROGRESS - QUEST 18
-        if ($row['quest18']=='1' && ($row['KLwildboar'] >= 1 &&
-                $row['KLwolf'] >= 1 &&
-                $row['KLcoyote'] >= 1 &&
-                $row['KLbuck'] >= 1 &&
-                $row['KLbear'] >= 1 &&
-                $row['KLstag'] >= 1)) {
-            echo '<h3 class="green"><i class="fa fa-check-square-o"></i>18) Forest Hunter</h3>
-				<p>You have successfully hunted all the creatures in the Forest! Return to Hunter Bill for your reward.</p>';
-        } elseif ($row['quest18']=='1') {
-            echo '<h3><i class="fa fa-square-o gold"></i>18) Forest Hunter <span class="questLvlBox">lvl 5-9 <span class="gold">Gold Key Quest</span></span> </h3>
-	  	<p>Hunt down a Wild Boar, Wolf, Coyote, Buck, Bear & Stag.</p>';
+        $questNumber = '18';
+        if ($row['quest'.$questNumber.'']=='1') {
+            $questTag = 'Gold Key Quest';
+            $questTitle = 'Forest Hunter';
+            $questDesc = 'The forest animals are running rampant. Hunt down a Wild Boar, Wolf, Coyote, Buck, Bear & Stag.';
+            $color='gold';
+            $questflag='0';
+            if ($row['KLwildboar'] >= 1 &&
+                        $row['KLwolf'] >= 1 &&
+                        $row['KLcoyote'] >= 1 &&
+                        $row['KLbuck'] >= 1 &&
+                        $row['KLbear'] >= 1 &&
+                        $row['KLstag'] >= 1) {
+                $color='green';
+                $questflag = "1";
+            }
+            echo '<div class="gslice">';
+            echo '<p class="questLvlBox"><span class="'.$color.'">Quest '.$questNumber.' </span> '.$questTag.'</p>';
+            echo '<h3>'.$questTitle.'</h3>';
+            echo '<p class="gray">'.$questDesc.'</p>';
+            //  if ($questflag=='0') {
+            echo '<div class="grid2">';
+
             if ($row['KLwildboar']>=1) {
-                echo '<i class="green px14 none fa fa-check-square-o"></i>';
+                echo '<h5 class="padd green">'. $checkedBox.' Wild Boar</h5>';
             } else {
-                echo '<i class="gold px14 none fa fa-square-o "></i>';
+                echo '<h5 class="padd">'. $checkBox.' Wild Boar</h5>';
             }
-            echo 'Wild Boar<br>';
             if ($row['KLwolf']>=1) {
-                echo '<i class="green px14 none fa fa-check-square-o"></i>';
+                echo '<h5 class="padd green">'. $checkedBox.' Wolf</h5>';
             } else {
-                echo '<i class="gold px14 none fa fa-square-o "></i>';
+                echo '<h5 class="padd">'. $checkBox.' Wolf</h5>';
             }
-            echo 'Wolf<br>';
             if ($row['KLcoyote']>=1) {
-                echo '<i class="green px14 none fa fa-check-square-o"></i>';
+                echo '<h5 class="green">'. $checkedBox.' Coyote</h5>';
             } else {
-                echo '<i class="gold px14 none fa fa-square-o "></i>';
+                echo '<h5 class="">'. $checkBox.' Coyote</h5>';
             }
-            echo 'Coyote<br>';
             if ($row['KLbuck']>=1) {
-                echo '<i class="green px14 none fa fa-check-square-o"></i>';
+                echo '<h5 class="green">'. $checkedBox.' Buck</h5>';
             } else {
-                echo '<i class="gold px14 none fa fa-square-o "></i>';
+                echo '<h5 class="">'. $checkBox.' Buck</h5>';
             }
-            echo 'Buck<br>';
             if ($row['KLbear']>=1) {
-                echo '<i class="green px14 none fa fa-check-square-o"></i>';
+                echo '<h5 class="padd green">'. $checkedBox.' Bear</h5>';
             } else {
-                echo '<i class="gold px14 none fa fa-square-o "></i>';
+                echo '<h5 class="padd">'. $checkBox.' Bear</h5>';
             }
-            echo 'Bear<br>';
             if ($row['KLstag']>=1) {
-                echo '<i class="green px14 none fa fa-check-square-o"></i>';
+                echo '<h5 class="padd green">'. $checkedBox.' Stag</h5>';
             } else {
-                echo '<i class="gold px14 none fa fa-square-o "></i>';
+                echo '<h5 class="padd">'. $checkBox.' Stag</h5>';
             }
-            echo 'Stag<br>';
+            echo '</div>';
+            //  }
+
+            if ($questflag=='1') {
+                echo '<h5 class="padd green">'.$checkedBox.' You have successfully hunted all the creatures in the Forest! Return to Hunter Bill for your reward.</h5>';
+                if ($row['room']==$questRoom) {
+                    echo '<button class="greenBG" type="submit" name="input1" value="complete '.$questNumber.'"><h4>Complete Quest</h4></button>';
+                }
+            }
+            echo '</div>';
         }
+        echo '</div>'; //-end gbox
     }
+
+
+
+
+
+
+
+    // --------------------------------------- Warrior's Guild Initiation Quests appear after Visit the Forest Gate
+    if ($row['teleport2']>=1) {
+        // --------------------------------------- Warrior's Guild Initiation QUEST CHAIN
+        // --------------------------------------- Warrior's Guild Initiation QUEST CHAIN
+        // --------------------------------------- Warrior's Guild Initiation QUEST CHAIN
+        $questRoom = '226';
+        echo '<div class="gbox';
+        if ($row['room']==$questRoom) {
+            echo ' tops';
+        } elseif ($row['quest19']==2) {
+            echo ' end';
+        }
+        echo '" >';
+        //  echo '<div class="gslice">';
+        echo '<h4 class="darkblue">Warrior\'s Guild</h4>';
+        echo '<h2>Warrior\'s Guild Entrance</h2>';
+        echo '<span class="icon npc darkblue">'.file_get_contents("img/svg/npc-warrior.svg").'</span>';
+        if ($row['quest19']<2) { // -- default description
+            echo '<p class="gray">The Warrior\'s Guild offers skills and equipment to help you excel in battle. As a member you will learn new attacks and can increase your physical training skill to 20.</p>';
+        } else { // --- all quests done
+            echo '<p class="gray">ALL Quests done!</p>';
+            echo '<h5 class="padd">'.$checkBox.' Find XXX</h5>';
+        }
+        if ($row['quest19']=='0') { // ---- end state
+            echo '<h5 class="gslice">'.$checkBox.' Talk to Warrior\'s Guild Recruiter</h5>';
+            if ($row['quest19']=='0' && $row['room']==$questRoom) {
+                echo '<button class="darkblueBG" type="submit" name="input1" value="start quests"><h4>Talk to Warrior\'s Guild Recruiter</h4></button>';
+            }
+        }
+        // ----------------------------------------- IN PROGRESS - QUEST 19
+        $questNumber = '19';
+        if ($row['quest'.$questNumber.'']=='1') {
+            $questTag = 'lvl 13 boss battle';
+            $questTitle = 'Warrior\'s Initiation';
+            $questDesc = 'Do you have what it takes to become a Warrior? Defeat the Ogre Lair Boss and you will be able to call the Warrior\'s Guild your home.';
+            $color='gold';
+            $questflag='0';
+            if ($row['KLogrelieutenant']>=1) {
+                $color='green';
+                $questflag = "1";
+            }
+            echo '<div class="gslice">';
+            echo '<p class="questLvlBox"><span class="'.$color.'">Quest '.$questNumber.' </span> '.$questTag.'</p>';
+            echo '<h3>'.$questTitle.'</h3>';
+            echo '<p class="gray">'.$questDesc.'</p>';
+
+            if ($row['KLogrelieutenant']<=0) {
+                echo '<h5 class="padd">'.$checkBox.' Defeat the Ogre Lieutenant.</h5>';
+                echo '<p>To join the Warrior\'s Guild you have to defeat the Ogre Lieutenant. His Lair is found in the southwest part of the Forest Map. Follow the path out of town to the north and then go W when you reach the Forest Map.</p>';
+            }
+
+            if ($questflag=='1') {
+                echo '<h5 class="padd green">'.$checkedBox.' You have defeated the Ogre Lieutenant. Return to the Warrior\'s Guild to become a member!</h5>';
+                if ($row['room']==$questRoom) {
+                    echo '<button class="greenBG" type="submit" name="input1" value="complete '.$questNumber.'"><h4>Complete Quest</h4></button>';
+                }
+            }
+            echo '</div>';
+        }
+
+
+        echo '</div>'; //-end gbox
+    }
+
+
+
+
+
+
+
+
+    // --------------------------------------- Wizard's Guild Initiation Quests appear after Visit the Forest Gate
+    if ($row['teleport2']>=1) {
+        // --------------------------------------- Wizard's Guild Initiation QUEST CHAIN
+        // --------------------------------------- Wizard's Guild Initiation QUEST CHAIN
+        // --------------------------------------- Wizard's Guild Initiation QUEST CHAIN
+        $questRoom = '225';
+        echo '<div class="gbox';
+        if ($row['room']==$questRoom) {
+            echo ' tops';
+        } elseif ($row['quest20']==2) {
+            echo ' end';
+        }
+        echo '" >';
+        //  echo '<div class="gslice">';
+        echo '<h4 class="purple">Wizard\'s Guild</h4>';
+        echo '<h2>Wizard\'s Guild Entrance</h2>';
+        echo '<span class="icon npc purple">'.file_get_contents("img/svg/npc-wizard.svg").'</span>';
+        if ($row['quest20']<2) { // -- default description
+            echo '<p class="gray">Do you like hurling great balls of fire at your enemies? Do you want to regenerate health using powerful magic? Do you dream about flying through the sky like a dragon? Well then you want to join the Wizard\'s Guild!</p>';
+        } else { // --- all quests done
+            echo '<p class="gray">ALL Quests done!</p>';
+            echo '<h5 class="padd">'.$checkBox.' Find XXX</h5>';
+        }
+        if ($row['quest20']=='0') { // ---- end state
+            echo '<h5 class="gslice">'.$checkBox.' Talk to Wizard\'s Guild Recruiter</h5>';
+            if ($row['quest20']=='0' && $row['room']==$questRoom) {
+                echo '<button class="purpleBG" type="submit" name="input1" value="start quests"><h4>Talk to Wizard\'s Guild Recruiter</h4></button>';
+            }
+        }
+        // ----------------------------------------- IN PROGRESS - QUEST 20
+        $questNumber = '20';
+        if ($row['quest'.$questNumber.'']=='1') {
+            $questTag = 'lvl 13 boss battle';
+            $questTitle = 'Wizard\'s Initiation';
+            $questDesc = 'Do you even wizard? Defeating the Kobold Lair Boss is the only way to join the Wizard\'s Guild and be able to truly call yourself a wizard.';
+            $color='gold';
+            $questflag='0';
+            if ($row['KLkoboldmaster']>=1) {
+                $color='green';
+                $questflag = "1";
+            }
+            echo '<div class="gslice">';
+            echo '<p class="questLvlBox"><span class="'.$color.'">Quest '.$questNumber.' </span> '.$questTag.'</p>';
+            echo '<h3>'.$questTitle.'</h3>';
+            echo '<p class="gray">'.$questDesc.'</p>';
+
+            if ($row['KLkoboldmaster']<=0) {
+                echo '<h5 class="padd">'.$checkBox.' Defeat the Kobold Master.</h5>';
+                echo '<p>To join the Wizards Guild you have to defeat the Kobold Master. His Lair is found in the northwest part of the Forest Map. Follow the path out of town all the way north and then go SW when you can\'t go any further.</p>';
+            }
+
+            if ($questflag=='1') {
+                echo '<h5 class="padd green">'.$checkedBox.' You have defeated the Kobold Master. Return to the Wizard\'s Guild to become a member!</h5>';
+                if ($row['room']==$questRoom) {
+                    echo '<button class="greenBG" type="submit" name="input1" value="complete '.$questNumber.'"><h4>Complete Quest</h4></button>';
+                }
+            }
+            echo '</div>';
+        }
+
+
+        echo '</div>'; //-end gbox
+    }
+
+
+
+
+    // -----------------------
+
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+
+    // -----------------------
+
+
+
+
+    if (($row['quest1']>='2' && $row['quest2']>='2' && $row['quest3']>='2') ||
+    ($row['quest4']>='2' && $row['quest5']>='2' && $row['quest6']>='2') ||
+    ($row['quest7']>='2' && $row['quest8']>='2' && $row['quest9']>='2') || $row['quest10']>='2') {
+        echo '<h2 class="padd green">Completed Quests</h1>';
+    }
+
+
+    // -----------------------
+    // -----------------------
+    // -----------------------
+    // -----------------------
+
+
+
+
+
+
+
 
 
     // ----------------------------------------- 19

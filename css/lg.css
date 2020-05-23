@@ -2305,23 +2305,18 @@ nav .px14.none.fa {
 /* --------------- LEVEL WIN BOX */
 /* ---------- SIGN DISPLAY */
 /* line 1008, ../assets/scss/_style-main.scss */
-.sign .direc {
+.direc {
   display: inline-block;
-  font-style: italic;
-  margin: 8px 0 0;
-}
-
-/* line 1009, ../assets/scss/_style-main.scss */
-.direc > input {
-  background: none;
-  font-size: 14px;
-  font-style: italic;
-  margin: 0 0 0 -5px;
-  padding: 0 5px;
-  width: auto;
+  margin: .5rem 0 0;
 }
 
 /* line 1011, ../assets/scss/_style-main.scss */
+.direc > input {
+  margin: 0;
+  padding: 0.5rem 1rem;
+}
+
+/* line 1014, ../assets/scss/_style-main.scss */
 .levelWin, .questWin, .battlewin, .sign, .fbox {
   padding: 2rem;
   margin: 0 0 10px;
@@ -2334,34 +2329,34 @@ nav .px14.none.fa {
   text-shadow: 0 0 1rem rgba(30, 30, 30, 0.2), 0 0 0.5rem rgba(30, 30, 30, 0.5);
   background: #333;
 }
-/* line 1022, ../assets/scss/_style-main.scss */
+/* line 1025, ../assets/scss/_style-main.scss */
 .levelWin h4, .questWin h4, .battlewin h4, .sign h4, .fbox h4 {
   color: #f1b238;
 }
-/* line 1025, ../assets/scss/_style-main.scss */
+/* line 1028, ../assets/scss/_style-main.scss */
 .levelWin .hilight, .questWin .hilight, .battlewin .hilight, .sign .hilight, .fbox .hilight {
   color: #f1b238;
 }
 
-/* line 1028, ../assets/scss/_style-main.scss */
+/* line 1031, ../assets/scss/_style-main.scss */
 .levelWin {
   background: #7ebe63;
   background: #87d63f;
 }
 
-/* line 1032, ../assets/scss/_style-main.scss */
+/* line 1035, ../assets/scss/_style-main.scss */
 .battlewin {
   background: #689cc1;
 }
 
-/* line 1033, ../assets/scss/_style-main.scss */
+/* line 1036, ../assets/scss/_style-main.scss */
 .sign {
   background: #9c7a60;
   font-size: 1.6rem;
 }
 
 /* --------------- LEVEL WIN BOX */
-/* line 1037, ../assets/scss/_style-main.scss */
+/* line 1040, ../assets/scss/_style-main.scss */
 .evolveBox {
   background: #333;
   padding: 15px;
@@ -2372,7 +2367,7 @@ nav .px14.none.fa {
 }
 
 /* --------------- LEARN BOX */
-/* line 1039, ../assets/scss/_style-main.scss */
+/* line 1042, ../assets/scss/_style-main.scss */
 .learnBox strong {
   display: block;
   font-weight: 900;
@@ -2381,7 +2376,7 @@ nav .px14.none.fa {
 }
 
 /* --------------- AMMOBOX */
-/* line 1047, ../assets/scss/_style-main.scss */
+/* line 1050, ../assets/scss/_style-main.scss */
 .ammobox li.hilight {
   opacity: 1;
   filter: alpha(opacity=100);
@@ -2392,7 +2387,7 @@ nav .px14.none.fa {
   transition: opacity .2s ease-in-out;
 }
 
-/* line 1048, ../assets/scss/_style-main.scss */
+/* line 1051, ../assets/scss/_style-main.scss */
 .ammobox {
   bottom: 0;
   left: 180px;
@@ -2405,7 +2400,7 @@ nav .px14.none.fa {
   DISPLAY: BLOCK;
 }
 
-/* line 1049, ../assets/scss/_style-main.scss */
+/* line 1052, ../assets/scss/_style-main.scss */
 .ammobox li {
   clear: both;
   color: #999;
@@ -2417,65 +2412,65 @@ nav .px14.none.fa {
   width: 200px;
 }
 
-/* line 1050, ../assets/scss/_style-main.scss */
+/* line 1053, ../assets/scss/_style-main.scss */
 .ammobox li.head {
   text-transform: uppercase;
   margin-top: 10px;
 }
 
-/* line 1051, ../assets/scss/_style-main.scss */
+/* line 1054, ../assets/scss/_style-main.scss */
 .ammobox li.head:nth-child(2) {
   margin-top: 0;
 }
 
-/* line 1052, ../assets/scss/_style-main.scss */
+/* line 1055, ../assets/scss/_style-main.scss */
 .ammobox input {
   margin: 1px 0;
 }
 
-/* line 1053, ../assets/scss/_style-main.scss */
+/* line 1056, ../assets/scss/_style-main.scss */
 .ammobox .red {
   color: #ed4949;
 }
 
-/* line 1054, ../assets/scss/_style-main.scss */
+/* line 1057, ../assets/scss/_style-main.scss */
 .ammobox .blue {
   color: #518fbc;
 }
 
-/* line 1055, ../assets/scss/_style-main.scss */
+/* line 1058, ../assets/scss/_style-main.scss */
 .ammobox .purple {
   color: #6d3eb8;
 }
 
-/* line 1056, ../assets/scss/_style-main.scss */
+/* line 1059, ../assets/scss/_style-main.scss */
 .ammobox span {
   color: #848485;
 }
 
-/* line 1057, ../assets/scss/_style-main.scss */
+/* line 1060, ../assets/scss/_style-main.scss */
 .ammobox .smaller {
   font-size: 11px;
 }
 
 /* ---------- INVENTORY INV STYLE */
-/* line 1059, ../assets/scss/_style-main.scss */
+/* line 1062, ../assets/scss/_style-main.scss */
 #inv {
   padding: 0;
 }
 
-/* line 1060, ../assets/scss/_style-main.scss */
+/* line 1063, ../assets/scss/_style-main.scss */
 body li {
   list-style: none;
 }
 
 /* ----------  INV STAT FONT INCREASE */
-/* line 1062, ../assets/scss/_style-main.scss */
+/* line 1065, ../assets/scss/_style-main.scss */
 XXXli span i {
   font-size: 18px;
 }
 
-/* line 1063, ../assets/scss/_style-main.scss */
+/* line 1066, ../assets/scss/_style-main.scss */
 XXXli span i.black {
   font-size: 14px;
 }
@@ -2483,7 +2478,7 @@ XXXli span i.black {
 /* --------------- ICONS */
 /* --------------- ICONS */
 /* --------------- ICONS */
-/* line 1067, ../assets/scss/_style-main.scss */
+/* line 1070, ../assets/scss/_style-main.scss */
 .feedIcon {
   display: block;
   height: 50px;
@@ -2494,7 +2489,7 @@ XXXli span i.black {
 }
 
 /* --------------- LOADING */
-/* line 1069, ../assets/scss/_style-main.scss */
+/* line 1072, ../assets/scss/_style-main.scss */
 #loading {
   width: 100%;
   height: 100%;
@@ -2506,7 +2501,7 @@ XXXli span i.black {
 }
 
 /* --------------- DOWNLOADED CSS LOADER */
-/* line 1072, ../assets/scss/_style-main.scss */
+/* line 1075, ../assets/scss/_style-main.scss */
 .spinner {
   width: 40px;
   height: 40px;
@@ -2516,7 +2511,7 @@ XXXli span i.black {
   animation: rotate 2.0s infinite linear;
 }
 
-/* line 1073, ../assets/scss/_style-main.scss */
+/* line 1076, ../assets/scss/_style-main.scss */
 .dot1, .dot2 {
   width: 60%;
   height: 60%;
@@ -2529,7 +2524,7 @@ XXXli span i.black {
   animation: bounce 2.0s infinite ease-in-out;
 }
 
-/* line 1074, ../assets/scss/_style-main.scss */
+/* line 1077, ../assets/scss/_style-main.scss */
 .dot2 {
   top: auto;
   bottom: 0px;
@@ -2537,7 +2532,7 @@ XXXli span i.black {
   animation-delay: -1.0s;
 }
 
-/* line 1091, ../assets/scss/_style-main.scss */
+/* line 1094, ../assets/scss/_style-main.scss */
 #tabs {
   bottom: 0;
   z-index: 6;
@@ -2547,13 +2542,13 @@ XXXli span i.black {
   margin: 0;
   background: #666;
 }
-/* line 1099, ../assets/scss/_style-main.scss */
+/* line 1102, ../assets/scss/_style-main.scss */
 #tabs li {
   width: 20%;
   text-align: center;
   border: solid 1px #666;
 }
-/* line 1100, ../assets/scss/_style-main.scss */
+/* line 1103, ../assets/scss/_style-main.scss */
 #tabs .btn.game {
   position: fixed;
   bottom: 0;
@@ -2571,22 +2566,22 @@ XXXli span i.black {
   border-radius: 0;
   /* CSS3 */
 }
-/* line 1113, ../assets/scss/_style-main.scss */
+/* line 1116, ../assets/scss/_style-main.scss */
 #tabs .btn.game p {
   padding: 13px;
   color: #ffd016;
 }
-/* line 1116, ../assets/scss/_style-main.scss */
+/* line 1119, ../assets/scss/_style-main.scss */
 #tabs .btn.game2, #tabs .btn.game3 {
   display: none;
 }
 
-/* line 1122, ../assets/scss/_style-main.scss */
+/* line 1125, ../assets/scss/_style-main.scss */
 #panelwrap {
   height: auto;
 }
 
-/* line 1125, ../assets/scss/_style-main.scss */
+/* line 1128, ../assets/scss/_style-main.scss */
 article {
   height: calc(100vh - 150px);
   height: calc(100vh - 230px);
@@ -2600,12 +2595,12 @@ article {
   position: absolute;
   bottom: 0;
 }
-/* line 1137, ../assets/scss/_style-main.scss */
+/* line 1140, ../assets/scss/_style-main.scss */
 article span {
   color: #999;
 }
 
-/* line 1141, ../assets/scss/_style-main.scss */
+/* line 1144, ../assets/scss/_style-main.scss */
 nav {
   background: 0;
   top: 0;
@@ -2613,12 +2608,12 @@ nav {
 }
 
 /* --------------- MENU ICON */
-/* line 1158, ../assets/scss/_style-main.scss */
+/* line 1161, ../assets/scss/_style-main.scss */
 #tabs.active {
   display: none !important;
 }
 
-/* line 1161, ../assets/scss/_style-main.scss */
+/* line 1164, ../assets/scss/_style-main.scss */
 .menu {
   width: 100%;
   bottom: 0;
@@ -2628,7 +2623,7 @@ nav {
   left: 0;
 }
 
-/* line 1170, ../assets/scss/_style-main.scss */
+/* line 1173, ../assets/scss/_style-main.scss */
 .subMenu {
   position: absolute;
   width: 100%;
@@ -2638,7 +2633,7 @@ nav {
   line-height: 2em;
 }
 
-/* line 1179, ../assets/scss/_style-main.scss */
+/* line 1182, ../assets/scss/_style-main.scss */
 .menuIcon {
   text-align: center;
   text-decoration: none;
@@ -2651,7 +2646,7 @@ nav {
   height: 6rem;
   padding: 0.8rem 0 0;
 }
-/* line 1192, ../assets/scss/_style-main.scss */
+/* line 1195, ../assets/scss/_style-main.scss */
 .menuIcon span {
   color: #ccc;
   position: absolute;
@@ -2661,21 +2656,21 @@ nav {
   left: 0;
   text-shadow: 0px 0px 5px #111, 0px 0px 10px #111;
 }
-/* line 1202, ../assets/scss/_style-main.scss */
+/* line 1205, ../assets/scss/_style-main.scss */
 .menuIcon i {
   color: #ccc;
 }
-/* line 1206, ../assets/scss/_style-main.scss */
+/* line 1209, ../assets/scss/_style-main.scss */
 .menuIcon.active {
   background: #47474A;
 }
-/* line 1208, ../assets/scss/_style-main.scss */
+/* line 1211, ../assets/scss/_style-main.scss */
 .menuIcon.active span {
   color: #eee;
   color: #fff;
 }
 
-/* line 1217, ../assets/scss/_style-main.scss */
+/* line 1220, ../assets/scss/_style-main.scss */
 .menuIcon2 {
   padding: 5px 12px;
   padding: 0.5rem 1.7rem;
@@ -2683,33 +2678,33 @@ nav {
   cursor: pointer;
   border-right: solid 0.2rem #555;
 }
-/* line 1224, ../assets/scss/_style-main.scss */
+/* line 1227, ../assets/scss/_style-main.scss */
 .menuIcon2.active {
   color: #f1b238;
   background: #555;
 }
 
-/* line 1230, ../assets/scss/_style-main.scss */
+/* line 1233, ../assets/scss/_style-main.scss */
 [data-pop="stats"] .subMenu .active {
   color: #9f8ac2;
 }
 
-/* line 1231, ../assets/scss/_style-main.scss */
+/* line 1234, ../assets/scss/_style-main.scss */
 [data-pop="inv"] .subMenu .active {
   color: #7ebe63;
 }
 
-/* line 1232, ../assets/scss/_style-main.scss */
+/* line 1235, ../assets/scss/_style-main.scss */
 [data-pop="world"] .subMenu .active {
   color: #689cc1;
 }
 
-/* line 1233, ../assets/scss/_style-main.scss */
+/* line 1236, ../assets/scss/_style-main.scss */
 [data-pop="action"] .subMenu .active {
   color: #db6c64;
 }
 
-/* line 1234, ../assets/scss/_style-main.scss */
+/* line 1237, ../assets/scss/_style-main.scss */
 .panel {
   width: 100%;
   height: 100%;
@@ -2719,11 +2714,11 @@ nav {
   color: #eee;
   right: 0;
 }
-/* line 1244, ../assets/scss/_style-main.scss */
+/* line 1247, ../assets/scss/_style-main.scss */
 .panel.active {
   bottom: 0;
 }
-/* line 1247, ../assets/scss/_style-main.scss */
+/* line 1250, ../assets/scss/_style-main.scss */
 .panel.active.custom-input {
   position: absolute;
   z-index: 1;
@@ -2734,7 +2729,7 @@ nav {
   top: 0;
 }
 
-/* line 1258, ../assets/scss/_style-main.scss */
+/* line 1261, ../assets/scss/_style-main.scss */
 section {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -2744,43 +2739,44 @@ section {
   position: relative;
 }
 
-/* line 1266, ../assets/scss/_style-main.scss */
+/* line 1269, ../assets/scss/_style-main.scss */
 .flex-contain {
   display: flex;
   flex-wrap: wrap;
 }
-/* line 1269, ../assets/scss/_style-main.scss */
+/* line 1272, ../assets/scss/_style-main.scss */
 .flex-contain > div {
   width: 100%;
   position: relative;
 }
-/* line 1270, ../assets/scss/_style-main.scss */
+/* line 1273, ../assets/scss/_style-main.scss */
 .stats .flex-contain > div:nth-child(1) {
   order: -2;
 }
-/* line 1271, ../assets/scss/_style-main.scss */
+/* line 1274, ../assets/scss/_style-main.scss */
 .stats .flex-contain > div:nth-child(2) {
   order: 0;
 }
-/* line 1272, ../assets/scss/_style-main.scss */
+/* line 1275, ../assets/scss/_style-main.scss */
 .stats .flex-contain > div:nth-child(3) {
   order: -1;
 }
-/* line 1273, ../assets/scss/_style-main.scss */
+/* line 1276, ../assets/scss/_style-main.scss */
 .flex-contain .tops {
   order: -1;
   margin: 0 -2rem 4rem;
   padding: 8rem 2rem 6rem;
   min-width: calc(100% + 4rem);
   background: #333;
+  background: #222;
   border: 0;
 }
-/* line 1284, ../assets/scss/_style-main.scss */
+/* line 1288, ../assets/scss/_style-main.scss */
 .flex-contain .end {
   order: 2;
 }
 
-/* line 1289, ../assets/scss/_style-main.scss */
+/* line 1293, ../assets/scss/_style-main.scss */
 .infobar {
   position: absolute;
   top: 0;
@@ -2788,46 +2784,53 @@ section {
   width: 100%;
   z-index: 1;
 }
-/* line 1295, ../assets/scss/_style-main.scss */
+/* line 1299, ../assets/scss/_style-main.scss */
 .infobar a {
   padding: 0.5rem 1rem;
   display: inline-block;
   text-decoration: none;
 }
 
-/* line 1302, ../assets/scss/_style-main.scss */
+/* line 1307, ../assets/scss/_style-main.scss */
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 1rem;
+}
+
+/* line 1313, ../assets/scss/_style-main.scss */
 .gbox {
   border-bottom: solid 0.5rem #47474A;
   padding: 2rem 0;
   display: inline-block;
   width: 100%;
 }
-/* line 1310, ../assets/scss/_style-main.scss */
+/* line 1321, ../assets/scss/_style-main.scss */
 #quests .gbox:not(:first-child) {
   padding-top: 8rem;
 }
 
-/* line 1314, ../assets/scss/_style-main.scss */
+/* line 1325, ../assets/scss/_style-main.scss */
 .gslice {
   padding: 2rem 0;
   border-top: solid 0.1rem #47474A;
   margin: 1rem 0;
 }
-/* line 1318, ../assets/scss/_style-main.scss */
+/* line 1329, ../assets/scss/_style-main.scss */
 .gslice:first-of-type {
   border: 0;
 }
-/* line 1319, ../assets/scss/_style-main.scss */
+/* line 1330, ../assets/scss/_style-main.scss */
 .skills-spells .gslice {
   clear: both;
 }
 
-/* line 1323, ../assets/scss/_style-main.scss */
+/* line 1334, ../assets/scss/_style-main.scss */
 .padd {
   padding: 1rem 0;
 }
 
-/* line 1327, ../assets/scss/_style-main.scss */
+/* line 1338, ../assets/scss/_style-main.scss */
 .closeMenu {
   position: absolute;
   font-size: 2rem;
@@ -2841,14 +2844,14 @@ section {
   box-shadow: 0 0 1rem #333;
 }
 
-/* line 1342, ../assets/scss/_style-main.scss */
+/* line 1353, ../assets/scss/_style-main.scss */
 .topright {
   position: absolute;
   top: 1rem;
   right: 0;
 }
 
-/* line 1348, ../assets/scss/_style-main.scss */
+/* line 1359, ../assets/scss/_style-main.scss */
 .box {
   background: #47474A;
   padding: 1rem 1.5rem;
@@ -2856,20 +2859,20 @@ section {
   top: 0;
 }
 
-/* line 1355, ../assets/scss/_style-main.scss */
+/* line 1366, ../assets/scss/_style-main.scss */
 .sticky {
   top: 0;
   position: sticky;
   float: right;
 }
 
-/* line 1364, ../assets/scss/_style-main.scss */
+/* line 1375, ../assets/scss/_style-main.scss */
 .tabs a {
   margin: 1.5rem 0 0;
   padding: .2rem 1rem;
 }
 
-/* line 1371, ../assets/scss/_style-main.scss */
+/* line 1382, ../assets/scss/_style-main.scss */
 .badges {
   position: fixed;
   top: 0;
@@ -2881,7 +2884,7 @@ section {
   z-index: -1;
 }
 
-/* line 1381, ../assets/scss/_style-main.scss */
+/* line 1392, ../assets/scss/_style-main.scss */
 .badge {
   width: 5rem;
   height: 5rem;
@@ -2892,7 +2895,7 @@ section {
   position: relative;
 }
 
-/* line 1389, ../assets/scss/_style-main.scss */
+/* line 1400, ../assets/scss/_style-main.scss */
 .alert {
   position: absolute;
   background: #db6c64;
@@ -2912,23 +2915,23 @@ section {
   color: #333;
 }
 
-/* line 1409, ../assets/scss/_style-main.scss */
+/* line 1420, ../assets/scss/_style-main.scss */
 #action .menuIcon2 {
   float: none;
   display: inline-block;
   font-size: 18px;
   padding: 4px 20px;
 }
-/* line 1414, ../assets/scss/_style-main.scss */
+/* line 1425, ../assets/scss/_style-main.scss */
 #action.panel.active {
   right: 0;
 }
-/* line 1417, ../assets/scss/_style-main.scss */
+/* line 1428, ../assets/scss/_style-main.scss */
 #action.active section {
   left: 0;
 }
 
-/* line 1421, ../assets/scss/_style-main.scss */
+/* line 1432, ../assets/scss/_style-main.scss */
 .quickBox {
   position: absolute;
   padding: 0;
@@ -2937,7 +2940,7 @@ section {
   right: 1rem;
   top: 20px;
 }
-/* line 1429, ../assets/scss/_style-main.scss */
+/* line 1440, ../assets/scss/_style-main.scss */
 .quickBox input {
   border-radius: 0;
   text-transform: capitalize;
@@ -2955,7 +2958,7 @@ section {
   box-shadow: 0px 0px 10px #333, 0px 0px 5px #333;
 }
 
-/* line 1450, ../assets/scss/_style-main.scss */
+/* line 1461, ../assets/scss/_style-main.scss */
 .bar {
   background: #666;
   color: #eee;
@@ -2967,28 +2970,28 @@ section {
   font-size: 2rem;
 }
 
-/* line 1461, ../assets/scss/_style-main.scss */
+/* line 1472, ../assets/scss/_style-main.scss */
 .barMid {
   position: relative;
   padding: 0 0 0 1rem;
 }
-/* line 1464, ../assets/scss/_style-main.scss */
+/* line 1475, ../assets/scss/_style-main.scss */
 .stats .barMid {
   line-height: 2.7rem;
 }
 
-/* line 1471, ../assets/scss/_style-main.scss */
+/* line 1482, ../assets/scss/_style-main.scss */
 .maxxer {
   position: absolute;
   right: 1rem;
   top: -0.1rem;
 }
-/* line 1476, ../assets/scss/_style-main.scss */
+/* line 1487, ../assets/scss/_style-main.scss */
 .stats .maxxer {
   top: 0.3rem;
 }
 
-/* line 1483, ../assets/scss/_style-main.scss */
+/* line 1494, ../assets/scss/_style-main.scss */
 .lastActionBox {
   border-bottom: solid 0.2rem #db6c64;
   margin: 0 -2rem;
@@ -2996,7 +2999,7 @@ section {
   padding: 2rem;
 }
 
-/* line 1494, ../assets/scss/_style-main.scss */
+/* line 1505, ../assets/scss/_style-main.scss */
 XXX#container {
   width: 100%;
   margin: 0;
@@ -3004,7 +3007,7 @@ XXX#container {
   top: 0;
 }
 
-/* line 1500, ../assets/scss/_style-main.scss */
+/* line 1511, ../assets/scss/_style-main.scss */
 #container .module {
   width: 100%;
   height: auto;
@@ -3012,21 +3015,21 @@ XXX#container {
   z-index: 5;
 }
 
-/* line 1508, ../assets/scss/_style-main.scss */
+/* line 1519, ../assets/scss/_style-main.scss */
 #container .module.action {
   position: absolute;
   bottom: 0;
   right: 0;
 }
 
-/* line 1517, ../assets/scss/_style-main.scss */
+/* line 1528, ../assets/scss/_style-main.scss */
 #container .module.feed {
   top: 0px;
   position: relative;
   z-index: 1;
 }
 
-/* line 1526, ../assets/scss/_style-main.scss */
+/* line 1537, ../assets/scss/_style-main.scss */
 #feed-module {
   display: block;
   height: 100vh;
@@ -3040,24 +3043,24 @@ XXX#container {
 
 @supports not (-webkit-touch-callout: none) {
   /* CSS for other than iOS devices */
-  /* line 1546, ../assets/scss/_style-main.scss */
+  /* line 1557, ../assets/scss/_style-main.scss */
   .feedinside {
     padding-bottom: 320px;
   }
 }
 @supports (-webkit-touch-callout: none) {
   /* CSS specific to iOS devices */
-  /* line 1551, ../assets/scss/_style-main.scss */
+  /* line 1562, ../assets/scss/_style-main.scss */
   #feed-module {
     height: -webkit-fill-available;
   }
 
-  /* line 1554, ../assets/scss/_style-main.scss */
+  /* line 1565, ../assets/scss/_style-main.scss */
   .feedinside {
     padding-bottom: 300px;
   }
 }
-/* line 1558, ../assets/scss/_style-main.scss */
+/* line 1569, ../assets/scss/_style-main.scss */
 #map {
   position: absolute;
   bottom: 60px;
@@ -3081,12 +3084,12 @@ XXX#container {
   transition: all 0.5s ease-in-out;
 }
 
-/* line 1571, ../assets/scss/_style-main.scss */
+/* line 1582, ../assets/scss/_style-main.scss */
 .coinBar {
   margin: 10px 0 0;
 }
 
-/* line 1574, ../assets/scss/_style-main.scss */
+/* line 1585, ../assets/scss/_style-main.scss */
 .ammobox {
   right: 0;
   display: none;
@@ -3098,12 +3101,12 @@ XXX#container {
   height: 100%;
 }
 
-/* line 1584, ../assets/scss/_style-main.scss */
+/* line 1595, ../assets/scss/_style-main.scss */
 .ammobox.active {
   display: block;
 }
 
-/* line 1587, ../assets/scss/_style-main.scss */
+/* line 1598, ../assets/scss/_style-main.scss */
 a.ammoboxLink {
   position: fixed;
   top: 0px;
@@ -3114,7 +3117,7 @@ a.ammoboxLink {
   font-size: 20px;
 }
 
-/* line 1606, ../assets/scss/_style-main.scss */
+/* line 1617, ../assets/scss/_style-main.scss */
 #action-moduleXXX {
   overflow-y: scroll;
   position: fixed;
@@ -3140,23 +3143,23 @@ a.ammoboxLink {
   
   		}*/
 }
-/* line 1619, ../assets/scss/_style-main.scss */
+/* line 1630, ../assets/scss/_style-main.scss */
 #action-moduleXXX.active {
   bottom: 0px;
 }
-/* line 1620, ../assets/scss/_style-main.scss */
+/* line 1631, ../assets/scss/_style-main.scss */
 #action-moduleXXX.active .fa-angle-right {
   display: inline-table;
 }
-/* line 1621, ../assets/scss/_style-main.scss */
+/* line 1632, ../assets/scss/_style-main.scss */
 #action-moduleXXX.active .fa-angle-left {
   display: none;
 }
-/* line 1635, ../assets/scss/_style-main.scss */
+/* line 1646, ../assets/scss/_style-main.scss */
 #action-moduleXXX .fa-angle-left {
   display: none;
 }
-/* line 1637, ../assets/scss/_style-main.scss */
+/* line 1648, ../assets/scss/_style-main.scss */
 #action-moduleXXX .menuAction {
   background: none;
   padding: 0;
@@ -3164,7 +3167,7 @@ a.ammoboxLink {
 }
 
 /* ---------------NAV */
-/* line 1641, ../assets/scss/_style-main.scss */
+/* line 1652, ../assets/scss/_style-main.scss */
 .nav {
   position: relative;
   bottom: 6rem;
@@ -3177,7 +3180,7 @@ a.ammoboxLink {
   background: rgba(40, 70, 30, 0.95);
   background: rgba(50, 50, 50, 0.95);
 }
-/* line 1658, ../assets/scss/_style-main.scss */
+/* line 1669, ../assets/scss/_style-main.scss */
 .nav .bar {
   height: 1rem;
   margin: 0 0 0.5rem;
@@ -3186,7 +3189,7 @@ a.ammoboxLink {
   text-shadow: 0 0 0.3rem #333;
 }
 
-/* line 1667, ../assets/scss/_style-main.scss */
+/* line 1678, ../assets/scss/_style-main.scss */
 .nav p {
   bottom: 115px;
   position: fixed;
@@ -3194,13 +3197,13 @@ a.ammoboxLink {
   font-size: 12px;
 }
 
-/* line 1673, ../assets/scss/_style-main.scss */
+/* line 1684, ../assets/scss/_style-main.scss */
 .nav p.danger {
   bottom: 75px;
   left: 20px;
 }
 
-/* line 1677, ../assets/scss/_style-main.scss */
+/* line 1688, ../assets/scss/_style-main.scss */
 .navhud {
   position: absolute;
   left: 1rem;
@@ -3208,7 +3211,7 @@ a.ammoboxLink {
   width: 30%;
 }
 
-/* line 1685, ../assets/scss/_style-main.scss */
+/* line 1696, ../assets/scss/_style-main.scss */
 .nav-center {
   position: relative;
   top: 50%;
@@ -3217,7 +3220,7 @@ a.ammoboxLink {
   padding: 1rem;
 }
 
-/* line 1693, ../assets/scss/_style-main.scss */
+/* line 1704, ../assets/scss/_style-main.scss */
 .module.feed .infoBlock {
   padding: 10px;
   bottom: 220px;
@@ -3225,12 +3228,12 @@ a.ammoboxLink {
   width: 100%;
 }
 
-/* line 1704, ../assets/scss/_style-main.scss */
+/* line 1715, ../assets/scss/_style-main.scss */
 [data-pop] {
   transition: .25s;
 }
 
-/* line 1709, ../assets/scss/_style-main.scss */
+/* line 1720, ../assets/scss/_style-main.scss */
 #map.active {
   position: fixed;
   bottom: 0;
@@ -3252,7 +3255,7 @@ a.ammoboxLink {
   /* CSS3 */
 }
 
-/* line 1727, ../assets/scss/_style-main.scss */
+/* line 1738, ../assets/scss/_style-main.scss */
 .battleBlock {
   width: 100%;
   height: 280px;
@@ -3262,18 +3265,18 @@ a.ammoboxLink {
   position: fixed;
   bottom: 6rem;
 }
-/* line 1738, ../assets/scss/_style-main.scss */
+/* line 1749, ../assets/scss/_style-main.scss */
 .battleBlock input {
   width: 100%;
 }
-/* line 1743, ../assets/scss/_style-main.scss */
+/* line 1754, ../assets/scss/_style-main.scss */
 .battleBlock .spellBtnBox {
   display: inline-block;
   position: relative;
   color: #fff;
   width: 48%;
 }
-/* line 1751, ../assets/scss/_style-main.scss */
+/* line 1762, ../assets/scss/_style-main.scss */
 .battleBlock .retreatBtn {
   background: #111;
   width: auto;
@@ -3286,21 +3289,21 @@ a.ammoboxLink {
 }
 
 /* --------------- BATTLETABS - action, magic, bag  */
-/* line 1767, ../assets/scss/_style-main.scss */
+/* line 1778, ../assets/scss/_style-main.scss */
 .battleTabs {
   position: absolute;
   top: -4rem;
   width: 100%;
   line-height: 2.5rem;
 }
-/* line 1775, ../assets/scss/_style-main.scss */
+/* line 1786, ../assets/scss/_style-main.scss */
 .battleTabs a {
   width: 30%;
   border-radius: 10px 10px 0 0;
   background: #333;
   margin: 0;
 }
-/* line 1782, ../assets/scss/_style-main.scss */
+/* line 1793, ../assets/scss/_style-main.scss */
 .battleTabs i {
   display: block;
   font-size: 22px;
@@ -3308,7 +3311,7 @@ a.ammoboxLink {
   top: 4px;
 }
 
-/* line 1790, ../assets/scss/_style-main.scss */
+/* line 1801, ../assets/scss/_style-main.scss */
 .battleTab {
   display: none;
   padding: 10px;
@@ -3317,77 +3320,77 @@ a.ammoboxLink {
   z-index: 0;
   position: relative;
 }
-/* line 1797, ../assets/scss/_style-main.scss */
+/* line 1808, ../assets/scss/_style-main.scss */
 .battleTab.active {
   display: block;
 }
 
-/* line 1804, ../assets/scss/_style-main.scss */
+/* line 1815, ../assets/scss/_style-main.scss */
 [data-link="battle-actions"] {
   color: #db6c64;
 }
-/* line 1805, ../assets/scss/_style-main.scss */
+/* line 1816, ../assets/scss/_style-main.scss */
 [data-link="battle-actions"].active {
   background: #db6c64;
   color: #fff;
   border: 0;
 }
 
-/* line 1807, ../assets/scss/_style-main.scss */
+/* line 1818, ../assets/scss/_style-main.scss */
 [data-link="battle-actions"].dex {
   color: #7ebe63;
 }
-/* line 1808, ../assets/scss/_style-main.scss */
+/* line 1819, ../assets/scss/_style-main.scss */
 [data-link="battle-actions"].dex.active {
   background: #7ebe63;
   color: #fff;
   border: 0;
 }
 
-/* line 1810, ../assets/scss/_style-main.scss */
+/* line 1821, ../assets/scss/_style-main.scss */
 [data-link="battle-magic"] {
   color: #689cc1;
 }
-/* line 1811, ../assets/scss/_style-main.scss */
+/* line 1822, ../assets/scss/_style-main.scss */
 [data-link="battle-magic"].active {
   background: #689cc1;
   color: #fff;
   border: 0;
 }
 
-/* line 1813, ../assets/scss/_style-main.scss */
+/* line 1824, ../assets/scss/_style-main.scss */
 [data-link="battle-bag"] {
   color: #f1b238;
 }
-/* line 1814, ../assets/scss/_style-main.scss */
+/* line 1825, ../assets/scss/_style-main.scss */
 [data-link="battle-bag"].active {
   background: #f1b238;
   color: #fff;
   border: 0;
 }
 
-/* line 1817, ../assets/scss/_style-main.scss */
+/* line 1828, ../assets/scss/_style-main.scss */
 [data-pop="battle-actions"] {
   border-top: solid 5px #db6c64;
 }
 
-/* line 1818, ../assets/scss/_style-main.scss */
+/* line 1829, ../assets/scss/_style-main.scss */
 [data-pop="battle-actions"].dex {
   border-top: solid 5px #7ebe63;
 }
 
-/* line 1819, ../assets/scss/_style-main.scss */
+/* line 1830, ../assets/scss/_style-main.scss */
 [data-pop="battle-magic"] {
   border-top: solid 5px #689cc1;
 }
 
-/* line 1820, ../assets/scss/_style-main.scss */
+/* line 1831, ../assets/scss/_style-main.scss */
 [data-pop="battle-bag"] {
   border-top: solid 5px #f1b238;
 }
 
 /* --------------- BATTLEBOX  */
-/* line 1823, ../assets/scss/_style-main.scss */
+/* line 1834, ../assets/scss/_style-main.scss */
 .battleBox {
   overflow: hidden;
   width: 46%;
@@ -3400,41 +3403,41 @@ a.ammoboxLink {
   line-height: 1.3em;
 }
 
-/* line 1835, ../assets/scss/_style-main.scss */
+/* line 1846, ../assets/scss/_style-main.scss */
 .actionBox.active {
   left: 0%;
 }
 
-/* line 1838, ../assets/scss/_style-main.scss */
+/* line 1849, ../assets/scss/_style-main.scss */
 .attackMath {
   font-size: 12px;
   line-height: 1.4em;
   display: block;
 }
 
-/* line 1843, ../assets/scss/_style-main.scss */
+/* line 1854, ../assets/scss/_style-main.scss */
 .attackNums {
   display: block;
 }
 
-/* line 1846, ../assets/scss/_style-main.scss */
+/* line 1857, ../assets/scss/_style-main.scss */
 .attackBig {
   display: block;
   font-size: 42px;
   line-height: 46px;
 }
 
-/* line 1852, ../assets/scss/_style-main.scss */
+/* line 1863, ../assets/scss/_style-main.scss */
 .active .actionFrame {
   right: 0%;
 }
 
-/* line 1854, ../assets/scss/_style-main.scss */
+/* line 1865, ../assets/scss/_style-main.scss */
 .actionFrame li {
   width: 100%;
   display: inline-block;
 }
-/* line 1858, ../assets/scss/_style-main.scss */
+/* line 1869, ../assets/scss/_style-main.scss */
 .actionFrame input {
   background: #eee;
   padding: 8px 16px;
@@ -3443,7 +3446,7 @@ a.ammoboxLink {
   float: left;
   margin: 1% 1%;
 }
-/* line 1867, ../assets/scss/_style-main.scss */
+/* line 1878, ../assets/scss/_style-main.scss */
 .actionFrame .head {
   color: #999;
   text-transform: uppercase;
@@ -3453,7 +3456,7 @@ a.ammoboxLink {
   margin: 20px 0 0;
 }
 
-/* line 1879, ../assets/scss/_style-main.scss */
+/* line 1890, ../assets/scss/_style-main.scss */
 .multiHit {
   border-top: solid 5px #ccc;
   padding: 2px 0 0;
@@ -3462,7 +3465,7 @@ a.ammoboxLink {
   display: block;
 }
 
-/* line 1886, ../assets/scss/_style-main.scss */
+/* line 1897, ../assets/scss/_style-main.scss */
 .dodged {
   color: #ccc;
   font-size: 28px;
@@ -3470,23 +3473,23 @@ a.ammoboxLink {
   line-height: 1.6em;
 }
 
-/* line 1892, ../assets/scss/_style-main.scss */
+/* line 1903, ../assets/scss/_style-main.scss */
 .attackCost {
   font-size: 10px;
   color: #689cc1;
 }
 
-/* line 1896, ../assets/scss/_style-main.scss */
+/* line 1907, ../assets/scss/_style-main.scss */
 .attackName {
   color: #db6c64;
 }
 
-/* line 1899, ../assets/scss/_style-main.scss */
+/* line 1910, ../assets/scss/_style-main.scss */
 .attackWeapon {
   color: #474747;
 }
 
-/* line 1905, ../assets/scss/_style-main.scss */
+/* line 1916, ../assets/scss/_style-main.scss */
 #tabs li a {
   display: block;
   padding: 12px 12px;
@@ -3494,23 +3497,23 @@ a.ammoboxLink {
   font-weight: bold;
 }
 
-/* line 1911, ../assets/scss/_style-main.scss */
+/* line 1922, ../assets/scss/_style-main.scss */
 #tabs li a.active {
   background: #f1b238;
   color: #555;
 }
 
-/* line 1917, ../assets/scss/_style-main.scss */
+/* line 1928, ../assets/scss/_style-main.scss */
 #tabs a.hilight {
   color: #f1b238;
 }
 
-/* line 1920, ../assets/scss/_style-main.scss */
+/* line 1931, ../assets/scss/_style-main.scss */
 #tabs a:hover {
   background: #999;
 }
 
-/* line 1929, ../assets/scss/_style-main.scss */
+/* line 1940, ../assets/scss/_style-main.scss */
 #hud {
   position: fixed;
   top: 0;
@@ -3518,19 +3521,19 @@ a.ammoboxLink {
   left: 0;
   z-index: -1;
 }
-/* line 1935, ../assets/scss/_style-main.scss */
+/* line 1946, ../assets/scss/_style-main.scss */
 #hud.active {
   left: 0;
 }
-/* line 1936, ../assets/scss/_style-main.scss */
+/* line 1947, ../assets/scss/_style-main.scss */
 #hud.active #uBox {
   right: 0%;
 }
-/* line 1938, ../assets/scss/_style-main.scss */
+/* line 1949, ../assets/scss/_style-main.scss */
 #hud.inBattle #uBox {
   right: 0%;
 }
-/* line 1940, ../assets/scss/_style-main.scss */
+/* line 1951, ../assets/scss/_style-main.scss */
 #hud .bar {
   width: 100%;
   height: 1rem;
@@ -3540,17 +3543,17 @@ a.ammoboxLink {
   border-radius: 2rem;
   overflow: hidden;
 }
-/* line 1949, ../assets/scss/_style-main.scss */
+/* line 1960, ../assets/scss/_style-main.scss */
 #hud .bar.mpBar {
   width: 90%;
   height: 1rem;
 }
-/* line 1953, ../assets/scss/_style-main.scss */
+/* line 1964, ../assets/scss/_style-main.scss */
 #hud .barMid {
   position: absolute;
   height: 100%;
 }
-/* line 1958, ../assets/scss/_style-main.scss */
+/* line 1969, ../assets/scss/_style-main.scss */
 #hud .extrahpBox {
   top: inherit;
   z-index: 1;
@@ -3562,7 +3565,7 @@ a.ammoboxLink {
   bottom: 15px;
   left: 100%;
 }
-/* line 1972, ../assets/scss/_style-main.scss */
+/* line 1983, ../assets/scss/_style-main.scss */
 #hud h3 {
   font-size: 2.4rem;
   margin: 0;
@@ -3572,25 +3575,25 @@ a.ammoboxLink {
   overflow-x: auto;
   overflow-y: inherit;
 }
-/* line 1982, ../assets/scss/_style-main.scss */
+/* line 1993, ../assets/scss/_style-main.scss */
 #hud .maxstat {
   float: left;
   position: relative;
 }
 
-/* line 1990, ../assets/scss/_style-main.scss */
+/* line 2001, ../assets/scss/_style-main.scss */
 .xpBar, .xpBar div {
   height: 3px;
   width: 70%;
 }
 
-/* line 1995, ../assets/scss/_style-main.scss */
+/* line 2006, ../assets/scss/_style-main.scss */
 .mpBar, .mpBar div {
   height: 10px;
   width: 90%;
 }
 
-/* line 2002, ../assets/scss/_style-main.scss */
+/* line 2013, ../assets/scss/_style-main.scss */
 .maxstat input {
   position: absolute;
   top: 18px;
@@ -3600,21 +3603,21 @@ a.ammoboxLink {
   margin: 0;
 }
 
-/* line 2011, ../assets/scss/_style-main.scss */
+/* line 2022, ../assets/scss/_style-main.scss */
 .maxBox {
   position: absolute;
   top: 20px;
   width: 40%;
 }
 
-/* line 2017, ../assets/scss/_style-main.scss */
+/* line 2028, ../assets/scss/_style-main.scss */
 .magicarmorBox {
   position: absolute;
   top: 6.5rem;
   right: 0.9rem;
 }
 
-/* line 2027, ../assets/scss/_style-main.scss */
+/* line 2038, ../assets/scss/_style-main.scss */
 #eBox, #uBox {
   position: relative;
   background: #474747;
@@ -3632,7 +3635,7 @@ a.ammoboxLink {
   transition: all 0.25s ease-in-out;
 }
 
-/* line 2041, ../assets/scss/_style-main.scss */
+/* line 2052, ../assets/scss/_style-main.scss */
 .buffbound {
   position: absolute;
   top: 0;
@@ -3644,50 +3647,50 @@ a.ammoboxLink {
   font-size: 1.2rem;
 }
 
-/* line 2052, ../assets/scss/_style-main.scss */
+/* line 2063, ../assets/scss/_style-main.scss */
 .buffBox {
   margin: 0px 0.5rem 0 0;
   border-bottom: 0.2rem solid;
 }
 
-/* line 2057, ../assets/scss/_style-main.scss */
+/* line 2068, ../assets/scss/_style-main.scss */
 #eBox {
   left: 0;
   text-align: right;
 }
-/* line 2061, ../assets/scss/_style-main.scss */
+/* line 2072, ../assets/scss/_style-main.scss */
 #eBox .barMid {
   right: 0;
 }
-/* line 2065, ../assets/scss/_style-main.scss */
+/* line 2076, ../assets/scss/_style-main.scss */
 #eBox .bar {
   height: 2.2rem;
 }
-/* line 2068, ../assets/scss/_style-main.scss */
+/* line 2079, ../assets/scss/_style-main.scss */
 #eBox .statBox {
   position: absolute;
   left: 2rem;
   bottom: .5rem;
 }
 
-/* line 2077, ../assets/scss/_style-main.scss */
+/* line 2088, ../assets/scss/_style-main.scss */
 #uBox {
   right: -50%;
 }
-/* line 2080, ../assets/scss/_style-main.scss */
+/* line 2091, ../assets/scss/_style-main.scss */
 #uBox .statBox {
   position: absolute;
   right: 2rem;
   bottom: 0.5rem;
 }
-/* line 2089, ../assets/scss/_style-main.scss */
+/* line 2100, ../assets/scss/_style-main.scss */
 #uBox .statBox i {
   padding: 0 2px 0 4px;
   position: relative;
   top: 3px;
 }
 
-/* line 2098, ../assets/scss/_style-main.scss */
+/* line 2109, ../assets/scss/_style-main.scss */
 .vsBox {
   position: absolute;
   top: -1rem;
@@ -3704,7 +3707,7 @@ a.ammoboxLink {
   background: rgba(0, 0, 0, 0.3);
 }
 
-/* line 2113, ../assets/scss/_style-main.scss */
+/* line 2124, ../assets/scss/_style-main.scss */
 .lvlBox {
   background: #f1b238;
   color: #444;
@@ -3719,7 +3722,7 @@ a.ammoboxLink {
   top: -2px;
 }
 
-/* line 2129, ../assets/scss/_style-main.scss */
+/* line 2140, ../assets/scss/_style-main.scss */
 .maxhpdisplay {
   position: absolute;
   left: 2px;
@@ -3727,67 +3730,67 @@ a.ammoboxLink {
   color: #aaa;
 }
 
-/* line 2136, ../assets/scss/_style-main.scss */
+/* line 2147, ../assets/scss/_style-main.scss */
 .castBox {
   background: #eee;
   padding: 10px;
   margin: 10px 20px 0;
 }
 
-/* line 2141, ../assets/scss/_style-main.scss */
+/* line 2152, ../assets/scss/_style-main.scss */
 #devLog {
   padding: 20px;
   background: #fff;
 }
-/* line 2144, ../assets/scss/_style-main.scss */
+/* line 2155, ../assets/scss/_style-main.scss */
 #devLog p {
   padding: 2px 0;
 }
-/* line 2145, ../assets/scss/_style-main.scss */
+/* line 2156, ../assets/scss/_style-main.scss */
 #devLog h3 {
   margin: 0;
 }
 
-/* line 2150, ../assets/scss/_style-main.scss */
+/* line 2161, ../assets/scss/_style-main.scss */
 .iStat {
   font-size: 2rem;
   line-height: 1.5rem;
 }
 
-/* line 2156, ../assets/scss/_style-main.scss */
+/* line 2167, ../assets/scss/_style-main.scss */
 .statcat, .maxstat {
   font-size: 3.6rem;
   line-height: 0.8em;
 }
 
-/* line 2161, ../assets/scss/_style-main.scss */
+/* line 2172, ../assets/scss/_style-main.scss */
 .roomBox p {
   margin-bottom: 10px;
 }
 
-/* line 2167, ../assets/scss/_style-main.scss */
+/* line 2178, ../assets/scss/_style-main.scss */
 .roomIcon {
   font-size: 7.2rem;
 }
 
 @media (min-width: 600px) {
-  /* line 2194, ../assets/scss/_style-main.scss */
+  /* line 2205, ../assets/scss/_style-main.scss */
   html {
     font-size: 15px;
   }
 
-  /* line 2202, ../assets/scss/_style-main.scss */
+  /* line 2213, ../assets/scss/_style-main.scss */
   .feedinside {
     padding-bottom: 340px;
   }
 
-  /* line 2204, ../assets/scss/_style-main.scss */
+  /* line 2215, ../assets/scss/_style-main.scss */
   .infight #feed-module {
     padding-bottom: 440px;
   }
 }
 @media (min-width: 1000px) {
-  /* line 2213, ../assets/scss/_style-main.scss */
+  /* line 2224, ../assets/scss/_style-main.scss */
   .nav-center {
     top: 38%;
     height: 260px;
@@ -3796,24 +3799,24 @@ a.ammoboxLink {
     margin: 0 auto;
   }
 
-  /* line 2220, ../assets/scss/_style-main.scss */
+  /* line 2231, ../assets/scss/_style-main.scss */
   .quickBox {
     transform: scale(0.66);
     transform-origin: right;
     right: .5rem;
   }
 
-  /* line 2225, ../assets/scss/_style-main.scss */
+  /* line 2236, ../assets/scss/_style-main.scss */
   #feed-module, .infight #feed-module {
     padding-bottom: 100px;
   }
 
-  /* line 2228, ../assets/scss/_style-main.scss */
+  /* line 2239, ../assets/scss/_style-main.scss */
   .infight #feed-module {
     height: calc(100vh - 280px);
   }
 
-  /* line 2232, ../assets/scss/_style-main.scss */
+  /* line 2243, ../assets/scss/_style-main.scss */
   #container .module.action {
     width: 50%;
     height: 100%;
@@ -3821,7 +3824,7 @@ a.ammoboxLink {
     overflow-x: visible;
   }
 
-  /* line 2239, ../assets/scss/_style-main.scss */
+  /* line 2250, ../assets/scss/_style-main.scss */
   #container .module.feed {
     width: 50%;
     height: 100vh;
@@ -3830,48 +3833,48 @@ a.ammoboxLink {
     position: absolute;
   }
 
-  /* line 2249, ../assets/scss/_style-main.scss */
+  /* line 2260, ../assets/scss/_style-main.scss */
   .feed .roomBox {
-    padding: 20px;
-    margin: 20px 0;
+    padding: 20px 20px 0;
+    margin: 20px 0 0;
   }
 
-  /* line 2254, ../assets/scss/_style-main.scss */
+  /* line 2265, ../assets/scss/_style-main.scss */
   .infoBlock.nav {
     height: 100%;
   }
 
-  /* line 2258, ../assets/scss/_style-main.scss */
+  /* line 2269, ../assets/scss/_style-main.scss */
   .panel {
     width: 50%;
   }
 
-  /* line 2262, ../assets/scss/_style-main.scss */
+  /* line 2273, ../assets/scss/_style-main.scss */
   .menu {
     width: 50%;
   }
 
-  /* line 2266, ../assets/scss/_style-main.scss */
+  /* line 2277, ../assets/scss/_style-main.scss */
   .mapCube {
     width: 12vw;
     height: 12vw;
     margin: 1vw;
   }
 
-  /* line 2272, ../assets/scss/_style-main.scss */
+  /* line 2283, ../assets/scss/_style-main.scss */
   #hud {
     width: 50%;
     pointer-events: none;
   }
 
-  /* line 2277, ../assets/scss/_style-main.scss */
+  /* line 2288, ../assets/scss/_style-main.scss */
   .battleBlock {
     width: 50%;
     bottom: 0;
     pointer-events: initial;
   }
 
-  /* line 2283, ../assets/scss/_style-main.scss */
+  /* line 2294, ../assets/scss/_style-main.scss */
   .nav {
     position: fixed;
     right: 0;
@@ -3879,7 +3882,7 @@ a.ammoboxLink {
     bottom: 0;
   }
 
-  /* line 2291, ../assets/scss/_style-main.scss */
+  /* line 2302, ../assets/scss/_style-main.scss */
   .nav {
     position: absolute;
     height: calc(100% - 6rem);
@@ -3888,48 +3891,48 @@ a.ammoboxLink {
     z-index: -2;
   }
 
-  /* line 2298, ../assets/scss/_style-main.scss */
+  /* line 2309, ../assets/scss/_style-main.scss */
   .badges {
     right: 0;
     top: 0%;
     margin: 0;
   }
 
-  /* line 2305, ../assets/scss/_style-main.scss */
+  /* line 2316, ../assets/scss/_style-main.scss */
   #container .module.feed {
     box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2);
   }
 
-  /* line 2309, ../assets/scss/_style-main.scss */
+  /* line 2320, ../assets/scss/_style-main.scss */
   #container #action-module {
     position: absolute;
     box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2);
   }
 
-  /* line 2314, ../assets/scss/_style-main.scss */
+  /* line 2325, ../assets/scss/_style-main.scss */
   .panel {
     position: absolute;
     width: 100%;
   }
 
-  /* line 2319, ../assets/scss/_style-main.scss */
+  /* line 2330, ../assets/scss/_style-main.scss */
   .menu {
     position: absolute;
     width: 100%;
   }
 
-  /* line 2324, ../assets/scss/_style-main.scss */
+  /* line 2335, ../assets/scss/_style-main.scss */
   #feed-module {
     height: 100%;
     padding-bottom: 100px;
   }
 
-  /* line 2328, ../assets/scss/_style-main.scss */
+  /* line 2339, ../assets/scss/_style-main.scss */
   .feedinside {
     padding-bottom: 0px;
   }
 
-  /* line 2331, ../assets/scss/_style-main.scss */
+  /* line 2342, ../assets/scss/_style-main.scss */
   #map.active {
     bottom: -50vw;
     width: 100%;
@@ -3937,13 +3940,13 @@ a.ammoboxLink {
   }
 }
 @media (max-width: 375px) {
-  /* line 2346, ../assets/scss/_style-main.scss */
+  /* line 2357, ../assets/scss/_style-main.scss */
   html {
     font-size: 9px;
   }
 }
 @media (max-width: 340px) {
-  /* line 2352, ../assets/scss/_style-main.scss */
+  /* line 2363, ../assets/scss/_style-main.scss */
   html {
     font-size: 8px;
   }

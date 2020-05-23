@@ -31,7 +31,7 @@ while ($row = $result->fetch_assoc()) {
     }
 
 
-    $questCount=0;
+    $questCount=0; // reset quest count for quest badges
     // --------------------------------  QUEST BADGES OLD MAN
     if ($roomID=='003') {
         if ($row['quest1']<2) {
@@ -68,16 +68,68 @@ while ($row = $result->fetch_assoc()) {
             $questCount++;
         }
     }
+    // --------------------------------  QUEST BADGES FREDDIE
+    if ($roomID=='103') {
+        if ($row['quest10']<2) {
+            $questCount++;
+        }
+    }
+    // --------------------------------  QUEST BADGES RED GUARD CAPTAIN
+    if ($roomID=='215') {
+        if ($row['quest11']<2) {
+            $questCount++;
+        }
+        if ($row['quest12']<2) {
+            $questCount++;
+        }
+        if ($row['quest13']<2) {
+            $questCount++;
+        }
+    }
+    // --------------------------------  QUEST BADGES FOREST GNOME
+    if ($roomID=='128') {
+        if ($row['quest14']<2) {
+            $questCount++;
+        }
+        if ($row['quest15']<2) {
+            $questCount++;
+        }
+        if ($row['quest16']<2) {
+            $questCount++;
+        }
+    }
+    // --------------------------------  QUEST BADGES HUNTER BILL
+    if ($roomID=='118') {
+        if ($row['quest17']<2) {
+            $questCount++;
+        }
+        if ($row['quest18']<2) {
+            $questCount++;
+        }
+    }
+    // -------------------  QUEST BADGES WARRIORS GUILD INITIATION
+    if ($roomID=='226') {
+        if ($row['quest19']<2) {
+            $questCount++;
+        }
+    }
+    // -------------------  QUEST BADGES WIZARDS GUILD INITIATION
+    if ($roomID=='225') {
+        if ($row['quest20']<2) {
+            $questCount++;
+        }
+    }
+
     // -------------------------------- ALL QUEST BADGES
     if ($questCount>0) {
-        if ($roomID=='003' || $roomID=='003c' || $roomID=='024') {
-            $questBtnTop = '<a href="" data-link="quests" class="btn goldBG white badge">
+        //if ($roomID=='003' || $roomID=='003c' || $roomID=='024') {
+        $questBtnTop = '<a href="" data-link="quests" class="btn goldBG white badge">
             <i class="icon">'.file_get_contents("img/svg/trophy.svg").'</i>';
-            $questBtnTBottom = '<span class="alert">'.$questCount.'</span>
+        $questBtnTBottom = '<span class="alert">'.$questCount.'</span>
           </a>';
-            echo $questBtnTop;
-            echo $questBtnTBottom;
-        }
+        echo $questBtnTop;
+        echo $questBtnTBottom;
+        //}
     }
 
     // -------------------------------- CRAFT BADGES

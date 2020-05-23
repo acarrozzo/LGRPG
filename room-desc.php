@@ -594,7 +594,7 @@ $_SESSION['desc106'] = <<<HTML
 	<div class="roomIcon red"><i class="ra ra-muscle-up"></i></div>
 	<h3 class="red">Traveling Warrior</h3><h4>Warrior Skills</h4>
 	<p>A war weathered warrior is temporarily set up here teaching some fighting skills</p>
-	<a href data-link2="skills" class="btn blueBG">Skills </a>
+	<a href data-link2="skills" class="btn purpleBG">Skills </a>
 
 	<p>A SLICE attack will increase the damage you do with One-handed weapons, and SMASH will increase Two-handed damage.</p>
 
@@ -1214,21 +1214,19 @@ if ($roomID=='118') {
 }
 $_SESSION['desc118'] = <<<HTML
 <html><div class="roomBox">
-	<div class="roomIcon green px100"><i class="ra ra-pine-tree"></i></div>
-	<h3 class="green">Hunter Bill </h3>
-	<h4 class="green">Hunter Skills</h4>
+	<div class="roomIcon forest px100"><i class="ra ra-pine-tree"></i></div>
+	<h3 class="forest">Hunter Bill </h3>
+	<h4 class="brown">Hunter Skills</h4>
 	<p>You see Bill crafting some arrows while tending to a fire. You can rest up here or learn some new hunting skills. He also has some quests available.</p>
 
-	<a href data-link2="skills" class="btn blueBG">Skills </a>
-	<a href data-link="quests" class="btn goldBG">Quests </a>
-
-	<p>AIM will let you do extra damage with ranged attacks. DODGE will let give you a chance to dodge an enemies attack.</p>
 
 	<form id="mainForm" method="post" action="" name="formInput">
+    <a href data-link2="skills" class="btn purpleBG">Skills </a>
+    <a href data-link="quests" class="btn goldBG">Quests </a>
 	<button type="submit" name="input1" value="west">West</button>
-	<button type="submit" name="input1" value="northeast">Northeast</button>
+	<button type="submit" name="input1" value="northeast">NE</button>
 	<button type="submit" name="input1" value="east">East</button>
-	<button type="submit" name="input1" value="southeast">Southeast</button>
+	<button type="submit" name="input1" value="southeast">SE</button>
 	<button type="submit" name="input1" value="south">South</button>
 
 	<input class="greenBG" type="submit" name="input1" value="rest" />
@@ -1889,23 +1887,22 @@ if ($roomID=='210') {
     $dirNW='active red';
     $dirU='active red';
 }
+//	<button type="submit" name="input1" value="west">w</button>
+//	<button type="submit" name="input1" value="northeast">ne</button>
+//	<button type="submit" name="input1" value="southwest">sw</button>
+//	<button type="submit" name="input1" value="northwest">nw</button>
+//	<button type="submit" name="input1" value="north">n</button>
+//	<button type="submit" name="input1" value="east">e</button>
+//	<button type="submit" name="input1" value="southeast">se</button>
 $_SESSION['desc210'] = <<<HTML
 <html><div class="roomBox">
 	<div class="roomIcon red"><i class="icon-dragon"></i></div>
-	<h3 class="red">Red Town Grand Square</h3>
+  <h3 class="red">Red Town</h3>
+  <h4 class="">Grand Square</h4>
 	<p>The heart of New Babylon. This is easily the busiest area in town. There is a bubbling fountain here as well as a crafting table and fire.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<button type="submit" name="input1" value="northwest">Northwest</button>
-	<button type="submit" name="input1" value="north">North</button>
-	<button type="submit" name="input1" value="west">West</button>
-	<button type="submit" name="input1" value="northeast">Northeast</button>
-	<button type="submit" name="input1" value="southwest">Southwest</button>
-	<button type="submit" name="input1" value="south">South</button>
-	<button type="submit" name="input1" value="east">East</button>
-	<button type="submit" name="input1" value="southeast">Southeast</button>
-
 	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
-	<input class="greenBG" type="submit" name="input1" value="rest" />
+	<button class="greenBG" type="submit" name="input1" value="rest">Rest</button>
 	</form>
 </div></html>
 HTML;
@@ -2204,6 +2201,8 @@ $_SESSION['desc224'] = <<<HTML
 HTML;
 
 // ---------------------------------------------------- 225 - Wizard's Guild
+//	<input class="blueBG" type="submit" name="input1" value="teleport to kobold lair" />
+
 if ($roomID=='225') {
     $_SESSION['dangerLVL'] = "0";
     $dirNW='active red';
@@ -2212,20 +2211,21 @@ if ($roomID=='225') {
 $_SESSION['desc225'] = <<<HTML
 <html><div class="roomBox">
 	<div class="roomIcon red"><i class="icon-dragon"></i></div>
-	<h3 class="red">Wizard's Guild</h3>
+  <h3 class="purple">Wizard's Guild</h3>
+  <h4 class="">Entrance</h4>
 	<p>Many men and women in robes are standing around the entrance to the Wizards Guild, mingling about magic and potions. There is a sign next to an impressive display of shiny wizard items.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<a href data-link="quests" class="btn goldBG">Quests</a>
-	<input class="long purpleBG" type="submit" name="input1" value="teleport to kobold lair" />
-	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
-	<button type="submit" name="input1" value="northwest">Northwest</button>
-	<button type="submit" name="input1" value="up">Up</button>
+	<button type="submit" name="input1" value="northwest">nw</button>
+  <button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
+  <a href data-link="quests" class="btn goldBG">Quests</a>
+  <button class="purpleBG" type="submit" name="input1" value="up">Enter Wizard's Guild </button>
 	</form>
 </div></html>
 HTML;
 
 
 // ---------------------------------------------------- 226 - Warrior's Guild
+// 	<input class="redBG" type="submit" name="input1" value="teleport to ogre lair" />
 if ($roomID=='226') {
     $_SESSION['dangerLVL'] = "0";
     $dirSE='active red';
@@ -2234,14 +2234,14 @@ if ($roomID=='226') {
 $_SESSION['desc226'] = <<<HTML
 <html><div class="roomBox">
 	<div class="roomIcon red"><i class="icon-dragon"></i></div>
-	<h3 class="red">Warrior's Guild</h3>
+	<h3 class="blue">Warrior's Guild</h3>
+    <h4 class="">Entrance</h4>
 	<p>Many sword and axe wielding warriors congregate here in front of a massive stone building. Sword and shield banners hang along the walls. There is a sign here next to some impressive looking weapons.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
-	<a href data-link="quests" class="btn goldBG">Quests</a>
-	<input class="long blueBG" type="submit" name="input1" value="teleport to ogre lair" />
+      <button type="submit" name="input1" value="southeast">se</button>
 	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
-	<button type="submit" name="input1" value="southeast">Southeast</button>
-	<button type="submit" name="input1" value="up">Up</button>
+  <a href data-link="quests" class="btn goldBG">Quests</a>
+  <button class="blueBG" type="submit" name="input1" value="up">Enter Warrior's Guild</button>
 	</form>
 </div></html>
 HTML;
@@ -5409,7 +5409,7 @@ $_SESSION['desc515d'] = <<<HTML
 	<div class="roomIcon dgreen"><i class="icon-bow-arrow"></i></div>
 	<h3 class="dgreen">Ranger Skills & Spells</h3>
 	<p>Only the most skilled guild members are here to distill their knowledge of the bow. </p>
-	<a href data-link2="skills" class="btn blueBG">Skills </a>
+	<a href data-link2="skills" class="btn purpleBG">Skills </a>
 	<form id="mainForm" method="post" action="" name="formInput">
 	<button type="submit" name="input1" value="northwest">Northwest</button>
 	<button type="submit" name="input1" value="north">North</button>
@@ -6063,7 +6063,7 @@ $_SESSION['desc610'] = <<<HTML
    	<h3 class="gray">Master Trainer <span class="blue">Master Skills</span></h3>
 	<p>You stand in the master’s courtyard. Marble pillars surround a hooded man levitating off the ground. Without saying a word he can teach you pro skills. Looking west you see the Gates to Star City, to the east the Blue Guard Outpost.</p>
 
-	<a href data-link2="skills" class="btn blueBG">Pro Skills </a>
+	<a href data-link2="skills" class="btn purpleBG">Pro Skills </a>
 
 	<form id="mainForm" method="post" action="" name="formInput">
 	<button type="submit" name="input1" value="west">West</button>
