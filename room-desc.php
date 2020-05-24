@@ -2152,13 +2152,14 @@ if ($roomID=='222z') {
 $_SESSION['desc222z'] = <<<HTML
 <html><div class="roomBox">
 	<div class="roomIcon red"><i class="icon-desk"></i></div>
-	<h3 class="red">Mayor Rudolf - Red Town Office</h3>
+  <h3 class="red">Mayor Rudolf</h3>
+  <h4 class="">Red Town Office</h4>
 	<p>Most important business for Red Town is handled in this room. The Mayor is sitting down at his desk going through some paper work. He has a BIG quest available for you if you are up for the challenge.</p>
-	<a href data-link="quests" class="btn goldBG">Town Hall Quest</a>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<button type="submit" name="input1" value="down">Down</button>
-	<input class="brownBG auto" type="submit" name="input1" value="grab iron javelins" />
+    <button class="brownBG" type="submit" name="input1" value="grab iron javelins">Grab Iron Javelins</button>
+  <a href data-link="quests" class="btn goldBG">Quests</a>
 	</form>
+  <button type="submit" name="input1" value="down">Down</button>
 </div></html>
 HTML;
 
@@ -2354,12 +2355,14 @@ if ($roomID=='225a') {
     $_SESSION['dangerLVL'] = "0";
 }
 $_SESSION['desc225a'] = <<<HTML
-<html><div class="roomBox"><h3>Wizard's Guild Exit</h3>
-	<p>At the Wizard's Main Exit. Head down to get back to Red Town or go southeast to get to the rest of the guild, including spells, skills, items and quests.</p>
+<html><div class="roomBox">
+  <h4>Wizard's Guild</h4>
+  <h3 class="purple">Guild Exit</h3>
+	<p>At the Wizard's main exit. Go southeast to get wizard spells, skills, items and quests. Head down to return back to town.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<button type="submit" name="input1" value="southeast">Southeast</button>
 	<button type="submit" name="input1" value="down">Down</button>
-	</form>
+  <button type="submit" name="input1" value="southeast">Southeast</button>
+</form>
 </div></html>
 HTML;
 
@@ -2368,20 +2371,21 @@ if ($roomID=='225b') {
     $_SESSION['dangerLVL'] = "0";
 }
 $_SESSION['desc225b'] = <<<HTML
-<html><div class="roomBox"><h3>Wizard's Guild Lobby</h3>
-	<p>Many spell casters are seen mingling in this very large room. There are tables with food and drink, and a fire is lit in the corner. You can cook up your meat here or grab some free food or potions off the tables. There is a directory here to help you navigate around the guild.</p>
+<html><div class="roomBox">
+  <h4>Wizard's Guild</h4>
+  <h3 class="purple">Main Lobby</h3>
+	<p>Many spell casters are seen mingling in this very large room. There are tables with food and drink, and a fire is lit in the corner. Grab some free food or potions off the tables. There is a directory here to help you navigate around the guild.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
 	<button type="submit" name="input1" value="west">West</button>
-	<button type="submit" name="input1" value="northwest">Northwest</button>
-	<button type="submit" name="input1" value="northeast">Northeast</button>
-	<button type="submit" name="input1" value="southeast">Southeast</button>
+	<button type="submit" name="input1" value="northwest">nw</button>
+	<button type="submit" name="input1" value="northeast">ne</button>
+	<button type="submit" name="input1" value="southeast">se</button>
 	<button type="submit" name="input1" value="south">South</button>
-	<button type="submit" name="input1" value="southwest">Southwest</button>
+	<button type="submit" name="input1" value="southwest">sw</button>
 	<button type="submit" name="input1" value="west">West</button>
 	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
 	<input class="goldBG" type="submit" name="input1" value="grab veggies" />
 	<input class="goldBG" type="submit" name="input1" value="grab blue potion" />
-	<input class="goldBG" type="submit" name="input1" value="cook all meat" />
 	<input class="greenBG" type="submit" name="input1" value="rest" />
 	</form>
 </div></html>
@@ -2391,8 +2395,10 @@ if ($roomID=='225c') {
     $_SESSION['dangerLVL'] = "0";
 }
 $_SESSION['desc225c'] = <<<HTML
-<html><div class="roomBox"><h3>Wizard's General Store</h3>
-	<p>Some great wizard items are for sale here. Stock up on blue potions and some stronger staffs before you venture out.</p>
+<html><div class="roomBox">
+  <h4>Wizard's Guild</h4>
+  <h3 class="purple">General Store</h3>
+  <p>Some great wizard items are for sale here. Stock up on blue potions and some stronger staffs before you venture out.</p>
 	<a href data-link="shop" class="btn goldBG">Shop </a>
    	<form id="mainForm" method="post" action="" name="formInput">
 	<button type="submit" name="input1" value="southwest">Southwest</button>
@@ -2404,8 +2410,10 @@ if ($roomID=='225d') {
     $_SESSION['dangerLVL'] = "0";
 }
 $_SESSION['desc225d'] = <<<HTML
-<html><div class="roomBox"><h3>Guild Master Quinn's Office</h3>
-	<p>Grandmaster Quinn has a neat and tidy office with all sorts of personal experiments laying about. He has a bowl on his desk with a bunch of mana regen rings. // ELITE QUESTS Coming Soon!</p>
+<html><div class="roomBox">
+  <h4>Wizard's Guild</h4>
+  <h3 class="purple">Guildmaster's Office</h3>
+  <p>Grandmaster Quinn has a neat and tidy office with all sorts of magical doohickeys laying about. He has a bowl on his desk with a bunch of mana regen rings. // ELITE QUESTS Coming Soon!</p>
   	<form id="mainForm" method="post" action="" name="formInput">
 	<button type="submit" name="input1" value="west">West</button>
 
@@ -2418,7 +2426,9 @@ if ($roomID=='225e') {
     $_SESSION['dangerLVL'] = "0";
 }
 $_SESSION['desc225e'] = <<<HTML
-<html><div class="roomBox"><h3>Wizard Skills & Spells</h3>
+<html><div class="roomBox">
+  <h4>Wizard's Guild</h4>
+  <h3 class="purple">Skills and Spells</h3>
 	<p>You can now learn a whole slew of new powerful spells. Spend your SP wisely to become a master spell caster.</p>
 	<a href data-link2="spells" class="btn purpleBG">Spells </a>
 	<p>ATOMIC BLAST is a super powerful spell, but uses alot of MP</p>
@@ -2433,8 +2443,10 @@ if ($roomID=='225f') {
     $_SESSION['dangerLVL'] = "0";
 }
 $_SESSION['desc225f'] = <<<HTML
-<html><div class="roomBox"><h3>Wizard's Jeweler</h3>
-	<p>The Jeweler is adorned with all sorts of fancy rings and amulets. He has some popular Wizard Only rings available for purchase.</p>
+<html><div class="roomBox">
+  <h4>Wizard's Guild</h4>
+  <h3 class="purple">Jeweler</h3>
+  <p>The Jeweler is adorned with all sorts of fancy rings and amulets. He has some popular Wizard Only rings available for purchase.</p>
 	<a href data-link="shop" class="btn goldBG">Shop </a>
  	<form id="mainForm" method="post" action="" name="formInput">
 
@@ -2447,9 +2459,11 @@ if ($roomID=='225g') {
     $_SESSION['dangerLVL'] = "0";
 }
 $_SESSION['desc225g'] = <<<HTML
-<html><div class="roomBox"><h3>Wizard Morty's Quest Set</h3>
-	<p>The hilarious wizard Morty has several quests available for you. Complete these 3 quests to become one of the strongest Wizards known.</p>
-  <a href data-link="quests" class="btn purpleBG">Wizard Morty's Quests</a>
+<html><div class="roomBox">
+  <h4>Wizard's Guild</h4>
+  <h3 class="purple">Morty's Quest Set</h3>
+	<p>The comedic wizard Morty has several quests available for you. Complete these 3 quests to become one of the strongest Wizards known.</p>
+  <a href data-link="quests" class="btn goldBG">Wizard Morty's Quests</a>
 	<form id="mainForm" method="post" action="" name="formInput">
 	<button type="submit" name="input1" value="north">North</button>
 	</form>
@@ -2461,11 +2475,11 @@ if ($roomID=='225h') {
     $_SESSION['dangerLVL'] = "0";
 }
 $_SESSION['desc225h'] = <<<HTML
-<html><div class="roomBox"><h3>Wizard Xavier's Quest Set</h3>
-	<p>Xavier will have some more advanced Guild Quests.</p>
+<html><div class="roomBox">
+  <h4>Wizard's Guild</h4>
+  <h3 class="purple">Xavier's Quest Set</h3>
+	<p>Xavier will have the most elite of Guild Quests. Soon...</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	Quests Coming Soon:<br/>
-
 	<button type="submit" name="input1" value="east">East</button>
 	</form>
 </div></html>

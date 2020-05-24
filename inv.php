@@ -1422,6 +1422,17 @@ while ($row = $result->fetch_assoc()) {
 			<span class='sellPrice'>".$_SESSION['COSTboomerang']."</span>
 			<input type='submit' class='sellBtn' name='input1' value='sell boomerang' />  </div>";
     }
+    if ($row["chakram"] > 0) {
+        echo "<div>";
+        if ($row["equipR"] == "chakram") {
+            echo "<span class='equipped'>active</span> ";
+        } else {
+            echo "<input type='submit' class='equipBtn' name='input1' value='equip chakram' /> ";
+        }
+        echo "<span>".$row["chakram"]."x </span>  chakram <span>( <i class='green'>+5</i> dex, <i class='blue'>+5</i> mag )</span>
+      <span class='sellPrice'>".$_SESSION['COSTchakram']."</span>
+      <input type='submit' class='sellBtn' name='input1' value='sell chakram' />  </div>";
+    }
     if ($row["woodenbow"] > 0) {
         echo "<div>";
         if ($row["equipR"] == "wooden bow") {

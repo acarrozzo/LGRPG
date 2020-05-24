@@ -328,10 +328,10 @@ inputX {
 
 
 	.module.login a.btn {padding:4px 10px;text-decoration:none;color:#333333;float:left;margin:10px 10px 0 0;}
-	.login.btn {background: #aaa;
-	    color: #fff;
+	.login.btn {
+		margin-top:1rem;
 	    display: block;
-	    padding: 10px 20px;}
+		}
 }
 #title input {color: $darkgray;
 width: 100%;

@@ -42,9 +42,8 @@ if ($row['equipL'] =="hunter shield") {
 // ----------------------------------------------------------------- tower shield
 if ($row['equipL'] =="tower shield") {
     echo " <span>( <i class='gold'>+12</i>, <i class='blue'>+2</i> )</span>";
-    $results = $link->query("UPDATE $user SET defmod = defmod +10");
-    $results = $link->query("UPDATE $user SET strmod = strmod +3");
-    $results = $link->query("UPDATE $user SET dexmod = dexmod +3");
+    $results = $link->query("UPDATE $user SET defmod = defmod +12");
+    $results = $link->query("UPDATE $user SET magmod = magmod +2");
 }
 
 // ----------------------------------------------------------------- off hand dagger

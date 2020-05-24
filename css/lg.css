@@ -471,10 +471,8 @@ inputX {
 }
 /* line 331, ../assets/scss/_style-main.scss */
 #title .login.btn {
-  background: #aaa;
-  color: #fff;
+  margin-top: 1rem;
   display: block;
-  padding: 10px 20px;
 }
 
 /* line 336, ../assets/scss/_style-main.scss */

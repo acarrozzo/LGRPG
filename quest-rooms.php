@@ -286,7 +286,7 @@
         }
     }
     // ---------------------------------------------------------------- 19 - WARRIORS GUILD INITIATION
-    elseif ($row['room']=='226') {
+    elseif ($row['room']=='226' && 99999999999999 == 8888888888888888888888) {
         echo '<h2 class="blue">Warrior\'s Initiation </h2><h4>Quest 19</h4>
 			';
         if ($row['quest19']=='0') {
@@ -307,7 +307,7 @@
         }
     }
     // ---------------------------------------------------------------- 20 - WIZARDS GUILD INITIATION
-    elseif ($row['room']=='225') {
+    elseif ($row['room']=='225' && 99999999999999 == 8888888888888888888888) {
         echo '<h2 class="purple">Wizard\'s Guild </h2><h4>Quest 20</h4>
 			';
         if ($row['quest20']=='0') {
@@ -328,7 +328,7 @@
         }
     }
     // ---------------------------------------------------------------- 21-23 - TOWN HALL PLAZA
-    elseif ($row['room']=='221') {
+    elseif ($row['room']=='221' && 99999999999999 == 8888888888888888888888) {
         echo '<h2 class="red">Town Plaza</h2><h4>Quests 21-23</h4>
 			';
         if ($row['quest21']=='0') {
@@ -367,7 +367,7 @@
         }
     }
     // ---------------------------------------------------------------- 24 - RED TOWN MAYOR
-    elseif ($row['room']=='222z') {
+    elseif ($row['room']=='222z' && 99999999999999 == 8888888888888888888888) {
         echo '<h2 class="red">Red Town Mayor </h2><h4>Quest 24</h4>
 			';
         if ($row['quest24']=='0') {

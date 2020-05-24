@@ -119,7 +119,24 @@ while ($row = $result->fetch_assoc()) {
             $questCount++;
         }
     }
-
+    // --------------------------------  QUEST BADGES Town Hall Plaza
+    if ($roomID=='221') {
+        if ($row['quest21']<2) {
+            $questCount++;
+        }
+        if ($row['quest22']<2) {
+            $questCount++;
+        }
+        if ($row['quest23']<2) {
+            $questCount++;
+        }
+    }
+    // -------------------  QUEST BADGES RED TOWN MAYOR
+    if ($roomID=='222z') {
+        if ($row['quest24']<2) {
+            $questCount++;
+        }
+    }
     // -------------------------------- ALL QUEST BADGES
     if ($questCount>0) {
         //if ($roomID=='003' || $roomID=='003c' || $roomID=='024') {

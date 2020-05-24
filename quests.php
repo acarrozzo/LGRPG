@@ -11,7 +11,7 @@ if (!$result = $link->query($sql)) {
 }
 // -------------------------DB OUTPUT!
 while ($row = $result->fetch_assoc()) {
-    //$results = $link->query("UPDATE $user SET leather = 0"); // -- temp
+    $results = $link->query("UPDATE $user SET KLscorpionking = 0"); // -- temp
 
     /*
       $results = $link->query("UPDATE $user SET quest10 = 0"); // -- temp
@@ -1188,7 +1188,7 @@ while ($row = $result->fetch_assoc()) {
         echo '" >';
         //  echo '<div class="gslice">';
         echo '<h4 class="darkblue">Warrior\'s Guild</h4>';
-        echo '<h2>Warrior\'s Guild Entrance</h2>';
+        echo '<h2>Warrior\'s Guild Initiation</h2>';
         echo '<span class="icon npc darkblue">'.file_get_contents("img/svg/npc-warrior.svg").'</span>';
         if ($row['quest19']<2) { // -- default description
             echo '<p class="gray">The Warrior\'s Guild offers skills and equipment to help you excel in battle. As a member you will learn new attacks and can increase your physical training skill to 20.</p>';
@@ -1206,7 +1206,7 @@ while ($row = $result->fetch_assoc()) {
         $questNumber = '19';
         if ($row['quest'.$questNumber.'']=='1') {
             $questTag = 'lvl 13 boss battle';
-            $questTitle = 'Warrior\'s Initiation';
+            $questTitle = 'Trial of the Warrior';
             $questDesc = 'Do you have what it takes to become a Warrior? Defeat the Ogre Lair Boss and you will be able to call the Warrior\'s Guild your home.';
             $color='gold';
             $questflag='0';
@@ -1221,7 +1221,7 @@ while ($row = $result->fetch_assoc()) {
 
             if ($row['KLogrelieutenant']<=0) {
                 echo '<h5 class="padd">'.$checkBox.' Defeat the Ogre Lieutenant.</h5>';
-                echo '<p>To join the Warrior\'s Guild you have to defeat the Ogre Lieutenant. His Lair is found in the southwest part of the Forest Map. Follow the path out of town to the north and then go W when you reach the Forest Map.</p>';
+                echo '<p>The Ogre Lair is found in the southwest part of the Forest Map. Follow the path out of town to the north and then go west when you reach the Forest Map.</p>';
             }
 
             if ($questflag=='1') {
@@ -1259,7 +1259,7 @@ while ($row = $result->fetch_assoc()) {
         echo '" >';
         //  echo '<div class="gslice">';
         echo '<h4 class="purple">Wizard\'s Guild</h4>';
-        echo '<h2>Wizard\'s Guild Entrance</h2>';
+        echo '<h2>Wizard\'s Guild Initiation</h2>';
         echo '<span class="icon npc purple">'.file_get_contents("img/svg/npc-wizard.svg").'</span>';
         if ($row['quest20']<2) { // -- default description
             echo '<p class="gray">Do you like hurling great balls of fire at your enemies? Do you want to regenerate health using powerful magic? Do you dream about flying through the sky like a dragon? Well then you want to join the Wizard\'s Guild!</p>';
@@ -1277,7 +1277,7 @@ while ($row = $result->fetch_assoc()) {
         $questNumber = '20';
         if ($row['quest'.$questNumber.'']=='1') {
             $questTag = 'lvl 13 boss battle';
-            $questTitle = 'Wizard\'s Initiation';
+            $questTitle = 'Trial of the Wizard';
             $questDesc = 'Do you even wizard? Defeating the Kobold Lair Boss is the only way to join the Wizard\'s Guild and be able to truly call yourself a wizard.';
             $color='gold';
             $questflag='0';
@@ -1292,7 +1292,7 @@ while ($row = $result->fetch_assoc()) {
 
             if ($row['KLkoboldmaster']<=0) {
                 echo '<h5 class="padd">'.$checkBox.' Defeat the Kobold Master.</h5>';
-                echo '<p>To join the Wizards Guild you have to defeat the Kobold Master. His Lair is found in the northwest part of the Forest Map. Follow the path out of town all the way north and then go SW when you can\'t go any further.</p>';
+                echo '<p>The Kobold Lair is found in the northwest part of the Forest Map. Follow the path out of town all the way north and then go SW when you can\'t go north any further.</p>';
             }
 
             if ($questflag=='1') {
@@ -1307,6 +1307,261 @@ while ($row = $result->fetch_assoc()) {
 
         echo '</div>'; //-end gbox
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // --------------------------------------- Town Hall Plaza Quests appear after Visit Red Town Square
+    if ($row['teleport3']>=1) {
+        // --------------------------------------- Town Hall Plaza QUEST CHAIN
+        // --------------------------------------- Town Hall Plaza QUEST CHAIN
+        // --------------------------------------- Town Hall Plaza QUEST CHAIN
+        $questRoom = '221';
+        echo '<div class="gbox';
+        if ($row['room']==$questRoom) {
+            echo ' tops';
+        } elseif ($row['quest21']==2 && $row['quest22']==2 && $row['quest23']==2) {
+            echo ' end';
+        }
+        echo '" >';
+        //  echo '<div class="gslice">';
+        echo '<h4 class="red">Red Town</h4>';
+        echo '<h2>Town Hall Plaza</h2>';
+        echo '<span class="icon npc red">'.file_get_contents("img/svg/npc-townhallplaza.svg").'</span>';
+        if ($row['quest21']<'2' || $row['quest22']<'2' || $row['quest23']<'2') { // -- default description
+            echo '<p class="gray">The spacious plaza is busy with people trading and passing through. Some are looking for help.</p>';
+        } else { // --- all quests done
+            echo '<p class="gray">ALL Quests done!</p>';
+            echo '<h5 class="padd">'.$checkBox.' Find XXX</h5>';
+        }
+        if ($row['quest21']=='0') { // ---- end state
+            echo '<h5 class="gslice">'.$checkBox.' Talk to the people at the Plaza</h5>';
+            if ($row['room']==$questRoom) {
+                echo '<button class="redBG" type="submit" name="input1" value="start quests"><h4>Talk to the people at the Plaza</h4></button>';
+            }
+        }
+        // ----------------------------------------- IN PROGRESS - QUEST 21
+        $questNumber = '21';
+        if ($row['quest'.$questNumber.'']=='1') {
+            $questTag = 'Flower Collect';
+            $questTitle = 'Twice as Nice';
+            $questDesc = 'The nice lady would like you to bring her 2 flowers. You can pick one from the Grassy Field and one from the Babylon Gardens.';
+            $color='gold';
+            $questflag='0';
+            if ($row['flower']>=2) {
+                $color='green';
+                $questflag = "1";
+            }
+            echo '<div class="gslice">';
+            echo '<p class="questLvlBox"><span class="'.$color.'">Quest '.$questNumber.' </span> '.$questTag.'</p>';
+            echo '<h3>'.$questTitle.'</h3>';
+            echo '<p class="gray">'.$questDesc.'</p>';
+
+            if ($row['flower']>=1) {
+                echo '<h5 class="padd green">'.$checkedBox.'  Pick Flower - Grassy Field</h5>';
+            } else {
+                echo '<h5 class="padd">'.$checkBox.'Pick Flower - Grassy Field</h5>';
+            }
+            if ($row['flower']>=2) {
+                echo '<h5 class="green">'.$checkedBox.'Pick Flower - Babylon Gardens</h5>';
+            } else {
+                echo '<h5 class="">'.$checkBox.'Pick Flower - Babylon Gardens </h5>';
+            }
+
+
+            if ($questflag=='1') {
+                echo '<h5 class="padd green">'.$checkedBox.' You have 2 flowers! Return to Red Town Plaza for your reward.</h5>';
+                if ($row['room']==$questRoom) {
+                    echo '<button class="greenBG" type="submit" name="input1" value="complete '.$questNumber.'"><h4>Complete Quest</h4></button>';
+                }
+            }
+            echo '</div>';
+        }
+        //$results = $link->query("UPDATE $user SET wood = 0");
+
+        // ----------------------------------------- IN PROGRESS - QUEST 22
+        $questNumber = '22';
+        if ($row['quest'.$questNumber.'']=='1') {
+            $questTag = 'Item Collect';
+            $questTitle = 'Cookin up some Meat-a-balls ';
+            $questDesc = 'Bring the Chef 5 pieces of cooked meat and he will teach you how to cook up some tasty meatballs.';
+            $color='gold';
+            $questflag='0';
+            if ($row['cookedmeat']>=20) {
+                $color='green';
+                $questflag = "1";
+            }
+            echo '<div class="gslice">';
+            echo '<p class="questLvlBox"><span class="'.$color.'">Quest '.$questNumber.' </span> '.$questTag.'</p>';
+            echo '<h3>'.$questTitle.'</h3>';
+            echo '<p class="gray">'.$questDesc.'</p>';
+            //if ($row['quest'.$questNumber.'']=='1') {
+            if ($row['cookedmeat']<5) {
+                echo '<h5 class="padd">';
+                if ($row['cookedmeat']>=1) {
+                    echo $checkedBox.' ';
+                } else {
+                    echo $checkBox.' ';
+                }
+                if ($row['cookedmeat']>=2) {
+                    echo $checkedBox.' ';
+                } else {
+                    echo $checkBox.' ';
+                }
+                if ($row['cookedmeat']>=3) {
+                    echo $checkedBox.' ';
+                } else {
+                    echo $checkBox.' ';
+                }
+                if ($row['cookedmeat']>=4) {
+                    echo $checkedBox.' ';
+                } else {
+                    echo $checkBox.' ';
+                }
+                echo $checkBox.' ';
+                echo ' Cooked Meat</h5>';
+            }
+
+            if ($questflag=='1') {
+                echo '<h5 class="padd green">'.$checkedBox.$checkedBox.$checkedBox.$checkedBox.$checkedBox.' You have 5 pieces of cooked meat! Return to the Chef at Red Town Plaza for your reward.</h5>';
+                if ($row['room']==$questRoom) {
+                    echo '<button class="greenBG" type="submit" name="input1" value="complete '.$questNumber.'"><h4>Complete Quest</h4></button>';
+                }
+            }
+            //}
+            echo '</div>';
+        }
+        // ----------------------------------------- IN PROGRESS - QUEST 23
+        $questNumber = '23';
+        if ($row['quest'.$questNumber.'']=='1') {
+            $questTag = 'Lvl 14 Mini-Boss';
+            $questTitle = 'Stolen Teddy Bear';
+            $questDesc = 'Little Suzie\'s stuffed animal has been stolen. No doubt the thieves have it. Find and defeat their leader in the Thieve\'s Den down in the Sewers.';
+            $color='gold';
+            $questflag='0';
+            if ($row['KLmasterthief']>=1) {
+                $color='green';
+                $questflag = "1";
+            }
+            echo '<div class="gslice">';
+            echo '<p class="questLvlBox"><span class="'.$color.'">Quest '.$questNumber.' </span> '.$questTag.'</p>';
+            echo '<h3>'.$questTitle.'</h3>';
+            echo '<p class="gray">'.$questDesc.'</p>';
+
+            if ($row['KLmasterthief']>=1) {
+                echo '<h5 class="padd green">'.$checkedBox.' Defeat the Master Thief. </h5> ';
+            } else {
+                echo '<h5 class="padd">'.$checkBox.' Defeat the Master Thief and bring back Suzie\'s Teddy Bear. </h5>';
+            }
+            if ($questflag=='1') {
+                echo '<h5 class="padd green">'.$checkedBox.$checkedBox.$checkedBox.' You have retrieved the stolen Teddy Bear. Return to Red Town Plaza for your reward. </h5>';
+                if ($row['room']==$questRoom) {
+                    echo '<button class="greenBG" type="submit" name="input1" value="complete '.$questNumber.'"><h4>Complete Quest</h4></button>';
+                }
+            }
+            echo '</div>';
+        }
+        echo '</div>'; //-end gbox
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // --------------------------------------- Red Town Mayor Quests appear after gold chest 1 open
+    if ($row['chest1']>=1) {
+        // --------------------------------------- Red Town Mayor QUEST CHAIN
+        // --------------------------------------- Red Town Mayor QUEST CHAIN
+        // --------------------------------------- Red Town Mayor QUEST CHAIN
+        $questRoom = '222z';
+        echo '<div class="gbox';
+        if ($row['room']==$questRoom) {
+            echo ' tops';
+        } elseif ($row['quest24']==2) {
+            echo ' end';
+        }
+        echo '" >';
+        //  echo '<div class="gslice">';
+        echo '<h4 class="red">Town Hall</h4>';
+        echo '<h2>Red Town Mayor</h2>';
+        echo '<span class="icon npc red">'.file_get_contents("img/svg/npc-mayor.svg").'</span>';
+        if ($row['quest24']<2) { // -- default description
+            echo '<p class="gray">Mayor Rudolf runs the town out of his office. You can find him on the top floor of Town Hall.</p>';
+        } else { // --- all quests done
+            echo '<p class="gray">ALL Quests done!</p>';
+            echo '<h5 class="padd">'.$checkBox.' Find XXX</h5>';
+        }
+        if ($row['quest24']=='0') { // ---- end state
+            echo '<h5 class="gslice">'.$checkBox.' Talk to the Red Town Mayor</h5>';
+            if ($row['quest24']=='0' && $row['room']==$questRoom) {
+                echo '<button class="redBG" type="submit" name="input1" value="start quests"><h4>Talk to the Red Town Mayor</h4></button>';
+            }
+        }
+        // ----------------------------------------- IN PROGRESS - QUEST 24
+        $questNumber = '24';
+        if ($row['quest'.$questNumber.'']=='1') {
+            $questTag = 'lvl 30 Boss';
+            $questTitle = 'Scorpion King Bounty';
+            $questDesc = 'Defeat the ferocious Scorpion King in the Scorpion Pit below the Spider Cave. Completing this quest will reward you with a <span class="gold">Gold Key</span>.';
+            $color='gold';
+            $questflag='0';
+            if ($row['KLscorpionking']>=1) {
+                $color='green';
+                $questflag = "1";
+            }
+            echo '<div class="gslice">';
+            echo '<p class="questLvlBox"><span class="'.$color.'">Quest '.$questNumber.' </span> '.$questTag.'</p>';
+            echo '<h3>'.$questTitle.'</h3>';
+            echo '<p class="gray">'.$questDesc.'</p>';
+
+            if ($row['KLscorpionking']<=0) {
+                echo '<h5 class="padd">'.$checkBox.' Defeat the Scorpion King</h5>';
+            }
+
+            if ($questflag=='1') {
+                echo '<h5 class="padd green">'.$checkedBox.' You have defeated the Scorpion King. Return to the Red Town Mayor for your reward!</h5>';
+                if ($row['room']==$questRoom) {
+                    echo '<button class="greenBG" type="submit" name="input1" value="complete '.$questNumber.'"><h4>Complete Quest</h4></button>';
+                }
+            }
+            echo '</div>';
+        }
+        echo '</div>'; //-end gbox
+    }
+
+
 
 
 

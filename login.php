@@ -11,7 +11,7 @@ if (isset($_SESSION['username'])) {
     // -------------------------DB OUTPUT!
     while ($row = $result->fetch_assoc()) {
         if ($_SESSION['pass'] != $row['password']) {
-            echo 'password dont match yoooooo';
+            echo 'password dont match yoooooo  - not sure if this thing is in use?';
         } else {
             echo ' first members - not sure if this thing is in use?!!!!!';
             //include('members.php');
@@ -77,7 +77,7 @@ if (isset($_POST['submit'])) {  // if form has been submitted
 if (!isset($loginFlag)) {
     ?>
  <form class="login" action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
-  <h3>Log In</h3>
+   <h3>Log In</h3>
   <p class="lft hide">Username: </p>
   <input type="text" name="username" placeholder ="username" maxlength="40">
   <p class="lft hide">Password:</p>
