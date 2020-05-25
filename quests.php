@@ -991,7 +991,7 @@ while ($row = $result->fetch_assoc()) {
         // ----------------------------------------- IN PROGRESS - QUEST 16
         $questNumber = '16';
         if ($row['quest'.$questNumber.'']=='1') {
-            $questTag = 'Lvl 13 Battle';
+            $questTag = 'Lvl 35 Battle';
             $questTitle = 'Troll Base Camp';
             $questDesc = 'Trolls guard the entrance to the Dark Forest up north. Go slay 3 of them and return for a reward.';
             $color='gold';
@@ -1004,20 +1004,20 @@ while ($row = $result->fetch_assoc()) {
             echo '<p class="questLvlBox"><span class="'.$color.'">Quest '.$questNumber.' </span> '.$questTag.'</p>';
             echo '<h3>'.$questTitle.'</h3>';
             echo '<p class="gray">'.$questDesc.'</p>';
-
             if ($row['KLtroll']<3) {
+                echo '<h5 class="padd">';
                 if ($row['KLtroll']>=1) {
-                    echo '<h5 class="padd green">'.$checkedBox.' Troll </h5> ';
+                    echo $checkedBox.' ';
                 } else {
-                    echo '<h5 class="padd">'.$checkBox.' Troll</h5>';
+                    echo $checkBox.' ';
                 }
                 if ($row['KLtroll']>=2) {
-                    echo '<h5 class="green">'.$checkedBox.' Troll </h5> ';
+                    echo $checkedBox .' ';
                 } else {
-                    echo '<h5 class="">'.$checkBox.' Troll</h5>';
+                    echo $checkBox.' ';
                 }
-                echo '<h5 class="padd">'.$checkBox.' ';
-                echo ' Troll</h5>';
+                echo $checkBox.' ';
+                echo ' Trolls</h5>';
             }
             if ($questflag=='1') {
                 echo '<h5 class="padd green">'.$checkedBox.$checkedBox.$checkedBox.' You have defeated 3 Trolls! Return to the Forest Gnome for your reward.</h5>';
@@ -1564,6 +1564,321 @@ while ($row = $result->fetch_assoc()) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // --------------------------------------- Warrior Pete Quests appear after member of warriors guild
+    if ($row['quest19']>=2) {
+        // --------------------------------------- Warrior Pete QUEST CHAIN
+        // --------------------------------------- Warrior Pete QUEST CHAIN
+        // --------------------------------------- Warrior Pete QUEST CHAIN
+        $questRoom = '226e';
+        echo '<div class="gbox';
+        if ($row['room']==$questRoom) {
+            echo ' tops';
+        } elseif ($row['quest25']==2 && $row['quest26']==2 && $row['quest27']==2) {
+            echo ' end';
+        }
+        echo '" >';
+        echo '<h4 class="blue">Warrior\'s Guild</h4>';
+        echo '<h2>Warrior Pete</h2>';
+        echo '<span class="icon npc blue">'.file_get_contents("img/svg/npc-warrior2.svg").'</span>';
+        if ($row['quest25']<'2' || $row['quest26']<'2' || $row['quest27']<'2') { // -- default description
+            echo '<p class="gray">Warrior Pete is somewhat small for a Warrior, but he\'s no slouch. Complete his 3 quests to become one of the strongest Warriors in the guild.</p>';
+        } else { // --- all quests done
+            echo '<p class="gray">ALL Quests done!</p>';
+            echo '<h5 class="padd">'.$checkBox.' Find XXX</h5>';
+        }
+        if ($row['quest25']=='0') { // ---- end state
+            echo '<h5 class="gslice">'.$checkBox.' Talk to Warrior Pete</h5>';
+            if ($row['quest25']=='0' && $row['room']==$questRoom) {
+                echo '<button class="blueBG" type="submit" name="input1" value="start quests"><h4>Talk to Warrior Pete</h4></button>';
+            }
+        }
+        // ----------------------------------------- IN PROGRESS - QUEST 25
+        $questNumber = '25';
+        if ($row['quest'.$questNumber.'']=='1') {
+            $questTag = 'Lvl 10 Battle';
+            $questTitle = 'Banish the Skeleton Knights';
+            $questDesc = 'Send 3 Skeleton Knights back to Hell. Find them down in the Sewer Catacombs. ';
+            $color='gold';
+            $questflag='0';
+            if ($row['KLskeletonknight']>=3) {
+                $color='green';
+                $questflag = "1";
+            }
+            echo '<div class="gslice">';
+            echo '<p class="questLvlBox"><span class="'.$color.'">Quest '.$questNumber.' </span> '.$questTag.'</p>';
+            echo '<h3>'.$questTitle.'</h3>';
+            echo '<p class="gray">'.$questDesc.'</p>';
+            if ($row['KLskeletonknight']<3) {
+                echo '<h5 class="padd">';
+                if ($row['KLskeletonknight']>=1) {
+                    echo $checkedBox.' ';
+                } else {
+                    echo $checkBox.' ';
+                }
+                if ($row['KLskeletonknight']>=2) {
+                    echo $checkedBox .' ';
+                } else {
+                    echo $checkBox.' ';
+                }
+                echo $checkBox.' ';
+                echo ' Skeleton Knights</h5>';
+            }
+            if ($questflag=='1') {
+                echo '<h5 class="padd green">'.$checkedBox.$checkedBox.$checkedBox.' You have sent 3 Skeleton Knights back to hell! Return to Warrior Pete for your reward.</h5>';
+                if ($row['room']==$questRoom) {
+                    echo '<button class="greenBG" type="submit" name="input1" value="complete '.$questNumber.'"><h4>Complete Quest</h4></button>';
+                }
+            }
+            echo '</div>';
+        }
+        // ----------------------------------------- IN PROGRESS - QUEST 26
+        $questNumber = '26';
+        if ($row['quest'.$questNumber.'']=='1') {
+            $questTag = 'Lvl 20 Battle';
+            $questTitle = 'Shark Hunter';
+            $questDesc = 'Travel under the Ocean and hunt down a Great White and Hammerhead Shark. ';
+            $color='gold';
+            $questflag='0';
+            if ($row['KLgreatwhite']>=1 && $row['KLhammerhead']>=1) {
+                $color='green';
+                $questflag = "1";
+            }
+            echo '<div class="gslice">';
+            echo '<p class="questLvlBox"><span class="'.$color.'">Quest '.$questNumber.' </span> '.$questTag.'</p>';
+            echo '<h3>'.$questTitle.'</h3>';
+            echo '<p class="gray">'.$questDesc.'</p>';
+            if ($row['KLgreatwhite']>=1) {
+                echo '<h5 class="padd green">'.$checkedBox.' Great White </h5> ';
+            } else {
+                echo '<h5 class="padd">'.$checkBox.' Great White</h5>';
+            }
+            if ($row['KLhammerhead']>=1) {
+                echo '<h5 class="green">'.$checkedBox.' Hammerhead </h5> ';
+            } else {
+                echo '<h5 class="">'.$checkBox.' Hammerhead</h5>';
+            }
+            if ($questflag=='1') {
+                echo '<h5 class="padd green">'.$checkedBox.' You have defeated a Great White and Hammerhead! Return to Warrior Pete for your reward.</h5>';
+                if ($row['room']==$questRoom) {
+                    echo '<button class="greenBG" type="submit" name="input1" value="complete '.$questNumber.'"><h4>Complete Quest</h4></button>';
+                }
+            }
+            echo '</div>';
+        }
+        // ----------------------------------------- IN PROGRESS - QUEST 27
+        $questNumber = '27';
+        if ($row['quest'.$questNumber.'']=='1') {
+            $questTag = 'Lvl 13 Battle';
+            $questTitle = 'True Troll Champion';
+            $questDesc = 'Become a legend warrior by defeating 3 Troll Champions. They can be found in the Dark Forest.';
+            $color='gold';
+            $questflag='0';
+            if ($row['KLtrollchampion']>=3) {
+                $color='green';
+                $questflag = "1";
+            }
+            echo '<div class="gslice">';
+            echo '<p class="questLvlBox"><span class="'.$color.'">Quest '.$questNumber.' </span> '.$questTag.'</p>';
+            echo '<h3>'.$questTitle.'</h3>';
+            echo '<p class="gray">'.$questDesc.'</p>';
+
+            if ($row['KLtrollchampion']<3) {
+                echo '<h5 class="padd">';
+                if ($row['KLtrollchampion']>=1) {
+                    echo $checkedBox.' ';
+                } else {
+                    echo $checkBox.' ';
+                }
+                if ($row['KLtrollchampion']>=2) {
+                    echo $checkedBox .' ';
+                } else {
+                    echo $checkBox.' ';
+                }
+                echo $checkBox.' ';
+                echo ' Troll Champions</h5>';
+            }
+            if ($questflag=='1') {
+                echo '<h5 class="padd green">'.$checkedBox.$checkedBox.$checkedBox.' You have defeated 3 Troll Champions! Return to Warrior Pete for your reward.</h5>';
+                if ($row['room']==$questRoom) {
+                    echo '<button class="greenBG" type="submit" name="input1" value="complete '.$questNumber.'"><h4>Complete Quest</h4></button>';
+                }
+            }
+            echo '</div>';
+        }
+        echo '</div>'; //-end gbox
+    }
+
+
+
+
+
+
+
+
+
+
+
+    // --------------------------------------- Wizard Morty Quests appear after member wizards guild
+    if ($row['quest20']>=2) {
+        // --------------------------------------- Wizard Morty QUEST CHAIN
+        // --------------------------------------- Wizard Morty QUEST CHAIN
+        // --------------------------------------- Wizard Morty QUEST CHAIN
+        $questRoom = '225g';
+        echo '<div class="gbox';
+        if ($row['room']==$questRoom) {
+            echo ' tops';
+        } elseif ($row['quest28']==2 && $row['quest29']==2 && $row['quest30']==2) {
+            echo ' end';
+        }
+        echo '" >';
+        echo '<h4 class="purple">Wizards\'s Guild</h4>';
+        echo '<h2>Wizard Morty</h2>';
+        echo '<span class="icon npc purple">'.file_get_contents("img/svg/npc-wizard2.svg").'</span>';
+        if ($row['quest28']<'2' || $row['quest29']<'2' || $row['quest30']<'2') { // -- default description
+            echo '<p class="gray">Wizard Morty is such a prankster. Complete his 3 quests to become one of the strongest Wizards in the guild.</p>';
+        } else { // --- all quests done
+            echo '<p class="gray">ALL Quests done!</p>';
+            echo '<h5 class="padd">'.$checkBox.' Find XXX</h5>';
+        }
+        if ($row['quest28']=='0') { // ---- end state
+            echo '<h5 class="gslice">'.$checkBox.' Talk to Wizard Morty</h5>';
+            if ($row['quest28']=='0' && $row['room']==$questRoom) {
+                echo '<button class="purpleBG" type="submit" name="input1" value="start quests"><h4>Talk to Wizard Morty</h4></button>';
+            }
+        }
+        // ----------------------------------------- IN PROGRESS - QUEST 28
+        $questNumber = '28';
+        if ($row['quest'.$questNumber.'']=='1') {
+            $questTag = 'Lvl 10 Battle';
+            $questTitle = 'Banish the Skeleton Knights';
+            $questDesc = 'Send 3 Skeleton Knights back to Hell. Find them down in the Sewer Catacombs. ';
+            $color='gold';
+            $questflag='0';
+            if ($row['KLskeletonknight']>=3) {
+                $color='green';
+                $questflag = "1";
+            }
+            echo '<div class="gslice">';
+            echo '<p class="questLvlBox"><span class="'.$color.'">Quest '.$questNumber.' </span> '.$questTag.'</p>';
+            echo '<h3>'.$questTitle.'</h3>';
+            echo '<p class="gray">'.$questDesc.'</p>';
+            if ($row['KLskeletonknight']<3) {
+                echo '<h5 class="padd">';
+                if ($row['KLskeletonknight']>=1) {
+                    echo $checkedBox.' ';
+                } else {
+                    echo $checkBox.' ';
+                }
+                if ($row['KLskeletonknight']>=2) {
+                    echo $checkedBox .' ';
+                } else {
+                    echo $checkBox.' ';
+                }
+                echo $checkBox.' ';
+                echo ' Skeleton Knights</h5>';
+            }
+            if ($questflag=='1') {
+                echo '<h5 class="padd green">'.$checkedBox.$checkedBox.$checkedBox.' You have sent 3 Skeleton Knights back to hell! Return to Wizard Morty for your reward.</h5>';
+                if ($row['room']==$questRoom) {
+                    echo '<button class="greenBG" type="submit" name="input1" value="complete '.$questNumber.'"><h4>Complete Quest</h4></button>';
+                }
+            }
+            echo '</div>';
+        }
+        // ----------------------------------------- IN PROGRESS - QUEST 29
+        $questNumber = '29';
+        if ($row['quest'.$questNumber.'']=='1') {
+            $questTag = 'Lvl 20 Battle';
+            $questTitle = 'Shark Hunter';
+            $questDesc = 'Travel under the Ocean and hunt down a Great White and Hammerhead Shark. ';
+            $color='gold';
+            $questflag='0';
+            if ($row['KLgreatwhite']>=1 && $row['KLhammerhead']>=1) {
+                $color='green';
+                $questflag = "1";
+            }
+            echo '<div class="gslice">';
+            echo '<p class="questLvlBox"><span class="'.$color.'">Quest '.$questNumber.' </span> '.$questTag.'</p>';
+            echo '<h3>'.$questTitle.'</h3>';
+            echo '<p class="gray">'.$questDesc.'</p>';
+            if ($row['KLgreatwhite']>=1) {
+                echo '<h5 class="padd green">'.$checkedBox.' Great White </h5> ';
+            } else {
+                echo '<h5 class="padd">'.$checkBox.' Great White</h5>';
+            }
+            if ($row['KLhammerhead']>=1) {
+                echo '<h5 class="green">'.$checkedBox.' Hammerhead </h5> ';
+            } else {
+                echo '<h5 class="">'.$checkBox.' Hammerhead</h5>';
+            }
+            if ($questflag=='1') {
+                echo '<h5 class="padd green">'.$checkedBox.' You have defeated a Great White and Hammerhead! Return to Wizard Morty for your reward.</h5>';
+                if ($row['room']==$questRoom) {
+                    echo '<button class="greenBG" type="submit" name="input1" value="complete '.$questNumber.'"><h4>Complete Quest</h4></button>';
+                }
+            }
+            echo '</div>';
+        }
+        // ----------------------------------------- IN PROGRESS - QUEST 30
+        $questNumber = '30';
+        if ($row['quest'.$questNumber.'']=='1') {
+            $questTag = 'Lvl 13 Battle';
+            $questTitle = 'True Troll Champion';
+            $questDesc = 'Become a legend warrior by defeating 3 Troll Champions. They can be found in the Dark Forest.';
+            $color='gold';
+            $questflag='0';
+            if ($row['KLtrollchampion']>=3) {
+                $color='green';
+                $questflag = "1";
+            }
+            echo '<div class="gslice">';
+            echo '<p class="questLvlBox"><span class="'.$color.'">Quest '.$questNumber.' </span> '.$questTag.'</p>';
+            echo '<h3>'.$questTitle.'</h3>';
+            echo '<p class="gray">'.$questDesc.'</p>';
+
+            if ($row['KLtrollchampion']<3) {
+                echo '<h5 class="padd">';
+                if ($row['KLtrollchampion']>=1) {
+                    echo $checkedBox.' ';
+                } else {
+                    echo $checkBox.' ';
+                }
+                if ($row['KLtrollchampion']>=2) {
+                    echo $checkedBox .' ';
+                } else {
+                    echo $checkBox.' ';
+                }
+                echo $checkBox.' ';
+                echo ' Troll Champions</h5>';
+            }
+            if ($questflag=='1') {
+                echo '<h5 class="padd green">'.$checkedBox.$checkedBox.$checkedBox.' You have defeated 3 Troll Champions! Return to Wizard Morty for your reward.</h5>';
+                if ($row['room']==$questRoom) {
+                    echo '<button class="greenBG" type="submit" name="input1" value="complete '.$questNumber.'"><h4>Complete Quest</h4></button>';
+                }
+            }
+            echo '</div>';
+        }
+        echo '</div>'; //-end gbox
+    }
 
 
     // -----------------------

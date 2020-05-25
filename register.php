@@ -39,19 +39,20 @@ if (isset($_POST['submit'])) {
     $result = mysqli_query($link, $query);
     //echo 'RRRR:'.$result;
 
-    //if the name exists it gives an error
-    if ($result->num_rows > 0) {
-        echo '<p class="red">Sorry, the username '.$_POST['username'].' is already in use.</p>';
-        include('register-form.php');
-        die('');
-    }
-
     // this makes sure both passwords entered match
     if ($_POST['pass'] != $_POST['pass2']) {
         echo'<p class="red">Your passwords did not match. </p>';
         include('register-form.php');
         die('');
     }
+    //if the name exists it gives an error
+    else if ($result->num_rows > 0) {
+        echo '<p class="red">Sorry, the username '.$_POST['username'].' is already in use.</p>';
+        include('register-form.php');
+        die('');
+    }
+
+
 
     // here we encrypt the password and add slashes if needed
     $_POST['pass'] = password_hash($_POST['pass'], PASSWORD_BCRYPT);

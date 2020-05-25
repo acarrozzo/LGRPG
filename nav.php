@@ -137,6 +137,32 @@ while ($row = $result->fetch_assoc()) {
             $questCount++;
         }
     }
+    // --------------------------------  QUEST BADGES Warriors guild - pete
+    if ($roomID=='226e') {
+        if ($row['quest25']<2) {
+            $questCount++;
+        }
+        if ($row['quest26']<2) {
+            $questCount++;
+        }
+        if ($row['quest27']<2) {
+            $questCount++;
+        }
+    }
+    // --------------------------------  QUEST BADGES Wizards guild - Morty
+    if ($roomID=='225g') {
+        if ($row['quest28']<2) {
+            $questCount++;
+        }
+        if ($row['quest29']<2) {
+            $questCount++;
+        }
+        if ($row['quest30']<2) {
+            $questCount++;
+        }
+    }
+
+
     // -------------------------------- ALL QUEST BADGES
     if ($questCount>0) {
         //if ($roomID=='003' || $roomID=='003c' || $roomID=='024') {

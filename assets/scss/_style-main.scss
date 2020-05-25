@@ -332,19 +332,14 @@ inputX {
 		margin-top:1rem;
 	    display: block;
 		}
-}
-#title input {color: $darkgray;
-width: 100%;
-box-sizing: border-box;
-padding: 1rem 2rem;
-background: #fff;
-display: block;
-margin: .5rem auto;
-text-align: center;
-	&:first-of-type, 	&:nth-of-type(2) {
+
+ input {
+	 width: 100%;
+ 	text-align: center;
+	&.inset {
     box-shadow: 1px 1px 10px inset rgba(0, 0, 0, 0.3);
 }
-
+}
 }
 
 #title form {

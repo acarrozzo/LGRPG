@@ -14,7 +14,8 @@ if (!isset($_SESSION['username'])) {			// IF NO ONE IS LOGGED IN SHOW TITLE SCRE
     echo '<div id="title">
     <span class="icon darkergray lg-logo">'.file_get_contents("img/svg/lg-logo.svg").'</span>
 	<h1 class="hide">Light Gray RPG</h1>
-  <h5>THE DEMO v0.5b</h5>
+  <h5>THE DEMO v0.5c</h5>
+  <p class="gray">Last updated: 5/25/2020</p>
   <span class="icon gold chest">'.file_get_contents("img/svg/chest.svg").'</span>';
 
     include('login.php');

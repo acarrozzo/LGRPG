@@ -2283,7 +2283,9 @@ if ($roomID=='226c') {
     $_SESSION['dangerLVL'] = "0";
 }
 $_SESSION['desc226c'] = <<<HTML
-<html><div class="roomBox"><h3>Warrior's Skill Shop</h3>
+<html><div class="roomBox">
+  <h4>Warrior's Guild</h4>
+  <h3 class="blue">Warrior Skills</h3>
 	<p>Here you can further your combat training. Increase your fighting and defensive skills!</p>
 	<a href data-link2="skills" class="btn redBG">Warrior Skills </a>
 	<p class="strongBox">
@@ -2303,7 +2305,9 @@ if ($roomID=='226d') {
     $_SESSION['dangerLVL'] = "0";
 }
 $_SESSION['desc226d'] = <<<HTML
-<html><div class="roomBox"><h3>Warrior's Grand Hall</h3>
+<html><div class="roomBox">
+  <h4>Warrior's Guild</h4>
+  <h3 class="blue">Warrior's Grand Hall</h3>
 	<p>Many seasoned warriors congregate here trading war stories while eating chickens whole. Rows of tables with hearty food is available for all members. A fire roars in the corner where you can cook up some meat if you so desire. Resting here also super charges your HP.</p>
   	<form id="mainForm" method="post" action="" name="formInput">
 	<button type="submit" name="input1" value="west">West</button>
@@ -2324,9 +2328,11 @@ if ($roomID=='226e') {
     $_SESSION['dangerLVL'] = "0";
 }
 $_SESSION['desc226e'] = <<<HTML
-<html><div class="roomBox"><h3>Warrior Pete's Quest Set</h3>
-	<p>Warrior Pete is skillfully juggling some swords. He also has 3 quests available for you.</p>
-  <a href data-link="quests" class="btn redBG">Warrior Pete's Quests</a>
+<html><div class="roomBox">
+  <h4>Warrior's Guild</h4>
+  <h3 class="blue">Warrior Pete's Quests</h3>
+	<p>Pete is an accomplished warrior. You see him skillfully juggling some swords. He also has 3 quests available for you.</p>
+  <a href data-link="quests" class="btn goldBG">Warrior Pete's Quests</a>
 
 	<form id="mainForm" method="post" action="" name="formInput">
 	<button type="submit" name="input1" value="east">East</button>
@@ -2338,10 +2344,11 @@ if ($roomID=='226f') {
     $_SESSION['dangerLVL'] = "0";
 }
 $_SESSION['desc226f'] = <<<HTML
-<html><div class="roomBox"><h3>Warrior William's Quest Set</h3>
+<html><div class="roomBox">
+  <h3>Warrior William's Quest Set</h3>
 	<p>Willy will have 3 quests available for you soon. Meanwhile go do something else productive.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	MISSIONS COMING SOON:<br/>
+	QUESTS COMING SOON:<br/>
 
 	<button type="submit" name="input1" value="north">North</button>
 	</form>

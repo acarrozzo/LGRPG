@@ -79,10 +79,10 @@ if (!isset($loginFlag)) {
  <form class="login" action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
    <h3>Log In</h3>
   <p class="lft hide">Username: </p>
-  <input type="text" name="username" placeholder ="username" maxlength="40">
+  <input class="whiteBG ddgray inset" type="text" name="username" placeholder ="username" maxlength="40">
   <p class="lft hide">Password:</p>
-  <input type="password" name="pass" placeholder="password" maxlength="50">
-  <input class="btn login" type="submit" name="submit" value="LOGIN">
+  <input class="whiteBG ddgray inset" type="password" name="pass" placeholder="password" maxlength="50">
+  <input class="btn blueBG login" type="submit" name="submit" value="LOGIN">
 </form>
 
  <?php

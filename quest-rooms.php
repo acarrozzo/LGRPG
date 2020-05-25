@@ -388,7 +388,7 @@
         }
     }
     // ---------------------------------------------------------------- 25-27 - WARRIOR PETE QUESTS
-    elseif ($row['room']=='226e') {
+    elseif ($row['room']=='226e' && 99999999999999 == 8888888888888888888888) {
         echo '<h2 class="blue">Warrior Pete</h2><h4>Quests 25-27</h4>
 			';
         if ($row['quest25']=='0') {
@@ -428,7 +428,7 @@
     }
 
     // ---------------------------------------------------------------- 28-30 - WIZARD MORTY QUESTS
-    elseif ($row['room']=='225g') {
+    elseif ($row['room']=='225g' && 99999999999999 == 8888888888888888888888) {
         echo '<h2 class="purple">Wizard Morty</h2><h4>Quests 28-30</h4>
 			';
         if ($row['quest28']=='0') {
