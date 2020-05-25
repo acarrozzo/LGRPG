@@ -8,7 +8,7 @@
     $port = 8889;
 
 
-/*
+
     if (!empty(getenv("MYSQL_HOST"))) {
         $usermain = getenv("MYSQL_USER");
         $password = getenv("MYSQL_PASS");
@@ -19,7 +19,7 @@
     }
 
 
-*/
+
     $link = $GLOBALS['link'] = mysqli_init();
     $conn = mysqli_real_connect(
         $link,
