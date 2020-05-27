@@ -9,18 +9,29 @@ td.scroll {
 	max-width: 100vw;
 	overflow: scroll;
 	display: inline-block;
+  text-align: center;
+  position: relative;
 	max-width: 20rem;
   max-height: 2.5rem;
 
+
 }
 .table {
-	border-spacing: 1px;
+	border-spacing: 0;
 	font-size: 1.5rem;
   margin:2rem 0;
 }
 .table td {
 	padding: .2rem 0.5rem;
 	border: solid 1px #ccc;
+}
+.table th {
+  position: sticky;
+	top: 0;
+	background: #fff;
+	padding: 0.4rem 0.5rem;
+	border: solid 1px #fff;
+	z-index: 1;
 }
 </style>
 
@@ -44,19 +55,20 @@ echo '
 ';
   //  $listdbtables = array_column(mysqli_fetch_all($link->query('SHOW TABLES')),0);
 echo '<table class="table searchable sortable"><tr>
-<td>Level</td>
-<td><strong>Name</strong></td>
-<td>HP</td>
-<td>MP</td>
-<td>Equipped</td>
-<td>Kills</td>
+<th>Level</th>
+<th><strong>Name</strong></th>
+<th>HP</th>
+<th>MP</th>
+<th>Equipped</th>
+<th>Kills</th>
 
-<td>Room#</td>
-<td>Quests</td>
-<td>Chests</td>
+<th>Room#</th>
+<th>Quests</th>
+<th>Chests</th>
+<th>EXP</th>
 
-<td>Feed</td>
-<td>EXP</td>
+<th>Feed</th>
+<th>Clicks</th>
 
 </tr>';
   if($stmt = $link->query("SHOW TABLES")){
@@ -75,11 +87,7 @@ echo '<table class="table searchable sortable"><tr>
           echo '<td>'.$row['mpmax'].'</td>';
           echo '<td>'.$row['equipR'].'</td>';
           echo '<td>'.$row['KLtotalkill'].'</td>';
-
-
-
           echo '<td>'.$row['room'].'</td>';
-
           $i=01;
           $count=0;
           while ($i<=70) {
@@ -98,11 +106,9 @@ echo '<table class="table searchable sortable"><tr>
               $i++;
           }
           echo '<td>'.$count.'</td>'; // gold chests
-          echo '<td class="scroll"><div class="inside">'.$row['feed'].'</div></td>'; // FEED SCROLL
           echo '<td>'.$row['xp'].'</td>';
-
-
-
+          echo '<td class="scroll"><div class="inside">'.$row['feed'].'</div></td>'; // FEED SCROLL
+          echo '<td>'.$row['clicks'].'</td>';
           echo '</tr>';
         }
       }

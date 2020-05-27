@@ -115,7 +115,8 @@ while ($row = $result->fetch_assoc()) {
     // --------------------------------------------------------------------------- CLEAR FEED
     elseif ($input=="clear feed") {
         echo "you clear the feed<br/>";
-        $feed_clear = 'Feed Cleared!!<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/><br/>You look around:'.$_SESSION['lookdesc'];
+      //  $feed_clear = 'Feed Cleared!!<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/><br/>You look around:'.$_SESSION['lookdesc'];
+        $feed_clear = '-<br/>[ Feed Reset ]<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-<br/><br/>You look around:'.$_SESSION['lookdesc'];
         $query = $link->prepare("UPDATE $user SET feed = ? ");
         $query->bind_param("s", $feed_clear);
         $query->execute();
