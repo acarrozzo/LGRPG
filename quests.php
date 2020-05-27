@@ -56,6 +56,8 @@ while ($row = $result->fetch_assoc()) {
         echo ' tops';
     } elseif ($row['quest1']==2 && $row['quest2']==2 && $row['quest3']==2) {
         echo ' end';
+} elseif ($row['quest1']==0) {
+echo ' notstarted';
     }
     echo '" >';
     //  echo '<div class="gslice">';
@@ -173,6 +175,8 @@ while ($row = $result->fetch_assoc()) {
         echo ' tops';
     } elseif ($row['quest4']==2 && $row['quest5']==2 && $row['quest6']==2) {
         echo ' end';
+} elseif ($row['quest4']==0) {
+echo ' notstarted';
     }
     echo '" >';
     //  echo '<div class="gslice">';
@@ -188,7 +192,7 @@ while ($row = $result->fetch_assoc()) {
     if ($row['quest4']=='0') { // ------------------------------------- end state
         echo '<h5 class="gslice">'.$checkBox.' Talk to the Young Soldier</h5>';
         if ($row['quest4']=='0' && $row['room']==$questRoom) {
-            echo '<button class="greenBG" type="submit" name="input1" value="start quests"><h4>Talk to the Young Soldier</h4></button>';
+            echo '<button class="greenBG focus" type="submit" name="input1" value="start quests"><h4>Talk to the Young Soldier</h4></button>';
         }
     }
     // ----------------------------------------- IN PROGRESS - QUEST 4
@@ -425,8 +429,13 @@ while ($row = $result->fetch_assoc()) {
             echo ' tops';
         } elseif ($row['quest7']==2 && $row['quest8']==2 && $row['quest9']==2) {
             echo ' end';
+} elseif ($row['quest7']==0) {
+echo ' notstarted';
         }
         echo '" >';
+
+
+
         //  echo '<div class="gslice">';
         echo '<h4 class="toprightX boxX green">Professional Lumberjack</h4>';
         echo '<h2>Jack Lumber</h2>';
@@ -440,7 +449,7 @@ while ($row = $result->fetch_assoc()) {
         if ($row['quest7']=='0') { // ------------------------------------- end state
             echo '<h5 class="gslice">'.$checkBox.' Talk to Jack Lumber</h5>';
             if ($row['quest7']=='0' && $row['room']==$questRoom) {
-                echo '<button class="greenBG" type="submit" name="input1" value="start quests"><h4>Talk to Jack Lumber</h4></button>';
+                echo '<button class="greenBG focus" type="submit" name="input1" value="start quests"><h4>Talk to Jack Lumber</h4></button>';
             }
         }
         // ----------------------------------------- IN PROGRESS - QUEST 7
@@ -461,11 +470,13 @@ while ($row = $result->fetch_assoc()) {
             if ($row['weapontype']!='3' && $row['batwing']<'5') {
                 echo '<h5 class="padd">'.$checkBox.' Equip a RANGED weapon like a boomerang or a bow using your INV menu </h5>';
             }
+            else if ($row['batwing']<'5'){
+              echo '<h5 class="padd green">'.$checkedBox.' Equip a RANGED weapon</h5>';
+            }
             // elseif ($row['weapontype']=='3') {
             //    echo '<h5 class="padd green">'.$checkedBox.' Equip a ranged weapon</h5>';
             //}
-            if ($row['weapontype']=='3' && $row['batwing']<='4') {
-                echo '<h5 class="padd green">'.$checkedBox.' Equip a RANGED weapon like a boomerang or a bow using your INV menu </h5>';
+            if ($row['batwing']<='4') {
                 echo '<h5 class="padd">';
                 if ($row['batwing']>=1) {
                     echo $checkedBox.' ';
@@ -597,6 +608,8 @@ while ($row = $result->fetch_assoc()) {
             echo ' tops';
         } elseif ($row['quest10']>=2) {
             echo ' end';
+} elseif ($row['quest10']==0) {
+echo ' notstarted';
         }
         echo '" >';
         //  echo '<div class="gslice">';
@@ -612,7 +625,7 @@ while ($row = $result->fetch_assoc()) {
         if ($row['quest10']=='0') { // ------------------------------------- end state
             echo '<h5 class="gslice">'.$checkBox.' Talk to Freddie</h5>';
             if ($row['quest10']=='0' && $row['room']==$questRoom) {
-                echo '<button class="greenBG" type="submit" name="input1" value="start quests"><h4>Talk to Freddie</h4></button>';
+                echo '<button class="greenBG focus" type="submit" name="input1" value="start quests"><h4>Talk to Freddie</h4></button>';
             }
         }
         // ----------------------------------------- IN PROGRESS - QUEST 7
@@ -721,6 +734,8 @@ while ($row = $result->fetch_assoc()) {
             echo ' tops';
         } elseif ($row['quest11']==2 && $row['quest12']==2 && $row['quest13']==2) {
             echo ' end';
+} elseif ($row['quest11']==0) {
+echo ' notstarted';
         }
         echo '" >';
         //  echo '<div class="gslice">';
@@ -736,7 +751,7 @@ while ($row = $result->fetch_assoc()) {
         if ($row['quest11']=='0') { // ---- end state
             echo '<h5 class="gslice">'.$checkBox.' Talk to the Red Guard Captain</h5>';
             if ($row['quest11']=='0' && $row['room']==$questRoom) {
-                echo '<button class="redBG" type="submit" name="input1" value="start quests"><h4>Talk to the Red Guard Captain</h4></button>';
+                echo '<button class="redBG focus" type="submit" name="input1" value="start quests"><h4>Talk to the Red Guard Captain</h4></button>';
             }
         }
         // ----------------------------------------- IN PROGRESS - QUEST 11
@@ -896,6 +911,8 @@ while ($row = $result->fetch_assoc()) {
             echo ' tops';
         } elseif ($row['quest14']==2 && $row['quest15']==2 && $row['quest16']==2) {
             echo ' end';
+} elseif ($row['quest14']==0) {
+echo ' notstarted';
         }
         echo '" >';
         //  echo '<div class="gslice">';
@@ -911,7 +928,7 @@ while ($row = $result->fetch_assoc()) {
         if ($row['quest14']=='0') { // ---- end state
             echo '<h5 class="gslice">'.$checkBox.' Talk to the Forest Gnome</h5>';
             if ($row['quest14']=='0' && $row['room']==$questRoom) {
-                echo '<button class="forestBG" type="submit" name="input1" value="start quests"><h4>Talk to the Forest Gnome</h4></button>';
+                echo '<button class="forestBG focus" type="submit" name="input1" value="start quests"><h4>Talk to the Forest Gnome</h4></button>';
             }
         }
         // ----------------------------------------- IN PROGRESS - QUEST 14
@@ -1050,6 +1067,8 @@ while ($row = $result->fetch_assoc()) {
             echo ' tops';
         } elseif ($row['quest17']==2 && $row['quest18']==2) {
             echo ' end';
+} elseif ($row['quest17']==0) {
+echo ' notstarted';
         }
         echo '" >';
         //  echo '<div class="gslice">';
@@ -1065,7 +1084,7 @@ while ($row = $result->fetch_assoc()) {
         if ($row['quest17']=='0') { // ---- end state
             echo '<h5 class="gslice">'.$checkBox.' Talk to Hunter Bill</h5>';
             if ($row['quest17']=='0' && $row['room']==$questRoom) {
-                echo '<button class="forestBG" type="submit" name="input1" value="start quests"><h4>Talk to Hunter Bill</h4></button>';
+                echo '<button class="forestBG focus" type="submit" name="input1" value="start quests"><h4>Talk to Hunter Bill</h4></button>';
             }
         }
         // ----------------------------------------- IN PROGRESS - QUEST 17
@@ -1184,6 +1203,8 @@ while ($row = $result->fetch_assoc()) {
             echo ' tops';
         } elseif ($row['quest19']==2) {
             echo ' end';
+        } elseif ($row['quest19']==0) {
+        echo ' notstarted';
         }
         echo '" >';
         //  echo '<div class="gslice">';
@@ -1199,7 +1220,7 @@ while ($row = $result->fetch_assoc()) {
         if ($row['quest19']=='0') { // ---- end state
             echo '<h5 class="gslice">'.$checkBox.' Talk to Warrior\'s Guild Recruiter</h5>';
             if ($row['quest19']=='0' && $row['room']==$questRoom) {
-                echo '<button class="darkblueBG" type="submit" name="input1" value="start quests"><h4>Talk to Warrior\'s Guild Recruiter</h4></button>';
+                echo '<button class="darkblueBG focus" type="submit" name="input1" value="start quests"><h4>Talk to Warrior\'s Guild Recruiter</h4></button>';
             }
         }
         // ----------------------------------------- IN PROGRESS - QUEST 19
@@ -1255,6 +1276,8 @@ while ($row = $result->fetch_assoc()) {
             echo ' tops';
         } elseif ($row['quest20']==2) {
             echo ' end';
+} elseif ($row['quest20']==0) {
+echo ' notstarted';
         }
         echo '" >';
         //  echo '<div class="gslice">';
@@ -1270,7 +1293,7 @@ while ($row = $result->fetch_assoc()) {
         if ($row['quest20']=='0') { // ---- end state
             echo '<h5 class="gslice">'.$checkBox.' Talk to Wizard\'s Guild Recruiter</h5>';
             if ($row['quest20']=='0' && $row['room']==$questRoom) {
-                echo '<button class="purpleBG" type="submit" name="input1" value="start quests"><h4>Talk to Wizard\'s Guild Recruiter</h4></button>';
+                echo '<button class="purpleBG focus" type="submit" name="input1" value="start quests"><h4>Talk to Wizard\'s Guild Recruiter</h4></button>';
             }
         }
         // ----------------------------------------- IN PROGRESS - QUEST 20
@@ -1340,7 +1363,10 @@ while ($row = $result->fetch_assoc()) {
             echo ' tops';
         } elseif ($row['quest21']==2 && $row['quest22']==2 && $row['quest23']==2) {
             echo ' end';
+        } elseif ($row['quest21']==0) {
+            echo ' notstarted';
         }
+
         echo '" >';
         //  echo '<div class="gslice">';
         echo '<h4 class="red">Red Town</h4>';
@@ -1355,7 +1381,7 @@ while ($row = $result->fetch_assoc()) {
         if ($row['quest21']=='0') { // ---- end state
             echo '<h5 class="gslice">'.$checkBox.' Talk to the people at the Plaza</h5>';
             if ($row['room']==$questRoom) {
-                echo '<button class="redBG" type="submit" name="input1" value="start quests"><h4>Talk to the people at the Plaza</h4></button>';
+                echo '<button class="redBG focus" type="submit" name="input1" value="start quests"><h4>Talk to the people at the Plaza</h4></button>';
             }
         }
         // ----------------------------------------- IN PROGRESS - QUEST 21
@@ -1405,7 +1431,7 @@ while ($row = $result->fetch_assoc()) {
             $questDesc = 'Bring the Chef 5 pieces of cooked meat and he will teach you how to cook up some tasty meatballs.';
             $color='gold';
             $questflag='0';
-            if ($row['cookedmeat']>=20) {
+            if ($row['cookedmeat']>=5) {
                 $color='green';
                 $questflag = "1";
             }
@@ -1511,6 +1537,8 @@ while ($row = $result->fetch_assoc()) {
             echo ' tops';
         } elseif ($row['quest24']==2) {
             echo ' end';
+} elseif ($row['quest24']==0) {
+echo ' notstarted';
         }
         echo '" >';
         //  echo '<div class="gslice">';
@@ -1526,7 +1554,7 @@ while ($row = $result->fetch_assoc()) {
         if ($row['quest24']=='0') { // ---- end state
             echo '<h5 class="gslice">'.$checkBox.' Talk to the Red Town Mayor</h5>';
             if ($row['quest24']=='0' && $row['room']==$questRoom) {
-                echo '<button class="redBG" type="submit" name="input1" value="start quests"><h4>Talk to the Red Town Mayor</h4></button>';
+                echo '<button class="redBG focus" type="submit" name="input1" value="start quests"><h4>Talk to the Red Town Mayor</h4></button>';
             }
         }
         // ----------------------------------------- IN PROGRESS - QUEST 24
@@ -1593,6 +1621,8 @@ while ($row = $result->fetch_assoc()) {
             echo ' tops';
         } elseif ($row['quest25']==2 && $row['quest26']==2 && $row['quest27']==2) {
             echo ' end';
+} elseif ($row['quest25']==0) {
+echo ' notstarted';
         }
         echo '" >';
         echo '<h4 class="blue">Warrior\'s Guild</h4>';
@@ -1607,7 +1637,7 @@ while ($row = $result->fetch_assoc()) {
         if ($row['quest25']=='0') { // ---- end state
             echo '<h5 class="gslice">'.$checkBox.' Talk to Warrior Pete</h5>';
             if ($row['quest25']=='0' && $row['room']==$questRoom) {
-                echo '<button class="blueBG" type="submit" name="input1" value="start quests"><h4>Talk to Warrior Pete</h4></button>';
+                echo '<button class="blueBG focus" type="submit" name="input1" value="start quests"><h4>Talk to Warrior Pete</h4></button>';
             }
         }
         // ----------------------------------------- IN PROGRESS - QUEST 25
@@ -1747,6 +1777,8 @@ while ($row = $result->fetch_assoc()) {
             echo ' tops';
         } elseif ($row['quest28']==2 && $row['quest29']==2 && $row['quest30']==2) {
             echo ' end';
+} elseif ($row['quest28']==0) {
+echo ' notstarted';
         }
         echo '" >';
         echo '<h4 class="purple">Wizards\'s Guild</h4>';
@@ -1761,7 +1793,7 @@ while ($row = $result->fetch_assoc()) {
         if ($row['quest28']=='0') { // ---- end state
             echo '<h5 class="gslice">'.$checkBox.' Talk to Wizard Morty</h5>';
             if ($row['quest28']=='0' && $row['room']==$questRoom) {
-                echo '<button class="purpleBG" type="submit" name="input1" value="start quests"><h4>Talk to Wizard Morty</h4></button>';
+                echo '<button class="purpleBG focus" type="submit" name="input1" value="start quests"><h4>Talk to Wizard Morty</h4></button>';
             }
         }
         // ----------------------------------------- IN PROGRESS - QUEST 28

@@ -3,9 +3,9 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 160 100" style="enable-background:new 0 0 160 100;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill-opacity:0.1;}
+	.lightgraylogoopacity{fill-opacity:0.1;}
 </style>
-<path class="st0" d="M79.5,7.4l51.3,88.9H28.2L79.5,7.4 M79.5,0l-3.2,5.5L25,94.5l-3.2,5.5h6.4h102.7h6.4l-3.2-5.5l-51.4-89L79.5,0
+<path class="lightgraylogoopacity" d="M79.5,7.4l51.3,88.9H28.2L79.5,7.4 M79.5,0l-3.2,5.5L25,94.5l-3.2,5.5h6.4h102.7h6.4l-3.2-5.5l-51.4-89L79.5,0
 	L79.5,0z"/>
 <g>
 	<path d="M0,55.4c0-0.2,0-0.4,0.1-0.6c0.1-0.2,0.2-0.3,0.4-0.3L2,54.3c0.3-0.1,0.6-0.1,0.9-0.2c0.3,0,0.6-0.1,0.8-0.2

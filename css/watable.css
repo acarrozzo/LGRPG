@@ -1,0 +1,178 @@
+/* line 1, ../assets/scss/watable.scss */
+.watable * {
+  white-space: nowrap;
+  font-size: 12px !important;
+}
+
+/* line 6, ../assets/scss/watable.scss */
+.watable.table {
+  width: auto;
+}
+
+/* line 10, ../assets/scss/watable.scss */
+.watable p {
+  margin: 0;
+}
+
+/* line 14, ../assets/scss/watable.scss */
+.watable th,
+.watable td {
+  border-width: 1px !important;
+}
+
+/* line 19, ../assets/scss/watable.scss */
+.watable .glyphicon {
+  margin: 0 0 0 2px;
+  opacity: 0.5;
+}
+
+/* line 24, ../assets/scss/watable.scss */
+.watable span.filter {
+  background-color: #999;
+}
+
+/* line 28, ../assets/scss/watable.scss */
+.watable .indeterminate {
+  opacity: 0.4;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+  filter: alpha(opacity=40);
+}
+
+/* line 34, ../assets/scss/watable.scss */
+.watable .columnpicker li,
+.watable .actions li {
+  padding-left: 5px;
+}
+
+/* line 39, ../assets/scss/watable.scss */
+.watable .btn-toolbar {
+  margin-bottom: -5px;
+}
+
+/* line 43, ../assets/scss/watable.scss */
+.watable .pagination {
+  margin: 0;
+}
+
+/* line 47, ../assets/scss/watable.scss */
+.watable input[type=checkbox] {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 52, ../assets/scss/watable.scss */
+.watable input[type=text].filter {
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  border: none;
+  width: 80px;
+  float: left;
+  background-color: transparent;
+}
+
+/* line 62, ../assets/scss/watable.scss */
+.watable .date-wrap {
+  width: 100%;
+  min-width: 115px;
+}
+
+/* line 67, ../assets/scss/watable.scss */
+.watable .dateWrap .add-on {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  float: right;
+  cursor: pointer;
+}
+
+/* line 76, ../assets/scss/watable.scss */
+.watable .dropdown-menu {
+  max-height: 250px;
+  overflow: auto;
+}
+
+/* line 81, ../assets/scss/watable.scss */
+.watable .actions a {
+  padding: 0;
+  margin: 0;
+}
+
+/* Only for demo purposes */
+/* line 87, ../assets/scss/watable.scss */
+.watable .green {
+  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(0, 140, 37, 0.38) 38%, #008c25 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(38%, rgba(0, 140, 37, 0.38)), color-stop(100%, #008c25));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(0, 140, 37, 0.38) 38%, #008c25 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(0, 140, 37, 0.38) 38%, #008c25 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(0, 140, 37, 0.38) 38%, #008c25 100%);
+  /* IE10+ */
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(0, 140, 37, 0.38) 38%, #008c25 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#008c25',GradientType=1 );
+  /* IE6-9 */
+}
+
+/* line 97, ../assets/scss/watable.scss */
+.watable .yellow {
+  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(188, 179, 0, 0.38) 38%, #bcb300 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(38%, rgba(188, 179, 0, 0.38)), color-stop(100%, #bcb300));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(188, 179, 0, 0.38) 38%, #bcb300 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(188, 179, 0, 0.38) 38%, #bcb300 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(188, 179, 0, 0.38) 38%, #bcb300 100%);
+  /* IE10+ */
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(188, 179, 0, 0.38) 38%, #bcb300 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#bcb300',GradientType=1 );
+  /* IE6-9 */
+}
+
+/* line 107, ../assets/scss/watable.scss */
+.watable .red {
+  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(147, 22, 0, 0.38) 38%, #931600 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(38%, rgba(147, 22, 0, 0.38)), color-stop(100%, #931600));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(147, 22, 0, 0.38) 38%, #931600 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(147, 22, 0, 0.38) 38%, #931600 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(147, 22, 0, 0.38) 38%, #931600 100%);
+  /* IE10+ */
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(147, 22, 0, 0.38) 38%, #931600 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#931600',GradientType=1 );
+  /* IE6-9 */
+}
+
+/* line 117, ../assets/scss/watable.scss */
+.watable .blue {
+  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(0, 127, 206, 0.38) 38%, #007fce 100%) !important;
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(38%, rgba(0, 127, 206, 0.38)), color-stop(100%, #007fce)) !important;
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(0, 127, 206, 0.38) 38%, #007fce 100%) !important;
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(0, 127, 206, 0.38) 38%, #007fce 100%) !important;
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(0, 127, 206, 0.38) 38%, #007fce 100%) !important;
+  /* IE10+ */
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(0, 127, 206, 0.38) 38%, #007fce 100%) !important;
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#007fce',GradientType=1 ) !important;
+  /* IE6-9 */
+}
+
+/* line 127, ../assets/scss/watable.scss */
+.watable .gray {
+  background-color: #d3d3d3 !important;
+}

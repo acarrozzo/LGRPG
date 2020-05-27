@@ -1280,9 +1280,13 @@ section {
 		 background: #222;
 		 border:0;
 		}
+		.notstarted {
+				order: 1;
+			 // opacity:.5;
+		}
 		.end {
-		    order: 2;
-		   // opacity:.5;
+				order: 2;
+			 // opacity:.5;
 		}
 	}
 	.infobar {
@@ -2199,7 +2203,8 @@ line-height: 1.5rem;
 @media (min-width:600px) {
 	html {
 		//font-size:24px;
-		font-size: 15px;
+	//	font-size: 15px;
+		font-size: 13px;
 	}
 
 	#feed-module {
@@ -2217,11 +2222,13 @@ line-height: 1.5rem;
 //@media (min-width:1000px),(max-height:450px) { // For horizontal phone too!
 @media (min-width:1000px){
 	.nav-center {
-    top: 38%;
-    height: 260px;
-    transform: scale(1.5);
-    width: 66%;
-    margin: 0 auto;
+  //  top: 38%;
+  //  transform: scale(1.5);
+  //  width: 66%;
+		top: 32%;
+transform: scale(1.3);
+width: 76%;
+margin: 0 auto;
 }
 .quickBox {
     transform: scale(0.66);

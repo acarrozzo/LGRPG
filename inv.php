@@ -1418,7 +1418,7 @@ while ($row = $result->fetch_assoc()) {
         } else {
             echo "<input type='submit' class='equipBtn' name='input1' value='equip boomerang' /> ";
         }
-        echo "<span>".$row["boomerang"]."x </span> boomerang <span>( <i class='green'>+1</i> dex )</span>
+        echo "<span>".$row["boomerang"]."x </span> boomerang <span>( <i class='green'>+3</i> dex )</span>
 			<span class='sellPrice'>".$_SESSION['COSTboomerang']."</span>
 			<input type='submit' class='sellBtn' name='input1' value='sell boomerang' />  </div>";
     }

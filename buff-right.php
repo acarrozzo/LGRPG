@@ -555,9 +555,11 @@ if ($row["equipR"] =="fortified fauchard") {
 // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx PROJECTILE WEAPONS
 
 // -----------------------------------------------------------------boomerang buff +1 DEX
+// -----------------------------------------------------------------boomerang buff +3 DEX
 if ($row["equipR"] =="boomerang") {
-    echo " <span>( <i class='green'>+1</i> )</span>";
-    $results = $link->query("UPDATE $user SET dexmod = dexmod +1");
+    echo " <span>( <i class='green'>+3</i> )</span>";
+//    $results = $link->query("UPDATE $user SET dexmod = dexmod +1");
+    $results = $link->query("UPDATE $user SET dexmod = dexmod +3");
 }
 // -----------------------------------------------------------------chakram buff +5 DEX +5 MAG
 if ($row["equipR"] =="chakram") {

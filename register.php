@@ -1057,17 +1057,17 @@ $feed_start = '
 <br>
 ....................feed initialized<br>
 +<br>
-<h2>Welcome <span  class="blue">'.$username.'!</span></h2><br>
+<h2>Welcome <span  class="blue">'.$username.'!</span></h2>
 +<br>
-<h3>Interactive with the world by clicking the buttons on screen.</h3>
+<h4>Interactive with the world by clicking the buttons on screen.</h4>
 <br><br>
-<h3>When you interact with the world, the results will appear here, in this feed.</h3>
+<h4>When you interact with the world, the results will appear here, in this feed.</h4>
 <br><br>
-<h3>Use the tabs below to check Stats, Items, and Quests.</h3>
+<h4>Use the tabs below to check Stats, Items, and Quests.</h4>
 <br><br>
-<h3>To explore you need to move around. Click the arrows below to navigate.</h3>
+<h4>To explore you need to move around. Click the arrows below to navigate.</h4>
 <br><br>
-<h3>...Scroll Up...</h3>';
+<h3>...Scroll up to see the past...</h3>';
     //<h3>When in doubt, LOOK around</h3>';
 
     //$query = $link->prepare("UPDATE $user SET feed = ? ");

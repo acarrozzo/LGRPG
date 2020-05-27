@@ -18,7 +18,11 @@ $pass = $_SESSION['pass'];
 //---------------------------------------------------------  GLOBAL VARIABLE SETT!!!
 $user = $username = $_SESSION['username'];
 $pass = 			$_SESSION['pass']	;
-$command = 		$_SESSION['command']		="<span class='green command'>  member loaded  </span>";
+$command = 		$_SESSION['command']		='<span class="green command">  member loaded  </span>
+<form id="mainForm" method="post" action="" name="formInput">
+<button class="blueBG" type="submit" name="input1" value="look">Look Around</button>
+</form>
+';
 $notcommand =  $_SESSION['notcommand']	='Command not recognized - ';
 $currency = 	$_SESSION['currency']	='coin';
 $quest = 		$_SESSION['quest']		='Quest';
