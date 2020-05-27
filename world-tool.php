@@ -2,6 +2,7 @@
 <style>
 .worldtool {
   padding:2rem;
+  text-align: center;
 }
 td.scroll {
   font-size: 10px;
@@ -19,7 +20,8 @@ td.scroll {
 .table {
 	border-spacing: 0;
 	font-size: 1.5rem;
-  margin:2rem 0;
+  margin:2rem auto;
+  text-align: left;
 }
 .table td {
 	padding: .2rem 0.5rem;
@@ -59,7 +61,8 @@ echo '<table class="table searchable sortable"><tr>
 <th><strong>Name</strong></th>
 <th>HP</th>
 <th>MP</th>
-<th>Equipped</th>
+<th>Weap</th>
+<th>Helm</th>
 <th>Kills</th>
 
 <th>Room#</th>
@@ -67,12 +70,13 @@ echo '<table class="table searchable sortable"><tr>
 <th>Chests</th>
 <th>EXP</th>
 
-<th>Feed</th>
 <th>Clicks</th>
 
 </tr>';
+//<th>Feed</th>
+
   if($stmt = $link->query("SHOW TABLES")){
-    $numRecords = "Total characters : ".$stmt->num_rows."<br>";
+    $numRecords = "<p>Total characters : ".$stmt->num_rows."</p>";
     while ($row = $stmt->fetch_array()) {
       $temp = $row[0];
       $sql = "SELECT * FROM $temp;";
@@ -86,6 +90,7 @@ echo '<table class="table searchable sortable"><tr>
           echo '<td>'.$row['hpmax'].'</td>';
           echo '<td>'.$row['mpmax'].'</td>';
           echo '<td>'.$row['equipR'].'</td>';
+          echo '<td>'.$row['equipHead'].'</td>';
           echo '<td>'.$row['KLtotalkill'].'</td>';
           echo '<td>'.$row['room'].'</td>';
           $i=01;
@@ -107,7 +112,7 @@ echo '<table class="table searchable sortable"><tr>
           }
           echo '<td>'.$count.'</td>'; // gold chests
           echo '<td>'.$row['xp'].'</td>';
-          echo '<td class="scroll"><div class="inside">'.$row['feed'].'</div></td>'; // FEED SCROLL
+        //  echo '<td class="scroll"><div class="inside">'.$row['feed'].'</div></td>'; // FEED SCROLL
           echo '<td>'.$row['clicks'].'</td>';
           echo '</tr>';
         }
@@ -120,6 +125,9 @@ echo '<table class="table searchable sortable"><tr>
   }
   echo '</table>';
   echo $numRecords;
+
+  echo '<br/><p class="gray">click on the headers to sort.</p>';
+
   echo '</main>'; //end world tool container
 
 
