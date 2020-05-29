@@ -8,29 +8,26 @@ error_reporting(E_ALL);
 // -------------------------DB CONNECT!
 require_once('db-connect.php');
 
-
+/*	<h1 class="hide">Light Gray RPG</h1>
+  <h5>THE DEMO v0.5c</h5>
+  <p class="gray">Last updated: 5/25/2020</p>
+  */
 if (!isset($_SESSION['username'])) {			// IF NO ONE IS LOGGED IN SHOW TITLE SCREEN
     echo '<div id="container">';
     echo '<div id="title">
     <span class="icon darkergray lg-logo">'.file_get_contents("img/svg/lg-logo.svg").'</span>
-	<h1 class="hide">Light Gray RPG</h1>
-  <h5>THE DEMO v0.5c</h5>
-  <p class="gray">Last updated: 5/25/2020</p>
-  <span class="icon gold chest">'.file_get_contents("img/svg/chest.svg").'</span>';
+    <h1 class="hide">Light Gray RPG</h1>
+    <h5 class="blue">GAME ONE</h5>
+    <h1 class="">TRIALS OF VEGA</h1>
+    <p class="gray">DEMO v0.5d | Last updated: 5/28/2020</p>
+    <span class="icon gold chest">'.file_get_contents("img/svg/chest.svg").'</span>';
 
     include('login.php');
-
-    echo '<h3>New to Light Gray?</h3>
-    <form>
-    <a href="register.php" class="login btn blueBG">CREATE NEW CHARACTER</a>
-    </form>';
-
-
+    echo '<h3>New to Light Gray?</h3>';
+    echo '<form><a href="register.php" class="login btn blueBG create-new">CREATE NEW CHARACTER</a></form>';
     echo '
     <h4>- CHAPTER 1: VEGA -</h4>
     <p>Welcome to the Light Gray RPG demo where you take the role of a young adventurer with amazing potential. You find yourself in Vega, a distant land with countless opportunities...</p>';
-
-
     include('stickman.php');
     echo '</div>';
     echo '</div>';

@@ -31,9 +31,14 @@ td.scroll {
   position: sticky;
 	top: 0;
 	background: #fff;
-	padding: 0.4rem 0.5rem;
-	border: solid 1px #fff;
+	padding: 0.4rem 1.5rem 0.4rem 0.5rem;
+	border: solid 1px #ccc;
 	z-index: 1;
+}
+.stick-left {
+	position: sticky;
+	left: 0;
+	background: #fff;
 }
 </style>
 
@@ -51,17 +56,17 @@ require_once('db-connect.php');
 echo '
 <main class="worldtool">
 <p>Light Gray</p>
-
 <h3>World Tool</h3>
+<p class="gray padd">click on the headers to sort.</p>
 
 ';
   //  $listdbtables = array_column(mysqli_fetch_all($link->query('SHOW TABLES')),0);
 echo '<table class="table searchable sortable"><tr>
+<th class="stick-right"><strong>Name</strong></th>
 <th>Level</th>
-<th><strong>Name</strong></th>
 <th>HP</th>
 <th>MP</th>
-<th>Weap</th>
+<th>Weapon</th>
 <th>Helm</th>
 <th>Kills</th>
 
@@ -84,9 +89,13 @@ echo '<table class="table searchable sortable"><tr>
       $resultCheck = mysqli_num_rows($result); //optional
       if ($resultCheck > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
-          echo '<tr>';
+          if ($row['clicks']==0) {
+            $hider = "hide";
+            $hider = "lgray";
+          } else {$hider="";}
+          echo '<tr class="'.$hider.'">';
+          echo '<td class="stick-left"><strong>'.$row['username'].'</strong></td>';
           echo '<td>'.$row['level'].'</td>';
-          echo '<td><strong>'.$row['username'].'</strong></td>';
           echo '<td>'.$row['hpmax'].'</td>';
           echo '<td>'.$row['mpmax'].'</td>';
           echo '<td>'.$row['equipR'].'</td>';
@@ -126,7 +135,7 @@ echo '<table class="table searchable sortable"><tr>
   echo '</table>';
   echo $numRecords;
 
-  echo '<br/><p class="gray">click on the headers to sort.</p>';
+  echo '<p class="padd">Play now: <a class="blue underline" href="/index.php"> Light Gray RPG | Trials of Vega</a></p>';
 
   echo '</main>'; //end world tool container
 
