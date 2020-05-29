@@ -40,6 +40,10 @@ td.scroll {
 	left: 0;
 	background: #fff;
 }
+.fade {opacity:.3;}
+#sorttable_sortfwdind, #sorttable_sortrevind {
+	position: absolute;
+}
 </style>
 
 <?php session_start();?>
@@ -66,9 +70,14 @@ echo '<table class="table searchable sortable"><tr>
 <th>Level</th>
 <th>HP</th>
 <th>MP</th>
+<th>PT</th>
+<th>MT</th>
 <th>Weapon</th>
 <th>Helm</th>
+<th>Body</th>
 <th>Kills</th>
+<th>Last Enemy</th>
+<th>Deaths</th>
 
 <th>Room#</th>
 <th>Quests</th>
@@ -92,15 +101,26 @@ echo '<table class="table searchable sortable"><tr>
           if ($row['clicks']==0) {
             $hider = "hide";
             $hider = "lgray";
+            $hider = "fade";
           } else {$hider="";}
           echo '<tr class="'.$hider.'">';
           echo '<td class="stick-left"><strong>'.$row['username'].'</strong></td>';
           echo '<td>'.$row['level'].'</td>';
-          echo '<td>'.$row['hpmax'].'</td>';
-          echo '<td>'.$row['mpmax'].'</td>';
+          echo '<td class="red">'.$row['hpmax'].'</td>';
+          echo '<td class="blue">'.$row['mpmax'].'</td>';
+          echo '<td class="">'.$row['physicaltraining'].'</td>';
+          echo '<td>'.$row['mentaltraining'].'</td>';
           echo '<td>'.$row['equipR'].'</td>';
           echo '<td>'.$row['equipHead'].'</td>';
-          echo '<td>'.$row['KLtotalkill'].'</td>';
+          echo '<td>'.$row['equipBody'].'</td>';
+
+          echo '<td class="darkred">'.$row['KLtotalkill'].'</td>';
+          $enemy=$row['enemy'];
+          if ($enemy=="eName") {
+            $enemy="-";
+          }
+          echo '<td class="">'.$enemy.'</td>';
+          echo '<td class="black">'.$row['deaths'].'</td>';
           echo '<td>'.$row['room'].'</td>';
           $i=01;
           $count=0;
@@ -110,7 +130,7 @@ echo '<table class="table searchable sortable"><tr>
               }
               $i++;
           }
-          echo '<td>'.$count.'</td>'; // completed quests
+          echo '<td class="gold">'.$count.'</td>'; // completed quests
           $i=1;
           $count=0;
           while ($i<=10) {
@@ -119,8 +139,8 @@ echo '<table class="table searchable sortable"><tr>
               }
               $i++;
           }
-          echo '<td>'.$count.'</td>'; // gold chests
-          echo '<td>'.$row['xp'].'</td>';
+          echo '<td class="gold">'.$count.'</td>'; // gold chests
+          echo '<td class="green">'.$row['xp'].'</td>';
         //  echo '<td class="scroll"><div class="inside">'.$row['feed'].'</div></td>'; // FEED SCROLL
           echo '<td>'.$row['clicks'].'</td>';
           echo '</tr>';
