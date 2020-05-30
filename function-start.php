@@ -192,13 +192,13 @@ while ($row = $result->fetch_assoc()) {
 
 
     // --------------------------------------------------------------------------- NULL COMMAND / REFRESH
-  /*  elseif ($input=='') {
-        echo '<i>refreshed</i></br>';
+    elseif ($input=='') {
+        echo '<i>refreshed - null command</i></br>';
         $message = ' ';
         include('update_feed.php'); // --- update feed
         $funflag=1;
     }
-*/
+
     // --------------------------------------------------------------------------- command fun flags
     elseif ($input=='stats') {
         $funflag=1;

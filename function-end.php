@@ -107,7 +107,7 @@ while ($row = $result->fetch_assoc()) {
 
     // --------------------------------------------------------------------------- NOT RECOGNIZED COMMAND
     else {
-        echo $message = "<i>$notcommand "."$input</i><br/>";
+        echo $message = '<p class="red">'.$notcommand.' '.$input.'</p>';
         include('update_feed.php'); // --- update feed
     }
 
