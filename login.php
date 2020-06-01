@@ -76,7 +76,7 @@ if (isset($_POST['submit'])) {  // if form has been submitted
 
 if (!isset($loginFlag)) {
     ?>
- <form class="login" action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
+ <form id="login" class="login" action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
    <h3>Log In</h3>
   <p class="lft hide">Username: </p>
   <input class="whiteBG ddgray inset" type="text" name="username" placeholder ="username" maxlength="40">

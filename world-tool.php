@@ -56,6 +56,11 @@ error_reporting(E_ALL);
 // -------------------------DB CONNECT!
 require_once('db-connect.php');
 
+if (!empty(getenv("MYSQL_HOST"))) {
+
+}
+echo '<title>WORLD TOOL</title>';
+
 
 echo '
 <main class="worldtool">
@@ -103,8 +108,9 @@ echo '<table class="table searchable sortable"><tr>
             $hider = "lgray";
             $hider = "fade";
           } else {$hider="";}
+          $username = $row['username'];
           echo '<tr class="'.$hider.'">';
-          echo '<td class="stick-left"><strong>'.$row['username'].'</strong></td>';
+          echo '<td class="stick-left"><strong><a class="dddgray" target="_blank" href="/profile.php?char='.$username.'">'.$username.'</a></strong></td>';
           echo '<td>'.$row['level'].'</td>';
           echo '<td class="red">'.$row['hpmax'].'</td>';
           echo '<td class="blue">'.$row['mpmax'].'</td>';

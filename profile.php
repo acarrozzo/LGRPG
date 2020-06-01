@@ -68,6 +68,7 @@ error_reporting(E_ALL);
 // -------------------------DB CONNECT!
 require_once('db-connect.php');
 
+echo '<title>'.$_GET["char"].'</title>';
 
 echo '
 <main class="worldtool">

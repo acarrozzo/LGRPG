@@ -102,7 +102,7 @@ while ($row = $result->fetch_assoc()) {
         }
         echo '</div>';
     } else if ($row['quest'.$questNumber.'']=='2') {
-      echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+      echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
     }
     // ----------------------------------------- IN PROGRESS - QUEST 2
     $questNumber = '2';
@@ -130,7 +130,7 @@ while ($row = $result->fetch_assoc()) {
         }
         echo '</div>';
     } else if ($row['quest'.$questNumber.'']=='2') {
-      echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+      echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
     }
     // ----------------------------------------- IN PROGRESS - QUEST 3
     $questNumber = '3';
@@ -162,7 +162,7 @@ while ($row = $result->fetch_assoc()) {
         }
         echo '</div>';
     } else if ($row['quest'.$questNumber.'']=='2') {
-      echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+      echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
     }
     echo '</div>'; //-end gbox
 
@@ -229,7 +229,7 @@ echo ' notstarted';
         }
         echo '</div>';
     } else if ($row['quest'.$questNumber.'']=='2') {
-      echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+      echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
     }
     // ----------------------------------------- IN PROGRESS - QUEST 5
     $questNumber = '5';
@@ -285,7 +285,7 @@ echo ' notstarted';
         }
         echo '</div>';
     } else if ($row['quest'.$questNumber.'']=='2') {
-      echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+      echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
     }
     // ----------------------------------------- IN PROGRESS - QUEST 6
     $questNumber = '6';
@@ -347,7 +347,7 @@ echo ' notstarted';
         }
         echo '</div>';
     } else if ($row['quest'.$questNumber.'']=='2') {
-      echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+      echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
     }
 
     echo '</div>'; //-end gbox
@@ -455,7 +455,7 @@ echo ' notstarted';
                 echo '<button class="greenBG focus" type="submit" name="input1" value="start quests"><h4>Talk to Jack Lumber</h4></button>';
             }
         } else if ($row['quest'.$questNumber.'']=='2') {
-          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
         }
         // ----------------------------------------- IN PROGRESS - QUEST 7
         $questNumber = '7';
@@ -520,7 +520,7 @@ echo ' notstarted';
             }
             echo '</div>';
         } else if ($row['quest'.$questNumber.'']=='2') {
-          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
         }
         // ----------------------------------------- IN PROGRESS - QUEST 8
         $questNumber = '8';
@@ -564,7 +564,7 @@ echo ' notstarted';
                     echo '<button class="greenBG" type="submit" name="input1" value="complete '.$questNumber.'"><h4>Complete Quest</h4></button>';
                 }
             } else if ($row['quest'.$questNumber.'']=='2') {
-              echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+              echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
             }
             echo '</div>';
         }
@@ -595,7 +595,7 @@ echo ' notstarted';
             }
             echo '</div>';
         } else if ($row['quest'.$questNumber.'']=='2') {
-          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
         }
         echo '</div>'; //-end gbox
     }
@@ -694,7 +694,7 @@ echo ' notstarted';
             }
             echo '</div>';
         } else if ($row['quest'.$questNumber.'']=='2') {
-          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
         }
         echo '</div>';
     }
@@ -803,7 +803,7 @@ echo ' notstarted';
             }
             echo '</div>';
         } else if ($row['quest'.$questNumber.'']=='2') {
-          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
         }
         // ----------------------------------------- IN PROGRESS - QUEST 8
         $questNumber = '12';
@@ -852,7 +852,7 @@ echo ' notstarted';
             }
             echo '</div>';
         } else if ($row['quest'.$questNumber.'']=='2') {
-          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
         }
         // ----------------------------------------- IN PROGRESS - QUEST 9
         $questNumber = '13';
@@ -895,7 +895,7 @@ echo ' notstarted';
             }
             echo '</div>';
         } else if ($row['quest'.$questNumber.'']=='2') {
-          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
         }
         echo '</div>'; //-end gbox
     }
@@ -985,7 +985,7 @@ echo ' notstarted';
             }
             echo '</div>';
         } else if ($row['quest'.$questNumber.'']=='2') {
-          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
         }
         // ----------------------------------------- IN PROGRESS - QUEST 15
         $questNumber = '15';
@@ -1018,7 +1018,7 @@ echo ' notstarted';
             }
             echo '</div>';
         } else if ($row['quest'.$questNumber.'']=='2') {
-          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
         }
         // ----------------------------------------- IN PROGRESS - QUEST 16
         $questNumber = '16';
@@ -1059,7 +1059,7 @@ echo ' notstarted';
             }
             echo '</div>';
         } else if ($row['quest'.$questNumber.'']=='2') {
-          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
         }
         echo '</div>'; //-end gbox
     }
@@ -1133,7 +1133,7 @@ echo ' notstarted';
             }
             echo '</div>';
         } else if ($row['quest'.$questNumber.'']=='2') {
-          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
         }
         // ----------------------------------------- IN PROGRESS - QUEST 18
         $questNumber = '18';
@@ -1200,7 +1200,7 @@ echo ' notstarted';
             }
             echo '</div>';
         } else if ($row['quest'.$questNumber.'']=='2') {
-          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
         }
         echo '</div>'; //-end gbox
     }
@@ -1272,7 +1272,7 @@ echo ' notstarted';
             }
             echo '</div>';
         } else if ($row['quest'.$questNumber.'']=='2') {
-          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
         }
 
 
@@ -1345,7 +1345,7 @@ echo ' notstarted';
                     echo '<button class="greenBG" type="submit" name="input1" value="complete '.$questNumber.'"><h4>Complete Quest</h4></button>';
                 }
             } else if ($row['quest'.$questNumber.'']=='2') {
-              echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+              echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
             }
             echo '</div>';
         }
@@ -1444,7 +1444,7 @@ echo ' notstarted';
             }
             echo '</div>';
         } else if ($row['quest'.$questNumber.'']=='2') {
-          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
         }
         // ----------------------------------------- IN PROGRESS - QUEST 22
         $questNumber = '22';
@@ -1497,7 +1497,7 @@ echo ' notstarted';
             }
             echo '</div>';
         } else if ($row['quest'.$questNumber.'']=='2') {
-          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
         }
         // ----------------------------------------- IN PROGRESS - QUEST 23
         $questNumber = '23';
@@ -1529,7 +1529,7 @@ echo ' notstarted';
             }
             echo '</div>';
         } else if ($row['quest'.$questNumber.'']=='2') {
-          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
         }
         echo '</div>'; //-end gbox
     }
@@ -1612,7 +1612,7 @@ echo ' notstarted';
             }
             echo '</div>';
         } else if ($row['quest'.$questNumber.'']=='2') {
-          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
         }
         echo '</div>'; //-end gbox
     }
@@ -1707,7 +1707,7 @@ echo ' notstarted';
             }
             echo '</div>';
         } else if ($row['quest'.$questNumber.'']=='2') {
-          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
         }
         // ----------------------------------------- IN PROGRESS - QUEST 26
         $questNumber = '26';
@@ -1743,7 +1743,7 @@ echo ' notstarted';
             }
             echo '</div>';
         } else if ($row['quest'.$questNumber.'']=='2') {
-          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
         }
         // ----------------------------------------- IN PROGRESS - QUEST 27
         $questNumber = '27';
@@ -1785,7 +1785,7 @@ echo ' notstarted';
             }
             echo '</div>';
         } else if ($row['quest'.$questNumber.'']=='2') {
-          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
         }
         echo '</div>'; //-end gbox
     }
@@ -1869,7 +1869,7 @@ echo ' notstarted';
             }
             echo '</div>';
         } else if ($row['quest'.$questNumber.'']=='2') {
-          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
         }
         // ----------------------------------------- IN PROGRESS - QUEST 29
         $questNumber = '29';
@@ -1905,7 +1905,7 @@ echo ' notstarted';
             }
             echo '</div>';
         } else if ($row['quest'.$questNumber.'']=='2') {
-          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
         }
         // ----------------------------------------- IN PROGRESS - QUEST 30
         $questNumber = '30';
@@ -1947,7 +1947,7 @@ echo ' notstarted';
             }
             echo '</div>';
         } else if ($row['quest'.$questNumber.'']=='2') {
-          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></p>';
+          echo '<div class="padd"><p class="green">Quest '.$questNumber.' Completed</p><p> '.$questTitle.'</p></div>';
         }
         echo '</div>'; //-end gbox
     }
@@ -1984,7 +1984,7 @@ echo ' notstarted';
     if (($row['quest1']>='2' && $row['quest2']>='2' && $row['quest3']>='2') ||
     ($row['quest4']>='2' && $row['quest5']>='2' && $row['quest6']>='2') ||
     ($row['quest7']>='2' && $row['quest8']>='2' && $row['quest9']>='2') || $row['quest10']>='2') {
-        echo '<h2 class="padd green">Completed Quests</h1>';
+        echo '<h2 class="padd green notstarted">Completed Quests</h1>';
     }
 
 
