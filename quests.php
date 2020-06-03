@@ -11,7 +11,7 @@ if (!$result = $link->query($sql)) {
 }
 // -------------------------DB OUTPUT!
 while ($row = $result->fetch_assoc()) {
-    $results = $link->query("UPDATE $user SET KLscorpionking = 0"); // -- temp
+//    $results = $link->query("UPDATE $user SET KLscorpionking = 0"); // -- temp
 
     /*
       $results = $link->query("UPDATE $user SET quest10 = 0"); // -- temp

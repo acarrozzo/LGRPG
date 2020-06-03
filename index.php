@@ -18,15 +18,18 @@ if (!isset($_SESSION['username'])) {			// IF NO ONE IS LOGGED IN SHOW TITLE SCRE
     echo '<div id="container">';
     echo '<div id="title">';
 
-    echo '<span class="icon darkergray lg-logo">'.file_get_contents("img/svg/lg-logo.svg").'</span>
-    <h1 class="hide">Light Gray RPG</h1>';
-    echo '<h5 class="blue">GAME ONE</h5>
-    <h1 class="">VEGA</h1>
-    <p class="gray">DEMO v0.5d | Last updated: 5/28/2020</p>';
+  //  echo '<span class="icon darkergray lg-logo">'.file_get_contents("img/svg/lg-logo.svg").'</span>';
+  echo '<h1 class="gray">Light Gray <span class="hide">RPG</span></h1>';
+  echo '<h2 class="blue">RPG</h2>';
+    echo '<h5 class="padd-top dgray">GAME ONE</h5>
+    <h1 class="purple">VEGA</h1>
+    <p class="">DEMO v0.1 | Last updated: 5/28/2020 | <a class="black hide" href="#">View Changelog</a>
+</p>';
+//    <a class="btn redBG" href="#info">LG Info</a>
+
     echo '<p>
     <a class="btn greenBG" href="#login">Login</a>
     <a class="btn blueBG" href="/register.php">New Character</a>
-    <a class="btn redBG" href="#info">LG Info</a>
     </p>';
     echo '<span class="icon gold chest">'.file_get_contents("img/svg/chest.svg").'</span>';
     //echo '<span class="icon red chest">'.file_get_contents("img/svg/group1.svg").'</span>';
