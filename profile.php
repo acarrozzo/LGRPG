@@ -1,3 +1,4 @@
+<?php session_start();?>
 
 <style>
 
@@ -58,7 +59,6 @@ td.scroll {
 }
 </style>
 
-<?php session_start();?>
 <?php include('head.php');?>
 <body>
 <?php

@@ -1,3 +1,4 @@
+<?php session_start();?>
 
 <style>
 .worldtool {
@@ -46,7 +47,6 @@ td.scroll {
 }
 </style>
 
-<?php session_start();?>
 <?php include('head.php');?>
 <body>
 <?php
