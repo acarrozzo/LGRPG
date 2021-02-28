@@ -6,12 +6,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="format-detection" content = "telephone=no">
-<!--<link type="text/css" rel="stylesheet" href="css/lg.css" />-->
+<link rel="icon" href="lg_favicon.ico">
+
+<!-- <link type="text/css" rel="stylesheet" href="css/lg.css" />-->
 <link type="text/css" rel="stylesheet" href="css/lg.css" />
-<link rel='stylesheet' type='text/css' href='style_map.css' />
-<link rel='stylesheet' type='text/css' href='style_map.php' />
-<link rel="stylesheet" type="text/css" href="css/font-awesome.css" >
-<link rel="stylesheet" type="text/css" href="css/rpg-awesome.css" >
+<!--<link rel='stylesheet' type='text/css' href='style_map.css' />
+<link rel='stylesheet' type='text/css' href='style_map.php' />-->
+<!--<link rel="stylesheet" type="text/css" href="css/font-awesome.css" >
+<link rel="stylesheet" type="text/css" href="css/rpg-awesome.css" >-->
 <!-- <link rel="stylesheet" href="https://file.myfontastic.com/TCGhgaeZJzPgzSiUf3dwjZ/icons.css" > -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 <!--
@@ -25,5 +27,8 @@
 <link href="https://fonts.googleapis.com/css?family=Blinker&display=swap" rel="stylesheet">
 
 <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+
+
+
 
 </head>

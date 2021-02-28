@@ -77,7 +77,7 @@ Do you enjoy destroying your enemies with massive warhammers and super sharp swo
 		Congrats! You have indeed slain the Ogre Lieutenant. Welcome to the Warrior\'s Guild! You can enter by heading UP. Your sign up bonus is a new Bastard Sword and Great Sword!!
 	  	<h4>Rewards</h4>
   	  	[ + 500 xp  ]<br />
-      	[ + 1000 $currency ]<br />
+      	[ + 1000 '.$_SESSION['currency'].' ]<br />
       	[ + Bastard Sword (1h) ]<br/>
 				[ + Great Sword (2h) ]</div>
 				<form id="mainForm" method="post" action="" name="formInput">

@@ -1,63 +1,63 @@
 <?php
-						$roomname = "Cathedral Courtyard"; 
+						$roomname = "Cathedral Courtyard";
 $lookdesc = $_SESSION['lookdesc'] = $_SESSION['desc621'];
 
-include ('function-start.php'); 
- 
+include ('function-start.php');
+
 // -------------------------DB CONNECT!
-include ('db-connect.php');  
+include ('db-connect.php');
 // -------------------------DB QUERY!
 $sql = "SELECT * FROM $username";
 if(!$result = $link->query($sql)){ die('There was an error running the query [' . $link->error . ']');}
 // -------------------------DB OUTPUT!
-while($row = $result->fetch_assoc()){   
+while($row = $result->fetch_assoc()){
 
 
-// -------------------------------------------------------------------------- BATTLE VARIABLES		
+// -------------------------------------------------------------------------- BATTLE VARIABLES
  	$infight = $row['infight'];
  	$endfight = $row['endfight'];
  	$enemy=$row['enemy'];
-	
-	
+
+
 // include ('battle-sets/mountains.php');
 
 
-$chest6 = $row['chest6'];
-$goldkey = $row['goldkey']; 
-	
-
-	
+$chest7 = $row['chest7'];
+$goldkey = $row['goldkey'];
 
 
-if($input=='open chest' || $input=='unlock chest' || $input=='open gold chest') 
+
+
+
+if($input=='open chest' || $input=='unlock chest' || $input=='open gold chest')
 {
-	if ($chest6 >= 1) { 	 // --- already opened
+	if ($chest7 >= 1) { 	 // --- already opened
 	echo $message="<i>You already opened this gold chest, remember that awesome Snow Bow.</i>";
-	include ('update_feed.php'); // --- update feed	
+	include ('update_feed.php'); // --- update feed
 	}
-	
-	else if (($chest6 == 0) &&  $goldkey <= 0) {  // ---- no key	
-	echo $message="<i>You need a Gold Key to open this chest. You can get one from the Dark Elf in this Forest.</i><br/>";
-	include ('update_feed.php'); // --- update feed	
-	}
-	
 
-	else if ($chest6 > 0 || $goldkey >= 1 ) {  // ---- open!
+	else if (($chest7 == 0) &&  $goldkey <= 0) {  // ---- no key
+	echo $message="<i>You need a Gold Key to open this chest. You can get one from Chilly Pete</i><br/>";
+	include ('update_feed.php'); // --- update feed
+	}
+
+
+	else if ($chest7 > 0 || $goldkey >= 1 ) {  // ---- open!
 
 			$rand2 = rand(1,4);
 				if ($rand2 == 1 ){
-					$ringitem = 'Ring of Strength X';
-					$results = $link->query("UPDATE $user SET ringofstrengthX = ringofstrengthX + 1"); }
+					$ringitem = 'Ring of Strength XIII';
+					$results = $link->query("UPDATE $user SET ringofstrengthXIII = ringofstrengthXIII + 1"); }
 				if ($rand2 == 2 ){
-					$ringitem = 'Ring of Dexterity X';
-					$results = $link->query("UPDATE $user SET ringofdexterityX = ringofdexterityX + 1"); }
+					$ringitem = 'Ring of Dexterity XIII';
+					$results = $link->query("UPDATE $user SET ringofdexterityXIII = ringofdexterityXIII + 1"); }
 				if ($rand2 == 3 ){
-					$ringitem = 'Ring of Magic X';
-					$results = $link->query("UPDATE $user SET ringofmagicX = ringofmagicX + 1"); }
+					$ringitem = 'Ring of Magic XIII';
+					$results = $link->query("UPDATE $user SET ringofmagicXIII = ringofmagicXIII + 1"); }
 				if ($rand2 == 4 ){
-					$ringitem = 'Ring of Defense X';
-					$results = $link->query("UPDATE $user SET ringofdefenseX = ringofdefenseX + 1"); }	
-							
+					$ringitem = 'Ring of Defense XIII';
+					$results = $link->query("UPDATE $user SET ringofdefenseXIII = ringofdefenseXIII + 1"); }
+
 			$silverrand = rand(1,13);
 			//echo 'SilverRand: '.$silverrand.'<br/>';
 				if ($silverrand == 1) { $silveritem='Silver Sword';
@@ -84,35 +84,33 @@ if($input=='open chest' || $input=='unlock chest' || $input=='open gold chest')
 				$results = $link->query("UPDATE $user SET silverring = silverring + 1"); }
 				if ($silverrand == 12) { $silveritem='Silver Necklace';
 				$results = $link->query("UPDATE $user SET silvernecklace = silvernecklace + 1"); }
-	
-	
-	
+
+
+
 	echo 'You use your golden key to open the chest!<br/>';
 	$message="You use your golden key to open the chest!<br/>";
-	include ('update_feed.php'); // --- update feed	
-	$cash = 5000;
-	$message = "<i>the chest contains:</i>   
+	include ('update_feed.php'); // --- update feed
+	//$cash = 5000;
+	$message = "<i>the chest contains:</i>
 	<div class='goldchestopen'>
-	<h3>Dark Forest</h3>
+	<h3>Stone Mountain</h3>
 	<h3>Gold Chest</h3>
-	<p>+ 1000 XP</p>
-	<p>+ 10000 $currency</p>
-	<p>+ 10 Red Balms</p>
-	<p>+ 10 Blue Balm</p>
-	<p>+ 5 Silver Keys</p>
+	<p>+ 2000 XP</p>
+	<p>+ 20000 $currency</p>
+	<p>+ 15 Red Balms</p>
+	<p>+ 15 Blue Balm</p>
 	<p class='px20'>+ $ringitem</p>
 	<p class='px20'>+ $silveritem</p>
-	<p class='px25'>+ Oak Battle Staff! <span class='px16'>( +30 mag, +30 str )</span></p>
+	<p class='px25'>+ Snow Bow! <span class='px16'>( +45 dex, +15 mag, +15 def )</span></p>
 	</div>";
 	include ('update_feed.php'); // --- update feed
-			
-	$results = $link->query("UPDATE $user SET xp = xp + 1000");
-	$results = $link->query("UPDATE $user SET currency = currency + 10000");
-	$results = $link->query("UPDATE $user SET redbalm = redbalm + 10");
-	$results = $link->query("UPDATE $user SET bluebalm = bluebalm + 10");
-	$results = $link->query("UPDATE $user SET silverkey = silverkey + 5");
-	$results = $link->query("UPDATE $user SET oakbattlestaff = oakbattlestaff + 1");
-	$results = $link->query("UPDATE $user SET chest6 = 1");
+
+	$results = $link->query("UPDATE $user SET xp = xp + 2000");
+	$results = $link->query("UPDATE $user SET currency = currency + 20000");
+	$results = $link->query("UPDATE $user SET redbalm = redbalm + 15");
+	$results = $link->query("UPDATE $user SET bluebalm = bluebalm + 15");
+	$results = $link->query("UPDATE $user SET snowbow = snowbow + 1");
+	$results = $link->query("UPDATE $user SET chest7 = 1");
 	$results = $link->query("UPDATE $user SET goldkey = goldkey - 1");
 
 }
@@ -120,16 +118,16 @@ if($input=='open chest' || $input=='unlock chest' || $input=='open gold chest')
 
 else if ($input == 'reset chest')
 {
-	$results = $link->query("UPDATE $user SET chest6 = 0");
+	$results = $link->query("UPDATE $user SET chest7 = 0");
 	$results = $link->query("UPDATE $user SET goldkey = 1");
 }
 
 
 
-	
-	
-	
-	
+
+
+
+
 // -------------------------------------------------------------------------- Battle TRAVEL
 if ((	$input=='n' || $input=='north' || $input=='ne' || $input=='northeast' ||
 		$input=='e' || $input=='north' || $input=='se' || $input=='southeast' ||
@@ -143,7 +141,7 @@ if ((	$input=='n' || $input=='north' || $input=='ne' || $input=='northeast' ||
 
 // -------------------------------------------------------------------------- TRAVEL
 
-	else if($input=='e' || $input=='east') 
+	else if($input=='e' || $input=='east')
 {			echo 'You travel east<br/>';
    	$message="<i>You travel east</i></br>".$_SESSION['desc622'];
 				include ('update_feed.php'); // --- update feed
@@ -152,15 +150,15 @@ if ((	$input=='n' || $input=='north' || $input=='ne' || $input=='northeast' ||
 }
 
 
-else if($input=='sw' || $input=='southwest') 
+else if($input=='sw' || $input=='southwest')
 {			echo 'You travel southwest<br/>';
    	$message="<i>You travel southwest</i></br>".$_SESSION['desc618'];
 				include ('update_feed.php'); // --- update feed
    			$results = $link->query("UPDATE $user SET room = '618'"); // -- room change
    			$results = $link->query("UPDATE $user SET endfight = 0"); // -- reset fight
 }
-	
-	 
+
+
 
 
 

@@ -23,23 +23,25 @@ td.scroll {
 	font-size: 1.5rem;
   margin:2rem auto;
   text-align: left;
+  background:#111;
 }
 .table td {
 	padding: .2rem 0.5rem;
-	border: solid 1px #ccc;
+	border: solid 1px #222;
 }
 .table th {
   position: sticky;
 	top: 0;
-	background: #fff;
+	background: #000;
 	padding: 0.4rem 1.5rem 0.4rem 0.5rem;
-	border: solid 1px #ccc;
+	border: solid 1px #222;
 	z-index: 1;
+  cursor:pointer;
 }
 .stick-left {
 	position: sticky;
 	left: 0;
-	background: #fff;
+	background: #000;
 }
 .fade {opacity:.3;}
 #sorttable_sortfwdind, #sorttable_sortrevind {
@@ -110,7 +112,7 @@ echo '<table class="table searchable sortable"><tr>
           } else {$hider="";}
           $username = $row['username'];
           echo '<tr class="'.$hider.'">';
-          echo '<td class="stick-left"><strong><a class="dddgray" target="_blank" href="/profile.php?char='.$username.'">'.$username.'</a></strong></td>';
+          echo '<td class="stick-left"><strong><a class="lgray" target="_blank" href="/profile.php?char='.$username.'">'.$username.'</a></strong></td>';
           echo '<td>'.$row['level'].'</td>';
           echo '<td class="red">'.$row['hpmax'].'</td>';
           echo '<td class="blue">'.$row['mpmax'].'</td>';
@@ -126,7 +128,7 @@ echo '<table class="table searchable sortable"><tr>
             $enemy="-";
           }
           echo '<td class="">'.$enemy.'</td>';
-          echo '<td class="black">'.$row['deaths'].'</td>';
+          echo '<td class="darkred">'.$row['deaths'].'</td>';
           echo '<td>'.$row['room'].'</td>';
           $i=01;
           $count=0;

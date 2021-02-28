@@ -4365,7 +4365,7 @@ while ($row = $result->fetch_assoc()) {
     echo '</div><div class="gbox">';
 
 
-    echo "<h2>Misc</h2>";
+    echo "<h2>Quest Items</h2>";
 
 
 
@@ -4385,7 +4385,7 @@ while ($row = $result->fetch_assoc()) {
         echo "<div><span>".$row["bigfoot"]."x </span> big foot</div>";
     }
 
-    //echo "<br><li class='px16 gold'>Keys</span></div>";
+    echo "<h2>Keys</h2>";
     if ($row["silverkey"] > 0) {
         echo "<div><span>".$row["silverkey"]."x </span> <span class='lightblue'>silver </span> key</div>";
     }

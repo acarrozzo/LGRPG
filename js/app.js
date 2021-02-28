@@ -2071,10 +2071,11 @@ d[0].offsetTop||15===d[0].offsetTop;d.remove();a.fixedPosition=e}f.extend(b.defa
  * Date Created: Sept 2013
  * Really cool dropdown script. Enjoy
  */
- 
- 
- 
- 
+
+
+
+
+
 $(function() {
 // Global navigation flyout script
   $(".flyout").click(
@@ -2095,10 +2096,10 @@ $(function() {
 $(document).ready(function(){
     $(".mapBtn").click(function(){
         var span = $(this);
-            $('.maplist div').addClass('hidden'); 
+            $('.maplist div').addClass('hidden');
         span.parent().toggleClass("hidden");
     });
-}); 
+});
 // ac - end Div Image Toggle
 
 
@@ -2153,8 +2154,8 @@ $(".bigTextBtn").click(function(){
 
 
 <!----------------------------------------- super simple Tab JS ---->
-/*$(function(){	
-	var panels = $("article"), 
+/*$(function(){
+	var panels = $("article"),
       tabs = $(".tabbb");
   panels.hide();
   tabs.click(function(e){
@@ -2164,27 +2165,27 @@ $(".bigTextBtn").click(function(){
    		url += $(this).attr("href");
 
 		window.location.href = url;
-	 
-	 
-	 
+
+
+
      panels.hide();
      panelheight = $(this.hash).outerHeight();
      //$(this.hash).show().parent().animate({"height":  panelheight});
      $(this.hash).show().parent().animate({"height":"100%"});
-     
+
 	 tabs.removeClass("selected");
      $(this).addClass("selected");
- 
+
 	 $('html, body').animate({scrollTop: '0px'}, 1); // scroll page to top!
-	 
+
   });
   if (window.location.href.indexOf("#") === -1) {
-	tabs.first().trigger("click");  
+	tabs.first().trigger("click");
   } else {
 	  var tabIndex = window.location.href.substring(window.location.href.lastIndexOf("#"), window.location.href.length);
   	tabs.each(function() {
 		if ($(this).attr("href") === tabIndex) {
-			$(this).trigger("click");	
+			$(this).trigger("click");
 		}
 	});
 
@@ -2197,9 +2198,9 @@ $(".toggleAction").click(function(e){
 	e.preventDefault();
 	$('#action-module').toggleClass('active');
 	$('#hud').toggleClass('active');
-});	
-	
-	
+});
+
+
 // --------- ac - menuIcon toggle
 $("XXX.menuIcon").click(function(e){
  e.preventDefault();
@@ -2221,11 +2222,11 @@ $("XXX.closeMenu").click(function(e){
 // --------- ac - ANYTHING AC POP FUNCTION - data link - data pop - .closePop
 
 $(document).ready(function(){
-	$("[data-link]").click(function(e){ 
+	$("[data-link]").click(function(e){
 		e.preventDefault();
 		var tab_id = $(this).attr('data-link');
 
-				
+
 		if ($('[data-pop="' + tab_id + '"]').hasClass("active")) {
 			$('[data-pop].active').removeClass('active');
 			$("[data-link]").removeClass("active");
@@ -2250,11 +2251,11 @@ $(document).ready(function(){
 						$('[data-link2="quests"]').addClass('active');
 						$('[data-link2="world"]').addClass('active');
 						$('[data-link2="action"]').addClass('active');
- 
-			$(this).addClass('active');		
+
+			$(this).addClass('active');
 			$('[data-pop="' + tab_id + '"]').addClass('active');
 		}
-	})	
+	})
 	$('.closeMenu').click(function(e){
 		e.preventDefault();
 //		$(this).closest('[data-pop]').removeClass('active');
@@ -2269,12 +2270,12 @@ $(document).ready(function(){
 
 // --------- ac - ANYTHING AC POP FUNCTION 222222 - data link - data pop - .closePop
 
-$(document).ready(function(){	
-	$("[data-link2]").click(function(e){ 
+$(document).ready(function(){
+	$("[data-link2]").click(function(e){
 		e.preventDefault();
 		var tab_id = $(this).attr('data-link2');
-  
-				
+
+
 		if ($('[data-pop2="' + tab_id + '"]').hasClass("active")) {
 			$('[data-pop2].active').removeClass('active');
 			$("[data-link2]").removeClass("active");
@@ -2282,16 +2283,17 @@ $(document).ready(function(){
 		else {
 			$('[data-link2]').removeClass('active');
 			$('[data-pop2]').removeClass('active');
-   			$('[data-link2="' + tab_id + '"]').parent().parent().addClass('active'); 
-   			$(this).closest('[data-pop]').addClass('active'); 
-			
-			$('this').addClass('active');		
+   			$('[data-link2="' + tab_id + '"]').parent().parent().addClass('active');
+   			$(this).closest('[data-pop]').addClass('active');
+
+			$('this').addClass('active');
 			$('[data-link2="' + tab_id + '"]').addClass('active');
 			$('[data-pop2="' + tab_id + '"]').addClass('active');
 		}
-	})	
+	})
 
 })
+
 /*
   SortTable
   version 2

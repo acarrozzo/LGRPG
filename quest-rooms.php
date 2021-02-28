@@ -1,4 +1,30 @@
 <?php
+
+
+// ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+// ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+// ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+// ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+// ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+// ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+// ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+// ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+// ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+// ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+// ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+// ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+// ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+// ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+// ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+// ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+// ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+// ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+// ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+// ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+
+
+
+
 // --------------------------------------------------------------------------------- Quests TAB
 //echo '<article data-pop="quests" id="quests">';
     // --------------------------------------------------------------------------------- QUEST ROOMS
@@ -467,7 +493,7 @@
         }
     }
     // ---------------------------------------------------------------- 31 - MINING GUILD INITIATION
-    elseif ($row['room']=='308') {
+    elseif ($row['room']=='308' && 99999999999999 == 8888888888888888888888) {
         echo '<h2 class="brown">Mining Guild </h2><h4>Quest 31</h4>
 			';
         if ($row['quest31']=='0') {
@@ -488,7 +514,7 @@
         }
     }
     // ---------------------------------------------------------------- 32-34 - MINING GUILD HEADQUARTERS
-    elseif ($row['room']=='308c') {
+    elseif ($row['room']=='308c' && 99999999999999 == 8888888888888888888888) {
         echo '<h2 class="brown">Mining Guild Leader</h2><h4>Quests 32-34</h4>
 			';
         if ($row['quest32']=='0') {
@@ -527,7 +553,7 @@
         }
     }
     // ---------------------------------------------------------------- 35-37 - DWARF CAPTAIN QUESTS
-    elseif ($row['room']=='303') {
+    elseif ($row['room']=='303' && 99999999999999 == 8888888888888888888888) {
         echo '<h2 class="red">Dwarf Captain</h2><h4>Quests 35-37</h4>
 			';
         if ($row['quest35']=='0') {
@@ -568,7 +594,7 @@
 
 
     // ---------------------------------------------------------------- 38-40 - DWARF GUARD BOUNTY BOARD
-    elseif ($row['room']=='306') {
+    elseif ($row['room']=='306' && 99999999999999 == 8888888888888888888888) {
         echo '<h2 class="red">Dwarf Guard Bounty Board</h2><h4>Quests 38-40</h4>
 			';
         if ($row['quest38']=='0') {
@@ -607,7 +633,7 @@
         }
     }
     // ---------------------------------------------------------------- 41-43 - BLUE OASIS - FRIENDLY PIRATE
-    elseif ($row['room']=='413') {
+    elseif ($row['room']=='413' && 99999999999999 == 8888888888888888888888) {
         echo '<h2 class="blue">Friendly Pirate</h2><h4>Quests 41-43</h4>
 			';
         if ($row['quest41']=='0') {
@@ -647,7 +673,7 @@
     }
 
     // ---------------------------------------------------------------- 44-46 - Jungle Jim - Crocodile Island
-    elseif ($row['room']=='424') {
+    elseif ($row['room']=='424' && 99999999999999 == 8888888888888888888888) {
         echo '<h2 class="green">Jungle Jim</h2><h4>Quests 44-46</h4>
 			';
         if ($row['quest44']=='0') {
@@ -699,7 +725,7 @@
 
 
     // ---------------------------------------------------------------- 47-50 - MASTER TEMPLE
-    elseif ($row['room']=='425') {
+    elseif ($row['room']=='425' && 99999999999999 == 8888888888888888888888) {
         echo '<h2 class="gold">Master Temple</h2><h4>Quests 47-50</h4>
 			';
         if ($row['quest47']=='0') {
@@ -1050,3 +1076,17 @@
             }
         }
     }
+
+
+
+
+    
+    // ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+    // ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+    // ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+    // ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+    // ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+    // ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+    // ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+    // ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC
+    // ---------------------------------NOT IN USE ANYMORE - THIS STUFF IS NOW IN QUESTS.PHP - january 2021 - AC

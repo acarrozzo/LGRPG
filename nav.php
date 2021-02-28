@@ -265,7 +265,7 @@ while ($row = $result->fetch_assoc()) {
     echo '
 	<div class="bar">
 	<div style="width: '.$percent.'%" class="barMid '.$barBGcolor.'">
-     HP
+     <span>HP</span>
 	</div>
 	<strong class="maxxer "><span class="'.$barNUMcolor.'">'.$row['hp'].'</span></strong>
 	';
@@ -297,7 +297,7 @@ while ($row = $result->fetch_assoc()) {
     echo '
 	<div class="bar">
 	<div style="width: '.$percent.'%" class="barMid '.$barBGcolor.'">
-     MP
+    <span> MP</span>
 	</div>
 	<strong class="maxxer"><span class="'.$barNUMcolor.'">'.$row['mp'] .'</span></strong>
 	</div>
@@ -313,6 +313,7 @@ while ($row = $result->fetch_assoc()) {
     if ($xpPercent < 0) {
         $xpPercent = 0;
     }
+    $xpPercent = round($xpPercent,2);
     //$percent = $percent * $scale;
 
     $barBGcolor = 'greenBG';
@@ -320,9 +321,9 @@ while ($row = $result->fetch_assoc()) {
     echo '
 <div class="bar">
 <div style="width: '.$xpPercent.'%" class="barMid '.$barBGcolor.'">
-XP
+<span>XP</span>
   </div>
-  <strong class="maxxer"> '.$levelxp.' </strong>
+  <strong class="maxxer"> '.$xpPercent.'% </strong>
   </div>';
 
 

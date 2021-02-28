@@ -139,6 +139,47 @@ while ($row = $result->fetch_assoc()) {
             } else { // -------------------------------------------------------------------------- else
                 echo "<li class='gold'>- find the Traveling Wizard to learn how to craft purple potions.</li>";
             }
+
+
+
+
+            // -------------------------------------------------------------------------- redpotion + mud = red balm
+            if ($row['quest62'] >= 2 && $row['redpotion'] >= 5 && $row['mud'] >= 1 && $row['craftingtable'] == $room) {
+                echo "<li><input type='submit' class='w120 hov redBG white' name='input1' value='craft all red balm' />
+		<i class='dgray'>( +1000 HP ) </i> 5 <i class='red'>redpotion</i><i class='dgray'> ( ".$row['redpotion']." )</i>
+							 <i class='ddgray right'> have ".$row['redbalm']."</i></li>";
+            } else { // -------------------------------------------------------------------------- else
+                echo "<li class='gray'>- red balm <i class='dgray'>( +1000 HP )</i> 5 redpotion
+		<i class='dgray'> ( ".$row['redpotion']." )</i>
+		<i class='ddgray right'> have ".$row['redbalm']."</i></li>";
+            }
+            // -------------------------------------------------------------------------- bluepotion = blue balm
+            if ($row['quest62'] >= 2 && $row['bluepotion'] >= 5 && $row['mud'] >= 1 && $row['craftingtable'] == $room) {
+                echo "<li><input type='submit' class='w120 hov blueBG white' name='input1' value='craft all blue balm' />
+		<i class='dgray'>( +1000 MP ) </i> 5 <i class='blue'>bluepotion</i> <i class='dgray'> ( ".$row['bluepotion']." )</i>
+									 <i class='ddgray right'> have ".$row['bluebalm']."</i></li>";
+            } else { // -------------------------------------------------------------------------- else
+                echo "<li class='gray'>- blue balm <i class='dgray'>( +1000 MP )</i> 5 bluepotion
+		<i class='dgray'> ( ".$row['bluepotion']." )</i>
+		<i class='ddgray right'> have ".$row['bluebalm']."</i></li>";
+            }
+
+            // -------------------------------------------------------------------------- purple balm = blue + red
+            if ($row['quest62'] >= 2 && $row['redbalm'] >= 1 && $row['bluebalm'] >= 1 && $row['craftingtable'] == $room && $row['travelingwizardFlag'] >= 1) {
+                echo "<li><input type='submit' class='w120 hov lightpurpleBG white' name='input1' value='craft all purple balm' />
+		<i class='dgray'>( +2000 HP, + 2000 MP ) </i>
+	<i class='red'>red balm</i> <i class='dgray'> ( ".$row['redbalm']." )</i> + <i class='blue'>blue balm</i> <i class='dgray'> ( ".$row['bluebalm']." )</i>
+									 <i class='ddgray right'> have ".$row['purplebalm']."</i></li>";
+            } elseif ($row['travelingwizardFlag'] >= 1) { // -------------------------------------------------------------------------- else
+                echo "<li class='gray'>- purple balm <i class='dgray'>( +2000 HP, + 2000 MP )</i>
+			red balm <i class='dgray'> ( ".$row['redbalm']." )</i> + blue balm
+		<i class='dgray'> ( ".$row['bluebalm']." )</i>
+		<i class='ddgray right'> have ".$row['purplebalm']."</i></li>";
+            } else { // -------------------------------------------------------------------------- else
+                echo "<li class='gold'>- find the Traveling Wizard to learn how to craft purple balms.</li>";
+            }
+
+
             echo '</div>'; // end gslice
 
 

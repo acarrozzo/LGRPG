@@ -45,7 +45,7 @@ while ($row = $result->fetch_assoc()) {
     echo '<h2>Old Man</h2>';
     echo '<span class="icon npc green">'.file_get_contents("img/svg/npc-oldman.svg").'</span>';
     if ($row['quest1']<'2' || $row['quest2']<'2' || $row['quest3']<'2') {
-        echo '<p class="gray">The Old Man hasn\'t been himself lately and could use the help of a Young Adventurer like yourself. Find him in his cabin southwest of the Grassy Field Crossroads.</p>';
+        echo '<p class="gray">The Old Man hasn\'t been himself lately and could use the help of a Young Adventurer. Find him in his cabin southwest of the Grassy Field Crossroads.</p>';
     } else {
         echo '<p class="gray">The Old Man thanks you for helping in his basement. His wife loved the flower you picked as well. He tells you to make your way east along the Forest Path to get to Red Town. Talk to the Mayor there.</p>';
         echo '<h5 class="padd">'.$checkBox.' Talk to the Mayor of Red Town.</h5>';

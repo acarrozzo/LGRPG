@@ -1393,7 +1393,7 @@ if ($enemy == 'Dragon') {
     $results = $link->query("UPDATE $user SET enemydef = 250");
     $_SESSION['eLvl'] = 60;			// enemy level
             $_SESSION['eFly'] = 1;			// enemy flies, need ranged weapon
-            $_SESSION['eDragonFire'] = 1;	// dragon fire = pure attack (no def ) + pow attack (x3 dam) --- 1/4 chance // 50% chance to catch on fire. when on fire, burn forever for 10-20 dam. need to use water to cure on fire
+      //      $_SESSION['eDragonFire'] = 1;	// dragon fire = pure attack (no def ) + pow attack (x3 dam) --- 1/4 chance // 50% chance to catch on fire. when on fire, burn forever for 10-20 dam. need to use water to cure on fire
 }
 
 // ------------------------------------------------------------------------ MOUNTAIN CATHEDRAL

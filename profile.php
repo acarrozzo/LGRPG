@@ -89,74 +89,85 @@ echo '<h1 class="blue">'.$_GET["char"].'</h1>';
       $result = mysqli_query($link, $sql);
       $resultCheck = mysqli_num_rows($result); //optional
       if ($resultCheck > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
+          while ($row = mysqli_fetch_assoc($result)) {
+              echo '<h3>Level '.$row['level'].'</h3>';
+              echo '<p>Hit Points: <span class="red">'.$row['hp'].'/'.$row['hpmax'].'</span></p>';
+              echo '<p>Mana Points: <span class="blue">'.$row['mp'].'/'.$row['mpmax'].'</span></p>';
 
-          echo '<h3>Level '.$row['level'].'</h3>';
-          echo '<p>Hit Points: <span class="red">'.$row['hp'].'/'.$row['hpmax'].'</span></p>';
-          echo '<p>Mana Points: <span class="blue">'.$row['mp'].'/'.$row['mpmax'].'</span></p>';
-
-          echo '</div>';
-          echo '<div>';
+              echo '</div>';
+              echo '<div>';
 
 
-          echo '<span class="gold">BP: '.$row['bp'].' </span>';
-          echo '<span class="purple">SP: '.$row['sp'].' </span>';
-                    echo '<span class="red">Physical Training: '.$row['physicaltraining'].'  </span>';
-                    echo '<span class="blue">Mental Training: '.$row['mentaltraining'].'  </span>';
-                    echo '<span class="gold">Coin: '.$row['currency'].'  </span>';
-                    echo '<span class="">Evolve: '.$row['evolve'].'  </span>';
-                    echo '</div>';
-                    echo '<div>';
-                    echo '<span class="red">STR: '.$row['str'].'('.$row['strmod'].')  </span>';
-                    echo '<span class="green">DEX: '.$row['dex'].'('.$row['dexmod'].')  </span>';
-                    echo '<span class="blue">MAG: '.$row['mag'].'('.$row['magmod'].')  </span>';
-                    echo '<span class="gold">DEF: '.$row['def'].'('.$row['defmod'].')  </span>';
-                    echo '</div>';
-                    echo '<div>';
-          echo '<span>'.$row['equipR'].'</span>';
-          echo '<span>'.$row['equipL'].'</span>';
-          echo '<span>'.$row['equipHead'].'</span>';
-          echo '<span>'.$row['equipBody'].'</span>';
-          echo '<span>'.$row['equipHands'].'</span>';
-          echo '<span>'.$row['equipFeet'].'</span>';
-          echo '<p class="darkred">Kills: '.$row['KLtotalkill'].'</p>';
-          echo '<p class="">Last Enemy: '.$row['enemy'].'</p>';
-          echo '<p>Room ID:'.$row['room'].'</p>';
-          $i=01;
-          $count=0;
-          while ($i<=70) {
-              if ($row['quest'.$i.'']>=2){
-                $count++;
+              echo '<span class="gold">BP: '.$row['bp'].' </span>';
+              echo '<span class="purple">SP: '.$row['sp'].' </span>';
+              echo '<span class="red">PT: '.$row['physicaltraining'].'  </span>';
+              echo '<span class="blue">MT: '.$row['mentaltraining'].'  </span>';
+              echo '<span class="gold">Coin: '.$row['currency'].'  </span>';
+              echo '<span class="">Evolve: '.$row['evolve'].'  </span>';
+              echo '</div>';
+              echo '<div>';
+              echo '<span class="red">STR: '.$row['str'].'('.$row['strmod'].')  </span>';
+              echo '<span class="green">DEX: '.$row['dex'].'('.$row['dexmod'].')  </span>';
+              echo '<span class="blue">MAG: '.$row['mag'].'('.$row['magmod'].')  </span>';
+              echo '<span class="gold">DEF: '.$row['def'].'('.$row['defmod'].')  </span>';
+              echo '</div>';
+              echo '<div>';
+              echo '<span>'.$row['equipR'].'</span> • ';
+              echo '<span>'.$row['equipL'].'</span> ';
+              echo '</div>';
+              echo '<div>';
+							echo '<span>'.$row['equipHead'].'</span> • ';
+              echo '<span>'.$row['equipBody'].'</span> • ';
+              echo '<span>'.$row['equipHands'].'</span> • ';
+              echo '<span>'.$row['equipFeet'].'</span> ';
+							echo '</div>';
+							echo '<div>';
+							echo '<span>'.$row['equipRing1'].'</span> • ';
+							echo '<span>'.$row['equipRing2'].'</span> • ';
+							echo '<span>'.$row['equipNeck'].'</span> • ';
+							echo '<span>'.$row['equipArtifact'].'</span> ';
+							echo '</div>';
+							echo '<div>';
+							echo '<span>'.$row['equipComp'].'</span> • ';
+              echo '<span>'.$row['equipPet'].'</span> • ';
+              echo '<span>'.$row['equipMount'].'</span>';
+							echo '</div>';
+							echo '<p class="darkred">Kills: '.$row['KLtotalkill'].'</p>';
+							echo '<p class="darkred">Deaths: '.$row['deaths'].'</p>';
+              echo '<p class="">Last Enemy: '.$row['enemy'].'</p>';
+              echo '<p>Room ID:'.$row['room'].'</p>';
+              $i=01;
+              $count=0;
+              while ($i<=70) {
+                  if ($row['quest'.$i.'']>=2) {
+                      $count++;
+                  }
+                  $i++;
               }
-              $i++;
-          }
-          echo '<p class="gold">Quests: '.$count.'</p>'; // completed quests
-          $i=1;
-          $count=0;
-          while ($i<=10) {
-              if ($row['chest'.$i.'']>=1){
-                $count++;
+              echo '<p class="gold">Quests: '.$count.'</p>'; // completed quests
+              $i=1;
+              $count=0;
+              while ($i<=10) {
+                  if ($row['chest'.$i.'']>=1) {
+                      $count++;
+                  }
+                  $i++;
               }
-              $i++;
+              echo '<p class="gold">Chests: '.$count.'</p>'; // gold chests
+              echo '<p class="green">XP: '.$row['xp'].'</p>';
+              //  echo '<p class="scroll"><div class="inside">'.$row['feed'].'</div></p>'; // FEED SCROLL
+              echo '<p>Clicks: '.$row['clicks'].'</p>';
+
+              echo '<h4 class="gray">'.$char.'\'s Feed</h4><br/>';
+              echo '<section id="profile-feed">'.$row['feed'].'<br/><br/><br/><p>AT BOTTOM | SCROLL UP TO SEE HISTORY</p></section>';
           }
-          echo '<p class="gold">Chests: '.$count.'</p>'; // gold chests
-          echo '<p class="green">XP: '.$row['xp'].'</p>';
-        //  echo '<p class="scroll"><div class="inside">'.$row['feed'].'</div></p>'; // FEED SCROLL
-          echo '<p>Clicks: '.$row['clicks'].'</p>';
 
-          echo '<h4 class="gray">'.$char.'\'s Feed</h4><br/>';
-            echo '<section id="profile-feed">'.$row['feed'].'<br/><br/><br/><p>AT BOTTOM | SCROLL UP TO SEE HISTORY</p></section>';
-        }
-
-  //  }
+          //  }
 
 //  }
 //  else{
 //  echo $conn->error;
 //  }
-
-
-
       }
 //  echo $numRecords;
 

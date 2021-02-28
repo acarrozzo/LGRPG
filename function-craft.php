@@ -18,6 +18,7 @@ while ($row = $result->fetch_assoc()) {
     $sand=$row['sand'];
     $glass=$row['glass'];
     $bottle=$row['bottle'];
+    $mud=$row['mud'];
     $stone=$row['stone'];
     $iron=$row['iron'];
     $coal=$row['coal'];
@@ -38,6 +39,9 @@ while ($row = $result->fetch_assoc()) {
     $redpotion=$row['redpotion'];
     $bluepotion=$row['bluepotion'];
     $purplepotion=$row['purplepotion'];
+    $redbalm=$row['redbalm'];
+    $bluebalm=$row['bluebalm'];
+    $purplebalm=$row['purplebalm'];
 
     $hammer=$row['hammer'];
     $ironhammer=$row['ironhammer'];
@@ -645,6 +649,70 @@ while ($row = $result->fetch_assoc()) {
             include('update_feed.php'); // --- update feed
         }
     }
+
+
+    // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx CRAFT red balm
+    elseif ($craftingtable==$room && $input=='craft red balm' && $crafting >= 1 && $mud >= 1 && $redpotion >=5) {
+        echo $message = "You craft a RED balm out of 5 red potions and mud<br/>";
+        $results = $link->query("UPDATE $user SET mud = mud - 1");
+        $results = $link->query("UPDATE $user SET redpotion = redpotion - 5");
+        $results = $link->query("UPDATE $user SET redbalm = redbalm + 1");
+        include('update_feed.php'); // --- update feed
+    } elseif ($input=='craft all red balm') {
+        $times = $redpotion/5;
+        $times = floor($times); // round down
+        $qty = $times * 5;
+
+        if ($craftingtable == $room && $crafting >= 1 && $redpotion >= 5 && $mud >= 1) {
+            echo $message ="You craft $qty red potions into $times Red balms!<br/>";
+            $results = $link->query("UPDATE $user SET mud = mud - $times");
+            $results = $link->query("UPDATE $user SET redpotion = redpotion - $qty");
+            $results = $link->query("UPDATE $user SET redbalm = redbalm + $times");
+            include('update_feed.php'); // --- update feed
+        }
+    }
+    // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx CRAFT blue balm
+    elseif ($craftingtable==$room && $input=='craft blue balm' && $crafting >= 1 && $mud >= 1 && $bluepotion >=5) {
+        echo $message = "You craft a BLUE balm out of 5 blueberries and a mud<br/>";
+        $results = $link->query("UPDATE $user SET mud = mud - 1");
+        $results = $link->query("UPDATE $user SET bluepotion = bluepotion - 5");
+        $results = $link->query("UPDATE $user SET bluebalm = bluebalm + 1");
+        include('update_feed.php'); // --- update feed
+    } elseif ($input=='craft all blue balm') {
+        $times = $bluepotion/5;
+        $times = floor($times); // round down
+        $qty = $times * 5;
+
+        if ($craftingtable==$room && $crafting >= 1 && $bluepotion >= 5 && $mud >= 1) {
+            echo $message ="You craft $qty blueberries into $times Blue balms!<br/>";
+            $results = $link->query("UPDATE $user SET mud = mud - $times");
+            $results = $link->query("UPDATE $user SET bluepotion = bluepotion - $qty");
+            $results = $link->query("UPDATE $user SET bluebalm = bluebalm + $times");
+            include('update_feed.php'); // --- update feed
+        }
+    }
+    // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx CRAFT purple balm
+    elseif ($craftingtable==$room && $input=='craft purple balm' && $crafting >= 1 && $redbalm >=1 && $bluebalm >=1) {
+        echo $message = "You craft a PURPLE balm out of a Red balm and a Blue balm<br/>";
+        $results = $link->query("UPDATE $user SET redbalm = redbalm - 1");
+        $results = $link->query("UPDATE $user SET bluebalm = bluebalm - 1");
+        $results = $link->query("UPDATE $user SET purplebalm = purplebalm + 1");
+        include('update_feed.php'); // --- update feed
+    } elseif ($input=='craft all purple balm') {
+        $times = $redbalm;
+        if ($redbalm > $bluebalm) {
+            $times=$bluebalm;
+        }
+        if ($craftingtable==$room && $crafting >= 1 && $redbalm >=1 && $bluebalm >=1) {
+            echo $message ="You combine your Red and Blue balms into $times Purple balms!<br/>";
+            $results = $link->query("UPDATE $user SET redbalm = redbalm - $times");
+            $results = $link->query("UPDATE $user SET bluebalm = bluebalm - $times");
+            $results = $link->query("UPDATE $user SET purplebalm = purplebalm + $times");
+            include('update_feed.php'); // --- update feed
+        }
+    }
+
+
     // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx hatchet
     elseif ($craftingtable==$room && $crafting >= 1 && $input=='craft hatchet' && $stone >=3 && $wood >=1) {
         echo $message = "You craft a HATCHET out of 3 stone and 1 wood<br/>";

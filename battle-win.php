@@ -124,6 +124,7 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
     }
     // --------------------------------------------------------------  Sand Crab
     if ($enemy =='Sand Crab') {
+        $currencyadd = rand(1, 2);	 // rand gold
         $bonusbest = '';
         if ($traininghelmet<1) {
             $bonusbest = '+ Training Helmet!<br> ';
@@ -5511,7 +5512,7 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
     // --------------------------------------------------------------  GMG2
     if ($enemy =='GMG2') {
         $exp = 8000;
-        $currencyadd = rand(20000);
+        $currencyadd = 20000;
         $rand=rand(1, 4);
         $KLname= 'KLgmg2';
         if ($rand==1) { // 25%
@@ -5544,7 +5545,7 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
     // --------------------------------------------------------------  GK2
     if ($enemy =='GK2') {
         $exp = 8000;
-        $currencyadd = rand(20000);
+        $currencyadd = 20000;
         $rand=rand(1, 4);
         $KLname= 'KLgk2';
         if ($rand==1) { // 25%
@@ -5577,7 +5578,7 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
     // --------------------------------------------------------------  KING BLADE
     if ($enemy =='King Blade') {
         $exp = 15000;
-        $currencyadd = rand(50000);
+        $currencyadd = 50000;
         $rand=rand(1, 4);
         $KLname= 'KLkingblade';
         if ($rand==1) { // 25%

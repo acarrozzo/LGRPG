@@ -10,6 +10,8 @@ if (!$result = $link->query($sql)) {
 // -------------------------DB OUTPUT!
 while ($row = $result->fetch_assoc()) {
     $evolve = $row['evolve'];
+    $physicaltraining = $row['physicaltraining'];
+    $mentaltraining = $row['mentaltraining'];
 
     //-------------------copied from hud.php
     $bp = $row['bp'];
@@ -150,7 +152,7 @@ while ($row = $result->fetch_assoc()) {
     echo '
 	<div class="bar">
 	<div style="width: '.$percent.'%" class="barMid '.$barBGcolor.'">
-     HP
+    <span> HP</span>
 	</div>
 	<strong class="maxxer "><span class="'.$barNUMcolor.'">'.$hp.'</span>/'.$hpmax.'</strong>
 	';
@@ -182,7 +184,7 @@ while ($row = $result->fetch_assoc()) {
     echo '
 	<div class="bar">
 	<div style="width: '.$percent.'%" class="barMid '.$barBGcolor.'">
-     MP
+     <span>MP</span>
 	</div>
 	<strong class="maxxer"><span class="'.$barNUMcolor.'">'.$mp.'</span>/'.$mpmax.'</strong>
 	</div>';
@@ -217,8 +219,11 @@ while ($row = $result->fetch_assoc()) {
     echo '
 	<div class="bar">
 	<div style="width: '.$xpPercent.'%" class="barMid '.$barBGcolor.'">
-	XP <strong class="count '.$barBGcolor.'"> '.$levelxp.' </strong>
+	<span>XP</span>
+   <strong class="count '.$barBGcolor.'"> '.$levelxp.' </strong>
     </div></div>';
+
+    echo '<div class="right"><a class="btnl lgray" href="" data-link2="skills">SKILLS &gt;</a></div>';
 
     // ----------------------------------------------------------------------------------------------------------- BP, SP, COIN, ROOM
 
@@ -237,7 +242,13 @@ while ($row = $result->fetch_assoc()) {
     } else {
         echo'<span class=" gray"> '.$row['sp'].'</span> ';
     }
-    echo '</h4><h5>';
+    echo '</h4>';
+    echo '<h5>';
+    echo'<span class="">PT </span><span class="red ">'.$mentaltraining.'</span> ' ;
+    echo'<span class="">MT </span><span class="blue ">'.$mentaltraining.'</span> ' ;
+    echo '</h5>';
+
+    echo '<h5>';
     echo'<span class="">'.$_SESSION['currency'].'</span> ';
     echo '<span class="gold ">'.$currency.'</span> ' ;
     echo '</h5>';
@@ -721,7 +732,7 @@ while ($row = $result->fetch_assoc()) {
     echo '
 	<div class="bar">
 	<div style="width: '.$xpPercent.'%" class="barMid '.$barBGcolor.'">
-	XP <strong class="count '.$barBGcolor.'"> '.$levelxp.' </strong>
+	<span>XP</span> <strong class="count '.$barBGcolor.'"> '.$levelxp.' </strong>
     </div></div>';
     echo '
     <h2 class="gold">Experience</h2>
