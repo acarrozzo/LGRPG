@@ -25,7 +25,7 @@ if (!isset($_SESSION['username'])) {			// IF NO ONE IS LOGGED IN SHOW TITLE SCRE
     //<h1 class="purple">VEGAXXX</h1>';
     echo '<br/>';
 
-echo '<p class="">DEMO v0.1 | Last updated: 12/2020 <a class="black hide" href="#">| View Changelog</a>
+echo '<p class="">DEMO v0.1 | Last updated: 4/2/2020 <a class="black hide" href="#">| View Changelog</a>
 </p>';
 echo '<br/>';
 //    <a class="btn redBG" href="#info">LG Info</a>
