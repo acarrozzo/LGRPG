@@ -3385,7 +3385,7 @@ if ($roomID=='308c') {
 $_SESSION['desc308c'] = <<<HTML
    <html><div class="roomBox"><h3>Mining Guild Headquarters</h3>
 	<h4>Guild Leader</h4>
-	<p>This room is business central for the guild, you see many upper level dwarfs discussing rocks and such. The Guild Leader stands behind a desk near the far wall.</p>
+	<p>This room is business central for the guild, you see many upper level miners discussing rocks and such. The Guild Leader stands behind a desk near the far wall.</p>
 	<a href data-link="quests" class="btn goldBG">Mining Guild Quests</a>
 	<form id="mainForm" method="post" action="" name="formInput">
 	<button type="submit" name="input1" value="north">North</button>
@@ -5150,8 +5150,8 @@ $_SESSION['desc506'] = <<<HTML
 
 	<form id="mainForm" method="post" action="" name="formInput">
 
-	<button type="submit" name="input1" value="northwest">Northwest</button>
-	<button type="submit" name="input1" value="southeast">Southeast</button>
+	<button type="submit" name="input1" value="northwest">nw</button>
+	<button type="submit" name="input1" value="southeast">se</button>
 
 	<input type="submit" name="input1" class="greenBG" value="rest" />
 	<input type="submit" name="input1" class="greenBG" value="grab tea" />
@@ -6036,7 +6036,7 @@ $_SESSION['desc608'] = <<<HTML
    <html><div class="roomBox">
 	<div class="roomIcon blue"><i class="ra ra-tower"></i></div>
 	<h3 class="gray"><span class="blue">Blue Guard</span> Mountain Outpost</h3>
-	<p>A sturdy outpost made out of stone and wood stands here. Occupied by the Blue Guard, they keep this area safe. You can reach Star City by going west and more mountains by going east. There is a sign here. Talk to Hector the Blue Guard Captain for some quests.</p>
+	<p>A sturdy outpost made out of stone and wood stands here. Occupied by the Blue Guard, they keep this area safe. You can reach Star City by going west and more mountains by going east. Talk to Hector the Blue Guard Captain for some quests.</p>
 	<a href data-link="quests" class="btn goldBG">Mountain Outpost Quests </a>
 	<form id="mainForm" method="post" action="" name="formInput">
 	<button type="submit" name="input1" value="north">North</button>

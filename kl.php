@@ -1031,10 +1031,10 @@ while ($row = $result->fetch_assoc()) {
         echo '<div><span class="alt">Yeti</span></div>';
     }
 
-    if ($row['KLsnowowl']>=1) {
-        echo '<h4 class="elvl">50:<i class="rare">R</i> Snow Owl <span class="right">'. $row['KLsnowowl'].'</span></h4>	';
+    if ($row['KLsnowogre']>=1) {
+        echo '<h4 class="elvl">50:<i class="rare">R</i>Snow Ogre<span class="right">'. $row['KLsnowogre'].'</span></h4>	';
     } else {
-        echo '<div><span class="alt">Snow Owl</span></div>';
+        echo '<div><span class="alt">Snow Ogre</span></div>';
     }
 
     if ($row['KLsnowninja']>=1) {
@@ -1043,10 +1043,10 @@ while ($row = $result->fetch_assoc()) {
         echo '<div><span class="alt">Snow Ninja</span></div>';
     }
 
-    if ($row['KLsnowogre']>=1) {
-        echo '<h4 class="elvl">50:<i class="rare">R</i>Snow Ogre<span class="right">'. $row['KLsnowogre'].'</span></h4>	';
+    if ($row['KLsnowowl']>=1) {
+        echo '<h4 class="elvl">50:<i class="rare">R</i> Snow Owl <span class="right">'. $row['KLsnowowl'].'</span></h4>	';
     } else {
-        echo '<div><span class="alt">Snow Ogre</span></div>';
+        echo '<div><span class="alt">Snow Owl</span></div>';
     }
 
     if ($row['KLgmg2']>=1) {
@@ -1059,6 +1059,12 @@ while ($row = $result->fetch_assoc()) {
         echo '<h4 class="elvl">70:<i class="rare">R</i> GK2 <span class="right">'. $row['KLgk2'].'</span></h4>	';
     } else {
         echo '<div><span class="alt">GK2</span></div>';
+    }
+
+    if ($row['KLkingblade']>=1) {
+        echo '<h4 class="purple elvl">90:<i class="rare">R</i> King Blade <span class="right">'. $row['KLkingblade'].'</span></h4>	';
+    } else {
+        echo '<div><span class="alt">King Blade</span></div>';
     }
 
     if ($row['KLdragon']>=1) {

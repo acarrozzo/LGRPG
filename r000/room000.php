@@ -63,7 +63,7 @@ When you are ready to leave this room and enter the world above, you can PRESS B
     include('update_feed.php'); // --- update feed
 } elseif ($input=='ex light') {  //ex light
    echo'You examine the light.<br>';
-    $message="<i>You examine the light</i> <p>The light glows a soft blue and is perfectly square. It's surface lies flush with the top of pillar.</p>";
+    $message="<i>You examine the light</i> <p>The light glows a soft blue and is perfectly square. Its surface lies flush with the top of pillar.</p>";
     include('update_feed.php'); // --- update feed
 }
 

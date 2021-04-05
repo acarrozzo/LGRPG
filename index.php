@@ -3,6 +3,8 @@
 <title>Light Gray RPG</title>
 
 <body>
+  <?php //include '../inc/day-btn.php'; ?>
+
 <?php
 ini_set('display_errors', 'on');
 error_reporting(E_ALL);
@@ -21,10 +23,13 @@ if (!isset($_SESSION['username'])) {			// IF NO ONE IS LOGGED IN SHOW TITLE SCRE
   //  echo '<span class="icon darkergray lg-logo">'.file_get_contents("img/svg/lg-logo.svg").'</span>';
   echo '<h1 class="gray">Light Gray <span class="hide">RPG</span></h1>';
   echo '<h2 class="blue">RPG</h2>';
-    echo '<h5 class="padd-top dgray">GAME ONE</h5>
-    <h1 class="purple">VEGA</h1>
-    <p class="">DEMO v0.1 | Last updated: 5/28/2020 | <a class="black hide" href="#">View Changelog</a>
+    //echo '<h5 class="padd-top dgray">GAME ONE</h5>
+    //<h1 class="purple">VEGAXXX</h1>';
+    echo '<br/>';
+
+echo '<p class="">DEMO v0.1 | Last updated: 4/5/2020 <a class="black hide" href="#">| View Changelog</a>
 </p>';
+echo '<br/>';
 //    <a class="btn redBG" href="#info">LG Info</a>
 
     echo '<p>
@@ -91,12 +96,14 @@ Lore
 
 <div class="panel custom-input" data-pop2="custom">
 	<section>
-	<div class='closeMenu gold'><i class='fa fa-times-circle'></i></div>
+<!--	<div class='closeMenu gold'><i class='fa fa-times-circle'></i></div>-->
 	<div class="customInput">
 		<h3>Custom Input</h3>
 		<input class="field" type="string" name="input1" value="<?php $input ?>" />
 		<input class="action btn" type="submit" name="submit" value="Submit" id="mainButton" />
 	<!--</form>-->
+
+
 	</div>
 	</section>
 	</div>
@@ -139,7 +146,80 @@ $user = $username = $_SESSION['username'];
     echo '</div>'; //-- END lastActionBox
 
     ?>
+
+    <!-- TIME BOX! -->
+    <!-- TIME BOX! -->
+    <!-- TIME BOX! -->
+    <!-- TIME BOX! -->
+    <!-- TIME BOX! -->
+    <!-- TIME BOX! -->
+
+<p>LAST ACTION: <span id="datetime"></span>
+</p>
+<script>
+var dt = new Date();
+document.getElementById("datetime").innerHTML = dt.toLocaleString();
+</script>
+<p>CURRENT TIME: <span id="MyClockDisplay" class="clock" onload="showTime()"></span></p>
+
+
+<script>
+    function showTime(){
+    var date = new Date();
+    var h = date.getHours(); // 0 - 23
+    var m = date.getMinutes(); // 0 - 59
+    var s = date.getSeconds(); // 0 - 59
+    var session = "AM";
+    if(h == 0){
+        h = 12;
+    }
+    if(h > 12){
+        h = h - 12;
+        session = "PM";
+    }
+    h = (h < 10) ? "0" + h : h;
+    m = (m < 10) ? "0" + m : m;
+    s = (s < 10) ? "0" + s : s;
+    var time = h + ":" + m + ":" + s + " " + session;
+    document.getElementById("MyClockDisplay").innerText = time;
+    document.getElementById("MyClockDisplay").textContent = time;
+    setTimeout(showTime, 1000);
+}
+function refreshData()
+{
+    x = 5;  // 5 Seconds
+  //  console.log('xxxxxxx');
+    // Do your thing here
+    setTimeout(refreshData, x*100);
+}
+refreshData(); // execute function
+showTime();
+</script>
+
+
+
+<?
+//echo 'BBBBBBBBBBBbBBBBBBBBBBBb<br/>';
+//   	$message="<i>x</i></br>";
+    //.$_SESSION['desc030'];
+		//		include ('update_feed_alt.php'); // --- update feed
+   		//	$results = $link->query("UPDATE $user SET bluebalm = '400'"); // -- room change
+        ?>
+
+        <!-- // END TIME BOX! -->
+        <!-- // END TIME BOX! -->
+        <!-- // END TIME BOX! -->
+        <!-- // END TIME BOX! -->
+        <!-- // END TIME BOX! -->
+
+
+
+
+
+
 <div class="descBox">
+
+  <div class="gbox">
 	<h2>Location:</h2>
 
 	<?php
@@ -156,6 +236,9 @@ $user = $username = $_SESSION['username'];
 </div>';
 
     include('coinbox.php');
+
+    echo '</div>';
+
     include('ammobox.php'); ?>
 	</div>
 	</section>
@@ -166,7 +249,11 @@ $user = $username = $_SESSION['username'];
 	</section>
 	</div>
 
-  <div class="panel" data-pop2="system"><section><?php include('system.php'); ?></section></div>
+  <div class="panel" data-pop2="system">
+    <section>
+        <?php include('system.php'); ?>
+    </section>
+  </div>
 
 
 	<div class="subMenu">
@@ -273,7 +360,8 @@ include('shop.php');			// ----- MENU CONTENT
     }
     // -------------------------DB OUTPUT!
     while ($row = $result->fetch_assoc()) {
-        $command = 	$_SESSION['command'] ="<span class='blue capX command'>  action  </span>";
+    //  $command = 	$_SESSION['command'] ="<span class='blue capX command'>  action  [ <span class='dddgray'>$input</span> ]</span>";
+      $command = 	$_SESSION['command'] ="<span class='blue capX command'> action </span>";
     }
 
 
@@ -334,16 +422,31 @@ function pageScroll() {
 }
 </script>
 
-<!-- Tiny ScrollBar ---->
+<!-- Tiny ScrollBar
 <script type="text/javascript" src="js/jquery.tinyscrollbar.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         $('#scrollbar1').tinyscrollbar();
     });
 </script>
-
+-->
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="js/app.min.js"></script>
+<script type="text/javascript" src="../js/core.min.js"></script>
+
+<script>
+var date = new Date();
+    var hours = date.getHours();
+
+    if (hours > 18 || hours < 6) {
+        $('body').addClass('night');
+    }
+    if (hours > 6 && hours < 8) {
+        $('body').addClass('dawn');
+    }
+    if (hours > 18 && hours < 20) {
+        $('body').addClass('twilight');
+    }
+</script>
 
 </body>
 </html>

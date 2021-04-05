@@ -91,7 +91,7 @@ if ($infight < 1 && $endfight != 1) {  // -UNDER OCEAN RAND GENERATOR
     // -------------------------------------------------------------------------- TRAVEL
     elseif ($input=='u' || $input=='up') {
         echo 'You travel up the mine<br/>';
-        $message="<i class='lightblueBG'>You travel up the mine</i></br>".$_SESSION['descm29'];
+        $message="<i class=''>You travel up the mine</i></br>".$_SESSION['descm29'];
         include('update_feed.php'); // --- update feed
                                 $results = $link->query("UPDATE $user SET room = 'm29'"); // -- room change
                                 $results = $link->query("UPDATE $user SET endfight = 0"); // -- reset fight
@@ -101,7 +101,7 @@ if ($infight < 1 && $endfight != 1) {  // -UNDER OCEAN RAND GENERATOR
             include('update_feed.php'); // --- update feed
         } else {
             echo 'You dig down to mine level 31.<br/>';
-            $message="<i class='lightblueBG'>You dig down to mine level 31...EVENTUALLY</i></br>".$_SESSION['descm30'];
+            $message="<i class=''>You dig down to mine level 31...EVENTUALLY</i></br>".$_SESSION['descm30'];
             include('update_feed.php'); // --- update feed
                                         $results = $link->query("UPDATE $user SET room = 'm30'"); // -- room change
                                         $results = $link->query("UPDATE $user SET endfight = 0"); // -- reset fight

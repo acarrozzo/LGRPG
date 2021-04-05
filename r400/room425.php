@@ -49,54 +49,59 @@ while ($row = $result->fetch_assoc()) {
     // ------------------------------  MASTER PACK
 
     if ($input=="grab master pack") {  // ---- GRAB Master Pack
+      echo $message="<div class='menuAction'><h4 class='ocean'>You replenish your Masterpack</h3><br/>";
+      include('update_feed.php'); // --- update feed
         if ($reds>= 3) {	// ------------------------------  reds
-            echo $message="<div class='menuAction'><i class='fa fa-times-circle lightred'></i>You already have some reds.</div>";
-            include('update_feed.php'); // --- update feed
+            echo $message="<i class='fa fa-times-circle lightred'></i>You have ".$reds." reds.";
+            include('update_feed_alt.php'); // --- update feed
         } else {
-            echo $message="<div class='menuAction'><i class='fa fa-arrow-circle-up green'></i>[ +3 reds ]</div>";
-            include('update_feed.php'); // --- update feed
+            echo $message="<i class='fa fa-arrow-circle-up green'></i>You now have ".$reds." reds.";
+            include('update_feed_alt.php'); // --- update feed
             $results = $link->query("UPDATE $user SET reds = 3");
         }
         if ($greens>= 3) {	// ------------------------------  greens
-            echo $message="<div class='menuAction'><i class='fa fa-times-circle lightred'></i>You already have some greens.</div>";
+            echo $message="<i class='fa fa-times-circle lightred'></i>You have ".$greens." greens.";
             include('update_feed_alt.php'); // --- update feed
         } else {
-            echo $message="<div class='menuAction'><i class='fa fa-arrow-circle-up green'></i>[ +3 greens ]</div>";
+            echo $message="<i class='fa fa-arrow-circle-up green'></i>You now have ".$greens." greens.";
             include('update_feed_alt.php'); // --- update feed
             $results = $link->query("UPDATE $user SET greens = 3");
         }
         if ($blues>= 3) {	// ------------------------------  blues
-            echo $message="<div class='menuAction'><i class='fa fa-times-circle lightred'></i>You already have some blues.</div>";
+            echo $message="<i class='fa fa-times-circle lightred'></i>You have ".$blues." blues.";
             include('update_feed_alt.php'); // --- update feed
         } else {
-            echo $message="<div class='menuAction'><i class='fa fa-arrow-circle-up green'></i>[ +3 blues ]</div>";
+            echo $message="<i class='fa fa-arrow-circle-up green'></i>You now have ".$blues." blues.";
             include('update_feed_alt.php'); // --- update feed
             $results = $link->query("UPDATE $user SET blues = 3");
         }
         if ($yellows>= 3) {	// ------------------------------  yellows
-            echo $message="<div class='menuAction'><i class='fa fa-times-circle lightred'></i>You already have some yellows.</div>";
+            echo $message="<i class='fa fa-times-circle lightred'></i>You have ".$yellows." yellows.";
             include('update_feed_alt.php'); // --- update feed
         } else {
-            echo $message="<div class='menuAction'><i class='fa fa-arrow-circle-up green'></i>[ +3 yellows ]</div>";
+            echo $message="<i class='fa fa-arrow-circle-up green'></i>You now have ".$yellows." yellows.";
             include('update_feed_alt.php'); // --- update feed
             $results = $link->query("UPDATE $user SET yellows = 3");
         }
         if ($redbalm>= 3) {	// ------------------------------  red balm
-            echo $message="<div class='menuAction'><i class='fa fa-times-circle lightred'></i>You already have red balms.</div>";
+            echo $message="<i class='fa fa-times-circle lightred'></i>You have ".$redbalm." red balms.";
             include('update_feed_alt.php'); // --- update feed
         } else {
-            echo $message="<div class='menuAction'><i class='fa fa-arrow-circle-up green'></i>[ +3 red balms ]</div>";
+            echo $message="<i class='fa fa-arrow-circle-up green'></i>You now have ".$redbalm." red balms.";
             include('update_feed_alt.php'); // --- update feed
             $results = $link->query("UPDATE $user SET redbalm = 3");
         }
         if ($bluebalm>= 3) {	// ------------------------------  blue balm
-            echo $message="<div class='menuAction'><i class='fa fa-times-circle lightred'></i>You already have blue balms.</div>";
+            echo $message="<i class='fa fa-times-circle lightred'></i>You have <span class='blue'>".$bluebalm." blue balms</span>.";
             include('update_feed_alt.php'); // --- update feed
         } else {
-            echo $message="<div class='menuAction'><i class='fa fa-arrow-circle-up green'></i>[ +3 blue balms ]</div>";
+            echo $message="<i class='fa fa-arrow-circle-up green'></i>You have <span class='blue'>".$bluebalm." blue balms</span>.";
             include('update_feed_alt.php'); // --- update feed
             $results = $link->query("UPDATE $user SET bluebalm = 3");
         }
+        echo $message="</div>";
+        include('update_feed_alt.php'); // --- update feed
+
     }
 
     // -------------------------------------------------------------------------- BATTLE VARIABLES

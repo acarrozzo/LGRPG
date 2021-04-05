@@ -10,6 +10,12 @@ html {
 body {
 	background-color: #eee;
 	color: $darkgray;
+
+
+	background: #222; // NIGHT TIME MODE
+	    color: #eee;
+
+
     font-size: 1.5rem;
 		line-height: 2rem;
 		cursor: default;
@@ -456,10 +462,13 @@ font-size: 2rem;
 /* -- ----------------------------- FEED STYLES -- */
 .feed .strongBox {
 	background:$lightgray;
+	background:#111;
     display: block;
   //  margin: 10px -20px;
     line-height: 1.5em;
-    padding: 15px;}
+		margin: 1rem;
+		padding: 1rem;
+	}
 /* -- ----------------------------- INPUT FIELD -- */
 input.field {    padding: 10px;}
 .action.btn {    padding: 10px;
@@ -506,6 +515,7 @@ p a {color:#646465;padding:0 2px;text-decoration:none;}
   left: 0;
   right: 0;
   display: inline;
+	color: #666;
   width: 45px;
   height: 45px;
 //  color: #999;
@@ -990,11 +1000,15 @@ nav .px14.none.fa {margin-right:5px;float:left;}
 border: dashed .1rem;
 strong {font-size:2rem;}
 }
-.menuAction .fa, .menuAction i {    font-size: 28px;
-    color: #70b9ed;
-    padding: 0 0 10px;
+.menuAction .fa, .menuAction i {
+	//font-size: 28px;
+  //  color: #70b9ed;
+  //  padding: 0 0 10px;
     display: block;}
-.menuAction span {color:$gold;}
+.menuAction span {
+	color:$gold;
+	color:pink;
+}
 .menuAction > .goldbox {background:$gold;padding:10px 5px;color:#47474A;display:block;height:30px;float:right;top:-15px;position:relative;border:#47474A solid 3px;width:60px;text-align:center;}
 .menuAction em {font-style:normal;}
 /* --------------- QUEST WIN BOX */
@@ -1013,12 +1027,14 @@ strong {font-size:2rem;}
     margin: 0 0 10px;
     font-size: 2rem;
     color: #FFF;
-    border: 1rem solid #fff;
-    box-shadow: 0 0 1rem #999;
+  //  box-shadow: 0 0 1rem #999;
     margin: 2rem;
 		margin:1rem 1rem 0;
 		text-shadow: 0 0 1rem rgba(30, 30, 30, 0.2), 0 0 0.5rem rgba(30, 30, 30, 0.5);
 background: #333;
+//border: 1rem solid #fff;
+
+    border: #444 2rem solid;
 		 			h4 {
 		 			 color:$gold;
 		 		 }
@@ -1245,11 +1261,9 @@ overflow:hidden;
 		bottom: 0;
 	}
 	&.active.custom-input {
-    position: absolute;
+		position: absolute;
     z-index: 1;
-    height: 60vh;
-    background: #111;
-    box-shadow: 0 0 25px #000;
+    height: 86vh;
     padding: 2rem 0;
     top: 0;
 }
@@ -1263,10 +1277,19 @@ section {
 	    padding-top: 0;
 	position: relative;
 	}
+	.double-column {
+			padding:10px 0;
+			> div { // 2 columns
+			width: 50%;
+	    float: left;
+	    padding: 5px;
+			}
+		}
 	.flex-contain {
 		display: flex;
     flex-wrap: wrap;
 	 > div {width:100%;position:relative;}	//.fBox
+
 	 .stats & > div:nth-child(1) {order:-2;}
 	 .stats & > div:nth-child(2)  {order:0;}
 	 .stats & > div:nth-child(3)   {order:-1;}
@@ -1288,7 +1311,11 @@ section {
 		}
 		.end {
 				order: 2;
-			 // opacity:.5;
+			  opacity:.5;
+				h2 {
+				    font-size: 3rem;
+				    line-height: 3rem;
+				}
 		}
 	}
 	.infobar {
@@ -1310,6 +1337,73 @@ section {
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 1rem;
 }
+
+
+// --- ITEM BOX
+.itembox {
+	background: #fff;
+	text-align: left;
+	width: 47.5%;
+	text-shadow: none;
+	position: relative;
+	margin: 0.3rem 1%;
+	background: none;
+	border: solid #fff 0.2rem;
+	&:hover {
+		background:rgba(0,0,0,.2);
+		top: 1px;
+	}
+		.icon {
+			float: left;
+	    width: 4rem;
+	    margin-right: 0.5rem;
+	    margin-left: -0.5rem;
+
+		}
+		strong {
+			font-size:2.2rem;
+			line-height: 1.6rem;
+		}
+		.qty
+		{
+			position:absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			right: 1rem;
+		}
+
+} // end itembox
+.disabled {opacity:.2;pointer-events:none;}
+.disabled2 {opacity:.8;pointer-events:none;}
+.actives {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    height: 100%;
+    background: rgba(80,80,80,0.8);
+    top: 0;
+    border-radius: 50px;
+    line-height: 5.5rem;
+    z-index: 1;
+}
+// --- blink
+@keyframes blink {
+  50% {
+    opacity: 0.7;
+  }
+}
+@-webkit-keyframes blink {
+  50% {
+    opacity: 0.7;
+  }
+}
+.blink {
+  animation: blink 2s step-start 0s infinite;
+  -webkit-animation: blink 2s step-start 0s infinite;
+}
+
 // --- group box
 .gbox {
     border-bottom: solid 0.5rem #47474A;
@@ -1321,6 +1415,9 @@ section {
 		}
 		#quests &:not(:first-child) {
 			padding-top:8rem;
+		}
+		#quests &.end {
+			padding-top:2rem;
 		}
 }
 .gslice {
@@ -1334,6 +1431,7 @@ section {
 }
 .padd {
 	padding:1rem 0;
+	overflow: hidden;
 }
 .padd-top {
 	padding-top:1rem;
@@ -1478,7 +1576,8 @@ box-shadow: 0px 0px 10px #333, 0px 0px 5px #333;
 
 	.barMid {
 		position: relative;
-		padding: 0 0 0 1rem;
+		//padding: 0 0 0 1rem;
+		> span {padding-left:1rem;}
 		.stats & {
 		line-height: 2.7rem;
 
@@ -1527,8 +1626,10 @@ XXX#container {
     //position: fixed;
     position: absolute;
     bottom: 0;
-		right: 0;
-		//left: 0;
+
+		//right: 0;
+
+		left: 0;
 			 //background: #fff;
 
 }
@@ -1762,9 +1863,12 @@ bottom: 115px;
 		display: inline-block;
 		position: relative;
 		color: #fff;
-		width: 48%;
+		background:pink;
 
 		}
+
+
+
 
 		.retreatBtn {
 	background: #111;
@@ -1774,7 +1878,9 @@ bottom: 115px;
 	color: #999;
 	font-size: 12px;
 	position: absolute;
-	bottom: 5px;
+	//bottom: 5px;
+	top: 10px;
+right: 5px;
 }
 
 }
@@ -2033,9 +2139,11 @@ position: relative;
 }
 
 .magicarmorBox {
-	position: absolute;
-			top: 6.5rem;
-			right: 0.9rem;
+//			top: 6.5rem;
+//			right: 0.9rem;
+			position: absolute;
+    bottom: 57px;
+    right: 0;
 }
 
 
@@ -2124,6 +2232,7 @@ bottom: 0.5rem;
 	border-radius: 50%;
 	text-align: center;
 	font-size: 4rem;
+	line-height: 6rem;
 	width: 6rem;
 	height: 6rem;
 	background: rgba(0,0,0,.3);
@@ -2152,7 +2261,7 @@ bottom: 0.5rem;
 }
 
 .castBox {
-    background:$lightgray;
+    background:$blue;
     padding: 10px;
     margin: 10px 20px 0;
 }
@@ -2238,6 +2347,10 @@ transform: scale(1.3);
 width: 76%;
 margin: 0 auto;
 }
+.menu {
+	top: 0;
+	bottom:initial;
+}
 .quickBox {
     transform: scale(0.66);
     transform-origin: right;
@@ -2255,6 +2368,11 @@ margin: 0 auto;
 		height: 100%;
 		overflow-y: hidden;
 		overflow-x: visible;
+
+		margin: 2vh;
+height: 96vh;
+width: 47vw;
+border-radius: 20px;
 	}
 
 	#container .module.feed {
@@ -2262,8 +2380,8 @@ margin: 0 auto;
 		width: 50%;
 		height: 100vh;
 		overflow: hidden;
-		left:0;
-		//right: 0;
+		//left:0;
+		right: 0;
 		position: absolute;
 	}
 
@@ -2279,7 +2397,19 @@ margin: 0 auto;
 	.panel {
 		width: 50%;
 	}
-
+	.panel .roomIcon {
+	    float: right;
+	    margin: 0 1rem 1rem 1rem;
+	    display: flex;
+	    font-size: 10rem;
+	}
+	.panel.active.custom-input {
+    position: absolute;
+    z-index: 1;
+    height: 80vh;
+    padding: 2rem 0;
+    top: 130px;
+}
 	.menu {
 		width: 50%;
 	}
@@ -2293,6 +2423,8 @@ margin: 0 auto;
 	#hud {
 		width: 50%;
 		pointer-events: none;
+		right:0;
+		left:initial;
 	}
 
 	.battleBlock {
@@ -2302,10 +2434,10 @@ margin: 0 auto;
 
 	}
 	.nav {
-		position: fixed;
-		right: 0;
-		width: 50%;
-		bottom: 0;
+		//position: fixed;
+	//	right: 0;
+	//	width: 50%;
+//		bottom: 0;
 		// background: $lightgray;
 		//z-index: 1;
 	}
@@ -2313,7 +2445,8 @@ margin: 0 auto;
 		position: absolute;
 		height: calc(100% - 6rem);
 		width: 100%;
-		top: 0;
+		top: 6rem;
+
 		z-index: -2;
 	}
 	.badges {
@@ -2324,7 +2457,7 @@ margin: 0 auto;
 		}
 
 	#container .module.feed {
-		box-shadow: -5px 5px 10px rgba(0,0,0,.2);
+	//	box-shadow: -5px 5px 10px rgba(0,0,0,.2);
 	}
 
 	#container #action-module {
@@ -2335,13 +2468,26 @@ margin: 0 auto;
 	.panel {
 		position: absolute;
 		width: 100%;
-	}
+		bottom: 100vh;
+		padding-top: 10rem;
 
+		&.active {
+	    bottom: 0;
+		}
+	}
+	.subMenu {
+		top: 6rem;
+		bottom:initial;
+	}
 	.menu {
 		position: absolute;
 		width: 100%;
 	}
-
+	.closeMenu {
+	    top: 10rem;
+	    right: 1rem;
+	    display: none;
+	}
 	#feed-module {
 		height: 100%;
 		padding-bottom: 100px;

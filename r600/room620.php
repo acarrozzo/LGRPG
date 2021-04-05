@@ -48,7 +48,10 @@ while ($row = $result->fetch_assoc()) {
         $results = $link->query("UPDATE $user SET enemy = 'Dragon'");
         include('battle.php');
     }
-
+    // -------------------------------------------------------------------------- IN BATTLE
+    elseif ($infight >=1) {
+        include('battle.php');
+    }
 
     // include ('battle-sets/mountains.php');
 

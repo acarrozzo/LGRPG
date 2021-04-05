@@ -3,43 +3,45 @@
 $lookdesc = $_SESSION['lookdesc'] = $_SESSION['desc418'];
 //$dangerLVL = $_SESSION['dangerLVL'] = "35"; // danger level
 
-include ('function-start.php'); 
+include ('function-start.php');
 
 // -------------------------DB CONNECT!
-include ('db-connect.php');  
+include ('db-connect.php');
 // -------------------------DB QUERY!
 $sql = "SELECT * FROM $username";
 if(!$result = $link->query($sql)){ die('There was an error running the query [' . $link->error . ']');}
 // -------------------------DB OUTPUT!
-while($row = $result->fetch_assoc()){   
+while($row = $result->fetch_assoc()){
 
 $equipMount = $row['equipMount'];
 $KLsmoothranger = $row['KLsmoothranger'];
 
 // SMOOTH RANGER
-// -------------------------------------------------------------------------- BATTLE VARIABLES		
+// -------------------------------------------------------------------------- BATTLE VARIABLES
  	$infight = $row['infight']; $endfight = $row['endfight']; $enemy=$row['enemy'];
-// -------------------------------------------------------------------------- After Battle - SAFE ROOM		
+// -------------------------------------------------------------------------- After Battle - SAFE ROOM
 if ($endfight == 1 && $input!='n' && $input!='north' && $input!='ne' && $input!='northeast' &&
 		$input!='e' && $input!='east' && $input!='se' && $input!='southeast' &&
 		$input!='s' && $input!='south' && $input!='sw' && $input!='southwest' &&
 		$input!='w' && $input!='west' && $input!='nw' && $input!='northwest' &&
 		$input!='u' && $input!='up' && $input!='d' && $input!='down' ) { echo "This room is safe.<br/>"; }
 // -------------------------------------------------------------------------- INITIALIZE - NOPE! Need to defeat kraken
-if($input=='attack temple boss' && $row['KLkraken'] == 0) 
+/*
+if($input=='attack temple boss' && $row['KLkraken'] == 0)
 	{
 	echo $message="<div class='menuAction'><i class='fa fa-times-circle lightred'></i>You can't attack the Green Water Temple Boss yet. You need to defeat the Kraken under the Ocean first.</div>";
 	include ('update_feed.php');   // --- update feed
 	}
+	*/
 // -------------------------------------------------------------------------- INITIALIZE SMOOTH RANGER!
-else if(($input=='attack temple boss' || $input=='attack' ) && $infight==0 && $endfight==0) 
+else if(($input=='attack temple boss' || $input=='attack' ) && $infight==0 && $endfight==0)
 	{
 		if ($input=='attack temple boss') { $input = 'attack'; }
 		$results = $link->query("UPDATE $user SET enemy = 'Smooth Ranger'");
 		include ('battle.php');
 	}
-// -------------------------------------------------------------------------- IN BATTLE		
-else if ($infight >=1 ) 
+// -------------------------------------------------------------------------- IN BATTLE
+else if ($infight >=1 )
 	{
 	if($input=='attack temple boss') { $input = 'attack'; }
 	include ('battle.php');
@@ -58,7 +60,7 @@ if ((	$input=='n' || $input=='north' || $input=='ne' || $input=='northeast' ||
 	}
 
 // -------------------------------------------------------------------------- TRAVEL
-else if($input=='nw' || $input=='northwest') 
+else if($input=='nw' || $input=='northwest')
 {	if ($equipMount == 'wooden boat')
 			  { echo 'You travel northwest.<br/>';
    		$message="<i>You travel northwest.</i></br>".$_SESSION['desc422'];
@@ -70,8 +72,8 @@ else if($input=='nw' || $input=='northwest')
 		include ('update_feed.php');   // --- update feed
 	}
 }
-else if($input=='sw' || $input=='southwest') 
-{	
+else if($input=='sw' || $input=='southwest')
+{
 		if ($KLsmoothranger >=1)
 			  { echo 'You travel southwest to the Master Temple.<br/>';
    				$message="<i>You travel southwest to the Master Temple.</i></br>".$_SESSION['desc425'];
@@ -79,13 +81,13 @@ else if($input=='sw' || $input=='southwest')
    			   		$results = $link->query("UPDATE $user SET room = '425'"); // -- room change
    			   		$results = $link->query("UPDATE $user SET endfight = 2"); // -- reset fight
 			}
-		else { 
+		else {
 				echo $message="<div class='menuAction'><i class='fa fa-times-circle lightred'></i>You can't enter the Master Temple Yet! You need defeat the Green Water Temple Boss first!</div>";
 				include ('update_feed.php');   // --- update feed
 	}
 }
 
-else if($input=='se' || $input=='southeast') 
+else if($input=='se' || $input=='southeast')
 {	if ($equipMount == 'wooden boat')
 			  { echo 'You travel southeast.<br/>';
    		$message="<i>You travel southeast.</i></br>".$_SESSION['desc416'];
@@ -97,7 +99,7 @@ else if($input=='se' || $input=='southeast')
 		include ('update_feed.php');   // --- update feed
 	}
 }
-else if($input=='e' || $input=='east') 
+else if($input=='e' || $input=='east')
 {	if ($equipMount == 'wooden boat')
 			  { echo 'You travel east.<br/>';
    		$message="<i>You travel east.</i></br>".$_SESSION['desc415'];

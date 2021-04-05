@@ -96,7 +96,7 @@ while ($row = $result->fetch_assoc()) {
     // -------------------------------------------------------------------------- TRAVEL
     elseif ($input=='u' || $input=='up') {
         echo 'You travel up the mine<br/>';
-        $message="<i class='lightblueBG'>You travel up the mine</i></br>".$_SESSION['descm24'];
+        $message="<i class=''>You travel up the mine</i></br>".$_SESSION['descm24'];
         include('update_feed.php'); // --- update feed
                                 $results = $link->query("UPDATE $user SET room = 'm24'"); // -- room change
                                 $results = $link->query("UPDATE $user SET endfight = 0"); // -- reset fight
@@ -106,7 +106,7 @@ while ($row = $result->fetch_assoc()) {
             include('update_feed.php'); // --- update feed
         } else {
             echo 'You dig down to mine level 26.<br/>';
-            $message="<i class='lightblueBG'>You dig down to mine level 26.</i></br>".$_SESSION['descm26'];
+            $message="<i class=''>You dig down to mine level 26.</i></br>".$_SESSION['descm26'];
             include('update_feed.php'); // --- update feed
                                         $results = $link->query("UPDATE $user SET room = 'm26'"); // -- room change
                                         $results = $link->query("UPDATE $user SET endfight = 0"); // -- reset fight

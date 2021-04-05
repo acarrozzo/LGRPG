@@ -64,7 +64,7 @@ KEY OF PRIDE: Dropped by the one who stands atop the tallest peak <br/>
         if ($KLbutcher >= 1 && $KLkingsquid >= 1 && $KLgiantmountaingiant >= 1) {
             echo $message="<div class='questWin'>
 		<h3>Quest 70 Completed!</h3>
-		<h4>) Open the Gate	</h4>
+		<h4>Open the Gate	</h4>
 		CONGRATS! You hand Rigel the Key of Wrath, Greed, and Pride. He lifts them up to the sky and the gate’s magic pulls them right from his hand. The 3 keys all click in unison and the gate opens for you. Welcome to Star City.
 	  	<h4>Rewards</h4>
   	  	[ + 10,000 xp  ]<br />

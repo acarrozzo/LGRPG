@@ -74,7 +74,7 @@ Get 2 Free Wizard Items upon Initation! <br/>
 		Congrats! You have indeed slain the Kobold Master. Welcome to the Wizard\'s Guild! You can enter by heading UP. Your signing bonus is a new Wizard Staff and Wizard Hat!!
 	  	<h4>Rewards</h4>
   	  	[ + 500 xp  ]<br />
-      	[ + 1000 $currency ]<br />
+      	[ + 1000 '.$_SESSION['currency'].' ]<br />
       	[ + Wizard Hat ]<br/>
 		[ + Wizard Staff ]</div>
 
