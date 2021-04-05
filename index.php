@@ -3,6 +3,8 @@
 <title>Light Gray RPG</title>
 
 <body>
+  <?php //include '../inc/day-btn.php'; ?>
+
 <?php
 ini_set('display_errors', 'on');
 error_reporting(E_ALL);
@@ -25,7 +27,7 @@ if (!isset($_SESSION['username'])) {			// IF NO ONE IS LOGGED IN SHOW TITLE SCRE
     //<h1 class="purple">VEGAXXX</h1>';
     echo '<br/>';
 
-echo '<p class="">DEMO v0.1 | Last updated: 4/2/2020 <a class="black hide" href="#">| View Changelog</a>
+echo '<p class="">DEMO v0.1 | Last updated: 4/5/2020 <a class="black hide" href="#">| View Changelog</a>
 </p>';
 echo '<br/>';
 //    <a class="btn redBG" href="#info">LG Info</a>
@@ -429,7 +431,7 @@ function pageScroll() {
 </script>
 -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="js/app.min.js"></script>
+<script type="text/javascript" src="../js/core.min.js"></script>
 
 <script>
 var date = new Date();
