@@ -40,6 +40,26 @@ while ($row = $result->fetch_assoc()) {
         }
     }
 
+
+
+
+        // -------------------------------------------------------------------------- SEARCH 2000 gold
+        if ($input == 'search')
+        {
+        	if ($currency < 2000) {
+        			echo $message="You lucky dog! You find 2000 $currency under a rock!<br/>";
+        			include ('update_feed.php'); // --- update feed
+        			$results = $link->query("UPDATE $user SET currency = currency + 2000");
+        	}
+        	else {
+        		echo $message="You thought you might get lucky again but you find nothing.<br/>";
+        		include ('update_feed.php'); // --- update feed
+        	}
+        }
+
+
+
+
     /*
     // -------------------------------------------------------------------------- BATTLE VARIABLES
         $infight = $row['infight'];
