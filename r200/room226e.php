@@ -38,7 +38,7 @@ if($input=='start quests') {
 
 // ---------------------- QUEST 25) Banish the Skeleton Knights ---------------------- //
 if($input=='info 25') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 25 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 25 Info</strong><br>
 		You need to defeat 3 Skeleton Knights. They are found in the Catacombs below Red Town. Head down into the Sewers and then head northwest to reach the Catacombs entrance.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -59,7 +59,7 @@ else if($input=='complete 25')
 		$results = $link->query("UPDATE $user SET quest25 = 2");
 	} 
 	else if ($quest25 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 25 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 25 Not Complete</strong><br>
 	  To complete this quest you need to defeat 3 Skeleton Knights. Find them in the Catacombs below Town.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -67,7 +67,7 @@ else if($input=='complete 25')
 
 // ---------------------- QUEST 26) Shark Hunter ---------------------- //
 if($input=='info 26') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 26 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 26 Info</strong><br>
 		Sharks infest the waters below the Blue Ocean. Slay a Great White and Hammerhead to receive some really great weapons. You can reach the Ocean by going west from the Grassy Field. Go under the Ocean by casting a Gills spell or drinking a Gills Potion.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -90,7 +90,7 @@ else if($input=='complete 26')
 		$results = $link->query("UPDATE $user SET quest26 = 2");
 	} 
 	else if ($quest26 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 26 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 26 Not Complete</strong><br>
 	  To complete this quest you need to hunt down a Great White Shark and Hammerhead Shark. They can be found under the Blue Ocean.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -98,7 +98,7 @@ else if($input=='complete 26')
 
 // ---------------------- QUEST 27) True Troll Champion ---------------------- //
 if($input=='info 27') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 27 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 27 Info</strong><br>
 		The Troll Champion is one of the strongest beasts in the Dark Forest. Slay 3 of them to prove you are the true champion.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -119,7 +119,7 @@ else if($input=='complete 27')
 		$results = $link->query("UPDATE $user SET quest27 = 2");
 	} 
 	else if ($quest27 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 27 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 27 Not Complete</strong><br>
 	  To complete this quest you need to find and slay 3 Troll Champions. Find them in the Dark Forest north of the regular Forest.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  

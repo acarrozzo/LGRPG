@@ -50,7 +50,12 @@ while ($row = $result->fetch_assoc()) {
     $barBGcolor = 'redBG';
     $barNUMcolor = 'lightgray';
 
-    $enemyLVL = $_SESSION['eLvl'];			// enemy level?>
+    $enemyLVL = $_SESSION['eLvl'];			// enemy level
+
+
+
+    //  $uncookedmeat = $row['uncookedmeat'];
+    //  $uncookedmeat = $row['uncookedmeat']; ?>
 
 
 <?php
@@ -165,27 +170,30 @@ if ($row['hp'] >  $row['hpmax']) { // HP EXTRA
     $extrahp = $row['hp'] - $row['hpmax'];
 }
 
+    if ($_SESSION['magicarmor_amount'] >  0) {
+        echo '<span class="red magicarmorBox">+'.$_SESSION['magicarmor_amount'].'</span>';
+    }
 
     echo '<div>';
     echo '
-
 		<span><strong class="red"> '.$hp.'</strong>hp</span>
 		<span><strong class="blue"> '.$mp.'</strong>mp</span>'; // <span>/'.$hpmax.'hp</span>  //<span>/'.$mpmax.'mp</span>';
 
-
+    // --------------------------------------------------------------------------- Magic Armor Buff Box
 
     echo '<strong class="statBox">';
 
 
     if ($weapontype == 3) {
-        echo '<span class="green"><i class="icon-bow-arrow lgray"></i>'.$row['dexmod'].' </span> ';
+        echo '<span>R</span> <span class="green">'.$row['dexmod'].' </span> ';
+    } elseif ($row['magmod'] > $row['strmod'] && $row['magmod'] > $row['dexmod']) {
+        echo '<span>M</span> <span class="blue">'.$row['magmod'].' </span>';
     } else {
-        echo '<span class="red"><i class="icon-sword lgray"></i>'.$row['strmod'].' </span>';
+        echo '<span>A</span> <span class="red">'.$row['strmod'].' </span>';
     }
 
 
-    echo '<span class="blue"><i class="icon-fireball lgray"></i>'.$row['magmod'].' </span>
-			<span class="gold"><i class="icon-shield lgray"></i>'.$row['defmod'].' </span>
+    echo '<span>D</span> <span class="gold">'.$row['defmod'].' </span>
 			</strong>';
     echo '<div class="buffbound">';
 
@@ -262,9 +270,9 @@ if ($row['hp'] >  $row['hpmax']) { // HP EXTRA
 
 		<div>
 		<strong class="red"> '.$enemyhp.'</strong><span>/'.$enemyhpmax.'hp</span>
-		<div>
-		<span class=""> Att </span><strong class="red">'.$enemyatt.'</strong>
-		<span class=""> Def </span><strong class="gold">'.$enemydef.'</strong>
+		<div class="statBox">
+		<span class=""> A </span><strong class="red">'.$enemyatt.'</strong>
+		<span class=""> D </span><strong class="gold">'.$enemydef.'</strong>
 		</div>
 		';
 
@@ -409,10 +417,6 @@ if ($row['hp'] >  $row['hpmax']) { // HP EXTRA
 
 
 
-    //if ($infight >=1) {
-    echo '<input class="retreatBtn" type="submit" name="input1" value="retreat" />';
-    //echo '<style>.battleBlock{display:block;}</style>';
-    //}
 
 
 
@@ -489,22 +493,333 @@ if ($row['hp'] >  $row['hpmax']) { // HP EXTRA
     echo '</div>
 
 
-  <div class="battleTab" data-pop="battle-bag">BAG';
-    if ($redbalm >= 1) {
-        echo '
-  <div class="spellBtnBox">
-  <i class="spellLvl"> '.$redbalm.' </i>
-  <input type="submit" class="spellBtn redBG" name="input1" value="red balm" />
-  <i class="spellCost"> '.$redbalm.'<em>m</em></i>
-  </div> ';
+  <div class="battleTab" data-pop="battle-bag">
+
+  <h5 class="padd">HEALING</h5>';
+
+
+
+
+    if ($redberry <= 0) {
+        $disabled="disabled";
+    } else {
+        $disabled="";
     }
+    echo '
+    <button class="itembox '.$disabled.'" type="submit" name="input1" value="redberry">
+    <span class="icon red">'.file_get_contents("img/svg/redberry.svg").'</span>
+    <p class="">Redberry </p>
+    <strong class="red">+10 HP</strong>
+    <p class=" qty">x'.$redberry.'</p>
+    </button>';
+
+    if ($blueberry <= 0) {
+        $disabled="disabled";
+    } else {
+        $disabled="";
+    }
+    echo '
+    <button class="itembox '.$disabled.'" type="submit" name="input1" value="blueberry">
+    <span class="icon blue">'.file_get_contents("img/svg/blueberry.svg").'</span>
+    <p class="">Blueberry </p>
+    <strong class="blue">+10 MP</strong>
+    <p class=" qty">x'.$blueberry.'</p>
+    </button>';
+
+    if ($rawmeat <= 0) {
+        $disabled="disabled";
+    } else {
+        $disabled="";
+    }
+    echo '
+      <button class="itembox '.$disabled.'" type="submit" name="input1" value="raw meat">
+      <span class="icon red">'.file_get_contents("img/svg/steak.svg").'</span>
+      <p class="">Raw Meat </p>
+      <strong class="red">+25 HP</strong>
+      <p class=" qty">x'.$rawmeat.'</p>
+      </button>';
+
+    if ($cookedmeat <= 0) {
+        $disabled="disabled";
+    } else {
+        $disabled="";
+    }
+    echo '
+        <button class="itembox '.$disabled.'" type="submit" name="input1" value="cooked meat">
+        <span class="icon red">'.file_get_contents("img/svg/steak.svg").'</span>
+        <p class="">Cooked Meat </p>
+        <strong class="red">+50 HP</strong>
+        <p class=" qty">x'.$cookedmeat.'</p>
+        </button>';
+
+    if ($veggies <= 0) {
+        $disabled="disabled";
+    } else {
+        $disabled="";
+    }
+    echo '
+      <button class="itembox '.$disabled.'" type="submit" name="input1" value="veggies">
+      <span class="icon purple">'.file_get_contents("img/svg/blueberry.svg").'</span>
+      <p class="">Veggies </p>
+      <strong class="purple">+50 HP/MP</strong>
+      <p class=" qty">x'.$veggies.'</p>
+      </button>';
+
+    if ($redpotion <= 0) {
+        $disabled="disabled";
+    } else {
+        $disabled="";
+    }
+    if ($redpotion >= 1 || $chest1 >= 1) {
+        echo '
+        <button class="itembox '.$disabled.'" type="submit" name="input1" value="red potion">
+        <span class="icon red">'.file_get_contents("img/svg/potion.svg").'</span>
+        <p class="">Red Potion </p>
+        <strong class="red">+100 HP</strong>
+        <p class=" qty">x'.$redpotion.'</p>
+        </button>';
+    }
+    if ($bluepotion <= 0) {
+        $disabled="disabled";
+    } else {
+        $disabled="";
+    }
+    if ($bluepotion >= 1 || $chest1 >= 1) {
+        echo '
+        <button class="itembox '.$disabled.'" type="submit" name="input1" value="blue potion">
+        <span class="icon blue">'.file_get_contents("img/svg/potion.svg").'</span>
+        <p class="">Blue Potion </p>
+        <strong class="blue">+100 MP</strong>
+        <p class=" qty">x'.$bluepotion.'</p>
+        </button>';
+    }
+
+    if ($purplepotion <= 0) {
+        $disabled="disabled";
+    } else {
+        $disabled="";
+    }
+    if ($purplepotion >= 1 || $chest1 >= 1) {
+        echo '
+        <button class="itembox '.$disabled.'" type="submit" name="input1" value="purple potion">
+        <span class="icon purple">'.file_get_contents("img/svg/potion.svg").'</span>
+        <p class="">Purple Potion </p>
+        <strong class="purple">+200 HP/MP</strong>
+        <p class=" qty">x'.$purplepotion.'</p>
+        </button>';
+    }
+
+    if ($meatball <= 0) {
+        $disabled="disabled";
+    } else {
+        $disabled="";
+    }
+    if ($meatball >= 1 || $hp >= 200) {
+        echo '
+            <button class="itembox '.$disabled.'" type="submit" name="input1" value="meatball">
+            <span class="icon red">'.file_get_contents("img/svg/meatball.svg").'</span>
+            <p class="">Meatball </p>
+            <strong class="red">+400 HP</strong>
+            <p class=" qty">x'.$meatball.'</p>
+            </button>';
+    }
+    if ($bluefish <= 0) {
+        $disabled="disabled";
+    } else {
+        $disabled="";
+    }
+    if ($bluefish >= 1 || $mp >= 150) {
+        echo '
+            <button class="itembox '.$disabled.'" type="submit" name="input1" value="bluefish">
+            <span class="icon blue">'.file_get_contents("img/svg/fish.svg").'</span>
+            <p class="">Blue Fish </p>
+            <strong class="blue">+400 MP</strong>
+            <p class=" qty">x'.$bluefish.'</p>
+            </button>';
+    }
+
+
+    if ($redbalm <= 0) {
+        $disabled="disabled";
+    } else {
+        $disabled="";
+    }
+    if ($redbalm >= 1 || $hp >= 400) {
+        echo '
+                <button class="itembox '.$disabled.'" type="submit" name="input1" value="red balm">
+                <span class="icon red">'.file_get_contents("img/svg/balm.svg").'</span>
+                <p class="">Red Balm </p>
+                <strong class="red">+1000 HP</strong>
+                <p class=" qty">x'.$redbalm.'</p>
+                </button>';
+    }
+    if ($bluebalm <= 0) {
+        $disabled="disabled";
+    } else {
+        $disabled="";
+    }
+    if ($bluebalm >= 1 || $mp >= 350) {
+        echo '
+                <button class="itembox '.$disabled.'" type="submit" name="input1" value="blue balm">
+                <span class="icon blue">'.file_get_contents("img/svg/balm.svg").'</span>
+                <p class="">Blue Balm </p>
+                <strong class="blue">+1000 MP</strong>
+                <p class=" qty">x'.$bluebalm.'</p>
+                </button>';
+    }
+
+    if ($purplebalm <= 0) {
+        $disabled="disabled";
+    } else {
+        $disabled="";
+    }
+    if ($purplebalm >= 1 || $hp >= 600) {
+        echo '
+                <button class="itembox '.$disabled.'" type="submit" name="input1" value="purple balm">
+                <span class="icon purple">'.file_get_contents("img/svg/balm.svg").'</span>
+                <p class="">Purple balm </p>
+                <strong class="purple">+2000 HP/MP</strong>
+                <p class=" qty">x'.$purplebalm.'</p>
+                </button>';
+    }
+
+    if ($antidote <= 0) {
+        $disabled="disabled";
+    } else {
+        $disabled="";
+    }
+    if ($antidote >= 1 || $hp >= 600) {
+        echo '
+                <button class="itembox '.$disabled.'" type="submit" name="input1" value="antidote">
+                <span class="icon green">'.file_get_contents("img/svg/potion2.svg").'</span>
+                <p class="">Antidote</p>
+                <strong class="green">Cure Poison</strong>
+                <p class=" qty">x'.$antidote.'</p>
+                </button>';
+    }
+
+
+
+    echo '<h5 class="padd">COLORS</h5>';
+    echo '<p>Last 100 clicks</p>';
+
+
+    $disabled="";
+    if ($reds <= 0) {
+        $disabled="disabled";
+    }
+    $actives="";
+    if ($_SESSION['reds'] > 0){
+      $disabled="disabled2";
+      $actives="<p class='actives'>ACTIVE [<span class='blink'>".$_SESSION['reds']."</span>]</p>";
+    }
+    if ($reds >= 1 || $hp >= 400) {
+        echo '
+                <button class="itembox '.$disabled.'" type="submit" name="input1" value="reds">
+                '.$actives.'
+                <span class="icon red">'.file_get_contents("img/svg/herb1.svg").'</span>
+                <p class="">Reds </p>
+                <strong class="red">+20 STR</strong>
+                <p class=" qty">x'.$reds.'</p>
+                </button>';
+    }
+    if ($greens <= 0) {
+        $disabled="disabled";
+    } else {
+        $disabled="";
+    }
+    if ($greens >= 1 || $mp >= 350) {
+        echo '
+                <button class="itembox '.$disabled.'" type="submit" name="input1" value="greens">
+                <span class="icon green">'.file_get_contents("img/svg/herb11.svg").'</span>
+                <p class="">Greens </p>
+                <strong class="green">+20 DEX</strong>
+                <p class=" qty">x'.$greens.'</p>
+                </button>';
+    }
+    if ($blues <= 0) {
+        $disabled="disabled";
+    } else {
+        $disabled="";
+    }
+    if ($blues >= 1 || $mp >= 350) {
+        echo '
+                <button class="itembox '.$disabled.'" type="submit" name="input1" value="blues">
+                <span class="icon blue">'.file_get_contents("img/svg/herb3.svg").'</span>
+                <p class="">Blues </p>
+                <strong class="blue">+20 MAG</strong>
+                <p class=" qty">x'.$blues.'</p>
+                </button>';
+    }
+    if ($yellows <= 0) {
+        $disabled="disabled";
+    } else {
+        $disabled="";
+    }
+    if ($yellows >= 1 || $hp >= 400) {
+        echo '
+                <button class="itembox '.$disabled.'" type="submit" name="input1" value="yellows">
+                <span class="icon gold">'.file_get_contents("img/svg/herb6.svg").'</span>
+                <p class="">Yellows </p>
+                <strong class="gold">+20 DEF</strong>
+                <p class=" qty">x'.$yellows.'</p>
+                </button>';
+    }
+
+
+
+
+
+        echo '<h5 class="padd">BEVERAGES</h5>';
+
+    if ($coffee <= 0) {
+        $disabled="disabled";
+    } else {
+        $disabled="";
+    }
+    if ($coffee >= 0) {
+        echo '
+                <button class="itembox '.$disabled.'" type="submit" name="input1" value="coffee">
+                <span class="icon brown">'.file_get_contents("img/svg/coffee.svg").'</span>
+                <p class="">Coffee </p>
+                <strong class="brown">+10 All Stats</strong>
+                <p class=" qty">x'.$coffee.'</p>
+                </button>';
+    }
+
+    if ($tea <= 0) {
+        $disabled="disabled";
+    } else {
+        $disabled="";
+    }
+    if ($tea >= 0) {
+        echo '
+                <button class="itembox '.$disabled.'" type="submit" name="input1" value="tea">
+                <span class="icon green">'.file_get_contents("img/svg/tea.svg").'</span>
+                <p class="">Tea </p>
+                <strong class="green">+5 Regen</strong>
+                <p class=" qty">x'.$tea.'</p>
+                </button>';
+    }
+    if ($wingspotion <= 0) {
+        $disabled="disabled";
+    } else {
+        $disabled="";
+    }
+
+echo '<p class="padd">
+<span class="btn" data-link2="bag">View all items</span>
+</p>';
+
     echo '</div>';
 
 
+    //if ($infight >=1) {
+    echo '<input class="retreatBtn" type="submit" name="input1" value="retreat" />';
+    //echo '<style>.battleBlock{display:block;}</style>';
+    //}
 
     echo '</div>';
 } // END in in battle
-
-
     echo '</div>'; 	// end HUD
 }

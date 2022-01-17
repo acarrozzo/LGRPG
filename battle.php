@@ -245,7 +245,9 @@ if ($endfight !=1 && 1==1) {  // ---------------------------- SET ATTACK NUMBERS
 
 
         // ===================================================================================================== Flying Enemy Check
-        if ($_SESSION['eFly'] == 1  && (($weapontype != 3  || ($weapontype == 3 && $_SESSION['magiccast'] == 1  && $_SESSION['spell'] != 'magic strike'))) && $_SESSION['flying'] == 0) {
+        echo 'MagicCast::::: '.$_SESSION['magiccast'].'    ';
+      //  if ($_SESSION['eFly'] == 1  && (($weapontype != 3  || ($weapontype == 3 && $_SESSION['magiccast'] == 1  && $_SESSION['spell'] != 'magic strike'))) && $_SESSION['flying'] == 0) {
+          if ($_SESSION['eFly'] == 1  && $_SESSION['flying'] == 0 && ($weapontype != 3  && ($_SESSION['magiccast'] != 1 || $_SESSION['spell'] != 'magic strike'))) {
             echo "You need to use a ranged weapon to hit $the flying $enemy!<br/>";
             $message="<span class='yellow redBG'>You need to use a ranged weapon to hit $the flying $enemy!!!</span><br/>";
             //$flyingenemycheck = 1;

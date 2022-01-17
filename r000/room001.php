@@ -3,6 +3,9 @@
 // -- 001 -- Grassy Field Crossroads
 $roomname = "Grasslands Crossroads";
 $lookdesc = $_SESSION['lookdesc'] = $_SESSION['desc001'];
+
+
+
 ////$dangerLVL = $_SESSION['dangerLVL'] = "111"; // danger level
 
 include('function-start.php');
@@ -47,14 +50,17 @@ while ($row = $result->fetch_assoc()) {
         echo '<i>You read the Grassy Field Directory</i> <br>  ';
         $message="
 <i>you read the sign:</i>
-<div class='sign'>
-<h3>Grassy Field <span class='darkestgray'>Directory</span></h3>
+<div class='sign greenBG'>
+<h3>Grassy Field <span class='gold'>Directory</span></h3>
 <form id='mainForm' method='post' action='' name='formInput'>
-<p><input type='submit' name='input1' class='darkestgray' value='southwest' /> Wood Cabin</p>
-<p><input type='submit' name='input1' class='darkestgray' value='northwest' /> Healing Waterfall </p>
-<p><input type='submit' name='input1' class='darkestgray' value='west' /> Beach</span> </p>
+<div class='double-column'>
+<div><p class=''>Healing Waterfall</p><input type='submit' name='input1' class='blueBG' value='northwest' /></div>
+<div><p class=''>Shaman Tent</p><input type='submit' name='input1' class='purpleBG' value='northeast' /> </div>
+    <div><p class=''>Beach</p><input type='submit' name='input1' class='sandBG' value='west' /></div>
+    <div><p class=''>Wood Cabin</p><input type='submit' name='input1' class='brownBG' value='southwest' /> </div>
+</div>
 ---------------------------------------------------</br>
-<p>Visit the <span class='darkestgray'>OLD MAN</span> at the cabin to start your first quests.</p>
+<p>Visit the <span class=''>OLD MAN</span> at the cabin to start your first quest.</p>
 ---------------------------------------------------
 </form>
 </div>";

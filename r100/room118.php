@@ -76,7 +76,7 @@ if ($input=="rest"){
 
 // ---------------------- QUEST 17) Bigfoot Sighting ---------------------- //
 if($input=='info 17') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 17 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 17 Info</strong><br>
 		Bigfoot has been seen in all parts of the forest. Go hunting and i'm sure he will turn up eventually. Once you defeat him return to Hunter Bill for a snazzy Sasquatch Cloak.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -97,7 +97,7 @@ else if($input=='complete 17')
 		$results = $link->query("UPDATE $user SET quest17 = 2");
 	} 
 	else if ($quest17 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 17 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 17 Not Complete</strong><br>
 		To complete this quest you need to find Bigfoot and return here with his foot. He can be found in any part of this forest.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -106,7 +106,7 @@ else if($input=='complete 17')
 
 // ---------------------- QUEST 18) Forest Hunter ---------------------- //
 if($input=='info 18') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 18 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 18 Info</strong><br>
 		As you travel around the Forest you will randomly encounter creatures. Return here after you have hunted down a Wild Boar, Wolf, Coyote, Buck, Bear & Stag.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -134,7 +134,7 @@ else if($input=='complete 18')
 		$results = $link->query("UPDATE $user SET quest18 = 2");
 	} 
 	else if ($quest18 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 18 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 18 Not Complete</strong><br>
 		To complete this quest you need to hunt down a Wild Boar, Wolf, Coyote, Buck, Bear & Stag. You can find them all in this Forest.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  

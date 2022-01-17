@@ -38,7 +38,7 @@ if ((	$input=='n' || $input=='north' || $input=='ne' || $input=='northeast' ||
 // -------------------------------------------------------------------------- TRAVEL
 else if($input=='u' || $input=='up')  
 {			echo 'You travel up the mine<br/>';
-   	$message="<i class='lightblueBG'>You travel up the mine</i></br>".$_SESSION['descm01'];
+   	$message="<i class=''>You travel up the mine</i></br>".$_SESSION['descm01'];
 	include ('update_feed.php'); // --- update feed
    								$results = $link->query("UPDATE $user SET room = 'm01'"); // -- room change
    								$results = $link->query("UPDATE $user SET endfight = 0"); // -- reset fight
@@ -51,7 +51,7 @@ else if($input=='d' || $input=='mine down' || $input=='down')
 		}
 		else {
 			echo 'You dig down to mine level 3.<br/>';
-   			$message="<i class='lightblueBG'>You dig down to mine level 3.</i></br>".$_SESSION['descm03'];
+   			$message="<i class=''>You dig down to mine level 3.</i></br>".$_SESSION['descm03'];
 			include ('update_feed.php'); // --- update feed
    										$results = $link->query("UPDATE $user SET room = 'm03'"); // -- room change
    										$results = $link->query("UPDATE $user SET endfight = 0"); // -- reset fight

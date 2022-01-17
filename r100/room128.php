@@ -73,7 +73,7 @@ if($input=='get hatchet')  // ---- get hatchet
 
 // ---------------------- QUEST 14) Gnome Needs Berries	 ---------------------- //
 if($input=='info 14') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 14 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 14 Info</strong><br>
 		You need 20 redberries and 20 blueberries. You can pick up berries from bushes found scattered around the forest. They are also dropped by many enemies and sold at some shops.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -136,7 +136,7 @@ else if($input=='complete 14')
 	$results = $link->query("UPDATE $user SET blueberry = blueberry - 20"); 
 	} 
 	else if ($quest14 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 14 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 14 Not Complete</strong><br>
 		To complete this quest you need to return with 20 redberries and 20 blueberries. You can pick them from bushes found scattered around the Forest. You can also get them from enemy drops.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -144,7 +144,7 @@ else if($input=='complete 14')
 
 // ---------------------- QUEST 15) New Tree Hut Door ---------------------- //
 if($input=='info 15') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 15 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 15 Info</strong><br>
 		You can chop down wood from trees in this forest using your hatchet. Return here once you have accumulated 20 pieces.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -168,7 +168,7 @@ else if($input=='complete 15')
 		$results = $link->query("UPDATE $user SET wood = wood-20");
 	} 
 	else if ($quest15 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 15 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 15 Not Complete</strong><br>
 	To complete this quest you need to return here with 20 wood. Chop some down in this forest using your hatchet.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -176,7 +176,7 @@ else if($input=='complete 15')
 
 // ---------------------- QUEST 16) Troll Base Camp ---------------------- //
 if($input=='info 16') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 16 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 16 Info</strong><br>
 		You can find Trolls guarding the gate found all the way to the north of this forest. Go defeat 3 of them.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -198,7 +198,7 @@ else if($input=='complete 16')
 		$results = $link->query("UPDATE $user SET quest16 = 2");
 	} 
 	else if ($quest16 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 16 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 16 Not Complete</strong><br>
 		To complete this quest you need to slay 3 Trolls. The guard the entrance to the Dark Forest. Go north of here to find them.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  

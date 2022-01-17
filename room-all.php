@@ -45,7 +45,17 @@ while ($row = $result->fetch_assoc()) {
     $ironskin_cost_cast = 10 * $row['ironskin']; // cost
 }
 
-
+// --- ROOM VARIABLES RESET
+$dirN='';
+$dirNE='';
+$dirE='';
+$dirSE='';
+$dirS='';
+$dirSW='';
+$dirW='';
+$dirNW='';
+$dirU='';
+$dirD='';
 
 //echo'<div class="gameBox">';
 

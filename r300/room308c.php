@@ -33,7 +33,7 @@ $KLminotaur=$row['KLminotaur'];
 }
 // ---------------------- QUEST 32) Iron Boss: Phoenix ---------------------- //
 if($input=='info 32') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 32 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 32 Info</strong><br>
 		Defeat the Phoenix at Mine level 10 to gain the ability to craft with Iron. Be prepared, the Phoenix is only damaged by ranged attacks.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -58,7 +58,7 @@ else if($input=='complete 32')
 		$results = $link->query("UPDATE $user SET quest32 = 2");
 	} 
 	else if ($quest32 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 32 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 32 Not Complete</strong><br>
 	To complete this quest you need to defeat the Phoenix. Dig down the neverending mine and you will surely find what you're looking for.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -70,7 +70,7 @@ else if($input=='complete 32')
 
 // ---------------------- QUEST 33) Steel Boss: Cyclops ---------------------- //
 if($input=='info 33') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 33 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 33 Info</strong><br>
 		Defeat the Cyclops at Mine level 20 to gain the ability to craft with Steel. Don't worry about your DEF though, the Cyclops attacks are pure, meaning they bypass your defenses altogether!</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -95,7 +95,7 @@ else if($input=='complete 33')
 		$results = $link->query("UPDATE $user SET quest33 = 2");
 	} 
 	else if ($quest33 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 33 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 33 Not Complete</strong><br>
 	To complete this quest you need to defeat the Cyclops. Dig down the neverending mine and you will surely find what you're looking for.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -104,7 +104,7 @@ else if($input=='complete 33')
 
 // ---------------------- QUEST 34) Mithril Boss: Minotaur ---------------------- //
 if($input=='info 34') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 34 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 34 Info</strong><br>
 		Defeat the Minotaur at Mine level 30 to gain the ability to craft with Mithril. Prepare yourself, the Minotaur is strong and attacks with power and rage.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -129,7 +129,7 @@ else if($input=='complete 34')
 		$results = $link->query("UPDATE $user SET quest34 = 2");
 	} 
 	else if ($quest34 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 34 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 34 Not Complete</strong><br>
 	To complete this quest you need to defeat the Minotaur. Dig down the neverending mine and you will surely find what you're looking for.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  

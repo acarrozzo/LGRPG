@@ -57,7 +57,7 @@ if($input=='start quests') {
 
 // ---------------------- QUEST 67) Vampire Hunter ---------------------- //
 if($input=='info 67') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 67 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 67 Info</strong><br>
 		Chilly Pete has a bloody good reward for anyone who can defeat 3 Vampires. </div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -78,7 +78,7 @@ else if($input=='complete 67')
 		$results = $link->query("UPDATE $user SET quest67 = 2");
 	} 
 	else if ($quest67 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 67 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 67 Not Complete</strong><br>
 	Quest not complete. To complete this quest you need to defeat 3 vampires. They can be found in the Dark Cathedral in the Mountains.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -91,7 +91,7 @@ else if($input=='complete 67')
 
 // ---------------------- QUEST 68) Dark Paladin Cleanse ---------------------- //
 if($input=='info 68') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 68 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 68 Info</strong><br>
 		Chilly Pete wants you to remove some evil from this world. Visit the Dark Keep and defeat 3 Dark Paladins.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -112,7 +112,7 @@ else if($input=='complete 68')
 		$results = $link->query("UPDATE $user SET quest68 = 2");
 	} 
 	else if ($quest68 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 68 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 68 Not Complete</strong><br>
 	Quest not complete. To complete this quest you must go to the top of the Dark Keep and defeat 3 Dark Paladins who patrol there. </div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -122,7 +122,7 @@ else if($input=='complete 68')
 
 // ---------------------- QUEST 69) The Super Rare Snowy Trio  ---------------------- //
 if($input=='info 69') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 69 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 69 Info</strong><br>
 		Chilly Pete has a most difficult quest for you. You must find the super rare snowy trio in the mountains.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -143,7 +143,7 @@ else if($input=='complete 69')
 		$results = $link->query("UPDATE $user SET quest69 = 2");
 	} 
 	else if ($quest69 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 69 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 69 Not Complete</strong><br>
 	Quest not complete. To complete this quest you must find the super rare trio in the mountains. A Snow Ogre, Snow Ninja, and Snow Owl. </div>";
 		include ('update_feed.php'); // --- update feed
 	}  

@@ -49,54 +49,59 @@ while ($row = $result->fetch_assoc()) {
     // ------------------------------  MASTER PACK
 
     if ($input=="grab master pack") {  // ---- GRAB Master Pack
+      echo $message="<div class='menuAction'><h4 class='ocean'>You replenish your Masterpack</h3><br/>";
+      include('update_feed.php'); // --- update feed
         if ($reds>= 3) {	// ------------------------------  reds
-            echo $message="<div class='menuAction'><i class='fa fa-times-circle lightred'></i>You already have some reds.</div>";
-            include('update_feed.php'); // --- update feed
+            echo $message="<i class='fa fa-times-circle lightred'></i>You have ".$reds." reds.";
+            include('update_feed_alt.php'); // --- update feed
         } else {
-            echo $message="<div class='menuAction'><i class='fa fa-arrow-circle-up green'></i>[ +3 reds ]</div>";
-            include('update_feed.php'); // --- update feed
+            echo $message="<i class='fa fa-arrow-circle-up green'></i>You now have ".$reds." reds.";
+            include('update_feed_alt.php'); // --- update feed
             $results = $link->query("UPDATE $user SET reds = 3");
         }
         if ($greens>= 3) {	// ------------------------------  greens
-            echo $message="<div class='menuAction'><i class='fa fa-times-circle lightred'></i>You already have some greens.</div>";
+            echo $message="<i class='fa fa-times-circle lightred'></i>You have ".$greens." greens.";
             include('update_feed_alt.php'); // --- update feed
         } else {
-            echo $message="<div class='menuAction'><i class='fa fa-arrow-circle-up green'></i>[ +3 greens ]</div>";
+            echo $message="<i class='fa fa-arrow-circle-up green'></i>You now have ".$greens." greens.";
             include('update_feed_alt.php'); // --- update feed
             $results = $link->query("UPDATE $user SET greens = 3");
         }
         if ($blues>= 3) {	// ------------------------------  blues
-            echo $message="<div class='menuAction'><i class='fa fa-times-circle lightred'></i>You already have some blues.</div>";
+            echo $message="<i class='fa fa-times-circle lightred'></i>You have ".$blues." blues.";
             include('update_feed_alt.php'); // --- update feed
         } else {
-            echo $message="<div class='menuAction'><i class='fa fa-arrow-circle-up green'></i>[ +3 blues ]</div>";
+            echo $message="<i class='fa fa-arrow-circle-up green'></i>You now have ".$blues." blues.";
             include('update_feed_alt.php'); // --- update feed
             $results = $link->query("UPDATE $user SET blues = 3");
         }
         if ($yellows>= 3) {	// ------------------------------  yellows
-            echo $message="<div class='menuAction'><i class='fa fa-times-circle lightred'></i>You already have some yellows.</div>";
+            echo $message="<i class='fa fa-times-circle lightred'></i>You have ".$yellows." yellows.";
             include('update_feed_alt.php'); // --- update feed
         } else {
-            echo $message="<div class='menuAction'><i class='fa fa-arrow-circle-up green'></i>[ +3 yellows ]</div>";
+            echo $message="<i class='fa fa-arrow-circle-up green'></i>You now have ".$yellows." yellows.";
             include('update_feed_alt.php'); // --- update feed
             $results = $link->query("UPDATE $user SET yellows = 3");
         }
         if ($redbalm>= 3) {	// ------------------------------  red balm
-            echo $message="<div class='menuAction'><i class='fa fa-times-circle lightred'></i>You already have red balms.</div>";
+            echo $message="<i class='fa fa-times-circle lightred'></i>You have ".$redbalm." red balms.";
             include('update_feed_alt.php'); // --- update feed
         } else {
-            echo $message="<div class='menuAction'><i class='fa fa-arrow-circle-up green'></i>[ +3 red balms ]</div>";
+            echo $message="<i class='fa fa-arrow-circle-up green'></i>You now have ".$redbalm." red balms.";
             include('update_feed_alt.php'); // --- update feed
             $results = $link->query("UPDATE $user SET redbalm = 3");
         }
         if ($bluebalm>= 3) {	// ------------------------------  blue balm
-            echo $message="<div class='menuAction'><i class='fa fa-times-circle lightred'></i>You already have blue balms.</div>";
+            echo $message="<i class='fa fa-times-circle lightred'></i>You have <span class='blue'>".$bluebalm." blue balms</span>.";
             include('update_feed_alt.php'); // --- update feed
         } else {
-            echo $message="<div class='menuAction'><i class='fa fa-arrow-circle-up green'></i>[ +3 blue balms ]</div>";
+            echo $message="<i class='fa fa-arrow-circle-up green'></i>You have <span class='blue'>".$bluebalm." blue balms</span>.";
             include('update_feed_alt.php'); // --- update feed
             $results = $link->query("UPDATE $user SET bluebalm = 3");
         }
+        echo $message="</div>";
+        include('update_feed_alt.php'); // --- update feed
+
     }
 
     // -------------------------------------------------------------------------- BATTLE VARIABLES
@@ -151,7 +156,7 @@ while ($row = $result->fetch_assoc()) {
 
     // ---------------------- QUEST 47) Test of Strength ---------------------- //
     if ($input=='info 47') {
-        echo $message="<div class='menuAction'><strong class='green px30'>Quest 47 Info</strong><br>
+        echo $message="<div class='menuAction'><strong class='green'>Quest 47 Info</strong><br>
 		You need to defeat the Thunder Barbarian found at the Red Water Temple. Be careful, the Barbarian hits hard with Power and Critical strikes.</div>";
         include('update_feed.php'); // --- update feed
     } elseif ($input=='complete 47') {
@@ -170,7 +175,7 @@ while ($row = $result->fetch_assoc()) {
             $results = $link->query("UPDATE $user SET thunderboots = thunderboots + 1");
             $results = $link->query("UPDATE $user SET quest47 = 2");
         } elseif ($quest47 == 1) {
-            echo $message="<div class='menuAction'><strong class='green px30'>Quest 47 Not Complete</strong><br>
+            echo $message="<div class='menuAction'><strong class='green'>Quest 47 Not Complete</strong><br>
 		To complete this quest you need to defeat the Thunder Barbarian found at the Red Water Temple.</div>";
             include('update_feed.php'); // --- update feed
         }
@@ -178,7 +183,7 @@ while ($row = $result->fetch_assoc()) {
 
     // ---------------------- QUEST 48) Test of Dexterity ---------------------- //
     if ($input=='info 48') {
-        echo $message="<div class='menuAction'><strong class='green px30'>Quest 48 Info</strong><br>
+        echo $message="<div class='menuAction'><strong class='green'>Quest 48 Info</strong><br>
 		You need to defeat the Smooth Ranger found at the Green Water Temple. Be prepared for a long fight as the Ranger can heal itself.</div>";
         include('update_feed.php'); // --- update feed
     } elseif ($input=='complete 48') {
@@ -197,7 +202,7 @@ while ($row = $result->fetch_assoc()) {
             $results = $link->query("UPDATE $user SET silkbracers = silkbracers + 1");
             $results = $link->query("UPDATE $user SET quest48 = 2");
         } elseif ($quest48 == 1) {
-            echo $message="<div class='menuAction'><strong class='green px30'>Quest 48 Not Complete</strong><br>
+            echo $message="<div class='menuAction'><strong class='green'>Quest 48 Not Complete</strong><br>
 		 To complete this quest you need to defeat the Smooth Ranger found at the Green Water Temple.
 </div>";
             include('update_feed.php'); // --- update feed
@@ -205,7 +210,7 @@ while ($row = $result->fetch_assoc()) {
     }
     // ---------------------- QUEST 49) Test of Magic ---------------------- //
     if ($input=='info 49') {
-        echo $message="<div class='menuAction'><strong class='green px30'>Quest 49 Info</strong><br>
+        echo $message="<div class='menuAction'><strong class='green'>Quest 49 Info</strong><br>
 		You need to defeat the Coral Wizard found at the Blue Water Temple. Don't expect to use magic to defeat him though, the Wizard is immune.</div>";
         include('update_feed.php'); // --- update feed
     } elseif ($input=='complete 49') {
@@ -224,7 +229,7 @@ while ($row = $result->fetch_assoc()) {
             $results = $link->query("UPDATE $user SET coralnecklace = coralnecklace + 1");
             $results = $link->query("UPDATE $user SET quest49 = 2");
         } elseif ($quest49 == 1) {
-            echo $message="<div class='menuAction'><strong class='green px30'>Quest 49 Not Complete</strong><br>
+            echo $message="<div class='menuAction'><strong class='green'>Quest 49 Not Complete</strong><br>
 		 To complete this quest you need to defeat the Coral Wizard found at the Blue Water Temple.
 </div>";
             include('update_feed.php'); // --- update feed
@@ -232,7 +237,7 @@ while ($row = $result->fetch_assoc()) {
     }
     // ---------------------- QUEST 50) Test of Defense ---------------------- //
     if ($input=='info 50') {
-        echo $message="<div class='menuAction'><strong class='green px30'>Quest 50 Info</strong><br>
+        echo $message="<div class='menuAction'><strong class='green'>Quest 50 Info</strong><br>
 		You need to defeat the Heavy Walrus found at the Yellow Water Temple. You have to hit him hard though, he has very high pure defense.</div>";
         include('update_feed.php'); // --- update feed
     } elseif ($input=='complete 50') {
@@ -251,7 +256,7 @@ while ($row = $result->fetch_assoc()) {
             $results = $link->query("UPDATE $user SET heavyspear = heavyspear + 1");
             $results = $link->query("UPDATE $user SET quest50 = 2");
         } elseif ($quest50 == 1) {
-            echo $message="<div class='menuAction'><strong class='green px30'>Quest 50 Not Complete</strong><br>
+            echo $message="<div class='menuAction'><strong class='green'>Quest 50 Not Complete</strong><br>
 		To complete this quest you need to defeat the Heavy Walrus found at the Yellow Water Temple.
 		</div>";
             include('update_feed.php'); // --- update feed

@@ -57,14 +57,14 @@ KEY OF PRIDE: Dropped by the one who stands atop the tallest peak <br/>
 
     // ---------------------- QUEST 70) Ranger's Guild Initiation ---------------------- //
     if ($input=='info 70') {
-        echo $message="<div class='menuAction'><strong class='green px30'>Quest 70 Info</strong><br>
+        echo $message="<div class='menuAction'><strong class='green'>Quest 70 Info</strong><br>
 		To complete this quest and open the city gate you must collect the 3 required keys. </div>";
         include('update_feed.php'); // --- update feed
     } elseif ($input=='complete 70') {
         if ($KLbutcher >= 1 && $KLkingsquid >= 1 && $KLgiantmountaingiant >= 1) {
             echo $message="<div class='questWin'>
 		<h3>Quest 70 Completed!</h3>
-		<h4>) Open the Gate	</h4>
+		<h4>Open the Gate	</h4>
 		CONGRATS! You hand Rigel the Key of Wrath, Greed, and Pride. He lifts them up to the sky and the gate’s magic pulls them right from his hand. The 3 keys all click in unison and the gate opens for you. Welcome to Star City.
 	  	<h4>Rewards</h4>
   	  	[ + 10,000 xp  ]<br />
@@ -75,7 +75,7 @@ KEY OF PRIDE: Dropped by the one who stands atop the tallest peak <br/>
             $results = $link->query("UPDATE $user SET currency = currency + 50000");
             $results = $link->query("UPDATE $user SET quest70 = 2");
         } elseif ($quest70 == 1) {
-            echo $message="<div class='menuAction'><strong class='green px30'>Quest 70 Not Complete</strong><br>
+            echo $message="<div class='menuAction'><strong class='green'>Quest 70 Not Complete</strong><br>
 	To complete this quest and open the city gate you must collect the 3 required keys. </div>";
             include('update_feed.php'); // --- update feed
         }

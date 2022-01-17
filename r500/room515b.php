@@ -43,7 +43,7 @@ if($input=='start quests') {
 
 // ---------------------- QUEST 58) Stubborn War Turtle ---------------------- //
 if($input=='info 58') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 58 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 58 Info</strong><br>
 		That Turtle is so stubborn. Go defeat the armored war turtle in the Neverending Mine.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -64,7 +64,7 @@ else if($input=='complete 58')
 		$results = $link->query("UPDATE $user SET quest58 = 2");
 	} 
 	else if ($quest58 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 58 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 58 Not Complete</strong><br>
 	To complete this quest you need to defeat the War Turtle found at level 5 in the Mine. He blocks ranged attacks so put away your bow.
 	</div>";
 		include ('update_feed.php'); // --- update feed
@@ -73,7 +73,7 @@ else if($input=='complete 58')
 
 // ---------------------- QUEST 59) Gargoyle Hunter ---------------------- //
 if($input=='info 59') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 59 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 59 Info</strong><br>
 		Gargoyle’s are so cool, and evil! Go defeat a white and grey one in the Cathedral.
 		</div>";
 		include ('update_feed.php'); // --- update feed
@@ -95,7 +95,7 @@ CONGRATS! You have indeed defeated a white and grey gargoyle! Lego hands you a p
 		$results = $link->query("UPDATE $user SET quest59 = 2");
 	} 
 	else if ($quest59 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 59 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 59 Not Complete</strong><br>
 To complete this quest you need to defeat a white and grey gargoyle. Find both of them in the Cathedral in the Stone Mountain Map.
 	</div>";
 		include ('update_feed.php'); // --- update feed
@@ -105,7 +105,7 @@ To complete this quest you need to defeat a white and grey gargoyle. Find both o
 
 // ---------------------- QUEST 60) The Griffin ---------------------- //
 if($input=='info 60') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 60 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 60 Info</strong><br>
 Slay the magical flying Griffin in the Neverending Mine.
 		</div>";
 		include ('update_feed.php'); // --- update feed
@@ -127,7 +127,7 @@ CONGRATS! You have indeed defeated the Griffin! Lego whistles and a Green Griffi
 		$results = $link->query("UPDATE $user SET quest60 = 2");
 	} 
 	else if ($quest60 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 60 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 60 Not Complete</strong><br>
 To complete this quest you need to defeat the magical Griffin found at level 25 in the Neverending Mine.
 		</div>";
 		include ('update_feed.php'); // --- update feed

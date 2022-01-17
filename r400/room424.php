@@ -125,7 +125,7 @@ if($input=='start quests') {
 
 // ---------------------- QUEST 44) Third Times a Charm ---------------------- //
 if($input=='info 44') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 44 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 44 Info</strong><br>
 		You need to pick a third flower found in a secret area under the Ocean. To access the area you first need to flip the underwater switch. REMEMBER, collect the first 2 flowers before you attempt to get the 3rd. They can be found in the Grassy Field and the Red Town Gardens.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -149,7 +149,7 @@ else if($input=='complete 44')
 		$results = $link->query("UPDATE $user SET quest44 = 2");
 	} 
 	else if ($quest44 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 44 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 44 Not Complete</strong><br>
 	Quest not complete. To complete this quest you need to collect 3 flowers. Find the first one at the Grassy Field and the second at the Babylon Gardens. Then venture under the ocean to get the third.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -157,7 +157,7 @@ else if($input=='complete 44')
 
 // ---------------------- QUEST 45) Angry Birds ---------------------- //
 if($input=='info 45') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 45 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 45 Info</strong><br>
 		Jungle Jim is afraid of birds, especially angry ones. Hunt down a Hawk, Albatross and a Falcon in the Forest, Ocean and Dark Forest.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -180,7 +180,7 @@ else if($input=='complete 45')
 		$results = $link->query("UPDATE $user SET quest45 = 2");
 	} 
 	else if ($quest45 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 45 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 45 Not Complete</strong><br>
 	To complete this quest you need to find these angry birds. Hunt down a Hawk, Albatross and a Falcon. You can find them in the Forest, Ocean and Dark Forest.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  
@@ -189,7 +189,7 @@ else if($input=='complete 45')
 
 // ---------------------- QUEST 46) Iron Warrior ---------------------- //
 if($input=='info 46') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 46 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 46 Info</strong><br>
 		Impress Jungle Jim in a full set of Iron Armor. Collect, buy or craft the armor and return here with iron armor equipped in the top 6 equipment slots.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -223,7 +223,7 @@ else if($input=='complete 46')
 		$results = $link->query("UPDATE $user SET quest46 = 2");
 	} 
 	else if ($quest46 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 46 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 46 Not Complete</strong><br>
 	To complete this quest you need to be decked out in all iron. Equip iron equipment in the top 6 equipment slots.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  

@@ -27,7 +27,7 @@ $KLkraken=$row['KLkraken'];
 }
 // ---------------------- QUEST 31) Stone Mine Access: Kraken ---------------------- //
 if($input=='info 31') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 31 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 31 Info</strong><br>
 		Defeat the Kraken found deep underwater to gain access to the Mining Guild and the Neverending mine.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -49,7 +49,7 @@ else if($input=='complete 31')
 		$results = $link->query("UPDATE $user SET quest31 = 2");
 	} 
 	else if ($quest31 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 31 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 31 Not Complete</strong><br>
 	To complete this quest you need to defeat the Kraken found deep under the Ocean.</div>";
 		include ('update_feed.php'); // --- update feed
 	}  

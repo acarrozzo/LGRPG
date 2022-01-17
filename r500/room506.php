@@ -61,7 +61,7 @@ if($input=='start quests') {
 
 // ---------------------- QUEST 54) Dark Forest Lumberjack ---------------------- //
 if($input=='info 54') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 54 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 54 Info</strong><br>
 		You ready for a big order traveler? Return here with 50 wood.</div>";
 		include ('update_feed.php'); // --- update feed
 }
@@ -86,7 +86,7 @@ else if($input=='complete 54')
 		$results = $link->query("UPDATE $user SET quest54 = 2");
 	} 
 	else if ($quest54 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 54 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 54 Not Complete</strong><br>
 	To complete this quest pick up a hatchet and go into the Forest and chop down some wood. Return when you have 50 pieces.
 	</div>";
 		include ('update_feed.php'); // --- update feed
@@ -95,7 +95,7 @@ else if($input=='complete 54')
 
 // ---------------------- QUEST 55) Shaman & Sorcerer Slayer ---------------------- //
 if($input=='info 55') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 55 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 55 Info</strong><br>
 		I have a shiny gold key with your name on it. Return here after you slay a Troll Shaman and a Troll Sorcerer and it’s all yours.
 		</div>";
 		include ('update_feed.php'); // --- update feed
@@ -117,7 +117,7 @@ CONGRATS! You have indeed slain a Shaman and Sorcerer. I present to you this mar
 		$results = $link->query("UPDATE $user SET quest55 = 2");
 	} 
 	else if ($quest55 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 55 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 55 Not Complete</strong><br>
 To complete this quest you need to defeat a Troll Shaman and a Troll Sorcerer. They can both be found in the Dark Forest.
 	</div>";
 		include ('update_feed.php'); // --- update feed
@@ -127,7 +127,7 @@ To complete this quest you need to defeat a Troll Shaman and a Troll Sorcerer. T
 
 // ---------------------- QUEST 56) Ent Hunter ---------------------- //
 if($input=='info 56') { 
-		echo $message="<div class='menuAction'><strong class='green px30'>Quest 56 Info</strong><br>
+		echo $message="<div class='menuAction'><strong class='green'>Quest 56 Info</strong><br>
 Trees have been coming to life and attacking the wildlife. They are difficult to spot but when you do send it back into the ground.
 		</div>";
 		include ('update_feed.php'); // --- update feed
@@ -149,7 +149,7 @@ CONGRATS! You have indeed beat up a tree! A marvelous blue falcon flies in from 
 		$results = $link->query("UPDATE $user SET quest56 = 2");
 	} 
 	else if ($quest56 == 1)
-	{	echo $message="<div class='menuAction'><strong class='green px30'>Quest 56 Not Complete</strong><br>
+	{	echo $message="<div class='menuAction'><strong class='green'>Quest 56 Not Complete</strong><br>
 To complete this quest you need to defeat an Ent. They are rare creatures found in the Dark Forest.
 		</div>";
 		include ('update_feed.php'); // --- update feed
