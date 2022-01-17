@@ -1,8 +1,8 @@
 
 /*
- * Author: Matthew Cassella
- * Date Created: Sept 2013
- * Really cool dropdown script. Enjoy
+ * Author: AC
+ * Date Created: 2010?
+ * Light Gray LG JS
  */
 
 

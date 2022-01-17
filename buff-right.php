@@ -716,6 +716,11 @@ if ($row["equipR"] =="ranger crossbow") {
     echo " <span>( <i class='green'>+250</i> )</span>";
     $results = $link->query("UPDATE $user SET dexmod = dexmod +250");
 }
+if ($row["equipR"] =="black crossbow") {
+    echo " <span>( <i class='green'>+150</i>, <i class='gold'>+50</i> )</span>";
+    $results = $link->query("UPDATE $user SET dexmod = dexmod +150");
+    $results = $link->query("UPDATE $user SET defmod = defmod +50");
+}
 
 
 // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx TOOLS BUFF

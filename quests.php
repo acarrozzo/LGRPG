@@ -766,7 +766,7 @@ echo ' notstarted';
         }
         // ----------------------------------------- IN PROGRESS - QUEST 11
         $questNumber = '11';
-        $questTag = 'Lvl 5 Random Encounter';
+        $questTag = 'Lvl 5 Rare Encounter';
         $questTitle = 'Bring 3 Thieves to Justice';
         $questDesc = 'You will encounter thieves as you travel about the towns and roads. Help out the Captain and take care of any that cross your path.';
         if ($row['quest'.$questNumber.'']=='1') {
@@ -1924,7 +1924,7 @@ echo ' notstarted';
         }
         // ----------------------------------------- IN PROGRESS - QUEST 28
         $questNumber = '28';
-        $questTag = 'Lvl 7 Random Encounter';
+        $questTag = 'Lvl 7 Rare Encounter';
         $questTitle = 'Rare Gray Matter';
         $questDesc = 'Find a piece of gray matter and show it to Morty. Gray Matter is dropped by rare creatures.';
         if ($row['quest'.$questNumber.'']=='1') {
@@ -2319,7 +2319,7 @@ echo ' notstarted';
 
       // ----------------------------------------- IN PROGRESS - QUEST 36
       $questNumber = '36';
-      $questTag = 'Lvl 20 Random Underwater Encounter';
+      $questTag = 'Lvl 20 Rare Underwater Encounter';
       $questTitle = 'Glowing Sea Monster';
       $questDesc = 'Find the rare fabled glowing monster under the Ocean.';
       if ($row['quest'.$questNumber.'']=='1') {

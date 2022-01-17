@@ -24,6 +24,14 @@ while ($row = $result->fetch_assoc()) {
     $equipHands=$row['equipHands'];
     $equipFeet=$row['equipFeet'];
 
+$victory = "<strong>Victory!</strong>";
+
+$menulinks = "<br>
+<a class='btnx white' href='' data-link='inv'>Weapons</a> |
+<a class='btnx white' href='' data-link2='armor'>Armor</a> |
+<a class='btnx white' href='' data-link='action'>Action</a>
+<br>
+";
 
     // --------------------------------------------------------------  The Random
     if ($enemy =='The Random') {
@@ -35,12 +43,12 @@ while ($row = $result->fetch_assoc()) {
             $bonus = '+ Nothing Fool!<br> ';
         }
 
-        echo $message="<div class='battlewin'>
+        echo $message="<div class='battlewin'>$victory
 <i class='icon-skull px60'></i>
 You have defeated $the <span>$enemy!</span>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -73,10 +81,11 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Blueberry<br> ';
             $results = $link->query("UPDATE $user SET blueberry = blueberry + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory
+        <h3>You have defeated $the <span>$enemy!</span></h3>
 + $currencyadd $currency<br>
   + 1 xp<br>
-$bonusalways$bonus</div>";
+$bonusalways$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 1"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -113,10 +122,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $results = $link->query("UPDATE $user SET redpotion = redpotion + 1");
         }
 
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $currencyadd $currency<br>
   + 3 xp<br>
-$bonusalways$bonus</div>";
+$bonusalways$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 3"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -175,12 +184,12 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ '.$randwater.' Water<br> ';
             $results = $link->query("UPDATE $user SET water = water + $randwater");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + 2 xp<br>
 + $currencyadd $currency<br>
   $bonusbest
   $bonusalways
-  $bonus</div>";
+  $bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 2"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -228,7 +237,7 @@ $rand=rand(1, 4);				// rand bonus
             $bonus = '+ Silver Key<br> ';
             $results = $link->query("UPDATE $user SET silverkey = silverkey + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + 20 xp<br>
   + $currencyadd $currency<br>
   $bonusalways$bonus$bonusbest</div>";
@@ -242,10 +251,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
         $currencyadd = rand(10, 200);// rand gold
         $bonus = '+ Silver Key<br> ';
         $results = $link->query("UPDATE $user SET silverkey = silverkey + 1");
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + 20 xp<br>
   + $currencyadd $currency<br>
-  $bonus</div>";
+  $bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 20"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -286,10 +295,10 @@ $bonusbest = '';
             $bonus = '+ 2 Blueberry<br> ';
             $results = $link->query("UPDATE $user SET blueberry = blueberry + 2");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + 2 xp<br>
   + $currencyadd $currency<br>
-  $alwaysdrop$bonusbest$bonus</div>";
+  $alwaysdrop$bonusbest$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 2"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -326,10 +335,10 @@ $bonusbest = '';
             $results = $link->query("UPDATE $user SET basichood = basichood + 1");
         }
 
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + 4 xp<br>
   + $currencyadd $currency<br>
-  $alwaysdrop$bonusbest$bonus</div>";
+  $alwaysdrop$bonusbest$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 4"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -358,10 +367,10 @@ $bonus = '';
             $bonus = '+ Dagger<br> ';
             $results = $link->query("UPDATE $user SET dagger = dagger + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
   + 6 xp<br>
   + $currencyadd $currency<br>
-  $alwaysdrop$bonus</div>";
+  $alwaysdrop$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 6"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -402,7 +411,7 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus2 = '+ Long Sword<br> ';
             $results = $link->query("UPDATE $user SET longsword = longsword + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + 8 xp<br>
   + $currencyadd $currency<br>
   $alwaysdrop$bonus$bonus2</div>";
@@ -436,10 +445,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Basic Helmet<br> ';
             $results = $link->query("UPDATE $user SET basichelmet = basichelmet + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + 10 xp<br>
   + $currencyadd $currency<br>
-  $alwaysdrop$bonus</div>";
+  $alwaysdrop$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 10"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -485,10 +494,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Padded Armor<br> ';
             $results = $link->query("UPDATE $user SET paddedarmor = paddedarmor + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + 25 xp<br>
   + $currencyadd $currency<br>
-  $alwaysdrop$bonus</div>";
+  $alwaysdrop$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 25"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -527,10 +536,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Iron Sword<br> ';
             $results = $link->query("UPDATE $user SET ironsword = ironsword + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + 150 xp<br>
   + $currencyadd $currency<br>
-  $alwaysdrop$bonus</div>";
+  $alwaysdrop$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 150"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -574,10 +583,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Iron 2h Sword<br> ';
             $results = $link->query("UPDATE $user SET iron2hsword = iron2hsword + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + 300 xp<br>
   + $currencyadd $currency<br>
-  $alwaysdrop$bonus</div>";
+  $alwaysdrop$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 300"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -611,10 +620,10 @@ $alwaysdrop = '+ 1 Bat Wing<br> ';
         }
 
 
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + 3 xp<br>
   + $currencyadd $currency<br>
-  $alwaysdrop$bonus</div>";
+  $alwaysdrop$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 3"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -651,10 +660,10 @@ $alwaysdrop = '+ 2 Bat Wing<br> ';
             $results = $link->query("UPDATE $user SET ringofdexterityII = ringofdexterityII + 1");
         }
 
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + 10 xp<br>
   + $currencyadd $currency<br>
-  $alwaysdrop$bonus</div>";
+  $alwaysdrop$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 10"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -688,10 +697,10 @@ $bonusalways = '+ Raw Meat<br> ';
             $results = $link->query("UPDATE $user SET ringofmagic = ringofmagic + 1");
         }
 
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + 9 xp<br>
   + $currencyadd $currency<br>
-  $bonusalways$bonus</div>";
+  $bonusalways$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 9"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -719,10 +728,10 @@ if ($rand == 1) { // 25%
             $bonus = '+ Black Gloves<br> ';
             $results = $link->query("UPDATE $user SET blackgloves = blackgloves + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + 7 xp<br>
   + $currencyadd $currency<br>
-  $bonus</div>";
+  $bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 7"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -764,10 +773,10 @@ if ($rand == 1) { // 25%
             $bonus = '+ Black Boots<br> ';
             $results = $link->query("UPDATE $user SET blackboots = blackboots + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
   + 12 xp<br>
   + $currencyadd $currency<br>
-  $bonus</div>";
+  $bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 12"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -794,10 +803,10 @@ if ($rand == 1) { // 25%
             $bonus = '+ Morning Star<br> ';
             $results = $link->query("UPDATE $user SET morningstar = morningstar + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + 30 xp<br>
   + $currencyadd $currency<br>
-  $bonus</div>";
+  $bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 30"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -828,7 +837,7 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ 1 blueberry<br> ';
             $results = $link->query("UPDATE $user SET blueberry = blueberry + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
   + 5 xp<br>
 $bonus
 $bonusalways</div>";
@@ -859,10 +868,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ '.$qty.' Arrows<br> ';
             $results = $link->query("UPDATE $user SET arrows = arrows + $qty");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + 8 xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 8"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -890,10 +899,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ '.$qty.' Redberry<br> ';
             $results = $link->query("UPDATE $user SET redberry = redberry + $qty");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + 8 xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 8"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -920,10 +929,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ '.$qty.' Blueberry<br> ';
             $results = $link->query("UPDATE $user SET blueberry = blueberry + $qty");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + 8 xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 8"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -949,10 +958,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Ring of Health Regen<br> ';
             $results = $link->query("UPDATE $user SET ringofhealthregen = ringofhealthregen + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + 30 xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 30"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -984,10 +993,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ '.$qty.' Arrows<br> ';
             $results = $link->query("UPDATE $user SET arrows = arrows + $qty");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + 9 xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 9"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1014,10 +1023,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ '.$qty.' Bolts<br> ';
             $results = $link->query("UPDATE $user SET bolts = bolts + $qty");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + 12 xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 12"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1043,10 +1052,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Leather Helmet<br> ';
             $results = $link->query("UPDATE $user SET leatherhelmet = leatherhelmet + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + 20 xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 20"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1072,10 +1081,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Iron Helmet<br> ';
             $results = $link->query("UPDATE $user SET ironhelmet = ironhelmet + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + 25 xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 25"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1116,10 +1125,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
                 $results = $link->query("UPDATE $user SET ringofdefense = ringofdefense + 1");
             }
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + 30 xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 30"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1145,10 +1154,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Iron Shield<br> ';
             $results = $link->query("UPDATE $user SET ironshield = ironshield + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + 50 xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + 50"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1176,10 +1185,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Gray Matter<br> ';
             $results = $link->query("UPDATE $user SET graymatter = graymatter + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1210,10 +1219,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Kite Shield<br> ';
             $results = $link->query("UPDATE $user SET kiteshield = kiteshield + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1243,10 +1252,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ '.$qty.' Bolts<br> ';
             $results = $link->query("UPDATE $user SET bolts = bolts + $qty");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1306,10 +1315,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
                 $results = $link->query("UPDATE $user SET leatherhood = leatherhood + 1");
             }
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1353,10 +1362,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
                 $results = $link->query("UPDATE $user SET ringofdefense = ringofdefense + 1");
             }
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1384,10 +1393,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Wand<br> ';
             $results = $link->query("UPDATE $user SET wand = wand + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1419,10 +1428,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Silver Key<br> ';
             $results = $link->query("UPDATE $user SET silverkey = silverkey + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1456,10 +1465,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Dual Tomahawk<br> ';
             $results = $link->query("UPDATE $user SET dualtomahawk = dualtomahawk + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1487,10 +1496,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Gray Matter<br> ';
             $results = $link->query("UPDATE $user SET graymatter = graymatter + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1537,10 +1546,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
                 $results = $link->query("UPDATE $user SET ringofdefense = ringofdefense + 1");
             }
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1569,10 +1578,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Reds<br> ';
             $results = $link->query("UPDATE $user SET reds = reds + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1616,10 +1625,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
                 $results = $link->query("UPDATE $user SET ringofdefenseII = ringofdefenseII + 1");
             }
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1656,10 +1665,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ '.$qty.' Javelins<br> ';
             $results = $link->query("UPDATE $user SET javelin = javelin + $qty");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1690,10 +1699,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
         }
 
 
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1724,10 +1733,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $results = $link->query("UPDATE $user SET javelin = javelin + $qty");
         }
 
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1756,10 +1765,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Leather Vest<br> ';
             $results = $link->query("UPDATE $user SET leathervest = leathervest + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1788,10 +1797,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Golds<br> ';
             $results = $link->query("UPDATE $user SET golds = golds + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1825,10 +1834,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Long Sword<br> ';
             $results = $link->query("UPDATE $user SET longsword = longsword + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1857,10 +1866,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Hunter Shield<br> ';
             $results = $link->query("UPDATE $user SET huntershield = huntershield + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1888,10 +1897,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Iron Kite Shield<br> ';
             $results = $link->query("UPDATE $user SET ironkiteshield = ironkiteshield + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1919,10 +1928,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Gray Robe<br> ';
             $results = $link->query("UPDATE $user SET grayrobe = grayrobe + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1951,10 +1960,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Iron Gauntlets<br> ';
             $results = $link->query("UPDATE $user SET irongauntlets = irongauntlets + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -1982,10 +1991,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Ring of Mana Regen<br> ';
             $results = $link->query("UPDATE $user SET ringofmanaregen = ringofmanaregen + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated <span>$enemy</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated <span>$enemy</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -2013,10 +2022,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Ring of Health Regen<br> ';
             $results = $link->query("UPDATE $user SET ringofhealthregen = ringofhealthregen + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated <span>$enemy</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated <span>$enemy</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -2060,10 +2069,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Silver Key<br> ';
             $results = $link->query("UPDATE $user SET silverkey = silverkey + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -2107,10 +2116,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Coyote Ring<br> ';
             $results = $link->query("UPDATE $user SET coyotering = coyotering + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -2140,10 +2149,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Leather Armor<br> ';
             $results = $link->query("UPDATE $user SET leatherarmor = leatherarmor + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -2173,10 +2182,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Ring of Health Regen<br> ';
             $results = $link->query("UPDATE $user SET ringofhealthregen = ringofhealthregen + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -2206,10 +2215,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Ring of Mana Regen<br> ';
             $results = $link->query("UPDATE $user SET ringofmanaregen = ringofmanaregen + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -2240,10 +2249,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Hunter Bow<br> ';
             $results = $link->query("UPDATE $user SET hunterbow = hunterbow + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$alwaysbonus$bonus</div>";
+$alwaysbonus$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -2288,10 +2297,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ '.$qty.' Bolts<br> ';
             $results = $link->query("UPDATE $user SET bolts = bolts + $qty");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -2324,10 +2333,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Rabid Ring<br> ';
             $results = $link->query("UPDATE $user SET rabidring = rabidring + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -2373,10 +2382,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
                 $results = $link->query("UPDATE $user SET ringofdefenseII = ringofdefenseII + 1");
             }
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -2406,10 +2415,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Death Orb<br> ';
             $results = $link->query("UPDATE $user SET deathorb = deathorb + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -2448,10 +2457,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
                 $results = $link->query("UPDATE $user SET ringofmanaregen = ringofmanaregen + 1");
             }
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -2480,10 +2489,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Haunted Helm<br> ';
             $results = $link->query("UPDATE $user SET hauntedhelm = hauntedhelm + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -2512,10 +2521,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Steel Dagger<br> ';
             $results = $link->query("UPDATE $user SET steeldagger = steeldagger + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -2544,10 +2553,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ '.$qty.' Bolts<br> ';
             $results = $link->query("UPDATE $user SET bolts = bolts + $qty");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -2592,10 +2601,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ '.$qty.' Blue Balm<br> ';
             $results = $link->query("UPDATE $user SET bluebalm = bluebalm + $qty");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -2624,10 +2633,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Red Shield<br> ';
             $results = $link->query("UPDATE $user SET redshield = redshield + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -2665,10 +2674,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Gills Potion<br> ';
             $results = $link->query("UPDATE $user SET gillspotion = gillspotion + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -2697,10 +2706,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Gills Potion<br> ';
             $results = $link->query("UPDATE $user SET gillspotion = gillspotion + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -2731,10 +2740,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Purples<br> ';
             $results = $link->query("UPDATE $user SET purples = purples + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -2764,10 +2773,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Iron Hood<br> ';
             $results = $link->query("UPDATE $user SET ironhood = ironhood + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -2796,10 +2805,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Iron Dagger<br> ';
             $results = $link->query("UPDATE $user SET irondagger = irondagger + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -2828,10 +2837,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Iron Boomerang<br> ';
             $results = $link->query("UPDATE $user SET ironboomerang = ironboomerang + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -2878,10 +2887,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
                 $results = $link->query("UPDATE $user SET ringofdefenseIII = ringofdefenseIII + 1");
             }
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -2930,10 +2939,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
                 $results = $link->query("UPDATE $user SET ringofdefenseIII = ringofdefenseIII + 1");
             }
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -2987,11 +2996,11 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Reds<br> ';
             $results = $link->query("UPDATE $user SET reds = reds + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br>
   $bonusalways
-  $bonus</div>";
+  $bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3025,10 +3034,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Turtle Shell<br> ';
             $results = $link->query("UPDATE $user SET turtleshell = turtleshell + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3058,10 +3067,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Polearm<br> ';
             $results = $link->query("UPDATE $user SET polearm = polearm + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3090,10 +3099,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Steel Shield<br> ';
             $results = $link->query("UPDATE $user SET steelshield = steelshield + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3121,10 +3130,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Compound Crossbow<br> ';
             $results = $link->query("UPDATE $user SET compoundcrossbow = compoundcrossbow + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3159,10 +3168,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Blue Pendant<br> ';
             $results = $link->query("UPDATE $user SET bluependant = bluependant + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3198,10 +3207,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Green Wizard Ring<br> ';
             $results = $link->query("UPDATE $user SET greenwizardring = greenwizardring + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3224,10 +3233,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ '.$qty.' Red Potions<br> ';
             $results = $link->query("UPDATE $user SET redpotion = redpotion + $qty");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$alwaysbonus$bonus</div>";
+$alwaysbonus$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3251,10 +3260,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ '.$qty.' Arrows<br> ';
             $results = $link->query("UPDATE $user SET arrows = arrows + $qty");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$alwaysbonus$bonus</div>";
+$alwaysbonus$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3277,10 +3286,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ '.$qty.' Red Potions<br> ';
             $results = $link->query("UPDATE $user SET bluepotion = bluepotion + $qty");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$alwaysbonus$bonus</div>";
+$alwaysbonus$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3303,10 +3312,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ '.$qty.' Raw Meat<br> ';
             $results = $link->query("UPDATE $user SET rawmeat = rawmeat + $qty");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$alwaysbonus$bonus</div>";
+$alwaysbonus$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3332,10 +3341,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '';
         }
 
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$alwaysbonus$bonus</div>";
+$alwaysbonus$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3387,10 +3396,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
                 $results = $link->query("UPDATE $user SET ringofdefenseII = ringofdefenseII + 1");
             }
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3451,11 +3460,11 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
                 $results = $link->query("UPDATE $user SET ringofdefenseII = ringofdefenseII + 1");
             }
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br>
   $bonusalways
-  $bonus</div>";
+  $bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3499,10 +3508,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
                 $results = $link->query("UPDATE $user SET ringofdefenseII = ringofdefenseII + 1");
             }
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3531,10 +3540,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Ring of Defense X<br> ';
             $results = $link->query("UPDATE $user SET ringofdefenseX = ringofdefenseX + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3578,10 +3587,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
                 $results = $link->query("UPDATE $user SET ringofdefenseIII = ringofdefenseIII + 1");
             }
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3609,10 +3618,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Ring of Defense V<br>';
             $results = $link->query("UPDATE $user SET ringofdefenseV = ringofdefenseV + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3645,10 +3654,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Iron Maul<br>';
             $results = $link->query("UPDATE $user SET ironmaul = ironmaul + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$alwaysbonus$bonus</div>";
+$alwaysbonus$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3676,10 +3685,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Hand Crossbow<br>';
             $results = $link->query("UPDATE $user SET handcrossbow = handcrossbow + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3709,10 +3718,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Poison Saber<br>';
             $results = $link->query("UPDATE $user SET poisonsaber = poisonsaber + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3741,10 +3750,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Earth Boots<br>';
             $results = $link->query("UPDATE $user SET earthboots = earthboots + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3793,10 +3802,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
                 $results = $link->query("UPDATE $user SET ringofdefenseV = ringofdefenseV + 1");
             }
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3844,10 +3853,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
                 $results = $link->query("UPDATE $user SET ringofdefenseV = ringofdefenseV + 1");
             }
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3893,10 +3902,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
                 $results = $link->query("UPDATE $user SET ringofdefenseV = ringofdefenseV + 1");
             }
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3924,10 +3933,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Viking Shield<br>';
             $results = $link->query("UPDATE $user SET vikingshield = vikingshield + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3946,10 +3955,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $results = $link->query("UPDATE $user SET blues = blues + 1");
             $results = $link->query("UPDATE $user SET yellows = yellows + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -3979,10 +3988,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Ring of Defense X<br>';
             $results = $link->query("UPDATE $user SET ringofdefenseX = ringofdefenseX + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4015,10 +4024,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Ring of Dexterity VII<br>';
             $results = $link->query("UPDATE $user SET ringofdexterityVII = ringofdexterityVII + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$alwaysbonus$bonus</div>";
+$alwaysbonus$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4046,10 +4055,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Heavy Hammer<br>';
             $results = $link->query("UPDATE $user SET heavyhammer = heavyhammer + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4078,10 +4087,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Glaive<br>';
             $results = $link->query("UPDATE $user SET glaive = glaive + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4110,10 +4119,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Gamma Boots<br>';
             $results = $link->query("UPDATE $user SET gammaboots = gammaboots + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4158,10 +4167,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Green Orb<br> ';
             $results = $link->query("UPDATE $user SET greenorb = greenorb + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonusalways$bonus</div>";
+$bonusalways$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4207,10 +4216,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Iron Gloves<br> ';
             $results = $link->query("UPDATE $user SET irongloves = irongloves + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonusalways$bonus</div>";
+$bonusalways$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4259,10 +4268,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Hunter Bow<br> ';
             $results = $link->query("UPDATE $user SET hunterbow = hunterbow + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4291,10 +4300,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Iron Dagger<br> ';
             $results = $link->query("UPDATE $user SET irondagger = irondagger + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4322,10 +4331,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Blue Balm<br> ';
             $results = $link->query("UPDATE $user SET bluebalm = bluebalm + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4354,10 +4363,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Steel Dagger<br> ';
             $results = $link->query("UPDATE $user SET steeldagger = steeldagger + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4387,10 +4396,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Off Hand Sword<br> ';
             $results = $link->query("UPDATE $user SET offhandsword = offhandsword + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4437,10 +4446,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Steel Boomerang<br> ';
             $results = $link->query("UPDATE $user SET steelboomerang = steelboomerang + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4470,10 +4479,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Steel Sword<br> ';
             $results = $link->query("UPDATE $user SET steelsword = steelsword + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4518,10 +4527,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Steel Nunchaku<br> ';
             $results = $link->query("UPDATE $user SET steelnunchaku = steelnunchaku + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4552,10 +4561,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Oak Warhammer<br>';
             $results = $link->query("UPDATE $user SET oakwarhammer = oakwarhammer + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$alwaysbonus$bonus</div>";
+$alwaysbonus$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4586,10 +4595,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Ranger Cloak<br>';
             $results = $link->query("UPDATE $user SET rangercloak = rangercloak + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$alwaysbonus$bonus</div>";
+$alwaysbonus$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4620,10 +4629,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Gamma Knife<br>';
             $results = $link->query("UPDATE $user SET gammaknife = gammaknife + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$alwaysbonus$bonus</div>";
+$alwaysbonus$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4659,10 +4668,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Ring of Health Regen III<br> ';
             $results = $link->query("UPDATE $user SET ringofhealthregenIII = ringofhealthregenIII + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4694,10 +4703,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Steel Hood<br> ';
             $results = $link->query("UPDATE $user SET steelhood = steelhood + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4728,10 +4737,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Ring of Dexterity X<br> ';
             $results = $link->query("UPDATE $user SET ringofdexterityX = ringofdexterityX + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4764,10 +4773,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $results = $link->query("UPDATE $user SET sphinxshield = sphinxshield + 1");
         }
 
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4801,10 +4810,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $results = $link->query("UPDATE $user SET crimsonmoccasins = crimsonmoccasins + 1");
         }
 
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4837,10 +4846,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $results = $link->query("UPDATE $user SET mithrilboots = mithrilboots + 1");
         }
 
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4873,10 +4882,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $results = $link->query("UPDATE $user SET royalpendant = royalpendant + 1");
         }
 
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4891,7 +4900,7 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
         $exp = 0;
         $KLname= 'KLfriendlygiant';
 
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 You can now use the mountain shortcut.</div>";
         include('update_feed_alt.php'); // --- update feed
         $results = $link->query("UPDATE $user SET $KLname = $KLname + 1");
@@ -4924,10 +4933,10 @@ You can now use the mountain shortcut.</div>";
             $bonus = '+ Bardiche<br> ';
             $results = $link->query("UPDATE $user SET bardiche = bardiche + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4957,10 +4966,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ 2 Mithril Javelins<br> ';
             $results = $link->query("UPDATE $user SET mithriljavelin = mithriljavelin + 2");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -4993,10 +5002,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ 2 Blues<br> ';
             $results = $link->query("UPDATE $user SET greens = greens + 2");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -5025,10 +5034,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ 5 Iron Javelins<br> ';
             $results = $link->query("UPDATE $user SET ironjavelin = ironjavelin + 5");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -5057,10 +5066,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Steel Armor<br> ';
             $results = $link->query("UPDATE $user SET steelarmor = steelarmor + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -5089,10 +5098,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Ring of Strength X<br> ';
             $results = $link->query("UPDATE $user SET ringofstrengthX = ringofstrengthX + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -5121,10 +5130,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Keeper\'s Crossbow<br> ';
             $results = $link->query("UPDATE $user SET keeperscrossbow = keeperscrossbow + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -5154,10 +5163,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Magic Talisman<br> ';
             $results = $link->query("UPDATE $user SET magictalisman = magictalisman + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -5189,10 +5198,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Banshee Hood<br> ';
             $results = $link->query("UPDATE $user SET bansheehood = bansheehood + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -5222,10 +5231,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Silk Moccasins<br> ';
             $results = $link->query("UPDATE $user SET silkmoccasins = silkmoccasins + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -5254,10 +5263,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Baby Owl<br> ';
             $results = $link->query("UPDATE $user SET babyowl = babyowl + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -5287,10 +5296,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Dragon Shield<br> ';
             $results = $link->query("UPDATE $user SET dragonshield = dragonshield + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -5322,10 +5331,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Ring of Health Regen III<br> ';
             $results = $link->query("UPDATE $user SET ringofhealthregenIII = ringofhealthregenIII + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -5355,10 +5364,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Ring of Health Regen III<br> ';
             $results = $link->query("UPDATE $user SET ringofhealthregenIII = ringofhealthregenIII + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -5388,10 +5397,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Blue Balm<br> ';
             $results = $link->query("UPDATE $user SET bluebalm = bluebalm + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -5422,10 +5431,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Silver Key<br> ';
             $results = $link->query("UPDATE $user SET silverkey = silverkey + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -5456,10 +5465,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Off Hand Mace<br> ';
             $results = $link->query("UPDATE $user SET offhandmace = offhandmace + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -5491,10 +5500,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Lucky Bone<br> ';
             $results = $link->query("UPDATE $user SET luckybone = luckybone + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -5531,10 +5540,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ GMG Club<br> ';
             $results = $link->query("UPDATE $user SET gmgclub = gmgclub + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -5564,10 +5573,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ GK Club<br>';
             $results = $link->query("UPDATE $user SET gkclub = gkclub + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
@@ -5597,10 +5606,10 @@ $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");
             $bonus = '+ Shield of Fools<br>';
             $results = $link->query("UPDATE $user SET shieldoffools = shieldoffools + 1");
         }
-        echo $message="<div class='battlewin'><h3>You have defeated $the <span>$enemy!</span></h3>
+        echo $message="<div class='battlewin'>$victory<h3>You have defeated $the <span>$enemy!</span></h3>
 + $exp xp<br>
 + $currencyadd $currency<br/>
-$bonus</div>";
+$bonus$menulinks</div>";
         include('update_feed_alt.php'); // --- update feed
 $results = $link->query("UPDATE $user SET xp = xp + $exp"); // xp
 $results = $link->query("UPDATE $user SET currency = currency + $currencyadd");

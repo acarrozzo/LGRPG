@@ -25,6 +25,26 @@ echo '<div class="roomBox">
 	<button type="submit" name="input1" value="north">North</button>
 	<button type="submit" name="input1" value="east">East</button>
 	<button class="brownBG" type="submit" name="input1" value="read sign">Read Sign</button>
+
+
+
+  <div class="btn" open-modal>Read Sign</div>
+
+  <div class="flex-contain dddgrayBG modal">
+    <span class="closer">close</span>
+    <h3>Grassy Field <span class="gold">Directory</span></h3>
+    <form id="mainForm" method="post" action="" name="formInput">
+    <div class="double-column">
+    <div><p class="">Healing Waterfall</p><input type="submit" name="input1" class="blueBG" value="northwest" /></div>
+    <div><p class="">Shaman Tent</p><input type="submit" name="input1" class="purpleBG" value="northeast" /> </div>
+        <div><p class="">Beach</p><input type="submit" name="input1" class="sandBG" value="west" /></div>
+        <div><p class="">Wood Cabin</p><input type="submit" name="input1" class="brownBG" value="southwest" /> </div>
+    </div>
+    ---------------------------------------------------</br>
+    <p>Visit the <span class="">OLD MAN</span> at the cabin to start your first quest.</p>
+  </div>
+
+
 	<button class="blueBG" type="submit" name="input1" value="view map">View Map</button>
 	<button class="goldBG" type="submit" name="input1" value="open chest">Open Chest</button>
 	</form>

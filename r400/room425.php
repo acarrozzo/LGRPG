@@ -55,7 +55,7 @@ while ($row = $result->fetch_assoc()) {
             echo $message="<i class='fa fa-times-circle lightred'></i>You have ".$reds." reds.";
             include('update_feed_alt.php'); // --- update feed
         } else {
-            echo $message="<i class='fa fa-arrow-circle-up green'></i>You now have ".$reds." reds.";
+            echo $message="<i class='fa fa-arrow-circle-up green'></i>You now have ".$reds." -> 3 reds.";
             include('update_feed_alt.php'); // --- update feed
             $results = $link->query("UPDATE $user SET reds = 3");
         }
@@ -63,7 +63,7 @@ while ($row = $result->fetch_assoc()) {
             echo $message="<i class='fa fa-times-circle lightred'></i>You have ".$greens." greens.";
             include('update_feed_alt.php'); // --- update feed
         } else {
-            echo $message="<i class='fa fa-arrow-circle-up green'></i>You now have ".$greens." greens.";
+            echo $message="<i class='fa fa-arrow-circle-up green'></i>You now have ".$greens. " -> 3 greens.";
             include('update_feed_alt.php'); // --- update feed
             $results = $link->query("UPDATE $user SET greens = 3");
         }
@@ -71,7 +71,7 @@ while ($row = $result->fetch_assoc()) {
             echo $message="<i class='fa fa-times-circle lightred'></i>You have ".$blues." blues.";
             include('update_feed_alt.php'); // --- update feed
         } else {
-            echo $message="<i class='fa fa-arrow-circle-up green'></i>You now have ".$blues." blues.";
+            echo $message="<i class='fa fa-arrow-circle-up green'></i>You now have ".$blues." -> 3 blues.";
             include('update_feed_alt.php'); // --- update feed
             $results = $link->query("UPDATE $user SET blues = 3");
         }
@@ -79,7 +79,7 @@ while ($row = $result->fetch_assoc()) {
             echo $message="<i class='fa fa-times-circle lightred'></i>You have ".$yellows." yellows.";
             include('update_feed_alt.php'); // --- update feed
         } else {
-            echo $message="<i class='fa fa-arrow-circle-up green'></i>You now have ".$yellows." yellows.";
+            echo $message="<i class='fa fa-arrow-circle-up green'></i>You now have ".$yellows." -> 3 yellows.";
             include('update_feed_alt.php'); // --- update feed
             $results = $link->query("UPDATE $user SET yellows = 3");
         }
@@ -87,15 +87,15 @@ while ($row = $result->fetch_assoc()) {
             echo $message="<i class='fa fa-times-circle lightred'></i>You have ".$redbalm." red balms.";
             include('update_feed_alt.php'); // --- update feed
         } else {
-            echo $message="<i class='fa fa-arrow-circle-up green'></i>You now have ".$redbalm." red balms.";
+            echo $message="<i class='fa fa-arrow-circle-up green'></i>You now have ".$redbalm." -> 3 red balms.";
             include('update_feed_alt.php'); // --- update feed
             $results = $link->query("UPDATE $user SET redbalm = 3");
         }
         if ($bluebalm>= 3) {	// ------------------------------  blue balm
-            echo $message="<i class='fa fa-times-circle lightred'></i>You have <span class='blue'>".$bluebalm." blue balms</span>.";
+            echo $message="<i class='fa fa-times-circle lightred'></i>You have ".$bluebalm." blue balms.";
             include('update_feed_alt.php'); // --- update feed
         } else {
-            echo $message="<i class='fa fa-arrow-circle-up green'></i>You have <span class='blue'>".$bluebalm." blue balms</span>.";
+            echo $message="<i class='fa fa-arrow-circle-up green'></i>You now have ".$bluebalm."-> 3 blue balms.";
             include('update_feed_alt.php'); // --- update feed
             $results = $link->query("UPDATE $user SET bluebalm = 3");
         }

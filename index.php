@@ -90,7 +90,7 @@ Lore
     $infobar = ''; ?>
 
 
-<div  class="infoBlock panel" data-pop="action">
+<div  class="infoBlock panel action" data-pop="action">
 <?php echo $infobar; ?>
 
 
@@ -285,7 +285,7 @@ showTime();
 </div>
 
 <!-- INV PANEL -->
-<div class="panel" data-pop="inv">
+<div class="panel inv" data-pop="inv">
   <?php echo $infobar;
     echo $closeMenuBtn; ?>
 	<?php // include ('futureEQUIPPED.php');?>
@@ -300,7 +300,7 @@ showTime();
 </div>
 
 <!-- QUESTS PANEL -->
-<div class="panel" data-pop="quests" id="quests">
+<div class="panel quests" data-pop="quests" id="quests">
   <?php echo $infobar;
     echo $closeMenuBtn; ?>
 	<?php include('quests.php'); ?>
@@ -312,7 +312,7 @@ showTime();
 	</div>
  </div>
 <!-- WORLD PANEL -->
-<div class="panel" data-pop="world">
+<div class="panel world" data-pop="world">
   <?php echo $infobar;
     echo $closeMenuBtn; ?>
     	<section data-pop="teleport" id="teleport" class="teleportXXX"> <?php include('teleport.php'); ?> </section>

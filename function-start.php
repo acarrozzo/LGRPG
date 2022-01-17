@@ -20,6 +20,7 @@ while ($row = $result->fetch_assoc()) {
     include('function-equip.php');
     include('function-magic.php');
     include('function-teleport.php');
+    include('function-equip-max.php');
     include('function-craft.php');
     include('function-heal.php');
     include('function-cheats.php');

@@ -26,12 +26,12 @@ while($row = $result->fetch_assoc()){
       echo'<p> You can fast travel to any teleport location you have visited before.</p>';
 
       echo '  <div class="map-tiles">
-      <div class="tile blueBG"><span>Star City</span></div>
-      <div class="tile dgrayBG"><span>Mountains</span></div>
-      <div class="tile darkgreenBG"><span>Dark Forest</span></div>
-      <div class="tile oceanBG"><span>Blue Ocean</span></div>
-      <div class="tile greenBG active">
-        <div class="map-tiles2">
+      <div class="tile m7 blueBG"><span>Star City</span></div>
+      <div class="tile m6 dgrayBG"><span>Mountains</span></div>
+      <div class="tile m5 darkgreenBG"><span>Dark Forest</span></div>
+      <div class="tile m4 oceanBG"><span>Blue Ocean</span></div>
+      <div class="tile m0 greenBG active"><span>Grassy Field</span></div>
+        <div class="map-tiles2" data-map-2>
 
         <div class="tile2 grayBG"><span></span></div>
         <div class="tile2 grayBG"><span></span></div>
@@ -83,14 +83,14 @@ while($row = $result->fetch_assoc()){
         <div class="tile2 grayBG"><span></span></div>
         <div class="tile2 grayBG"><span></span></div>
 
-        </div>
-        <span>Grassy Field</span>
+
+
 
       </div>
-      <div class="tile dgreenBG forestBG"><span>Forest</span></div>
-      <div class="tile swampBG"><span>Swamp</span></div>
-      <div class="tile grayBG"><span>Rocky Flats</span></div>
-      <div class="tile redBG"><span>Red Town</span></div>
+      <div class="tile m1 dgreenBG forestBG"><span>Forest</span></div>
+      <div class="tile m8 swampBG"><span>Swamp</span></div>
+      <div class="tile m3 grayBG"><span>Rocky Flats</span></div>
+      <div class="tile m2 redBG"><span>Red Town</span></div>
       </div>';
 
       echo '</div>';

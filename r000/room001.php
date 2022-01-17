@@ -50,7 +50,7 @@ while ($row = $result->fetch_assoc()) {
         echo '<i>You read the Grassy Field Directory</i> <br>  ';
         $message="
 <i>you read the sign:</i>
-<div class='sign greenBG'>
+<div class='sign'>
 <h3>Grassy Field <span class='gold'>Directory</span></h3>
 <form id='mainForm' method='post' action='' name='formInput'>
 <div class='double-column'>

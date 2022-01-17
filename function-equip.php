@@ -1151,6 +1151,15 @@ if ($right == $left) { // ---- two handed check
         $results = $link->query("UPDATE $user SET weapontype = 3");
     }
 
+    // --------------------------------------------------------------------------- equip black crossbow
+    if (($input=="equip black crossbow" || $input=="black crossbow") && $row['blackcrossbow'] > 0) {
+        echo $message = '<div class="menuAction"><i class="fa fa-check"></i>You equip your black crossbow</div>';
+        include('update_feed.php'); // --- update feed
+        $results = $link->query("UPDATE $user SET equipR = 'black crossbow'");
+        $results = $link->query("UPDATE $user SET equipL = 'black crossbow'");
+        $results = $link->query("UPDATE $user SET weapontype = 3");
+    }
+
 
 
 
@@ -1851,6 +1860,12 @@ if ($right == $left) { // ---- two handed check
         echo $message = '<div class="menuAction"><i class="fa fa-check"></i>You equip your ranger gloves</div>';
         include('update_feed.php'); // --- update feed
         $results = $link->query("UPDATE $user SET equipHands = 'ranger gloves'");
+    }
+    // --------------------------------------------------------------------------- equip glowing gloves
+    if ($input=="equip glowing gloves" && $row['glowinggloves'] > 0) {
+        echo $message = '<div class="menuAction"><i class="fa fa-check"></i>You equip your glowing gloves</div>';
+        include('update_feed.php'); // --- update feed
+        $results = $link->query("UPDATE $user SET equipHands = 'glowing gloves'");
     }
 
 

@@ -28,7 +28,7 @@ while ($row = $result->fetch_assoc()) {
     if ($input=="rest") {
         $query = $link->query("UPDATE $user SET hp = $hpmax + 250 ");
         $query = $link->query("UPDATE $user SET mp = $mpmax + 250 ");
-        echo $message = "You rest and feel reguvinated! (+250 HP, +250 MP)<br/>";
+        echo $message = "You rest and feel rejuvenated! (+250 HP, +250 MP)<br/>";
         include('update_feed.php'); // --- update feed
         $results = $link->query("UPDATE $user SET endfight = 0"); // -- reset fight
     }

@@ -74,9 +74,9 @@ if ($input=="drink coffee" || $input=="coffee"){
 		include ('update_feed.php'); } // --- update feed
 	else if	($coffee<=0) { echo $message = "You don't have any coffee.<br/>"; include ('update_feed.php'); } // --- update feed
 	else {
-		$_SESSION['coffee'] = 20;
+		$_SESSION['coffee'] = 100;
 		$results = $link->query("UPDATE $user SET coffee = coffee - 1");
-		echo $message = 'You drink some COFFEE and feel a boost of energy come over you! (+10 all stats / 20 clicks)<br/>'; 
+		echo $message = 'You drink some COFFEE and feel a boost of energy come over you! (+5 all stats / 100 clicks)<br/>';
 		include ('update_feed.php'); // --- update feed
 		}
 	}

@@ -1848,9 +1848,9 @@ $_SESSION['desc208'] = <<<HTML
 	<h3 class="green">Rob's Farm</h3>
 	<p>Rows and rows of fruits and veggies  are growing here.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
-	<button type="submit" name="input1" value="south">South</button>
+	<button type="submit" name="input1" value="north">North</button>
 
-	<input class="goldBG" type="submit" name="input1" value="grab veggies" />
+	<input class="purpleBG" type="submit" name="input1" value="grab veggies" />
 	</form>
 </div></html>
 HTML;
@@ -6263,8 +6263,8 @@ $_SESSION['desc619'] = <<<HTML
    <html><div class="roomBox"><h3>Mountain Bridge</h3>
 	<p>You walk on a stone bridge spanning over a large chasm below. The air here is frigid and brisk. You see a broken sign on the ground reading “Do not try to cross! Beware the Gatekeeper!”</p>
 	<form id="mainForm" method="post" action="" name="formInput">
+    <button type="submit" name="input1" value="west">West</button>
 	<button type="submit" name="input1" value="east">East</button>
-	<button type="submit" name="input1" value="west">West</button>
    </form>
 </div></html>
 HTML;
@@ -6322,7 +6322,7 @@ if ($roomID=='622') {
 $_SESSION['desc622'] = <<<HTML
    <html><div class="roomBox">
    	<h3 class="gold">Cathedral Nave</h3>
-	<p>You stand in the largest and most decorated room of the cathedral. Pillars and walls with intricate sculptures frame out ancient paintings and ornate tapestries. The is a carved marble fount here filled with holy water. There are many dark corners and shadows to be weary of. Head west to leave the cathedral or east to get to the main altar.</p>
+	<p>You stand in the largest and most decorated room of the cathedral. Pillars and walls with intricate sculptures frame out ancient paintings and ornate tapestries. There is a carved marble fount here filled with holy water. There are many dark corners and shadows to be weary of. Head west to leave the cathedral or east to get to the main altar.</p>
 	<form id="mainForm" method="post" action="" name="formInput">
 	<button type="submit" name="input1" value="west">West</button>
 	<button type="submit" name="input1" value="east">East</button>
