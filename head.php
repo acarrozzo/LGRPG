@@ -9,7 +9,7 @@
 <link rel="icon" href="../img/favicon/lg_favicon.ico">
 
 <!-- <link type="text/css" rel="stylesheet" href="css/lg.css" />-->
-<link type="text/css" rel="stylesheet" href="/css/lg.css" />
+<link type="text/css" rel="stylesheet" href="css/lg.css" />
 
 <!--<link type="text/css" rel="stylesheet" href="../css/core.min.css" />-->
 
